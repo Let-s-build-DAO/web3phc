@@ -21,7 +21,9 @@ function App() {
               <img className='w-6 h-6 my-auto' src="/images/location.png" alt="" />
               <p className='ml-2'>Port Harcourt</p>
             </div>
-            <button className="bg-[#FFAA1D] mt-6 w-40 p-4 rounded-full  px-6">Register</button>
+            <a href="https://www.ticketsbyallin.com/Web3ph" target='_blank'>
+              <button className="bg-[#FFAA1D] mt-6 w-40 p-4 rounded-full  px-6">Register</button>
+            </a>
           </div>
           <div className='lg:w-1/2 sm:hidden block'>
             <img className='w-full' src="/images/hero.png" alt="" />

@@ -6,7 +6,9 @@ const HeaderNav = () => {
       <div className="flex my-auto lg:w-96 justify-between">
         <p className="my-auto sm:hidden block">Hackathon</p>
         <p className="my-auto sm:hidden block">Contact us</p>
-        <button className="bg-[#F1742E] text-white p-3 rounded-full  px-6">Register</button>
+        <a href="https://www.ticketsbyallin.com/Web3ph" target='_blank'>
+          <button className="bg-[#F1742E] text-white p-3 rounded-full  px-6">Register</button>
+        </a>
       </div>
     </div>
   );
