@@ -6,5 +6,7 @@
 :root {
   font-family: Prompt;
   color: #070600;
-  background-color: #FFF8B9;
+  /* background-color: #FFF8B9; */
+  max-width: 1600px;
+  margin: 0px auto;
 }
