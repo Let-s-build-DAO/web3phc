@@ -44,6 +44,12 @@ h1, h2{
     background-position: top right;
     background-size: 600px; 
   }
+  .bgoverlay2{
+    background-image: url(../public/images/hero.png);
+    background-size: cover;
+    background-repeat: repeat;
+  }
+  
 }
 .btn{
   cursor: pointer;

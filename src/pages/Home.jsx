@@ -16,8 +16,8 @@ const Home = () => {
             Contact Us
           </Link>
         </div>
-        <div className="mt-16  flex flex-col  justify-center items-center lg:justify-start lg:items-start text-center lg:text-start lg:mx-8">
-          <h1 className="text-4xl mb-16 lg:mb-6 lg:text-6xl">
+        <div className="mt-16 lg:mt-24  flex flex-col  justify-center items-center lg:justify-start lg:items-start text-center lg:text-start lg:mx-8">
+          <h1 className="text-4xl mb-12 lg:mb-6 lg:text-6xl">
             <span className="bg-[#F1742E] px-1">Web3</span> Port Harcourt{" "}
             <br></br> is coming soon
           </h1>

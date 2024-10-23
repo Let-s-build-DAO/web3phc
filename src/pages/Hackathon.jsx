@@ -5,36 +5,55 @@ import { FaLongArrowAltRight, FaCalendarAlt } from "react-icons/fa";
 const Hackathon = () => {
   return (
     <>
-      <section className="bgoverlay h-[55vh] lg:h-[70vh] ">
+      <section className="bgoverlay lg:bgoverlay2 h-[55vh] lg:h-[70vh] ">
         <div className="flex justify-end gap-3 m-4 lg:justify-start">
-          <Link to={"/hackathon"} className="font-medium">
-            Hackathon
+          <Link to={"/"} className="font-medium">
+            Home
           </Link>
           <Link to={"/hackathon"} className="font-medium">
             Contact Us
           </Link>
         </div>
-        <div className="mt-16  flex flex-col  justify-center items-center lg:justify-start lg:items-start text-center lg:text-start lg:mx-8">
-          <h1 className="text-4xl mb-16 lg:mb-6 lg:text-6xl">
+        <div className="mt-16  flex flex-col  justify-center items-center lg:justify-center lg:items-center text-center lg:text-start lg:mx-8">
+          <h1 className="text-4xl mb-8 lg:mb-6 lg:text-6xl">
             <span className="bg-[#F1742E] px-1">Web3</span> Port Harcourt{" "}
-            <br></br> is coming soon
+            <br className="lg:hidden"></br> Buildathon
           </h1>
 
           <div className="">
-            <CountdownTimer />
-            <Link
-              className="btn font-bold flex items-center gap-2 btn-shadow mt-4 lg:justify-center"
-              to={"/"}
-            >
-              Learn more <FaLongArrowAltRight />
-            </Link>
+            <div className="hidden lg:block text-[#6A674A] text-xl mb-6 text-center">
+              Registration ends in
+            </div>         
+            <div className="flex justify-center">
+            <CountdownTimer
+                background="bg-[#F1742E]"
+                boxshadow="btn-shadow"
+                padding="p-2 lg:px-4"
+              />
+            </div>
+        
+
             <p className="text-sm text-[#07060099] mt-4 font-semibold text-center">
               50 spots left
             </p>
+            <div className="flex gap-12 mt-4">
+              <Link
+                className="btn font-bold flex items-center gap-2 btn-shadow mt-4 lg:justify-center"
+                to={"/"}
+              >
+                Register Now <FaLongArrowAltRight />
+              </Link>
+              <Link
+                className=" font-bold text-[#F1742E] flex items-center mt-4 lg:justify-center"
+                to={"/"}
+              >
+                Learn More
+              </Link>
+            </div>
           </div>
         </div>
       </section>
-      <section className="lg:p-20 lg:pb-5 p-4">
+      <section className="lg:p-20 lg:pb-5 pt-10 px-4">
         <div>
           <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-4 text-center">
             Overview
@@ -196,7 +215,9 @@ const Hackathon = () => {
             />
           </div>
           <div className="lg:w-[70%]">
-            <h1 className="text-xl lg:text-2xl">Win from a N1,600,000.00 prize pool</h1>
+            <h1 className="text-xl lg:text-2xl">
+              Win from a N1,600,000.00 prize pool
+            </h1>
             <p className="text-sm lg:text-xl text-[#6A674A]">
               Ready to build the future of Web3? Join the Web3 Port Harcourt
               Buildathon and compete for a{" "}
