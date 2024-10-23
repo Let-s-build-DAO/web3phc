@@ -1,12 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
 :root {
-  font-family: Prompt;
-  color: #070600;
-  /* background-color: #FFF8B9; */
-  max-width: 1600px;
-  margin: 0px auto;
+  --fontFamily: "Poppins", sans-serif;
+  --backgroundColor: #FFF8B9;
+  --borderRadius: 45px;
+  --letterSpacing: 1px;
+  --transition: 0.3s ease-in-out all;
+
+  --siteColor1: #FFAA1D;
+  --black: #070600;
+}
+
+body{
+  font-family: var(--fontFamily);
+  background-color: var(--backgroundColor);
+}
+
+h1, h2{
+  font-weight: bolder;
+  line-height: 48px !important;
+  color: var(--black);
+}
+
+@media (min-width: 1024px) { 
+  h1, h2{
+    line-height: 80px !important;
+  }
+}
+
+.bgoverlay{
+  background-image: url(../public/images/hero.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 1024px) { 
+  .bgoverlay {
+    background-position: top right;
+    background-size: 600px; 
+  }
+}
+.btn{
+  cursor: pointer;
+  color: var(--black);
+  background: var(--siteColor1);
+  border: transparent;
+  border-radius: var(--borderRadius);  
+  padding: 0.5rem 1rem;
+  box-shadow: var(--shadow-2);
+  transition: var(--transition);
+}
+
+.btn-shadow{
+  box-shadow: -1px 8px 4px 0px #070600;
+}
+
+.btn-shadow-footer{
+  box-shadow: 0px 8px 4px 0px #070600;
+}
+
+input::placeholder{
+  color: #07060099;
 }

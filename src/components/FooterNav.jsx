@@ -1,21 +1,33 @@
+import { Link } from "react-router-dom";
 
 const FooterNav = () => {
   return (
-    <div className="bg-[#F1742E]">
-      <footer className="lg:flex sm:text-center justify-between p-10">
-        <img src="/images/web3ph.png" className="w-20 h-12 sm:mx-auto sm:my-4 my-auto" alt="" />
-        <div className="lg:flex my-auto text-white lg:w-96 justify-between">
-          <p className="sm:my-2">Home</p>
-          <p className="sm:my-2">About</p>
-          <p className="sm:my-2">Pitch deck</p>
-          <p className="sm:my-2">Organisers</p>
+    <footer className="bg-[#F1742E] pt-14 ">
+      <div className="flex flex-col px-4 mb-12 lg:flex-row lg:px-16">
+        <div className="text-[#FFF8B9] flex flex-col gap-3 mb-10 lg:w-1/2">
+          <Link to={"/"}>Home</Link>
+          <Link to={"/"}>Pitch Deck</Link>
+          <Link to={"/"}>About Us</Link>
+          <Link to={"/"}>Lets Build Dao</Link>
         </div>
-        <div className="flex sm:mx-auto sm:mt-10 w-20 justify-between  ">
-          <img className="w-6 h-6 my-auto" src="/images/insta.png" alt="" />
-          <img className="w-6 h-6 my-auto"  src="/images/twitter.png" alt="" />
+        <div className="lg:w-1/2  lg:flex lg:flex-col lg:items-end">
+          <p className="text-[#FFF8B9] mb-4 lg:text-2xl ">Subscribe to our news letter</p>
+          <div className="relative btn-shadow-footer lg:w-[80%] ">
+            <input
+              type="text"
+              placeholder="Enter Your Email"
+              className="w-full  p-5 border-none rounded-md pl-12 bg-[#FFF8B9]"
+            />
+            <button className="absolute w-[40%] right-0 top-1/2 transform -translate-y-1/2 bg-[#070600] text-white px-4 py-2 h-full rounded-l-lg">
+              Submit
+            </button>
+          </div>
         </div>
-      </footer>
-    </div>
+      </div>
+      <h1 className="text-[#FFF8B93D] text-4xl w-full text-center lg:text-6xl">
+        Web3 Port Harcourt
+      </h1>
+    </footer>
   );
 };
 
