@@ -6,9 +6,9 @@ const FooterNav = () => {
       <div className="flex flex-col px-4 mb-12 lg:flex-row lg:px-16">
         <div className="text-[#FFF8B9] flex flex-col gap-3 mb-10 lg:w-1/2">
           <Link to={"/"}>Home</Link>
-          <Link to={"/"}>Pitch Deck</Link>
-          <Link to={"/"}>About Us</Link>
-          <Link to={"/"}>Lets Build Dao</Link>
+          <Link to={"https://drive.google.com/file/d/13Ij0EO-pl-d4gdJAW14oRLf5iGVvoylh/view?usp=drivesdk"}>Pitch Deck</Link>
+          <Link to={"http://letsbuilddao.org/"}>About Us</Link>
+          <Link to={"http://letsbuilddao.org/"}>Lets Build Dao</Link>
         </div>
         <div className="lg:w-1/2  lg:flex lg:flex-col lg:items-end">
           <p className="text-[#FFF8B9] mb-4 lg:text-2xl ">Subscribe to our news letter</p>

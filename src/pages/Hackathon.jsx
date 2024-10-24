@@ -10,7 +10,7 @@ const Hackathon = () => {
           <Link to={"/"} className="font-medium">
             Home
           </Link>
-          <Link to={"/hackathon"} className="font-medium">
+          <Link to={"/#contact"} className="font-medium">
             Contact Us
           </Link>
         </div>
@@ -33,19 +33,17 @@ const Hackathon = () => {
             </div>
         
 
-            <p className="text-sm text-[#07060099] mt-4 font-semibold text-center">
-              50 spots left
-            </p>
+         
             <div className="flex gap-12 mt-4">
               <Link
                 className="btn font-bold flex items-center gap-2 btn-shadow mt-4 lg:justify-center"
-                to={"/"}
+                to={"http://www.ticketsbyallin.com/Web3ph"}
               >
                 Register Now <FaLongArrowAltRight />
               </Link>
               <Link
                 className=" font-bold text-[#F1742E] flex items-center mt-4 lg:justify-center"
-                to={"/"}
+                to={"http://www.ticketsbyallin.com/Web3ph"}
               >
                 Learn More
               </Link>
@@ -72,66 +70,73 @@ const Hackathon = () => {
           </p>
         </div>
       </section>
-      <section className="lg:p-20 lg:pb-10 p-4">
+      <section className="lg:p-20 lg:pb-20 p-4 py-14">
         <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-4 text-center">
           Categories
         </h3>
-        <p className="text-sm lg:text-xl text-[#6A674A] lg:hidden">
+        <p className="text-sm lg:text-xl text-[#6A674A]">
           Categories of product that will be built include Real World Assets &
           DeFi, On-chain Gaming, Educational DApps, and Smart Contract Security
           Tools. The event fosters innovation in tokenizing assets,
           decentralized finance, gaming, and education, focusing on social
           impact and security.
         </p>
-        <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
-          <div className="flex flex-col gap-4 justify-center items-center">
-            <img
-              src="/images/category1.png"
-              alt=""
-              srcset=""
-              className="w-[200px]"
-            />
-            <h3 className="text-sm font-bold">Smart contract security tools</h3>
-            <p className="text-center text-[#6A674A]">
-              Teams will develop secure smart contracts, focusing on preventing
-              vulnerabilities and building tools to enhance blockchain security.
-            </p>
+        <div className="mt-8 grid grid-cols-1 gap-12 lg:grid-cols-2">
+          <div className="flex flex-col gap-8 justify-around items-center border-2  border-black p-6 rounded-lg">
+            
+            <h3 className="text-sm font-bold text-center ">Smart Contract Security Tools & ID Verification DApps</h3>
+            <ul className=" text-[#6A674A] list-disc pl-4 ">
+              <li>
+              Focus: Ensuring security in smart contracts and identity verification.
+              </li>
+              <li>
+              Examples: Security auditing tools for smart contracts, KYC platforms for decentralized identity solutions, and assertion of identity through secure protocols.
+              </li>
+            </ul>
+            <Link to={"http://www.ticketsbyallin.com/Web3ph"} className="text-[#F1742E]">Learn More</Link>
           </div>
-          <div className="flex flex-col gap-4 justify-center items-center">
-            <img
-              src="/images/category2.png"
-              alt=""
-              srcset=""
-              className="w-[200px]"
-            />
-            <h3 className="text-sm font-bold">Defi Products</h3>
-            <p className="text-center text-[#6A674A]">
-              Builders will create decentralized financial services, working on
-              innovative solutions in lending, trading, and asset management
-              that eliminate middlemen.
-            </p>
+          <div className="flex flex-col gap-8 justify-around items-center border-2  border-black p-6 rounded-lg">
+            
+            <h3 className="text-sm font-bold text-center ">Real World Assets (RWA) & Decentralized Finance (DeFi)</h3>
+            <ul className=" text-[#6A674A] list-disc pl-4 ">
+              <li>
+              Focus: Tokenizing physical assets and enhancing financial inclusion.
+              </li>
+              <li>
+              Examples: Asset-backed tokens, decentralized lending platforms for real estate, and fractional ownership solutions.
+              </li>
+            </ul>
+            <Link to={"http://www.ticketsbyallin.com/Web3ph"} className="text-[#F1742E]">Learn More</Link>
           </div>
-          <div className="flex flex-col gap-4 justify-center items-center">
-            <img
-              src="/images/category3.png"
-              alt=""
-              srcset=""
-              className="w-[200px]"
-            />
-            <h3 className="text-sm font-bold">Onchain Gaming</h3>
-            <p className="text-center text-[#6A674A]">
-              Teams will design blockchain-based games where players truly own
-              their assets, promoting transparency and cross-platform asset use.
-            </p>
+          <div className="flex flex-col gap-8 justify-around items-center border-2  border-black p-6 rounded-lg">
+            
+            <h3 className="text-sm font-bold text-center ">Educational DApps & Public Good Projects</h3>
+            <ul className=" text-[#6A674A] list-disc pl-4 ">
+              <li>
+              Focus:  Providing educational resources while also addressing social impact and community development.
+              </li>
+              <li>
+              Examples: Blockchain-based learning platforms with a focus on social impact, decentralized certification systems, and community-driven educational initiatives.
+              </li>
+            </ul>
+            <Link to={"http://www.ticketsbyallin.com/Web3ph"} className="text-[#F1742E]">Learn More</Link>
           </div>
+          <div className="flex flex-col gap-8 justify-around items-center border-2  border-black p-6 rounded-lg">
+            
+            <h3 className="text-sm font-bold text-center ">On-chain Gaming and Collectibles</h3>
+            <ul className=" text-[#6A674A] list-disc pl-4 ">
+              <li>
+              Focus:  Merging gaming with blockchain for true ownership of in-game assets.
+              </li>
+              <li>
+              Examples: Play-to-earn games, NFT marketplaces for gaming items, and decentralized gaming ecosystems.
+              </li>
+            </ul>
+            <Link to={"http://www.ticketsbyallin.com/Web3ph"} className="text-[#F1742E]">Learn More</Link>
+          </div>
+          
         </div>
-        <p className="text-sm lg:text-xl text-[#6A674A] hidden lg:block mt-5">
-          Categories of product that will be built include Real World Assets &
-          DeFi, On-chain Gaming, Educational DApps, and Smart Contract Security
-          Tools. The event fosters innovation in tokenizing assets,
-          decentralized finance, gaming, and education, focusing on social
-          impact and security.
-        </p>
+        
       </section>
       <section className="bg-[#070600] px-5 py-10 lg:px-32 lg:py-20">
         <div className="text-[#FFF8B9] flex items-center justify-center gap-3">
@@ -154,7 +159,7 @@ const Hackathon = () => {
               Mon, 25th Nov and ends on Mon, 2nd of December, 2024.
             </p>
             <div className="flex gap-3 text-[#F1742E] items-center">
-              <Link to={"/register"}>Register now</Link>
+              <Link to={"http://www.ticketsbyallin.com/Web3ph"}>Register now</Link>
               <FaLongArrowAltRight />
             </div>
           </div>
@@ -211,7 +216,7 @@ const Hackathon = () => {
             <img
               src="/images/award.png"
               alt=""
-              className="w-[160px] lg:w-[350px]"
+              className="w-[160px] lg:w-[350px] floating"
             />
           </div>
           <div className="lg:w-[70%]">
@@ -229,7 +234,7 @@ const Hackathon = () => {
               Web3 space, dont miss it!
             </p>
             <div className="flex gap-3 text-[#F1742E] items-center justify-center mt-4 lg:justify-start ">
-              <Link to={"/register"}>Learn More</Link>
+              <Link to={"http://www.ticketsbyallin.com/Web3ph"}>Learn More</Link>
               <FaLongArrowAltRight />
             </div>
           </div>

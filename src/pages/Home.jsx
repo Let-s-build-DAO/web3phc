@@ -1,10 +1,26 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useRef, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import CountdownTimer from "../components/CountdownTimer";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 
+
 const Home = () => {
+  const contactRef = useRef(null);
+
+  const location = useLocation();
+
+  
+  useEffect(() => {
+    if (location.hash === "#contact") {
+      contactRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location]);
+
+  const scrollToContact = () => {
+    contactRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+  
   return (
     <>
       <section className="bgoverlay h-[55vh] lg:h-[70vh] ">
@@ -12,7 +28,7 @@ const Home = () => {
           <Link to={"/hackathon"} className="font-medium">
             Hackathon
           </Link>
-          <Link to={"/hackathon"} className="font-medium">
+          <Link  onClick={scrollToContact} className="font-medium">
             Contact Us
           </Link>
         </div>
@@ -26,13 +42,11 @@ const Home = () => {
             <CountdownTimer />
             <Link
               className="btn font-bold flex items-center gap-2 btn-shadow mt-4 lg:justify-center"
-              to={"/"}
+              to={"http://www.ticketsbyallin.com/Web3ph"}
             >
               Learn more <FaLongArrowAltRight />
             </Link>
-            <p className="text-sm text-[#07060099] mt-4 font-semibold text-center">
-              50 spots left
-            </p>
+           
           </div>
         </div>
       </section>
@@ -226,14 +240,14 @@ const Home = () => {
               technologies within the African context.”
             </p>
             <div className="flex items-center gap-2 text-[#F1742E]">
-              <p className="">Pitch Deck</p>
+              <Link to="https://drive.google.com/file/d/13Ij0EO-pl-d4gdJAW14oRLf5iGVvoylh/view?usp=drivesdk">Pitch Deck</Link>
 
               <FaLongArrowAltRight />
             </div>
           </div>
         </div>
       </section>
-      <section className="lg:px-20 py-10 px-4 ">
+      <section className="lg:px-20 py-10 px-4 " id="contact" ref={contactRef}>
         <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-6 lg:mb-12 text-center">
           Contact Us
         </h3>
