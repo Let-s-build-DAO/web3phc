@@ -32,7 +32,7 @@ const Home = () => {
             Contact Us
           </Link>
         </div>
-        <div className="mt-16 lg:mt-24  flex flex-col  justify-center items-center lg:justify-start lg:items-start text-center lg:text-start lg:mx-8">
+        <div className="mt-16 lg:mt-24  flex flex-col  justify-center items-center lg:justify-start lg:items-start text-center lg:text-start custom-container   ">
           <h1 className="text-4xl mb-12 lg:mb-6 lg:text-6xl">
             <span className="bg-[#F1742E] px-1">Web3</span> Port Harcourt{" "}
             <br></br> is coming soon
@@ -51,7 +51,7 @@ const Home = () => {
         </div>
       </section>
       <section className="lg:p-20 lg:pb-10 p-4">
-        <div>
+        <div className="custom-container">
           <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-4 text-center">
             Overview
           </h3>
@@ -71,7 +71,7 @@ const Home = () => {
             future of tech in the region.
           </p>
         </div>
-        <div className="bg-[#070600] text-center text-[#FFF8B9] mt-10 rounded-md lg:p-10 p-4 lg:flex justify-evenly">
+        <div className="bg-[#070600] text-center text-[#FFF8B9] mt-10 rounded-md lg:p-10 p-4 lg:flex justify-evenly custom-container">
           <div>
             <div className="flex justify-center">
               <img
@@ -95,15 +95,8 @@ const Home = () => {
             <p className="mt-4 font-bold">7th December, 2024</p>
           </div>
         </div>
-
-        <div className="flex items-center my-5  gap-2">
-          <img src="/images/venue.png" alt="" className="w-[24px]" />
-          <p className="text-sm lg:text-xl font-bold">
-            No 45 Rumokoro, Eastern by pass, PHC
-          </p>
-        </div>
       </section>
-      <section className="lg:px-20 ">
+      <section className="lg:px-20  mt-10">
         <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-6 text-center">
           Why you should attend
         </h3>
@@ -268,7 +261,7 @@ const Home = () => {
       </section>
       <section className="lg:px-20 py-10 px-4">
       <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-6 lg:mb-12 text-center">
-          Sponsored by
+          Our partners
         </h3>
         <div className="flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-36">
           <img className="w-[200px]" src="/images/Streamlivr.png" alt="" />
