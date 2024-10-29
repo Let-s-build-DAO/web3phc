@@ -14,7 +14,7 @@ const Hackathon = () => {
             Contact Us
           </Link>
         </div>
-        <div className="mt-16  flex flex-col  justify-center items-center lg:justify-center lg:items-center text-center lg:text-start lg:mx-8">
+        <div className="mt-16  flex flex-col  justify-center items-center lg:justify-center lg:items-center text-center lg:text-start custom-container">
           <h1 className="text-4xl mb-8 lg:mb-6 lg:text-6xl">
             <span className="bg-[#F1742E] px-1">Web3</span> Port Harcourt{" "}
             <br className="lg:hidden"></br> Buildathon
@@ -52,7 +52,7 @@ const Hackathon = () => {
         </div>
       </section>
       <section className="lg:p-20 lg:pb-5 pt-10 px-4">
-        <div>
+        <div className="custom-container">
           <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-4 text-center">
             Overview
           </h3>
@@ -74,14 +74,14 @@ const Hackathon = () => {
         <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-4 text-center">
           Categories
         </h3>
-        <p className="text-sm lg:text-xl text-[#6A674A]">
+        <p className="text-sm lg:text-xl text-[#6A674A]  custom-container">
           Categories of product that will be built include Real World Assets &
           DeFi, On-chain Gaming, Educational DApps, and Smart Contract Security
           Tools. The event fosters innovation in tokenizing assets,
           decentralized finance, gaming, and education, focusing on social
           impact and security.
         </p>
-        <div className="mt-8 grid grid-cols-1 gap-12 lg:grid-cols-2">
+        <div className="mt-8 grid grid-cols-1 gap-12 lg:grid-cols-2 custom-container">
           <div className="flex flex-col gap-8 justify-around items-center border-2  border-black p-6 rounded-lg">
             
             <h3 className="text-sm font-bold text-center ">Smart Contract Security Tools & ID Verification DApps</h3>
@@ -143,7 +143,7 @@ const Hackathon = () => {
           <FaCalendarAlt size={25} />
           <h3 className="text-xl">Event Schedule</h3>
         </div>
-        <div className="grid mt-8 gap-8 lg:grid-cols-2 lg:gap-16">
+        <div className="grid mt-8 gap-8 lg:grid-cols-2 lg:gap-16 custom-container">
           <div className="flex flex-col gap-4 justify-center items-center">
             <img
               src="/images/event1.png"
@@ -207,11 +207,11 @@ const Hackathon = () => {
           </div>
         </div>
       </section>
-      <section className="lg:p-20 lg:pb-20 p-4  lg:px-32">
+      <section className="lg:p-20 lg:pb-20 p-4">
         <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-8 text-center">
           Rewards
         </h3>
-        <div className="flex flex-col items-center lg:flex-row-reverse lg:gap-10">
+        <div className="flex flex-col items-center lg:flex-row-reverse lg:gap-10 custom-container">
           <div className="lg:w-[30%]">
             <img
               src="/images/award.png"

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const FooterNav = () => {
   return (
     <footer className="bg-[#F1742E] pt-14 ">
-      <div className="flex flex-col px-4 mb-12 lg:flex-row lg:px-16">
+      <div className="flex flex-col px-4 mb-12 lg:flex-row custom-container lg:px-0">
         <div className="text-[#FFF8B9] flex flex-col gap-3 mb-10 lg:w-1/2">
           <Link to={"/"}>Home</Link>
           <Link to={"https://drive.google.com/file/d/13Ij0EO-pl-d4gdJAW14oRLf5iGVvoylh/view?usp=drivesdk"}>Pitch Deck</Link>

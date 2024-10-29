@@ -88,9 +88,13 @@ input::placeholder{
     transform: translate(0, 0px);
   }
   50% {
-    transform: translate(0, 30px);
+    transform: translate(0, 20px);
   }
   100% {
     transform: translate(0, -0px);
   }
+}
+
+.custom-container{
+  @apply lg:w-[90vw] lg:mx-auto lg:max-w-6xl
 }
