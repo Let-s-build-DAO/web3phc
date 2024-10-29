@@ -24,7 +24,7 @@ const Home = () => {
   return (
     <>
       <section className="bgoverlay h-[55vh] lg:h-[70vh] ">
-        <div className="flex justify-end gap-3 m-4 lg:justify-start">
+        <div className="flex justify-end gap-3 m-4 lg:justify-start custom-container">
           <Link to={"/hackathon"} className="font-medium">
             Hackathon
           </Link>
