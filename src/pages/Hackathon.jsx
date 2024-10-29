@@ -6,7 +6,7 @@ const Hackathon = () => {
   return (
     <>
       <section className="bgoverlay lg:bgoverlay2 h-[55vh] lg:h-[70vh] ">
-        <div className="flex justify-end gap-3 m-4 lg:justify-start">
+        <div className="flex justify-end gap-3 m-4 lg:justify-start custom-container">
           <Link to={"/"} className="font-medium">
             Home
           </Link>
@@ -138,7 +138,7 @@ const Hackathon = () => {
         </div>
         
       </section>
-      <section className="bg-[#070600] px-5 py-10 lg:px-32 lg:py-20">
+      <section className="bg-[#070600] px-5 py-10  lg:py-20">
         <div className="text-[#FFF8B9] flex items-center justify-center gap-3">
           <FaCalendarAlt size={25} />
           <h3 className="text-xl">Event Schedule</h3>
@@ -220,9 +220,9 @@ const Hackathon = () => {
             />
           </div>
           <div className="lg:w-[70%]">
-            <h1 className="text-xl lg:text-2xl">
+            <div className="text-xl lg:text-2xl my-3  font-bold">
               Win from a N1,600,000.00 prize pool
-            </h1>
+            </div>
             <p className="text-sm lg:text-xl text-[#6A674A]">
               Ready to build the future of Web3? Join the Web3 Port Harcourt
               Buildathon and compete for a{" "}
