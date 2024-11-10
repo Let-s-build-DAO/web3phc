@@ -36,7 +36,7 @@ const Hackathon = () => {
          
             <div className="flex gap-12 mt-4">
               <Link
-                className="btn font-bold flex items-center gap-2 btn-shadow mt-4 lg:justify-center"
+                className="btn font-bold flex items-center gap-2 btn-shadow mt-4 lg:justify-center hover:bg-[#070600] hover:text-[#F1742E] transition-colors duration-300 ease-in-out hover:shadow-none"
                 to={"http://www.ticketsbyallin.com/Web3ph"}
               >
                 Register Now <FaLongArrowAltRight />
