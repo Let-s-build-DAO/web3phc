@@ -2,15 +2,13 @@ import { useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import CountdownTimer from "../components/CountdownTimer";
 import { FaLongArrowAltRight } from "react-icons/fa";
-
-
+import { motion } from "framer-motion";
 
 const Home = () => {
   const contactRef = useRef(null);
 
   const location = useLocation();
 
-  
   useEffect(() => {
     if (location.hash === "#contact") {
       contactRef.current.scrollIntoView({ behavior: "smooth" });
@@ -20,7 +18,23 @@ const Home = () => {
   const scrollToContact = () => {
     contactRef.current.scrollIntoView({ behavior: "smooth" });
   };
-  
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return (
     <>
       <section className="bgoverlay h-[55vh] lg:h-[70vh] ">
@@ -28,33 +42,52 @@ const Home = () => {
           <Link to={"/hackathon"} className="font-medium">
             Hackathon
           </Link>
-          <Link  onClick={scrollToContact} className="font-medium">
+          <Link onClick={scrollToContact} className="font-medium">
             Contact Us
           </Link>
         </div>
-        <div className="mt-16 lg:mt-24  flex flex-col  justify-center items-center lg:justify-start lg:items-start text-center lg:text-start custom-container   ">
-          <h1 className="text-4xl mb-12 lg:mb-6 lg:text-6xl">
-            <span className="bg-[#F1742E] px-1">Web3</span> Port Harcourt{" "}
-            <br></br> is coming soon
-          </h1>
-
-          <div className="">
-            <CountdownTimer />
-            <Link
-              className="btn font-bold flex items-center gap-2 btn-shadow mt-4 lg:justify-center"
-              to={"http://www.ticketsbyallin.com/Web3ph"}
+        <motion.div
+          className="text-center"
+          variants={container}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className="mt-16 lg:mt-24  flex flex-col  justify-center items-center lg:justify-start lg:items-start text-center lg:text-start custom-container   ">
+            <motion.h1
+              className="text-4xl mb-12 lg:mb-6 lg:text-6xl"
+              variants={item}
             >
-              Learn more <FaLongArrowAltRight />
-            </Link>
-           
+              <span className="bg-[#F1742E] px-1">Web3</span> Port Harcourt{" "}
+              <br></br> is coming soon
+            </motion.h1>
+            <CountdownTimer />
+            <div className="">
+            
+              <Link
+                className="btn font-bold flex items-center gap-2 btn-shadow mt-4 lg:justify-center  hover:bg-[#070600] hover:text-[#F1742E] transition-colors duration-300 ease-in-out hover:shadow-none"
+                to={"http://www.ticketsbyallin.com/Web3ph"}
+              >
+                Learn more <FaLongArrowAltRight />
+              </Link>
+            </div>
           </div>
-        </div>
+        </motion.div>
       </section>
       <section className="lg:p-20 lg:pb-10 p-4">
         <div className="custom-container">
-          <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-4 text-center">
-            Overview
-          </h3>
+          <motion.div
+            className="text-center"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.h3
+              className="text-[#6A674A] lg:text-4xl text-2xl mb-4 text-center"
+              variants={item}
+            >
+              Overview
+            </motion.h3>
+          </motion.div>
           <p className="text-sm lg:text-xl">
             <span className="font-bold">Web3 Port Harcourt</span> is a 6-day
             event series in southern Nigeria that brings together Web3 builders,
@@ -220,7 +253,7 @@ const Home = () => {
         </h3>
         <div className="flex flex-col gap-4 lg:gap-16 lg:px-28  lg:flex-row-reverse">
           <div className="lg:w-1/2">
-            <img src="/images/ceo.png" alt="" className="w-full"/>
+            <img src="/images/ceo.png" alt="" className="w-full" />
           </div>
           <div className="flex flex-col items-center gap-4 lg:w-1/2 ">
             <h3 className="text-[#F1742E]  text-4xl mt-2 mb-6 text-center hidden lg:block">
@@ -233,7 +266,9 @@ const Home = () => {
               technologies within the African context.”
             </p>
             <div className="flex items-center gap-2 text-[#F1742E]">
-              <Link to="https://drive.google.com/file/d/13Ij0EO-pl-d4gdJAW14oRLf5iGVvoylh/view?usp=drivesdk">Pitch Deck</Link>
+              <Link to="https://drive.google.com/file/d/13Ij0EO-pl-d4gdJAW14oRLf5iGVvoylh/view?usp=drivesdk">
+                Pitch Deck
+              </Link>
 
               <FaLongArrowAltRight />
             </div>
@@ -260,7 +295,7 @@ const Home = () => {
         </div>
       </section>
       <section className="lg:px-20 py-10 px-4">
-      <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-6 lg:mb-12 text-center">
+        <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-6 lg:mb-12 text-center">
           Our partners
         </h3>
         <div className="flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-36">

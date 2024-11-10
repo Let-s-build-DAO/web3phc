@@ -18,7 +18,7 @@ const FooterNav = () => {
               placeholder="Enter Your Email"
               className="w-full  p-5 border-none rounded-md pl-12 bg-[#FFF8B9]"
             />
-            <button className="absolute w-[40%] right-0 top-1/2 transform -translate-y-1/2 bg-[#070600] text-white px-4 py-2 h-full rounded-l-lg">
+            <button className="absolute w-[40%] right-0 top-1/2 transform -translate-y-1/2 bg-[#070600] text-white px-4 py-2 h-full rounded-l-lg hover:bg-[#F1742E] transition-colors duration-300 ease-in-out hover:shadow-none">
               Submit
             </button>
           </div>

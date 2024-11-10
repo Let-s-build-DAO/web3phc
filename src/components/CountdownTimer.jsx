@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import Countdown from "react-countdown";
 
 const CountdownTimer = ({ background, boxshadow, padding }) => {
-  const renderer = ({ days, hours, minutes, completed }) => {
+  const renderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
       return <h1>Time' Up. Today is the Big Day</h1>;
     } else {
       return (
         <h1>
-          {days}:{hours}:{minutes}
+          {days}:{hours}:{minutes}:{seconds}
         </h1>
       );
     }
