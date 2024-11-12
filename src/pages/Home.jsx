@@ -298,9 +298,20 @@ const Home = () => {
         <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-6 lg:mb-12 text-center">
           Our partners
         </h3>
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-36">
+        <div className="flex flex-col lg:flex-row justify-center items-center lg:items-end gap-8 lg:gap-36">
           <img className="w-[200px]" src="/images/Streamlivr.png" alt="" />
+          <img className="w-[130px]" src="/images/blockchainuniport.png" alt="" />
+          <img className="w-[250px]" src="/images/tgb.png" alt=""/>
+        </div>
+      </section>
+      <section className="lg:px-20 py-10 px-4">
+        <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-6 lg:mb-12 text-center">
+          Our Sponsors
+        </h3>
+        <div className="flex flex-col lg:flex-row justify-center items-center lg:items-end gap-14 lg:gap-36">
+          <img className="w-[130px] lg:w-[100px]" src="/images/bit33.png" alt="" />
           <img className="w-[200px]" src="/images/boarderless.png" alt="" />
+          <img className="w-[200px]" src="/images/sahara.png" alt="" />
         </div>
       </section>
     </>
