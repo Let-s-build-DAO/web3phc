@@ -62,7 +62,6 @@ const Home = () => {
             </motion.h1>
             <CountdownTimer />
             <div className="">
-            
               <Link
                 className="btn font-bold flex items-center gap-2 btn-shadow mt-4 lg:justify-center  hover:bg-[#070600] hover:text-[#F1742E] transition-colors duration-300 ease-in-out hover:shadow-none"
                 to={"http://www.ticketsbyallin.com/Web3ph"}
@@ -294,13 +293,52 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="lg:px-20 py-10 px-4">
-        <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-6 lg:mb-12 text-center">
-          Our partners
-        </h3>
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-36">
-          <img className="w-[200px]" src="/images/Streamlivr.png" alt="" />
-          <img className="w-[200px]" src="/images/boarderless.png" alt="" />
+      <section className="lg:px-20 py-10 px-4 bg-[#070600] ">
+        <div className="custom-container">
+          <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-6 lg:mb-12">
+            Our Sponsors
+          </h3>
+          <div className="flex  items-center  gap-8 lg:gap-32   ">
+            {/* <img className="w-[200px]" src="/images/Streamlivr.png" alt="" />
+          <img className="w-[130px]" src="/images/blockchainuniport.png" alt="" /> */}
+
+            <img
+              className="w-[150px] lg:w-[300px]"
+              src="/images/sahara.png"
+              alt=""
+            />
+            <img
+              className="w-[50px] lg:w-[100px]"
+              src="/images/bitsave.png"
+              alt=""
+            />
+            <img
+              className="w-[100px] lg:w-[300px]"
+              src="/images/borderless.png"
+              alt=""
+            />
+          </div>
+
+          <h3 className="text-[#6A674A] lg:text-4xl text-2xl mt-10 mb-6 lg:mb-12">
+            Our Partners
+          </h3>
+          <div className="grid grid-cols-3  items-center  gap-8 lg:gap-16  ">
+            <img className="w-[150px] lg:w-[300px]" src="/images/streamlivr.png" alt="" />
+            <img className="w-[150px] lg:w-[300px]" src="/images/gameverse.png" alt="" />
+            <img className="w-[80px] lg:w-[140px]" src="/images/dao.png" alt="" />
+            <img className="w-[70px] lg:w-[100px]" src="/images/nacos.png" alt="" />
+            <img className="w-[150px] lg:w-[300px]" src="/images/blockchainuniport.png" alt="" />
+            <img className="w-[150px] lg:w-[300px]" src="/images/nerdnetwork.png" alt="" />
+        
+            <img className="w-[150px] lg:w-[300px]" src="/images/superteam.png" alt="" />
+            <img className="w-[60px] lg:w-[100px]" src="/images/brsu.png" alt="" />
+            <img className="w-[60px] lg:w-[100px]" src="/images/wid.png" alt="" />
+          </div>
+          <div className="flex justify-center mt-12">
+          <img className="w-[150px] lg:w-[300px] md:hidden" src="/images/gdgmobile.png" alt="" />
+          <img className="w-[150px] lg:w-[800px] hidden md:block " src="/images/gdg.png" alt="" />
+          </div>
+        
         </div>
       </section>
     </>
