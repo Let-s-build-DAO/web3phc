@@ -1,100 +1,135 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* NextBridge Africa–style styling guide */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
-  --fontFamily: "Poppins", sans-serif;
-  --backgroundColor: #FFF8B9;
-  --borderRadius: 45px;
-  --letterSpacing: 1px;
-  --transition: 0.3s ease-in-out all;
-
-  --siteColor1: #FFAA1D;
-  --black: #070600;
+  --fontFamily: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --black: #050505;
+  --black-soft: #0f0f0f;
+  --surface: #141414;
+  --yellow: #FACC15;
+  --yellow-dark: #EAB308;
+  --yellow-light: #FEF08A;
+  --white: #fafafa;
+  --muted: #a1a1aa;
+  --radius: 0.75rem;
+  --radius-lg: 1rem;
+  --transition: 0.2s ease;
 }
 
-body{
+body {
   font-family: var(--fontFamily);
-  background-color: var(--backgroundColor);
+  background-color: var(--black);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
 }
 
-h1, h2{
-  font-weight: bolder;
-  line-height: 48px !important;
-  color: var(--black);
+h1, h2 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--white);
 }
 
-@media (min-width: 1024px) { 
-  h1, h2{
-    line-height: 80px !important;
-  }
+h3, h4 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
-.bgoverlay{
-  background-image: url(../public/images/hero.png);
-  background-size: cover;
-  background-repeat: no-repeat;
+/* Section title – NextBridge style */
+.section-title {
+  @apply text-2xl lg:text-4xl font-bold tracking-tight text-center text-white mb-3;
 }
 
-@media (min-width: 1024px) { 
+.section-subtitle {
+  @apply text-zinc-400 text-center text-base lg:text-lg max-w-2xl mx-auto;
+}
+
+/* Hero – full viewport feel, centered CTA */
+.hero-bg {
+  background: linear-gradient(180deg, var(--black) 0%, var(--black-soft) 100%);
+  min-height: 85vh;
+}
+
+.bgoverlay {
+  background: linear-gradient(180deg, var(--black) 0%, transparent 40%, var(--black-soft) 100%),
+    url(../public/images/hero.png) no-repeat top right;
+  background-size: cover, 480px;
+  min-height: 85vh;
+}
+
+.bgoverlay2 {
+  background: linear-gradient(180deg, var(--black) 0%, var(--black-soft) 100%);
+  min-height: 70vh;
+}
+
+@media (min-width: 1024px) {
   .bgoverlay {
-    background-position: top right;
-    background-size: 600px; 
+    background-size: cover, 420px;
   }
-  .bgoverlay2{
-    background-image: url(../public/images/hero.png);
-    background-size: cover;
-    background-repeat: repeat;
-  }
-  
 }
-.btn{
+
+/* Buttons – NextBridge: primary yellow, secondary outline */
+.btn {
   cursor: pointer;
   color: var(--black);
-  background: var(--siteColor1);
-  border: transparent;
-  border-radius: var(--borderRadius);  
-  padding: 0.5rem 1rem;
-  box-shadow: var(--shadow-2);
-  transition: var(--transition);
+  background: var(--yellow);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  transition: transform var(--transition), background var(--transition);
 }
 
-.btn-shadow{
-  box-shadow: -1px 8px 4px 0px #070600;
+.btn:hover {
+  background: var(--yellow-light);
+  transform: translateY(-1px);
 }
 
-.btn-shadow-footer{
-  box-shadow: 0px 8px 4px 0px #070600;
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.3);
 }
 
-input::placeholder{
-  color: #07060099;
+.btn-outline:hover {
+  border-color: var(--yellow);
+  color: var(--yellow);
+  background: transparent;
+}
+
+/* Cards – subtle border, hover lift */
+.card {
+  @apply rounded-2xl border border-white/10 bg-white/[0.03] p-6 lg:p-8 transition-all duration-200;
+}
+
+.card:hover {
+  border-color: rgba(250, 204, 21, 0.2);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.custom-container {
+  @apply w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Link hover */
+.link-hover {
+  color: var(--muted);
+  transition: color var(--transition);
+}
+.link-hover:hover {
+  color: var(--yellow);
 }
 
 .floating {
-  animation-name: floating;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  margin-top: 5px;
-  margin: 0 auto;
+  animation: floating 3s ease-in-out infinite;
 }
 
 @keyframes floating {
-  0% {
-    transform: translate(0, 0px);
-  }
-  50% {
-    transform: translate(0, 20px);
-  }
-  100% {
-    transform: translate(0, -0px);
-  }
-}
-
-.custom-container{
-  @apply lg:w-[85vw] lg:mx-auto lg:max-w-6xl
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
 }

@@ -1,16 +1,20 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
+import HeaderNav from "./components/HeaderNav";
 import FooterNav from "./components/FooterNav";
-import Hackathon from "./pages/Hackathon";
-
+import Conference from "./pages/Conference";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/hackathon" element={<Hackathon />}></Route>
-      </Routes>
+      <HeaderNav />
+      <main className="pt-16">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/conference" element={<Conference />} />
+          <Route path="/hackathon" element={<Navigate to="/conference" replace />} />
+        </Routes>
+      </main>
       <FooterNav />
     </BrowserRouter>
   );

@@ -1,344 +1,199 @@
 import { useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import CountdownTimer from "../components/CountdownTimer";
-import { FaLongArrowAltRight } from "react-icons/fa";
+import { FaLongArrowAltRight, FaTwitter, FaTelegram, FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-const Home = () => {
-  const contactRef = useRef(null);
+/* NextBridge Africa–style flow: Hero → Trusted By → How We Drive Impact → Impact in Numbers → Testimonials → Be Part of the Movement → Conference teaser */
 
+const COMMUNITY_LINKS = [
+  { href: "https://x.com/web3PHC", label: "X (Twitter)", Icon: FaTwitter, sub: "Follow Us" },
+  { href: "https://chat.whatsapp.com/CzhYZkaOySi9U1zfifXbbu?mode=gi_c", label: "WhatsApp", Icon: FaWhatsapp, sub: "Join Community" },
+  { href: "https://t.me/web3portharcourt", label: "Telegram", Icon: FaTelegram, sub: "Join Community" },
+];
+
+const IMPACT_METRICS = [
+  { value: "1,200", label: "Community reach", sub: "Through workshops, events, and online" },
+  { value: "21+", label: "Community partners", sub: "Across Rivers State and beyond" },
+  { value: "10+", label: "Web3 projects", sub: "Highlighted and supported" },
+  { value: "5", label: "Blockchains", sub: "Sponsors from 5 blockchains" },
+];
+
+const IMPACT_PILLARS = [
+  { title: "Education", description: "Demystifying Web3 & blockchain for Rivers State." },
+  { title: "Community", description: "Grow together, connect, and share." },
+  { title: "Visibility", description: "Highlighting Web3 projects and communities in the region." },
+  { title: "Ecosystem Growth", description: "Making it easier to do Web3 in Rivers State." },
+  { title: "Your Story", description: "Join the journey. Shape the next chapter." },
+];
+
+const TESTIMONIALS = [
+  { quote: "Web3PHC brought our project the visibility and support we needed in Rivers State. The community is genuine and collaborative.", name: "Community Builder", role: "Web3 Developer" },
+  { quote: "Finally a hub that connects all the Web3 dots in the region. Grateful for this community.", name: "Local Innovator", role: "Builder" },
+  { quote: "The conference and ongoing initiatives make it easier to build and learn Web3 right here at home.", name: "Rivers State Member", role: "Community Member" },
+];
+
+const PARTNER_LOGOS = [
+  "/images/sahara.png", "/images/bitsave.png", "/images/borderless.png",
+  "/images/streamlivr.png", "/images/gameverse.png", "/images/dao.png",
+  "/images/nacos.png", "/images/blockchainuniport.png", "/images/nerdnetwork.png",
+  "/images/superteam.png", "/images/brsu.png", "/images/wid.png",
+];
+
+const Home = () => {
+  const aboutRef = useRef(null);
+  const impactRef = useRef(null);
+  const communityRef = useRef(null);
   const location = useLocation();
 
   useEffect(() => {
-    if (location.hash === "#contact") {
-      contactRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+    const hash = location.hash?.slice(1);
+    const el = hash === "about" ? aboutRef.current : hash === "impact" ? impactRef.current : hash === "community" ? communityRef.current : null;
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   }, [location]);
 
-  const scrollToContact = () => {
-    contactRef.current.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const container = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0 },
-  };
+  const container = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { delayChildren: 0.2, staggerChildren: 0.1 } } };
+  const item = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } };
 
   return (
     <>
-      <section className="bgoverlay h-[55vh] lg:h-[70vh] ">
-        <div className="flex justify-end gap-3 m-4 lg:justify-start custom-container">
-          <Link to={"/hackathon"} className="font-medium">
-            Hackathon
-          </Link>
-          <Link onClick={scrollToContact} className="font-medium">
-            Contact Us
-          </Link>
-        </div>
-        <motion.div
-          className="text-center"
-          variants={container}
-          initial="hidden"
-          animate="visible"
-        >
-          <div className="mt-16 lg:mt-24  flex flex-col  justify-center items-center lg:justify-start lg:items-start text-center lg:text-start custom-container   ">
-            <motion.h1
-              className="text-4xl mb-12 lg:mb-6 lg:text-6xl"
-              variants={item}
-            >
-              <span className="bg-[#F1742E] px-1">Web3</span> Port Harcourt{" "}
-              <br></br> is coming soon
-            </motion.h1>
-            <CountdownTimer />
-            <div className="">
-              <Link
-                className="btn font-bold flex items-center gap-2 btn-shadow mt-4 lg:justify-center  hover:bg-[#070600] hover:text-[#F1742E] transition-colors duration-300 ease-in-out hover:shadow-none"
-                to={"http://www.ticketsbyallin.com/Web3ph"}
-              >
-                Learn more <FaLongArrowAltRight />
-              </Link>
-            </div>
+      {/* Hero – split 50/50, aligned */}
+      <section id="about" ref={aboutRef} className="hero-bg min-h-[85vh] flex items-center">
+        <div className="custom-container w-full py-16 lg:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 lg:items-center">
+            <motion.div className="flex flex-col justify-center text-center lg:text-left" variants={container} initial="hidden" animate="visible">
+              <motion.h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.1]" variants={item}>
+                Rivers State&apos;s Gateway to Web3.<br />Build. Learn. Lead.
+              </motion.h1>
+              
+            </motion.div>
+            <motion.div className="items-center justify-center lg:justify-start" variants={container} initial="hidden" animate="visible">
+              <motion.p className="text-zinc-400 text-sm lg:text-base leading-relaxed max-w-md text-center lg:text-left" variants={item}>
+                <span className="font-semibold text-white">Web3 Port Harcourt (Web3PHC)</span> is a community that highlights Web3 communities and projects in Rivers State, Nigeria. We foster collaboration and make it easier to build, learn, and grow in Web3—through our flagship conference, events, and ongoing initiatives. Hosted by{" "}
+                <a href="https://drive.google.com/file/d/13Ij0EO-pl-d4gdJAW14oRLf5iGVvoylh/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" className="text-brand-yellow hover:underline">Let&apos;s Build Labs</a>.
+              </motion.p>
+              <motion.div className="flex flex-wrap gap-4 justify-center lg:justify-start mt-5" variants={item}>
+                <a href="https://chat.whatsapp.com/CzhYZkaOySi9U1zfifXbbu?mode=gi_c" target="_blank" rel="noopener noreferrer" className="btn">
+                  Join Community
+                </a>
+                <Link to="/conference" className="btn-outline btn inline-flex items-center gap-2">
+                  Explore Programs <FaLongArrowAltRight />
+                </Link>
+              </motion.div>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
       </section>
-      <section className="lg:p-20 lg:pb-10 p-4">
+
+      {/* Trusted By Leading Web3 Brands – Brands We've Worked With */}
+      <section className="py-16 lg:py-24 px-4 bg-[#0a0a0a]">
         <div className="custom-container">
-          <motion.div
-            className="text-center"
-            variants={container}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.h3
-              className="text-[#6A674A] lg:text-4xl text-2xl mb-4 text-center"
-              variants={item}
-            >
-              Overview
-            </motion.h3>
-          </motion.div>
-          <p className="text-sm lg:text-xl">
-            <span className="font-bold">Web3 Port Harcourt</span> is a 6-day
-            event series in southern Nigeria that brings together Web3 builders,
-            innovators, and enthusiasts. It includes virtual workshops,
-            buildathons, career fairs, panel sessions, and talks, all focused on
-            creating practical Web3 solutions for the South and Niger Delta
-            region.
-            <br /> <br />
-            The event connects Web3 communities, empowering local talent and
-            showcasing the region&lsquo;s growing tech scene.
-            <br /> <br />
-            With 21 virtual workshops over five days and a one-day in-person
-            event featuring a buildathon, Web3 Port Harcourt is shaping the
-            future of tech in the region.
+          <h2 className="section-title">Trusted By Leading Web3 Brands</h2>
+          <h3 className="text-lg font-semibold text-zinc-500 text-center mb-2">Brands We&apos;ve Worked With</h3>
+          <p className="section-subtitle mb-12">
+            We&apos;ve partnered with leading Web3 protocols and brands to drive adoption, build communities, and create impact in Rivers State.
           </p>
-        </div>
-        <div className="bg-[#070600] text-center text-[#FFF8B9] mt-10 rounded-md lg:p-10 p-4 lg:flex justify-evenly custom-container">
-          <div>
-            <div className="flex justify-center">
-              <img
-                className="mr-4"
-                src="/images/tools-reparation_svgrepo.com.png"
-                alt=""
-              />
-              <p className="my-auto">Workshop</p>
-            </div>
-            <p className="mt-4 font-bold">2nd - 6th December, 2024</p>
-          </div>
-          <div className="sm:mt-6">
-            <div className="flex justify-center">
-              <img
-                className="mr-3"
-                src="/images/city-hall_svgrepo.com.png"
-                alt=""
-              />
-              <p className="my-auto">Main event</p>
-            </div>
-            <p className="mt-4 font-bold">7th December, 2024</p>
-          </div>
-        </div>
-      </section>
-      <section className="lg:px-20  mt-10">
-        <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-6 text-center">
-          Why you should attend
-        </h3>
-      </section>
-      <section className="bg-[#070600] px-5 py-10 lg:px-32 lg:py-20">
-        <div className="flex flex-col items-center justify-center gap-4 mb-9 lg:hidden">
-          <h4 className="text-xl text-[#F1742E]">Hands on Learning</h4>
-          <div className="border-[16px] border-[#FFAA1D]">
-            <img src="/images/frame1.png" alt="" />
-          </div>
-          <p className="text-white text-sm text-center">
-            Engage in 21 virtual workshops focused on Web3 tools, blockchain,
-            and solutions tailored to local needs led by professionals.
-          </p>
-          <div className="flex items-center gap-2 text-[#F1742E]">
-            <p className="">Join the workshop</p>
-
-            <FaLongArrowAltRight />
-          </div>
-        </div>
-        <div className="hidden lg:flex ">
-          <div className="w-1/2 flex flex-col items-center gap-8">
-            <h4 className="text-2xl text-[#F1742E] mt-6">Hands on Learning</h4>
-            <p className="text-white text-sm text-center w-[60%]">
-              Engage in 21 virtual workshops focused on Web3 tools, blockchain,
-              and solutions tailored to local needs led by professionals.
-            </p>
-            <div className="flex items-center gap-2 text-[#F1742E]">
-              <p className="">Join the workshop</p>
-
-              <FaLongArrowAltRight />
-            </div>
-          </div>
-          <div className="w-1/2  flex justify-center">
-            <div className="border-[12px] border-[#FFAA1D] w-[70%]">
-              <img src="/images/frame1.png" alt="" className="w-full" />
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col items-center justify-center gap-4 mb-9 lg:hidden">
-          <h4 className="text-xl text-[#F1742E]">Insightful Discussions</h4>
-          <div className="border-[16px] border-[#FFAA1D]">
-            <img src="/images/frame2.png" alt="" />
-          </div>
-          <p className="text-white text-sm text-center">
-            Gain valuable knowledge from panel sessions and talks featuring
-            experts on the future of Web3 in Africa and global trends.
-          </p>
-          <div className="flex items-center gap-2 text-[#F1742E]">
-            <p className="">Join the Conversation</p>
-
-            <FaLongArrowAltRight />
-          </div>
-        </div>
-        <div className="hidden lg:flex mt-10">
-          <div className="w-1/2  flex justify-center">
-            <div className="border-[12px] border-[#FFAA1D] w-[70%]">
-              <img src="/images/frame2.png" alt="" className="w-full" />
-            </div>
-          </div>
-          <div className="w-1/2 flex flex-col items-center gap-8">
-            <h4 className="text-2xl text-[#F1742E] mt-6">
-              Insightful Discussions
-            </h4>
-            <p className="text-white text-sm text-center w-[60%]">
-              Gain valuable knowledge from panel sessions and talks featuring
-              experts on the future of Web3 in Africa and global trends.
-            </p>
-            <div className="flex items-center gap-2 text-[#F1742E]">
-              <p className="">Join the Conversation</p>
-
-              <FaLongArrowAltRight />
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col items-center justify-center gap-4 lg:hidden">
-          <h4 className="text-xl text-[#F1742E]">Networking Opportunities</h4>
-          <div className="border-[16px] border-[#FFAA1D]">
-            <img src="/images/frame3.png" alt="" />
-          </div>
-          <p className="text-white text-sm text-center">
-            Connect with leading Web3 builders, developers, innovators, and
-            companies, expanding your professional network in the rapidly
-            growing African tech space.
-          </p>
-          <div className="flex items-center gap-2 text-[#F1742E]">
-            <p className="">Connect</p>
-
-            <FaLongArrowAltRight />
-          </div>
-        </div>
-        <div className="hidden lg:flex mt-10 ">
-          <div className="w-1/2 flex flex-col items-center gap-8">
-            <h4 className="text-2xl text-[#F1742E] mt-6">
-              Networking Opportunities
-            </h4>
-            <p className="text-white text-sm text-center w-[60%]">
-              Connect with leading Web3 builders, developers, innovators, and
-              companies, expanding your professional network in the rapidly
-              growing African tech space.
-            </p>
-            <div className="flex items-center gap-2 text-[#F1742E]">
-              <p className="">Connect</p>
-
-              <FaLongArrowAltRight />
-            </div>
-          </div>
-          <div className="w-1/2  flex justify-center">
-            <div className="border-[12px] border-[#FFAA1D] w-[70%]">
-              <img src="/images/frame3.png" alt="" className="w-full" />
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="lg:px-20 py-10 px-4 ">
-        <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-6 lg:mb-12 text-center">
-          Hosted By
-        </h3>
-        <h3 className="text-[#F1742E] lg:hidden  text-2xl mt-12 mb-6 text-center">
-          Let's Build Labs
-        </h3>
-        <div className="flex flex-col gap-4 lg:gap-16 lg:px-28  lg:flex-row-reverse">
-          <div className="lg:w-1/2">
-            <img src="/images/ceo.png" alt="" className="w-full" />
-          </div>
-          <div className="flex flex-col items-center gap-4 lg:w-1/2 ">
-            <h3 className="text-[#F1742E]  text-4xl mt-2 mb-6 text-center hidden lg:block">
-              Let's Build Labs
-            </h3>
-            <p className="text-sm lg:text-xl text-[#6A674A] text-center">
-              {" "}
-              “Our primary aim is to create a robust set of tools and services
-              that will stimulate and promote the widespread adoption of Web 3.0
-              technologies within the African context.”
-            </p>
-            <div className="flex items-center gap-2 text-[#F1742E]">
-              <Link to="https://drive.google.com/file/d/13Ij0EO-pl-d4gdJAW14oRLf5iGVvoylh/view?usp=drivesdk">
-                Pitch Deck
-              </Link>
-
-              <FaLongArrowAltRight />
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="lg:px-20 py-10 px-4 " id="contact" ref={contactRef}>
-        <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-6 lg:mb-12 text-center">
-          Contact Us
-        </h3>
-        <div className="flex flex-col gap-3 lg:flex-row lg:justify-center lg:gap-20">
-          <div className="flex flex-row items-center gap-4">
-            <img src="/images/twittericon.png" alt="" className="w-[30px]" />
-            <p>Web3PHC</p>
-          </div>
-          <div className="flex flex-row items-center gap-4">
-            <img src="/images/emailicon.png" alt="" className="w-[30px]" />
-            <p>Adams@letsbuildao.org</p>
-          </div>
-          <div className="flex flex-row items-center gap-4">
-            <img src="/images/emailicon.png" alt="" className="w-[30px]" />
-            <p>hello@letsbuildao.org</p>
-          </div>
-        </div>
-      </section>
-      <section className="lg:px-20 py-10 px-4 bg-[#070600] ">
-        <div className="custom-container">
-          <h3 className="text-[#6A674A] lg:text-4xl text-2xl mb-6 lg:mb-12">
-            Our Sponsors
-          </h3>
-          <div className="flex  items-center  gap-8 lg:gap-32   ">
-            {/* <img className="w-[200px]" src="/images/Streamlivr.png" alt="" />
-          <img className="w-[130px]" src="/images/blockchainuniport.png" alt="" /> */}
-
-            <img
-              className="w-[150px] lg:w-[300px]"
-              src="/images/sahara.png"
-              alt=""
-            />
-            <img
-              className="w-[50px] lg:w-[100px]"
-              src="/images/bitsave.png"
-              alt=""
-            />
-            <img
-              className="w-[100px] lg:w-[300px]"
-              src="/images/borderless.png"
-              alt=""
-            />
-          </div>
-
-          <h3 className="text-[#6A674A] lg:text-4xl text-2xl mt-10 mb-6 lg:mb-12">
-            Our Partners
-          </h3>
-          <div className="grid grid-cols-3  items-center  gap-8 lg:gap-16  ">
-            <img className="w-[150px] lg:w-[300px]" src="/images/streamlivr.png" alt="" />
-            <img className="w-[150px] lg:w-[300px]" src="/images/gameverse.png" alt="" />
-            <img className="w-[80px] lg:w-[140px]" src="/images/dao.png" alt="" />
-            <img className="w-[70px] lg:w-[100px]" src="/images/nacos.png" alt="" />
-            <img className="w-[150px] lg:w-[300px]" src="/images/blockchainuniport.png" alt="" />
-            <img className="w-[150px] lg:w-[300px]" src="/images/nerdnetwork.png" alt="" />
-        
-            <img className="w-[150px] lg:w-[300px]" src="/images/superteam.png" alt="" />
-            <img className="w-[60px] lg:w-[100px]" src="/images/brsu.png" alt="" />
-            <img className="w-[60px] lg:w-[100px]" src="/images/wid.png" alt="" />
+          <div className="flex flex-wrap items-center justify-center gap-10 lg:gap-14">
+            {PARTNER_LOGOS.map((src, i) => (
+              <img key={i} src={src} alt="" className="h-10 lg:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+            ))}
           </div>
           <div className="flex justify-center mt-12">
-          <img className="w-[150px] lg:w-[300px] md:hidden" src="/images/gdgmobile.png" alt="" />
-          <img className="w-[150px] lg:w-[800px] hidden md:block " src="/images/gdg.png" alt="" />
+            <img src="/images/gdg.png" alt="GDG" className="h-12 lg:h-16 w-auto object-contain opacity-70 hidden md:block" />
+            <img src="/images/gdgmobile.png" alt="GDG" className="h-12 w-auto object-contain opacity-70 md:hidden" />
           </div>
-        
+        </div>
+      </section>
+
+      {/* How We Drive Impact – From knowledge to community... + 5 cards */}
+      <section id="impact" ref={impactRef} className="py-16 lg:py-24 px-4 bg-[#0f0f0f]">
+        <div className="custom-container">
+          <h2 className="section-title">How We Drive Impact</h2>
+          <p className="section-subtitle mb-12">From knowledge to community, visibility, and beyond—explore our journey.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {IMPACT_PILLARS.slice(0, 3).map((p) => (
+              <div key={p.title} className="card">
+                <h3 className="text-lg font-semibold text-white mb-2">{p.title}</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed">{p.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 mt-6 lg:max-w-2xl lg:mx-auto">
+            {IMPACT_PILLARS.slice(3, 5).map((p) => (
+              <div key={p.title} className="card">
+                <h3 className="text-lg font-semibold text-white mb-2">{p.title}</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed">{p.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Impact in Numbers */}
+      <section className="py-16 lg:py-24 px-4 bg-[#0a0a0a]">
+        <div className="custom-container">
+          <h2 className="section-title">Our Impact in Numbers</h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-12">
+            {IMPACT_METRICS.map((m) => (
+              <div key={m.label} className="text-center">
+                <div className="text-3xl lg:text-4xl font-bold text-brand-yellow mb-1">{m.value}</div>
+                <div className="text-sm font-semibold text-white">{m.label}</div>
+                <div className="text-xs text-zinc-500 mt-1">{m.sub}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials – Trusted by Community */}
+      <section id="community" ref={communityRef} className="py-16 lg:py-24 px-4 bg-[#0f0f0f]">
+        <div className="custom-container">
+          <h2 className="section-title">Testimonials</h2>
+          <h3 className="text-lg font-semibold text-zinc-500 text-center mb-2">Trusted by Community</h3>
+          <p className="section-subtitle mb-12">Hear from the innovators and builders we&apos;ve empowered.</p>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+            {TESTIMONIALS.map((t) => (
+              <div key={t.name} className="card">
+                <p className="text-zinc-300 text-sm lg:text-base mb-4 italic leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
+                <p className="font-semibold text-white">{t.name}</p>
+                <p className="text-sm text-zinc-500">{t.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Be Part of The Movement – Join Us: X, WhatsApp, Events */}
+      <section className="py-16 lg:py-24 px-4 bg-[#0a0a0a]">
+        <div className="custom-container">
+          <h2 className="section-title">Join Us</h2>
+          <h3 className="text-lg font-semibold text-zinc-500 text-center mb-2">Be Part of The Movement</h3>
+          <p className="section-subtitle mb-12">Connect with Web3 enthusiasts, builders, and innovators across Rivers State.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-3xl mx-auto">
+            {COMMUNITY_LINKS.map(({ href, label, Icon, sub }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="card text-center hover:border-brand-yellow/30 transition-colors">
+                <Icon className="mx-auto mb-3 text-brand-yellow" size={28} />
+                <p className="font-semibold text-white mb-1">{label.includes("X") ? "@web3PHC" : label}</p>
+                <p className="text-sm text-zinc-500">{sub}</p>
+              </a>
+            ))}
+          </div>
+          <div className="flex justify-center mt-8">
+            <Link to="/conference" className="btn-outline btn inline-flex items-center gap-2">
+              View Events <FaLongArrowAltRight />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Conference teaser – NEXT ACADEMY style: Web3PHC Conference Coming Soon */}
+      <section className="py-16 lg:py-24 px-4 bg-[#0f0f0f]">
+        <div className="custom-container text-center max-w-2xl mx-auto">
+          <p className="text-brand-yellow font-semibold text-sm uppercase tracking-wider mb-2">Web3PHC Conference</p>
+          <h2 className="text-2xl lg:text-4xl font-bold text-white mb-4">December 5th, 2026</h2>
+          <p className="text-zinc-400 mb-8">Our flagship conference bringing together builders, projects, and partners from across Rivers State and beyond.</p>
+          <Link to="/conference" className="btn inline-flex items-center gap-2">
+            Learn More <FaLongArrowAltRight />
+          </Link>
         </div>
       </section>
     </>
