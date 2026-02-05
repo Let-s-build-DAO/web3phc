@@ -9,6 +9,8 @@ import AddProject from "./pages/AddProject";
 import { useState } from "react";
 import Preloader from "./components/Preloader";
 import { AnimatePresence } from "framer-motion";
+import ScrollToTop from "./components/ScrollToTop";
+import BackToTop from "./components/BackToTop";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -19,6 +21,7 @@ function App() {
         {loading && <Preloader onComplete={() => setLoading(false)} />}
       </AnimatePresence>
       <BrowserRouter>
+        <ScrollToTop />
         <div className="bg-noise" />
         <HeaderNav />
         <main className="pt-16">
@@ -31,6 +34,7 @@ function App() {
           </Routes>
         </main>
         <FooterNav />
+        <BackToTop />
       </BrowserRouter>
     </>
   );
