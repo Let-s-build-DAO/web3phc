@@ -4,10 +4,11 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 
 const NAV_LINKS = [
+  { to: "/#mission", label: "Mission" },
   { to: "/#impact", label: "Impact" },
-  { to: "/#community", label: "Community" },
-  { to: "/#contact", label: "Contact Us" },
+  { to: "/#tribe", label: "Tribe" },
   { to: "/conference", label: "Conference" },
+  { to: "/#hello", label: "Say Hello" },
 ];
 
 const HeaderNav = () => {

@@ -73,8 +73,8 @@ const Home = () => {
                 Home grown,<br />
                 <span className="text-gradient-gold">Global impact.</span>
               </motion.h1>
-              <motion.p className="text-zinc-400 text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mbrand-secondary" variants={item}>
-                <strong>Web3 Port Harcourt</strong> convenes founders, builders, investors, and ecosystem leaders to drive meaningful innovation. We connect local talent to global capital, foster inclusion, and help shape the opportunities that define the ecosystem beyond the conference.
+              <motion.p className="text-zinc-400 text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mbrand-secondary pb-5" variants={item}>
+                <strong>Web3 Port Harcourt</strong> is the gateway to top Web3 builders, founders, creators, and communities across Rivers State and the South-South region of Nigeria.
               </motion.p>
               <motion.div className="flex flex-wrap gap-4 justify-center lg:justify-start" variants={item}>
                 <a href="https://t.me/web3portharcourt" target="_blank" rel="noopener noreferrer" className="btn shadow-lg shadow-brand-primary/20">
@@ -120,10 +120,10 @@ const Home = () => {
       </section>
 
       {/* How We Drive Impact – From knowledge to community... + 5 cards */}
-      <section id="impact" ref={impactRef} className="py-16 lg:py-24 px-4 relative">
+      <section id="mission"  ref={impactRef} className="py-16 lg:py-24 px-4 relative">
          <div className="glow-blob w-[500px] h-[500px] bg-purple-900/10 top-1/2 left-[-200px] blur-[120px]" />
         <div className="custom-container relative z-10">
-          <h2 className="section-title">How We Do This</h2>
+          <h2 className="section-title">Our Mission</h2>
           <p className="section-subtitle mb-12">We don&apos;t just convene conversations—we build the infrastructure that allows Web3 talent to grow.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {STRATEGIC_PILLARS.map((p, i) => (
@@ -140,7 +140,7 @@ const Home = () => {
       </section>
 
       {/* Our Impact in Numbers */}
-      <section className="py-16 lg:py-24 px-4 relative border-y border-white/5 bg-white/[0.01]">
+      <section id="impact" className="py-16 lg:py-24 px-4 relative border-y border-white/5 bg-white/[0.01]">
         <div className="custom-container">
           <h2 className="section-title">Our Impact in Numbers</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mt-12 bg-white/[0.02] rounded-3xl p-8 border border-white/5 backdrop-blur-sm">
@@ -156,7 +156,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials – Trusted by Community */}
-      <section id="community" ref={communityRef} className="py-16 lg:py-24 px-4 relative overflow-hidden">
+      <section ref={communityRef} className="py-16 lg:py-24 px-4 relative overflow-hidden">
         <div className="glow-blob w-64 h-64 lg:w-[500px] lg:h-[500px] bg-brand-primary/5 bottom-0 right-[-100px] lg:right-[-200px] blur-[80px] lg:blur-[120px]" />
         <div className="custom-container relative z-10">
           <h2 className="section-title">Testimonials</h2>
@@ -187,12 +187,12 @@ const Home = () => {
       </section>
 
       {/* Be Part of The Movement – Join Us: X, WhatsApp, Events */}
-      <section className="py-16 lg:py-24 px-4 relative overflow-hidden">
+      <section id="tribe" className="py-16 lg:py-24 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/5 to-transparent pointer-events-none" />
         <div className="custom-container relative z-10">
-          <h2 className="section-title">Join Us</h2>
-          <h3 className="text-lg font-semibold text-zinc-500 text-center mb-2">Be Part of The Movement</h3>
-          <p className="section-subtitle mb-12">Connect with Web3 enthusiasts, builders, and innovators across Rivers State.</p>
+          <h2 className="section-title">Join The Tribe</h2>
+          <h3 className="text-lg font-semibold text-zinc-500 text-center mb-2">Join a Vibrant Community</h3>
+          <p className="section-subtitle mb-12">Connect with Web3 enthusiasts, builders, and innovators across South-South, Nigeria.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-3xl mx-auto">
             {COMMUNITY_LINKS.map(({ href, label, Icon, sub }) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="card text-center hover:bg-brand-primary/10 hover:border-brand-primary/40 transition-all group p-4 lg:p-6">
@@ -213,9 +213,9 @@ const Home = () => {
       </section>
 
       {/* Contact Us */}
-      <section id="contact" className="py-16 lg:py-24 px-4 relative">
+      <section id="hello" className="py-16 lg:py-24 px-4 relative">
         <div className="custom-container">
-            <h2 className="section-title">Contact Us</h2>
+            <h2 className="section-title">Say Hello</h2>
             <p className="section-subtitle mb-12">Got questions or want to partner with us? Reach out directly.</p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
