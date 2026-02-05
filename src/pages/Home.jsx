@@ -35,6 +35,7 @@ const PARTNER_LOGOS = [
   "/images/streamlivr.png", "/images/gameverse.png", "/images/dao.png",
   "/images/nacos.png", "/images/blockchainuniport.png", "/images/nerdnetwork.png",
   "/images/superteam.png", "/images/brsu.png", "/images/wid.png",
+  "/images/gdg.png", 
 ];
 
 const Home = () => {
@@ -102,19 +103,33 @@ const Home = () => {
       <section className="py-16 lg:py-24 px-4 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent pointer-events-none" />
         <div className="custom-container relative z-10">
-          <h2 className="section-title">Trusted By Leading Web3 Brands</h2>
-          <h3 className="text-lg font-semibold text-zinc-500 text-center mb-2">Brands We&apos;ve Worked With</h3>
-          <p className="section-subtitle mb-12">
-            We&apos;ve partnered with leading Web3 protocols and brands to drive adoption, build communities, and create impact in Rivers State.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14">
-            {PARTNER_LOGOS.map((src, i) => (
-              <img key={i} src={src} alt="" className="h-10 lg:h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 hover:scale-110" />
-            ))}
-          </div>
-          <div className="flex justify-center mt-12">
-            <img src="/images/gdg.png" alt="GDG" className="h-12 lg:h-16 w-auto object-contain opacity-60 hover:opacity-100 transition-all duration-300 hidden md:block" />
-            <img src="/images/gdgmobile.png" alt="GDG" className="h-12 w-auto object-contain opacity-60 md:hidden" />
+          <h2 className="section-title pb-12">Some of our partners</h2>
+          <div className="relative w-full overflow-hidden mask-gradient-x">
+             {/* Gradient Masks */}
+             <div className="absolute top-0 left-0 h-full w-12 lg:w-32 bg-gradient-to-r from-[#0a0a0a] to-transparent z-20 pointer-events-none" />
+             <div className="absolute top-0 right-0 h-full w-12 lg:w-32 bg-gradient-to-l from-[#0a0a0a] to-transparent z-20 pointer-events-none" />
+            
+            <div className="flex overflow-hidden">
+              <motion.div 
+                className="flex gap-12 lg:gap-24 items-center flex-nowrap py-4"
+                animate={{ x: "-50%" }}
+                transition={{ 
+                  repeat: Infinity, 
+                  ease: "linear", 
+                  duration: 30, // Adjust speed here
+                }}
+              >
+                {[...PARTNER_LOGOS, ...PARTNER_LOGOS].map((src, i) => (
+                  <div key={i} className="flex-shrink-0">
+                     <img 
+                        src={src} 
+                        alt="Partner" 
+                        className="h-10 lg:h-14 w-auto object-contain opacity-50 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 hover:scale-110" 
+                     />
+                  </div>
+                ))}
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>

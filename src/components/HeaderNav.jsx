@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { to: "/#mission", label: "Mission" },
   { to: "/#impact", label: "Impact" },
   { to: "/#tribe", label: "Tribe" },
+  { to: "/ecosystem", label: "Ecosystem" },
   { to: "/conference", label: "Conference" },
   { to: "/#hello", label: "Say Hello" },
 ];
