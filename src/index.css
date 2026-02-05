@@ -1,18 +1,20 @@
 /* NextBridge Africa–style styling guide */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --fontFamily: "Space Grotesk", "Inter", system-ui, sans-serif;
-  --black: #050505;
-  --black-soft: #0f0f0f;
-  --surface: #141414;
-  --yellow: #FACC15;
-  --yellow-dark: #EAB308;
-  --yellow-light: #FEF08A;
+  --font-heading: 'Clash Display', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  
+  --black: #000000;
+  --black-soft: #1a1a1a;
+  --surface: #2d2d2d;
+  --brand: #fe6500;
+  --brand-light: #f1742e;
   --white: #fafafa;
   --muted: #a1a1aa;
   --radius: 0.75rem;
@@ -20,116 +22,149 @@
   --transition: 0.2s ease;
 }
 
+::selection {
+  background-color: var(--brand);
+  color: var(--white);
+}
+
 body {
-  font-family: var(--fontFamily);
+  font-family: var(--font-body);
   background-color: var(--black);
   color: var(--white);
   -webkit-font-smoothing: antialiased;
+  @apply overflow-x-hidden;
 }
 
-h1, h2 {
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
+/* Background Texture */
+.bg-noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -10;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Glow Utilities */
+.glow-blob {
+  @apply absolute rounded-full blur-[100px] opacity-20 pointer-events-none mix-blend-screen;
+}
+.glow-brand {
+  background-color: var(--brand);
+}
+.glow-purple {
+  @apply bg-purple-600;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.02em; /* Clash Display looks better with slightly wider tracking for headings */
   color: var(--white);
 }
 
-h3, h4 {
-  font-weight: 600;
-  letter-spacing: -0.02em;
+h1 {
+  letter-spacing: 0; /* Clash Display is solid at large sizes */
+  line-height: 1;
 }
 
-/* Section title – NextBridge style */
+/* Gradient Text */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-zinc-400;
+}
+
+.text-gradient-gold {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(to bottom right, var(--brand), var(--brand-light), #f97316);
+}
+
+/* Section title */
 .section-title {
-  @apply text-2xl lg:text-4xl font-bold tracking-tight text-center text-white mb-3;
+  @apply text-3xl lg:text-5xl font-bold tracking-tight text-center mb-4 text-gradient;
 }
 
 .section-subtitle {
-  @apply text-zinc-400 text-center text-base lg:text-lg max-w-2xl mx-auto;
+  @apply text-zinc-400 text-center text-base lg:text-lg max-w-2xl mx-auto leading-relaxed;
 }
 
-/* Hero – full viewport feel, centered CTA */
+/* Hero */
 .hero-bg {
-  background: linear-gradient(180deg, var(--black) 0%, var(--black-soft) 100%);
-  min-height: 85vh;
+  position: relative;
+  /* subtle radial gradient for depth */
+  background: radial-gradient(circle at 50% 0%, #1a1a1a 0%, var(--black) 70%);
 }
 
-.bgoverlay {
-  background: linear-gradient(180deg, var(--black) 0%, transparent 40%, var(--black-soft) 100%),
-    url(../public/images/hero.png) no-repeat top right;
-  background-size: cover, 480px;
-  min-height: 85vh;
-}
-
-.bgoverlay2 {
-  background: linear-gradient(180deg, var(--black) 0%, var(--black-soft) 100%);
-  min-height: 70vh;
-}
-
-@media (min-width: 1024px) {
-  .bgoverlay {
-    background-size: cover, 420px;
-  }
-}
-
-/* Buttons – NextBridge: primary yellow, secondary outline */
+/* Buttons */
 .btn {
   cursor: pointer;
-  color: var(--black);
-  background: var(--yellow);
+  color: var(--white);
+  background: var(--brand);
   border: none;
   border-radius: var(--radius);
-  padding: 0.75rem 1.5rem;
+  padding: 0.875rem 1.75rem; /* Larger touch target */
   font-weight: 600;
   font-size: 0.9375rem;
-  transition: transform var(--transition), background var(--transition);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
 }
 
 .btn:hover {
-  background: var(--yellow-light);
-  transform: translateY(-1px);
+  background: var(--brand-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px -5px rgba(254, 101, 0, 0.5);
 }
 
 .btn-outline {
   background: transparent;
   color: var(--white);
-  border: 2px solid rgba(255,255,255,0.3);
+  border: 1px solid var(--surface);
+  backdrop-filter: blur(8px);
 }
 
 .btn-outline:hover {
-  border-color: var(--yellow);
-  color: var(--yellow);
-  background: transparent;
+  border-color: var(--brand);
+  color: var(--brand);
+  background: rgba(254, 101, 0, 0.05);
+  box-shadow: 0 4px 20px -5px rgba(254, 101, 0, 0.1);
 }
 
-/* Cards – subtle border, hover lift */
+/* Cards – Glassmorphism 2.0 */
 .card {
-  @apply rounded-2xl border border-white/10 bg-white/[0.03] p-6 lg:p-8 transition-all duration-200;
+  @apply relative overflow-hidden rounded-2xl border border-white/5 bg-zinc-900/[0.3] p-6 lg:p-8 transition-all duration-300 backdrop-blur-sm;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: inherit;
+  padding: 1px; /* border width */
+  background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .card:hover {
-  border-color: rgba(250, 204, 21, 0.2);
-  background-color: rgba(255, 255, 255, 0.05);
+  @apply -translate-y-1 bg-white/[0.04];
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
 }
 
 .custom-container {
-  @apply w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
-}
-
-/* Link hover */
-.link-hover {
-  color: var(--muted);
-  transition: color var(--transition);
-}
-.link-hover:hover {
-  color: var(--yellow);
+  @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
 .floating {
-  animation: floating 3s ease-in-out infinite;
+  animation: floating 4s ease-in-out infinite;
 }
 
 @keyframes floating {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(10px); }
+  50% { transform: translateY(-12px); }
 }

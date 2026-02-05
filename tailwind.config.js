@@ -8,13 +8,16 @@ export default {
     extend: {
       colors: {
         brand: {
-          black: "#0a0a0a",
-          "black-soft": "#171717",
-          yellow: "#FACC15",
-          "yellow-dark": "#EAB308",
-          "yellow-light": "#FEF08A",
-          "yellow-bg": "#FEF9C3",
+          black: "#000000",
+          "black-soft": "#1a1a1a",
+          primary: "#fe6500",
+          secondary: "#f1742e",
+          surface: "#2d2d2d",
         },
+      },
+      fontFamily: {
+        sans: ["var(--font-body)", "sans-serif"],
+        display: ["var(--font-heading)", "sans-serif"],
       },
       borderRadius: {
         "2.5xl": "1.25rem",

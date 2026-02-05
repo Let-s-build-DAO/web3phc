@@ -17,10 +17,10 @@ const Conference = () => {
         <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white mb-4">
           Web3 Port Harcourt Conference
         </h1>
-        <p className="text-brand-yellow text-lg mb-6">Next conference: December 5th, 2026</p>
+        <p className="text-brand-primary text-lg mb-6">Next conference: December 5th, 2026</p>
         <div className="flex justify-center mb-8">
           <CountdownTimer
-            background="bg-brand-yellow"
+            background="bg-brand-primary"
             boxshadow=""
             padding="px-6 py-3 lg:px-8 lg:py-4"
           />
@@ -58,7 +58,7 @@ const Conference = () => {
                 <h3 className="text-base font-semibold text-white mb-3">{c.title}</h3>
                 <p className="text-zinc-400 text-sm mb-2"><span className="text-zinc-500">Focus:</span> {c.focus}</p>
                 <p className="text-zinc-400 text-sm mb-4"><span className="text-zinc-500">Examples:</span> {c.examples}</p>
-                <a href="http://www.ticketsbyallin.com/Web3ph" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-brand-yellow hover:text-brand-yellow-light transition-colors">
+                <a href="http://www.ticketsbyallin.com/Web3ph" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-brand-primary hover:text-brand-primary-light transition-colors">
                   Learn More
                 </a>
               </div>
@@ -71,7 +71,7 @@ const Conference = () => {
       <section className="py-16 lg:py-24 px-4 bg-[#0a0a0a]">
         <div className="custom-container">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <FaCalendarAlt className="text-brand-yellow" size={28} />
+            <FaCalendarAlt className="text-brand-primary" size={28} />
             <h2 className="section-title mb-0">Event Schedule</h2>
           </div>
           <p className="section-subtitle mb-12">December 2026. Full schedule will be announced closer to the date.</p>
@@ -80,11 +80,11 @@ const Conference = () => {
               <img src="/images/event1.png" alt="" className="w-20 h-20 object-contain mx-auto mb-4" />
               <h4 className="text-base font-semibold text-white text-center mb-2">Registration</h4>
               <p className="text-zinc-400 text-sm text-center mb-4">Details coming soon.</p>
-              <a href="http://www.ticketsbyallin.com/Web3ph" target="_blank" rel="noopener noreferrer" className="flex gap-2 items-center justify-center font-semibold text-brand-yellow hover:text-brand-yellow-light transition-colors text-sm">
+              <a href="http://www.ticketsbyallin.com/Web3ph" target="_blank" rel="noopener noreferrer" className="flex gap-2 items-center justify-center font-semibold text-brand-primary hover:text-brand-primary-light transition-colors text-sm">
                 Register now <FaLongArrowAltRight />
               </a>
             </div>
-            <div className="card bg-brand-yellow/10 border-brand-yellow/30">
+            <div className="card bg-brand-primary/10 border-brand-primary/30">
               <img src="/images/event2.png" alt="" className="w-20 h-20 object-contain mx-auto mb-4" />
               <h4 className="text-base font-semibold text-white text-center mb-2">Conference & Buildathon</h4>
               <p className="text-zinc-300 text-sm text-center">Saturday, December 5th, 2026</p>
@@ -114,7 +114,7 @@ const Conference = () => {
             <div className="lg:w-3/5 text-center lg:text-left">
               <p className="text-xl lg:text-2xl font-bold text-white mb-4">Win from a N1,600,000.00 prize pool</p>
               <p className="text-zinc-400 leading-relaxed mb-6">
-                Ready to build the future of Web3? Join the Web3 Port Harcourt Conference and compete for a <span className="font-bold text-brand-yellow">N1,600,000.00</span> prize pool.
+                Ready to build the future of Web3? Join the Web3 Port Harcourt Conference and compete for a <span className="font-bold text-brand-primary">N1,600,000.00</span> prize pool.
                 <br /><br />
                 Develop groundbreaking projects in DeFi, gaming, education, and security, all while gaining mentorship and showcasing your ideas to industry leaders. Don&apos;t miss it!
               </p>
