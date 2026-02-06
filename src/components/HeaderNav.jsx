@@ -14,6 +14,7 @@ const NAV_LINKS = [
 
 const HeaderNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [slang, setSlang] = useState("");
   const location = useLocation();
   const isHome = location.pathname === "/";
 
@@ -21,6 +22,17 @@ const HeaderNav = () => {
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
+
+  // Randomize Slang on Open
+  useEffect(() => {
+    if (isOpen) {
+        const slangs = [
+            "Based on say nah Ph levels you dey now ehen Abobi wida!!!",
+            "Aboy you suppose know this matters nahhh Web3PH don mount this unit!!!"
+        ];
+        setSlang(slangs[Math.floor(Math.random() * slangs.length)]);
+    }
+  }, [isOpen]);
 
   // Lock Body Scroll when menu is open
   useEffect(() => {
@@ -100,7 +112,7 @@ const HeaderNav = () => {
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     className="fixed inset-0 z-40 bg-black flex flex-col pt-24 px-6 md:hidden h-[100dvh]"
                 >
-                    <div className="flex flex-col h-full">
+                    <div className="flex flex-col h-full relative">
                         <nav className="flex flex-col gap-6 mt-4">
                             {NAV_LINKS.map(({ to, label }) => (
                                 isHome && to.startsWith("/#") ? (
@@ -124,6 +136,25 @@ const HeaderNav = () => {
                             ))}
                         </nav>
                         
+                        <div className="flex-1 flex flex-col justify-center w-full px-4">
+                            {/* Mobile Only Slang Footer - Creative Style */}
+                            <div className="relative p-6 rounded-2xl bg-gradient-to-br from-white/5 to-transparent border border-white/10 overflow-hidden group">
+                                <div className="absolute top-0 right-0 p-3 opacity-20 text-brand-primary">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 16.6569 20.6739 18 19.017 18H16.017C15.4647 18 15.017 18.4477 15.017 19V21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 16.6569 11.6735 18 10.0166 18H7.0166C6.46432 18 6.0166 18.4477 6.0166 19V21H5.0166Z" />
+                                    </svg>
+                                </div>
+                                
+                                <span className="inline-block px-2 py-1 mb-2 text-[10px] font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/10 rounded-md border border-brand-primary/20">
+                                    Street Wisdom
+                                </span>
+                                
+                                <p className="text-zinc-300 text-sm font-medium italic leading-relaxed relative z-10">
+                                    &quot;{slang}&quot;
+                                </p>
+                            </div>
+                        </div>
+
                         <div className="mt-auto mb-10 w-full">
                             <a
                                 href="https://t.me/web3portharcourt"

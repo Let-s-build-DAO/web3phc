@@ -1,12 +1,13 @@
 import { useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaLongArrowAltRight, FaTwitter, FaTelegram, FaWhatsapp } from "react-icons/fa";
+import { FaLongArrowAltRight, FaTelegram, FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
+import XIcon from "../components/XIcon";
 
 /* NextBridge Africa–style flow: Hero → Trusted By → How We Drive Impact → Impact in Numbers → Testimonials → Be Part of the Movement → Conference teaser */
 
 const COMMUNITY_LINKS = [
-  { href: "https://x.com/web3PHC", label: "X (Twitter)", Icon: FaTwitter, sub: "Follow Us" },
+  { href: "https://x.com/web3PHC", label: "X", Icon: XIcon, sub: "Follow Us" },
   { href: "https://chat.whatsapp.com/CzhYZkaOySi9U1zfifXbbu?mode=gi_c", label: "WhatsApp", Icon: FaWhatsapp, sub: "Join Community" },
   { href: "https://t.me/web3portharcourt", label: "Telegram", Icon: FaTelegram, sub: "Join Community" },
 ];
@@ -25,9 +26,34 @@ const STRATEGIC_PILLARS = [
 ];
 
 const TESTIMONIALS = [
-  { quote: "Finally a hub that connects all the Web3 dots in the region. Grateful for this community.", name: "Local Innovator", role: "Builder" },
-  { quote: "The conference and ongoing initiatives make it easier to build and learn Web3 right here at home.", name: "Rivers State Member", role: "Community Member" },
-  { quote: "My experience with Web3Ph has been nothing short of exceptional. From community advocacy to event hosting and strategic partnerships, they consistently operate at the highest level. The executive team brings a rare blend of deep technical knowledge and operational expertise, ensuring members receive a perfect balance of theory and hands-on practice. For anyone looking to scale Web3 products in South-South Nigeria, Web3Ph is my top recommendation.", name: "Engr. Dickachi", role: "CEO Lambabros Deals | Lead Ambassador Lambatoken", image: "/images/dike.jpg" },
+  { 
+    quote: "My experience with Web3Ph has been nothing short of exceptional. From community advocacy to event hosting and strategic partnerships, they consistently operate at the highest level. The executive team brings a rare blend of deep technical knowledge and operational expertise, ensuring members receive a perfect balance of theory and hands-on practice. For anyone looking to scale Web3 products in South-South Nigeria, Web3Ph is my top recommendation", 
+    name: "Dikachi Ibekwe", 
+    role: "CEO Lambabros Deals | Lead Ambassador Lambatoken", 
+    image: "/images/dike.jpg", 
+    handle: "@coachkach" 
+  },
+  { 
+    quote: "To be honest, I didn’t expect much from Web3 events, many felt repetitive and lacked true innovation. But being part of the Web3 Port Harcourt team completely changed that perspective. I saw firsthand the power of great minds coming together, not to compete, but to collaborate and create meaningful solutions within the ecosystem. One thing I hope to see more of is this focus on building something new, rather than just hyping events.", 
+    name: "Richard Hezekiah", 
+    role: "Graphic Artist", 
+    handle: "@iamcharddo" 
+  },
+  { 
+    quote: "I’m grateful to be part of a community that believes in empowerment, collaboration, and building real solutions for Africa and the world. Web3 Port Harcourt isn’t just a community, it’s a movement.", 
+    name: "Nurudeen Hamzah", 
+    role: "Web3 Builder-in-Training", 
+    image: "/images/nuru.jpg", 
+    handle: "@berare01" 
+  },
+  { 
+    quote: "The Web3PH conference in 2024 was a remarkable event. The wealth of information shared was insightful.", 
+    name: "Onyeka Adedayo", 
+    role: "Founder, Creaitz", 
+    image: "/images/onyeka.jpg", 
+    handle: "@onyekaekwemozor" 
+  },
+  
 ];
 
 const PARTNER_LOGOS = [
@@ -58,7 +84,7 @@ const Home = () => {
       {/* Hero – split 50/50, aligned */}
       {/* Hero – split 50/50, aligned */}
       {/* Hero – split 50/50, aligned */}
-      <section id="about" ref={aboutRef} className="hero-bg min-h-[100dvh] lg:min-h-[90vh] flex items-center relative overflow-hidden pt-20 lg:pt-0">
+      <section id="about" ref={aboutRef} className="hero-bg min-h-[100dvh] lg:min-h-[90vh] flex items-center relative overflow-hidden pt-12 lg:pt-0">
         {/* Glow Blobs */}
         <div className="glow-blob w-96 h-96 bg-brand-primary/20 top-0 left-[-100px] blur-[120px]" />
         <div className="glow-blob w-96 h-96 bg-purple-600/20 bottom-0 right-[-100px] blur-[120px]" />
@@ -66,23 +92,19 @@ const Home = () => {
         <div className="custom-container w-full py-16 lg:py-24 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <motion.div className="flex flex-col justify-center text-center lg:text-left" variants={container} initial="hidden" animate="visible">
-               <motion.div variants={item} className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-primary/30 bg-brand-primary/5 w-fit mx-auto lg:mx-0 mb-6">
-                  <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span>
-                  <span className="text-brand-primary text-[10px] md:text-xs font-semibold uppercase tracking-wider">The Web3 Community for South-South Nigeria</span>
-               </motion.div>
               <motion.h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.1]" variants={item}>
-                Home grown,<br />
-                <span className="text-gradient-gold">Global impact.</span>
+                From Pitakwa,<br />
+                <span className="text-gradient-gold">To The World.</span>
               </motion.h1>
               <motion.p className="text-zinc-400 text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mbrand-secondary pb-5" variants={item}>
                 <strong>Web3 Port Harcourt</strong> is the gateway to top Web3 builders, founders, creators, and communities across Rivers State and the South-South region of Nigeria.
               </motion.p>
               <motion.div className="flex flex-wrap gap-4 justify-center lg:justify-start" variants={item}>
-                <a href="https://t.me/web3portharcourt" target="_blank" rel="noopener noreferrer" className="btn shadow-lg shadow-brand-primary/20">
-                  Join Community
+                <a href="https://t.me/web3portharcourt" target="_blank" rel="noopener noreferrer" className="btn shadow-lg shadow-brand-primary/20 min-w-[180px] justify-center text-center">
+                  Follow Who Know Road
                 </a>
-                <Link to="/conference" className="btn-outline btn inline-flex items-center gap-2">
-                  Explore Programs <FaLongArrowAltRight />
+                <Link to="/conference" className="btn-outline btn inline-flex items-center justify-center gap-2 min-w-[180px] text-center">
+                  Conference 2026 <FaLongArrowAltRight />
                 </Link>
               </motion.div>
             </motion.div>
@@ -171,32 +193,63 @@ const Home = () => {
       </section>
 
       {/* Testimonials – Trusted by Community */}
+
+
       <section ref={communityRef} className="py-16 lg:py-24 px-4 relative overflow-hidden">
         <div className="glow-blob w-64 h-64 lg:w-[500px] lg:h-[500px] bg-brand-primary/5 bottom-0 right-[-100px] lg:right-[-200px] blur-[80px] lg:blur-[120px]" />
         <div className="custom-container relative z-10">
-          <h2 className="section-title">Testimonials</h2>
-          <h3 className="text-lg font-semibold text-zinc-500 text-center mb-2">Trusted by Community</h3>
+          <h2 className="section-title">Wetin Men Dey Talk</h2>
+          <h3 className="text-lg font-semibold text-zinc-500 text-center mb-2">Street Cred</h3>
           <p className="section-subtitle mb-12">Hear from the innovators and builders we&apos;ve empowered.</p>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-            {TESTIMONIALS.map((t) => (
-              <div key={t.name} className="card hover:border-brand-primary/30 flex flex-col h-full">
-                <div className="mb-4 text-brand-primary text-4xl opacity-30">&ldquo;</div>
-                <p className="text-zinc-300 text-sm lg:text-base mb-6 italic leading-relaxed relative z-10 break-words whitespace-normal">{t.quote}</p>
-                <div className="flex items-center gap-3 mt-auto">
-                    {t.image ? (
-                        <img src={t.image} alt={t.name} className="w-10 h-10 rounded-full object-cover border border-white/10 shrink-0" />
-                    ) : (
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-zinc-700 to-zinc-900 flex items-center justify-center text-xs font-bold text-white shrink-0">
-                            {t.name.charAt(0)}
+          
+          <div className="relative max-w-5xl mx-auto">
+            {/* Scroll Container */}
+            {/* Scroll Container - Added py-8 to prevent hover cut-off at top */}
+            <div className="flex overflow-x-auto py-8 gap-6 lg:gap-8 snap-x snap-mandatory scrollbar-hide">
+                {TESTIMONIALS.map((t, i) => (
+                    <div key={i} className="min-w-[85%] md:min-w-[45%] lg:min-w-[30%] snap-center flex">
+                        <div className="card hover:border-brand-primary/30 flex flex-col h-full w-full p-6 lg:p-8 bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl transition-all duration-300 hover:-translate-y-2">
+                            <div className="mb-4 flex justify-between items-start">
+                                <span className="text-brand-primary text-4xl font-serif opacity-30 leading-none">&ldquo;</span>
+                                {/* X/Twitter Link */}
+                                <a 
+                                    href={t.handle ? `https://x.com/${t.handle.replace('@', '')}` : '#'} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors group/icon"
+                                    aria-label={`Visit ${t.name} on X`}
+                                >
+                                    {/* X Logo SVG */}
+                                    <svg viewBox="0 0 24 24" className="w-3 h-3 text-white fill-current group-hover/icon:text-brand-primary transition-colors" aria-hidden="true">
+                                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <p className="text-zinc-300 text-sm mb-6 italic leading-relaxed flex-grow relative z-10 break-words whitespace-normal">
+                                {t.quote}
+                            </p>
+                            
+                            <div className="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                                {t.image ? (
+                                    <img src={t.image} alt={t.name} className="w-10 h-10 rounded-full object-cover border border-white/10 shrink-0" />
+                                ) : (
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-zinc-700 to-zinc-900 flex items-center justify-center text-xs font-bold text-white shrink-0">
+                                        {t.name.charAt(0)}
+                                    </div>
+                                )}
+                                <div className="min-w-0 flex-1">
+                                    <p className="font-bold text-white text-sm truncate">{t.name}</p>
+                                    <div className="flex flex-col">
+                                        <p className="text-[10px] text-brand-primary truncate leading-tight">{t.role}</p>
+                                        {t.handle && <p className="text-[10px] text-zinc-500 truncate mt-0.5">{t.handle}</p>}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    )}
-                    <div className="min-w-0 flex-1">
-                        <p className="font-bold text-white text-sm truncate">{t.name}</p>
-                        <p className="text-xs text-brand-primary break-words whitespace-normal leading-tight">{t.role}</p>
                     </div>
-                </div>
-              </div>
-            ))}
+                ))}
+            </div>
           </div>
         </div>
       </section>
@@ -208,11 +261,11 @@ const Home = () => {
           <h2 className="section-title">Join The Tribe</h2>
           <h3 className="text-lg font-semibold text-zinc-500 text-center mb-2">Join a Vibrant Community</h3>
           <p className="section-subtitle mb-12">Connect with Web3 enthusiasts, builders, and innovators across South-South, Nigeria.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-3xl mx-auto">
+          <div className="flex flex-col md:grid md:grid-cols-3 gap-6 lg:gap-8 max-w-3xl mx-auto">
             {COMMUNITY_LINKS.map(({ href, label, Icon, sub }) => (
-              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="card text-center hover:bg-brand-primary/10 hover:border-brand-primary/40 transition-all group p-4 lg:p-6">
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="card block w-full text-center hover:bg-brand-primary/10 hover:border-brand-primary/40 transition-all group p-6">
                 <div className="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-3 lg:mb-4 rounded-full bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 group-hover:bg-brand-primary/20">
-                    <Icon className="text-brand-primary w-6 h-6 lg:w-8 lg:h-8" />
+                    <Icon className="text-brand-primary w-6 h-6 lg:w-8 lg:h-8 fill-current" />
                 </div>
                 <p className="font-bold text-white mb-1 text-sm lg:text-base break-words">{label.includes("X") ? "@web3PHC" : label}</p>
                 <p className="text-xs lg:text-sm text-zinc-400 group-hover:text-zinc-300 break-words">{sub}</p>
@@ -221,7 +274,7 @@ const Home = () => {
           </div>
           <div className="flex justify-center mt-12">
             <Link to="/conference" className="btn-outline btn inline-flex items-center gap-2 px-8 py-3">
-              View Events <FaLongArrowAltRight />
+              Lap this Unit!! <FaLongArrowAltRight />
             </Link>
           </div>
         </div>
@@ -230,7 +283,7 @@ const Home = () => {
       {/* Contact Us */}
       <section id="hello" className="py-16 lg:py-24 px-4 relative">
         <div className="custom-container">
-            <h2 className="section-title">Say Hello</h2>
+            <h2 className="section-title">Say Who goes!!!</h2>
             <p className="section-subtitle mb-12">Got questions or want to partner with us? Reach out directly.</p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">

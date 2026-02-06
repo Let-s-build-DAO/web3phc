@@ -1,7 +1,8 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FaSearch, FaTwitter, FaTelegram, FaGlobe, FaArrowRight } from "react-icons/fa";
+import { FaSearch, FaTelegram, FaGlobe, FaArrowRight } from "react-icons/fa";
+import XIcon from "../components/XIcon";
 
 const ECOSYSTEM_DATA = [
   {
@@ -325,7 +326,7 @@ const Ecosystem = () => {
                                 )}
                                 {item.twitter && (
                                     <a href={item.twitter} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-colors">
-                                        <FaTwitter />
+                                        <XIcon />
                                     </a>
                                 )}
                                 {item.telegram && (

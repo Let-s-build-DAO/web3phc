@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { FaTwitter, FaTelegram, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaTelegram, FaLinkedin, FaInstagram } from "react-icons/fa";
+import XIcon from "./XIcon";
 
 const FooterNav = () => {
   return (
@@ -12,7 +13,7 @@ const FooterNav = () => {
                         <img src="/logo.png" alt="Web3PHC" className="h-10 w-auto object-contain" />
                     </Link>
                     <p className="text-zinc-500 text-sm leading-relaxed max-w-xs">
-                        Convening founders, builders, and investors to drive meaningful innovation in Rivers State.
+                        Convening founders, builders, and investors to drive meaningful innovation in South-South Nigeria.
                     </p>
                 </div>
 
@@ -20,10 +21,11 @@ const FooterNav = () => {
                     <h4 className="font-bold text-white mb-6">Community</h4>
                     <ul className="space-y-4 text-sm text-zinc-400">
                         <li><a href="https://t.me/web3portharcourt" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">Telegram Member</a></li>
-                         <li><a href="https://x.com/web3PHC" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">Twitter (X)</a></li>
+                         <li><a href="https://x.com/web3PHC" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors flex items-center gap-2">Twitter (X) <XIcon className="w-3 h-3"/></a></li>
                         <li><a href="https://chat.whatsapp.com/CzhYZkaOySi9U1zfifXbbu?mode=gi_c" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">WhatsApp</a></li>
                     </ul>
                 </div>
+
 
                 <div>
                     <h4 className="font-bold text-white mb-6">Resources</h4>
@@ -34,14 +36,14 @@ const FooterNav = () => {
                     </ul>
                 </div>
 
-                 <div>
+                 {/* <div>
                     <h4 className="font-bold text-white mb-6">Legal</h4>
                     <ul className="space-y-4 text-sm text-zinc-400">
                         <li><span className="cursor-not-allowed opacity-50">Privacy Policy</span></li>
                         <li><span className="cursor-not-allowed opacity-50">Terms of Service</span></li>
                          <li><span className="cursor-not-allowed opacity-50">Cookie Preferences</span></li>
                     </ul>
-                </div>
+                </div> */}
             </div>
 
             {/* Bottom - Massive Logo */}
