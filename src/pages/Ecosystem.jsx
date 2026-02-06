@@ -357,12 +357,14 @@ const Ecosystem = () => {
              <p className="text-zinc-400 mb-8 max-w-xl mx-auto relative z-10">
                 Join the growing Web3PHC ecosystem. List your project to get discovered by builders, investors, and community members.
              </p>
-             <Link 
-              to="/ecosystem/add" 
+             <a 
+              href="https://docs.google.com/forms/d/e/1FAIpQLScyU7PsF8zWkmuSce2nW2IP0IAiLNkcqaxd2-BHZvBm6H2q1Q/viewform?usp=publish-editor"
+              target="_blank"
+              rel="noopener noreferrer" 
               className="relative z-10 btn inline-flex items-center gap-2 transform hover:scale-105 transition-transform shadow-lg shadow-brand-primary/25"
             >
               Add Your Project <FaArrowRight />
-            </Link>
+            </a>
         </div>
       </div>
     </div>
