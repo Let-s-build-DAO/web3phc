@@ -53,7 +53,13 @@ const TESTIMONIALS = [
     image: "/images/onyeka.jpg", 
     handle: "@onyekaekwemozor" 
   },
-  
+  { 
+    quote: "Web3PH is a groundbreaking initiative shaping the future of blockchain and decentralized technology. From Port Harcourt, I’ve seen how this ecosystem can empower communities, unlock new opportunities, and redefine the way we engage with digital ownership and collaboration.", 
+    name: "Precious Micah", 
+    role: "Founder, Straqa", 
+    image: "/images/precious.jpg", 
+    handle: "@Preciousrmicah" 
+  },  
 ];
 
 const PARTNER_LOGOS = [
@@ -103,8 +109,8 @@ const Home = () => {
                 <a href="https://t.me/web3portharcourt" target="_blank" rel="noopener noreferrer" className="btn shadow-lg shadow-brand-primary/20 min-w-[180px] justify-center text-center">
                   Follow Who Know Road
                 </a>
-                <Link to="/conference" className="btn-outline btn inline-flex items-center justify-center gap-2 min-w-[180px] text-center">
-                  Conference 2026 <FaLongArrowAltRight />
+                <Link to="/reconfig" className="btn-outline btn inline-flex items-center justify-center gap-2 min-w-[180px] text-center">
+                  Re:Config 2026 <FaLongArrowAltRight />
                 </Link>
               </motion.div>
             </motion.div>
@@ -273,7 +279,7 @@ const Home = () => {
             ))}
           </div>
           <div className="flex justify-center mt-12">
-            <Link to="/conference" className="btn-outline btn inline-flex items-center gap-2 px-8 py-3">
+            <Link to="/reconfig" className="btn-outline btn inline-flex items-center gap-2 px-8 py-3">
               Lap this Unit!! <FaLongArrowAltRight />
             </Link>
           </div>
@@ -324,11 +330,11 @@ const Home = () => {
         <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-brand-primary/10 via-transparent to-transparent pointer-events-none" />
         <div className="custom-container text-center max-w-3xl mx-auto relative z-10">
           <div className="inline-block px-4 py-1 rounded-full border border-brand-primary/30 bg-black/50 backdrop-blur-md mb-6">
-               <p className="text-brand-primary font-bold text-xs uppercase tracking-[0.2em]">Web3PHC Conference</p>
+               <p className="text-brand-primary font-bold text-xs uppercase tracking-[0.2em]">Web3PHC Re:Config</p>
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6 tracking-tight">December 5th, 2026</h2>
           <p className="text-zinc-300 text-lg mb-10 max-w-xl mx-auto">Our flagship conference bringing together builders, projects, and partners from across Rivers State and beyond.</p>
-          <Link to="/conference" className="btn inline-flex items-center gap-2 transform hover:scale-105 transition-transform">
+          <Link to="/reconfig" className="btn inline-flex items-center gap-2 transform hover:scale-105 transition-transform">
             Learn More <FaLongArrowAltRight />
           </Link>
         </div>

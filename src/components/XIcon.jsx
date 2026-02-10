@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 const XIcon = ({ className = "w-4 h-4" }) => (
   <svg 

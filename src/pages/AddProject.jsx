@@ -15,7 +15,7 @@ const AddProject = () => {
             Submit Your Project
           </motion.h1>
           <p className="text-zinc-400 text-lg mb-8">
-            This page is currently under construction. Soon you'll be able to self-list your project here.
+            This page is currently under construction. Soon you&apos;ll be able to self-list your project here.
           </p>
        </div>
     </div>

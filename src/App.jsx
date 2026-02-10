@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import HeaderNav from "./components/HeaderNav";
 import FooterNav from "./components/FooterNav";
-import Conference from "./pages/Conference";
+import ReConfig from "./pages/ReConfig";
 import Ecosystem from "./pages/Ecosystem";
 import AddProject from "./pages/AddProject";
 
@@ -29,7 +29,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/ecosystem" element={<Ecosystem />} />
             <Route path="/ecosystem/add" element={<AddProject />} />
-            <Route path="/conference" element={<Conference />} />
+            <Route path="/ecosystem/add" element={<AddProject />} />
+            <Route path="/reconfig" element={<ReConfig />} />
+            <Route path="/conference" element={<Navigate to="/reconfig" replace />} />
             <Route path="/hackathon" element={<Navigate to="/conference" replace />} />
           </Routes>
         </main>

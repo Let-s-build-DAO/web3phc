@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Countdown from "react-countdown";
 
 // Conference: December 5th, 2026 (month 11 = December in JS)

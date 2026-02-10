@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaTelegram, FaLinkedin, FaInstagram } from "react-icons/fa";
+// import { FaInstagram } from "react-icons/fa";
 import XIcon from "./XIcon";
 
 const FooterNav = () => {
@@ -30,8 +30,8 @@ const FooterNav = () => {
                 <div>
                     <h4 className="font-bold text-white mb-6">Resources</h4>
                     <ul className="space-y-4 text-sm text-zinc-400">
-                        <li><Link to="/conference" className="hover:text-brand-primary transition-colors">Conference 2026</Link></li>
-                        <li><a href="https://labs.lbdao.xyz/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">Let's Build Labs</a></li>
+                        <li><Link to="/reconfig" className="hover:text-brand-primary transition-colors">Re:Config 2026</Link></li>
+                        <li><a href="https://labs.lbdao.xyz/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">Let&apos;s Build Labs</a></li>
                          <li><a href="mailto:hello@lbdao.xyz" className="hover:text-brand-primary transition-colors">Contact Support</a></li>
                     </ul>
                 </div>

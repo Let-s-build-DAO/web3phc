@@ -26,6 +26,15 @@ export default {
         "soft": "0 4px 24px -4px rgba(0,0,0,0.08)",
         "soft-lg": "0 12px 40px -8px rgba(0,0,0,0.12)",
       },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 25s linear infinite',
+      },
     },
     screens: {
       sm: { max: "700px" },

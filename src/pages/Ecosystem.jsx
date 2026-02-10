@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaSearch, FaTelegram, FaGlobe, FaArrowRight } from "react-icons/fa";
 import XIcon from "../components/XIcon";
@@ -9,7 +9,7 @@ const ECOSYSTEM_DATA = [
     id: "lb-dao",
     name: "LB DAO",
     category: "Communities",
-    description: "A community-driven organization focused on building the Web3 ecosystem in Port Harcourt.",
+    description: "LB DAO’s mission is to power sustainable Web3 adoption by combining data intelligence, funding, and community support for builders and founders worldwide especially in emerging markets.",
     logo: "/projects/lbdao.jpg",
     website: "https://www.lbdao.xyz/",
     twitter: "https://x.com/letsbuild_dao",
@@ -27,6 +27,28 @@ const ECOSYSTEM_DATA = [
     telegram: "https://t.me/letsbuilddaocommunity",
     tags: ["Education", "Builder", "Contributor"],
   },
+  {
+    id: "soll-network",
+    name: "The Soll Network",
+    category: "Communities",
+    description: "The Soll Network is an initiative focused on adoption, education, and collaboration for a sustainable world.",
+    logo: "/projects/soll.png", // Using same logo for now as placeholder or if generic
+    website: "https://x.com/thesollnetwork_",
+    twitter: "https://x.com/thesollnetwork_",
+    telegram: "https://x.com/thesollnetwork_",
+    tags: ["Community", "Builder", "Contributor"],
+  },
+  {
+    id: "lamba-card",
+    name: "LambaCard",
+    category: "Projects",
+    description: "Cushioning the effect of inflation by rewarding brand customers limited crypto asset when they buy a product or service",
+    logo: "/projects/lamba.png", // Using same logo for now as placeholder or if generic
+    website: "https://card.lambatoken.com/",
+    twitter: "https://x.com/lambatoken",
+    telegram: "N/A",
+    tags: ["Projects", "Builder", "Contributor"],
+  },
 ];
 
 const FEATURED_ITEMS = [
@@ -34,7 +56,7 @@ const FEATURED_ITEMS = [
     id: 1,
     title: "LB DAO",
     subtitle: "Featured Community",
-    description: "The premier builder community in South-South Nigeria. Incubating projects, hosting hackathons, and connecting talent.",
+    description: "LB DAO’s mission is to power sustainable Web3 adoption by combining data intelligence, funding, and community support for builders and founders worldwide especially in emerging markets.",
     image: "/projects/lbdao.jpg",
     link: "https://www.lbdao.xyz/",
     cta: "Join Community",

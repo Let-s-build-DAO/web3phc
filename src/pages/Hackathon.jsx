@@ -148,7 +148,7 @@ const Hackathon = () => {
             <img
               src="/images/event1.png"
               alt=""
-              srcset=""
+              srcSet=""
               className="w-[100px] lg:w-[180px]"
             />
             <h3 className="text-sm lg:text-xl font-bold text-[#FFF8B9]">
@@ -167,7 +167,7 @@ const Hackathon = () => {
             <img
               src="/images/event2.png"
               alt=""
-              srcset=""
+              srcSet=""
               className="w-[100px] lg:w-[180px]"
             />
             <h3 className="text-sm lg:text-xl font-bold text-[#070600]">
@@ -181,7 +181,7 @@ const Hackathon = () => {
             <img
               src="/images/event3.png"
               alt=""
-              srcset=""
+              srcSet=""
               className="w-[100px] lg:w-[180px]"
             />
             <h3 className="text-sm font-bold text-[#070600] lg:text-xl">
@@ -195,7 +195,7 @@ const Hackathon = () => {
             <img
               src="/images/event4.png"
               alt=""
-              srcset=""
+              srcSet=""
               className="w-[100px] lg:w-[180px]"
             />
             <h3 className="text-sm  lg:text-xl font-bold text-[#070600]">

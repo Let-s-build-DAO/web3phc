@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { to: "/#impact", label: "Impact" },
   { to: "/#tribe", label: "Tribe" },
   { to: "/ecosystem", label: "Ecosystem" },
-  { to: "/conference", label: "Conference" },
+  { to: "/reconfig", label: "Re:Config" },
   { to: "/#hello", label: "Say Hello" },
 ];
 
@@ -60,7 +60,7 @@ const HeaderNav = () => {
                 key={to}
                 href={to}
                 className="text-zinc-400 hover:text-white text-sm font-medium transition-colors"
-                onClick={(e) => {
+                onClick={() => {
                     // Smooth scroll for anchor links
                     if (to.startsWith("/#")) {
                         // Let default behavior handle hash or use custom scroll
