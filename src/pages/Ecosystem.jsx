@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 // import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { FaSearch, FaTelegram, FaGlobe, FaArrowRight } from "react-icons/fa";
 import XIcon from "../components/XIcon";
 
@@ -227,17 +228,35 @@ const Ecosystem = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Sort data alphabetically by name
+  const sortedData = useMemo(() => {
+    return [...ECOSYSTEM_DATA].sort((a, b) => a.name.localeCompare(b.name));
+  }, []);
+
   const filteredData = useMemo(() => {
-    return ECOSYSTEM_DATA.filter((item) => {
-      const matchesCategory = activeCategory === "All" || item.category === activeCategory;
-      const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                            item.description.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
+    return sortedData.filter((item) => {
+        const matchesCategory = activeCategory === "All" || 
+                                (item.category === activeCategory) ||
+                                (activeCategory === "Communities" && item.tags.includes("Community")) ||
+                                (activeCategory === "Projects" && item.tags.includes("Projects"));
+        
+        const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              item.description.toLowerCase().includes(searchQuery.toLowerCase());
+
+        return matchesCategory && matchesSearch;
     });
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory, searchQuery, sortedData]);
 
   return (
     <div className="min-h-screen pt-20 pb-24 relative overflow-hidden">
+      <Helmet>
+        <title>Ecosystem | Web3PHC</title>
+        <meta name="description" content="Discover the thriving communities, innovative projects, and events shaping the Web3 landscape in the South-South." />
+        <meta property="og:title" content="Ecosystem | Web3PHC" />
+        <meta property="og:description" content="Discover the thriving communities, innovative projects, and events shaping the Web3 landscape in the South-South." />
+        <meta property="og:image" content="/thumb.JPG" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       {/* Background Blobs */}
       <div className="glow-blob w-[500px] h-[500px] bg-brand-primary/10 top-0 left-[-200px] blur-[120px]" />
       <div className="glow-blob w-[500px] h-[500px] bg-purple-900/10 bottom-0 right-[-200px] blur-[120px]" />

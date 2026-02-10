@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { FaGlobe, FaCode, FaArrowRight, FaCalendarAlt, FaUsers } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 
@@ -9,6 +10,15 @@ const ReConfig = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Re:Config Pitakwa | Web3PHC</title>
+        <meta name="description" content="The Largest Gathering of Builders & Creators in the South-South. 12 Days of Code, Culture, and Capital in the Oil & Gas Capital." />
+        <meta property="og:title" content="Re:Config Pitakwa | Web3PHC" />
+        <meta property="og:description" content="The Largest Gathering of Builders & Creators in the South-South. 12 Days of Code, Culture, and Capital in the Oil & Gas Capital." />
+        <meta property="og:image" content="/thumb.JPG" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
       {/* GLOBAL NOISE TEXTURE */}
       <div className="fixed inset-0 pointer-events-none z-50 opacity-[0.03] mix-blend-overlay" 
            style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}>
@@ -52,7 +62,7 @@ const ReConfig = () => {
                        The Largest Gathering of <span className="text-brand-primary">Builders & Creators</span> in the South-South.
                    </h2>
                    <p className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed mb-10 max-w-2xl">
-                       The sleeper network is awake. A 12-day convergence of 5,000+ active builders ready to deploy on your protocol. We are the engine room of Nigeria’s next crypto wave.
+                       The sleeper network is awake. A 12-day convergence of 1,200+ active builders ready to deploy on your protocol. We are the engine room of Nigeria’s next crypto wave.
                    </p>
                </motion.div>
 
