@@ -1,7 +1,36 @@
-import { motion } from "framer-motion";
+import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { FaGlobe, FaCode, FaArrowRight, FaCalendarAlt, FaUsers } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
+import { useEffect, useRef } from "react";
+
+const Counter = ({ from = 0, to, duration = 2, suffix = "" }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+  
+  // Use a spring for smoother animation
+  const springValue = useSpring(from, {
+    mass: 1,
+    stiffness: 75,
+    damping: 15,
+    duration: duration * 1000
+  });
+
+  const displayValue = useTransform(springValue, (current) => {
+    // Round to whole numbers
+    const rounded = Math.round(current);
+    // Format based on magnitude (e.g., 1200 -> 1,200)
+    return rounded.toLocaleString() + suffix;
+  });
+
+  useEffect(() => {
+    if (inView) {
+      springValue.set(to);
+    }
+  }, [inView, to, springValue]);
+
+  return <motion.span ref={ref}>{displayValue}</motion.span>;
+};
 
 const ReConfig = () => {
   // Animation Variants
@@ -84,20 +113,28 @@ const ReConfig = () => {
          <div className="custom-container">
              <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center md:text-left">
                  <div className="flex flex-col border-l-4 border-brand-primary pl-6">
-                     <span className="text-5xl md:text-7xl font-black tracking-tighter mb-2">1,200+</span>
+                     <span className="text-5xl md:text-7xl font-black tracking-tighter mb-2">
+                        <Counter from={0} to={1200} suffix="+" />
+                     </span>
                      <span className="text-sm font-bold uppercase tracking-widest text-zinc-500">Active Builders</span>
                  </div>
                  <div className="flex flex-col border-l-4 border-black pl-6">
-                     <span className="text-5xl md:text-7xl font-black tracking-tighter mb-2">20+</span>
+                     <span className="text-5xl md:text-7xl font-black tracking-tighter mb-2">
+                        <Counter from={0} to={20} suffix="+" />
+                     </span>
                      <span className="text-sm font-bold uppercase tracking-widest text-zinc-500">Projects</span>
                  </div>
                  <div className="flex flex-col border-l-4 border-black pl-6">
-                     <span className="text-5xl md:text-7xl font-black tracking-tighter mb-2">12</span>
-                     <span className="text-sm font-bold uppercase tracking-widest text-zinc-500">Days of Code</span>
+                     <span className="text-5xl md:text-7xl font-black tracking-tighter mb-2">
+                        <Counter from={0} to={12} />
+                     </span>
+                     <span className="text-sm font-bold uppercase tracking-widest text-zinc-500">Days of innovation</span>
                  </div>
                  <div className="flex flex-col border-l-4 border-black pl-6">
-                     <span className="text-5xl md:text-7xl font-black tracking-tighter mb-2">$10k+</span>
-                     <span className="text-sm font-bold uppercase tracking-widest text-zinc-500">Total Value</span>
+                     <span className="text-5xl md:text-7xl font-black tracking-tighter mb-2">
+                        $<Counter from={0} to={50} suffix="k+" />
+                     </span>
+                     <span className="text-sm font-bold uppercase tracking-widest text-zinc-500">Total Valuation</span>
                  </div>
              </div>
          </div>
@@ -113,7 +150,7 @@ const ReConfig = () => {
                       <span className="text-zinc-600">TALENT MINE.</span>
                   </h3>
                   <p className="text-xl text-zinc-400 font-light leading-relaxed mb-8">
-                      Pitakwa is hungry. With 5 major universities and a thriving network of active DAOs, we are the engine room of Nigeria’s next crypto wave.
+                      Pitakwa is hungry. With 6 higher institutions and a thriving network of active DAOs, we are the engine room of Nigeria’s next crypto wave.
                   </p>
                    <p className="text-xl text-zinc-400 font-light leading-relaxed mb-12">
                       Don&apos;t just sponsor an event. Onboard a movement. The builders here aren&apos;t just looking for swag; they represent your next 10,000 active users.
@@ -203,7 +240,7 @@ const ReConfig = () => {
                       <FaUsers size={32} className="skew-x-[10deg]" />
                    </div>
                    <h3 className="text-2xl font-bold text-black mb-4">The Builder Density</h3>
-                   <p className="text-zinc-600 leading-relaxed">Home to the largest concentration of technical talent. We have 5 major universities within a 20km radius. We don&apos;t just trade; we build.</p>
+                   <p className="text-zinc-600 leading-relaxed">Home to the largest concentration of technical talent. We have 6 higher institutions within a 20km radius. We don&apos;t just trade; we build.</p>
                 </div>
                 <div className="group">
                     <div className="w-16 h-16 bg-purple-500/10 flex items-center justify-center rounded-none mb-6 text-purple-500 skew-x-[-10deg]">
@@ -223,7 +260,80 @@ const ReConfig = () => {
          </div>
       </section>
 
-      {/* 6. SPONSORSHIP (CLOSE) */}
+      {/* 6. PAST EDITIONS / GALLERY (NEW) */}
+      <section className="py-24 bg-zinc-950 border-b border-white/10 relative">
+          <div className="custom-container">
+               <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                   <div>
+                       <h2 className="text-sm font-bold text-brand-primary uppercase tracking-widest mb-4">Past Editions</h2>
+                       <h3 className="text-4xl md:text-5xl font-black text-white">HISTORY BEING MADE.</h3>
+                   </div>
+                   <div className="hidden md:block w-32 h-1 bg-white/20"></div>
+               </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    {/* Main highlight image - big */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="md:col-span-2 relative h-64 md:h-96 bg-zinc-900 overflow-hidden rounded-sm group"
+                    >
+                         <div className="absolute inset-0 bg-[url('/images/242.JPG')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+                         <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                    </motion.div>
+
+                    {/* Secondary image */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="relative h-64 md:h-96 bg-zinc-900 overflow-hidden rounded-sm group"
+                    >
+                         <div className="absolute inset-0 bg-[url('/images/243.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+                         <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                    </motion.div>
+
+                    {/* Grid of smaller images */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                        className="relative h-64 bg-zinc-900 overflow-hidden rounded-sm group"
+                    >
+                         <div className="absolute inset-0 bg-[url('/images/244.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+                         <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                    </motion.div>
+
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4 }}
+                        className="relative h-64 bg-zinc-900 overflow-hidden rounded-sm group"
+                    >
+                         <div className="absolute inset-0 bg-[url('/images/245.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+                         <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                    </motion.div>
+
+                     <motion.div 
+                         initial={{ opacity: 0, y: 20 }}
+                         whileInView={{ opacity: 1, y: 0 }}
+                         viewport={{ once: true }}
+                         transition={{ delay: 0.5 }}
+                         className="relative h-64 bg-zinc-900 overflow-hidden rounded-sm group"
+                     >
+                          <div className="absolute inset-0 bg-[url('/images/246.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+                          <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                     </motion.div>
+                </div>
+          </div>
+      </section>
+
+      {/* 7. SPONSORSHIP (CLOSE) */}
       <section className="py-32 relative overflow-hidden bg-zinc-950 text-white text-center">
          <div className="custom-container relative z-10">
              <h2 className="text-5xl lg:text-8xl font-black text-white mb-8 tracking-tighter">JOIN THE MOVEMENT.</h2>

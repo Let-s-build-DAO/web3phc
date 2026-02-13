@@ -40,6 +40,13 @@ const TESTIMONIALS = [
     handle: "@iamcharddo" 
   },
   { 
+    quote: "Witnessing a platform like Web3 Port Harcourt do what it does is like a breathe of fresh Air to the Web3 Ecosystem across the South-Southern part of Nigeria.There's so much that can happen when Web3 Enthusiasts, Professionals, communities, Project founders and investors all converge. Looking forward to what lies ahead of this great initiative.", 
+    name: "Jehu Oreri", 
+    role: "Web3 Business developer", 
+    image: "/images/jehu.png", 
+    handle: "@JehuTech" 
+  },  
+  { 
     quote: "I’m grateful to be part of a community that believes in empowerment, collaboration, and building real solutions for Africa and the world. Web3 Port Harcourt isn’t just a community, it’s a movement.", 
     name: "Nurudeen Hamzah", 
     role: "Web3 Builder-in-Training", 

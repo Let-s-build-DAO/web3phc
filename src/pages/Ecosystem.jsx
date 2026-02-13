@@ -14,7 +14,7 @@ const ECOSYSTEM_DATA = [
     logo: "/projects/lbdao.jpg",
     website: "https://www.lbdao.xyz/",
     twitter: "https://x.com/letsbuild_dao",
-    telegram: "https://t.me/letsbuilddaocommunity",
+    telegram: "https://t.me/lbdaocommunity",
     tags: ["DAO", "Community", "Builder"],
   },
   {
@@ -25,7 +25,7 @@ const ECOSYSTEM_DATA = [
     logo: "/projects/lbdao.jpg", // Using same logo for now as placeholder or if generic
     website: "https://academy.lbdao.xyz",
     twitter: "https://x.com/letsbuild_dao",
-    telegram: "https://t.me/letsbuilddaocommunity",
+    telegram: "https://t.me/lbdaocommunity",
     tags: ["Education", "Builder", "Contributor"],
   },
   {
@@ -50,6 +50,61 @@ const ECOSYSTEM_DATA = [
     telegram: "N/A",
     tags: ["Projects", "Builder", "Contributor"],
   },
+  {
+    id: "borderless",
+    name: "Borderless",
+    category: "Education",
+    description: "We are an NGO raising youths to become relevant in the tech space.",
+    logo: "/projects/borderless.png", // Using same logo for now as placeholder or if generic
+    website: "https://borderlessbuild.dev",
+    twitter: "https://x.com/borderlessdev",
+    telegram: "https://t.me/borderlessbuilders",
+    tags: ["Education", "Builder", "Contributor"],
+  },
+  {
+    id: "slimepay",
+    name: "Slimepay",
+    category: "Projects",
+    description: "People earn globally in crypto, but accessing that money locally is slow, stressful, and unreliable. With Slimepay, users don’t log into apps, don’t request withdrawals, and don’t wait days. They simply share their wallet address, receive payment, and the money lands in their bank account instantly.We’re building a non-custodial, multi-chain off-ramp that works quietly in the background for freelancers,onchain earners, traders, and platforms. Our goal is simple: make getting paid in Africa feel as effortless as receiving a bank transfer  without sacrificing speed, privacy, or control.",
+    logo: "/projects/slime.jpeg", // Using same logo for now as placeholder or if generic
+    website: "https://slimepay.com/",
+    twitter: "https://x.com/slimepay_",
+    telegram: "https://t.me/Slimepay_finance",
+    tags: ["Projects", "Builder", "Contributor"],
+  },
+  {
+    id: "buildthefutureonchain",
+    name: "Build the Future Onchain",
+    category: "Events/Media",
+    description: "A community of creators, innovators and enthusiasts in the blockchain, AI and Crypto space.",
+    logo: "/projects/btfoc.jpeg", // Using same logo for now as placeholder or if generic
+    website: "https://www.instagram.com/buildthefutureonchain",
+    twitter: "https://x.com/buildonchain_ng",
+    telegram: "https://t.me/+032EzDuH9EdmM2Jk",
+    tags: ["Events/Media", "Community", "Media"],
+  },
+  {
+    id: "thedao",
+    name: "The Dao Network",
+    category: "Communities",
+    description: "TDN started as a small circle of innovators who were tired of “networking communities” with no real outcomes. So we built our own — one focused on actual progress, not hype.",
+    logo: "/projects/tdn.jpg", // Using same logo for now as placeholder or if generic
+    website: "https://x.com/thedaonetwork_",
+    twitter: "https://x.com/thedaonetwork_",
+    telegram: "N/A",
+    tags: ["Communities", "Builder", "Contributor"],
+  },
+  {
+    id: "swiftransact",
+    name: "Swiftransact",
+    category: "Projects",
+    description: "A crypto-off ramp payment platform that enable users make payments directly from their non-custodial wallet without p2p or exchanges.",
+    logo: "/projects/swift.jpeg",
+    website: "https://x.com/swiftransacthq",
+    twitter: "https://x.com/swiftransacthq",
+    telegram: "https://t.me/+B1NiCLB8TnA0Y2U0",
+    tags: ["Projects", "Builder", "Contributor"],
+  },
 ];
 
 const FEATURED_ITEMS = [
@@ -61,7 +116,7 @@ const FEATURED_ITEMS = [
     image: "/projects/lbdao.jpg",
     link: "https://www.lbdao.xyz/",
     cta: "Join Community",
-    ctaLink: "https://t.me/letsbuilddaocommunity",
+    ctaLink: "https://t.me/lbdaocommunity",
     theme: "amber", // Custom theme color
     stats: [
         { label: "Members", value: "500+" },
@@ -85,7 +140,7 @@ const FEATURED_ITEMS = [
   }
 ];
 
-const CATEGORIES = ["All", "Communities", "Projects", "Education", "Events"];
+const CATEGORIES = ["All", "Communities", "Projects", "Education", "Events/Media"];
 
 import { FaChevronLeft, FaChevronRight, FaExternalLinkAlt } from "react-icons/fa";
 

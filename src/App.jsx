@@ -5,6 +5,7 @@ import FooterNav from "./components/FooterNav";
 import ReConfig from "./pages/ReConfig";
 import Ecosystem from "./pages/Ecosystem";
 import AddProject from "./pages/AddProject";
+import Analytics from "./components/Analytics";
 
 import { useState } from "react";
 import Preloader from "./components/Preloader";
@@ -21,6 +22,7 @@ function App() {
         {loading && <Preloader onComplete={() => setLoading(false)} />}
       </AnimatePresence>
       <BrowserRouter>
+        <Analytics />
         <ScrollToTop />
         <div className="bg-noise" />
         <HeaderNav />
@@ -29,7 +31,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/ecosystem" element={<Ecosystem />} />
             <Route path="/ecosystem/add" element={<AddProject />} />
-            <Route path="/ecosystem/add" element={<AddProject />} />
+            {/* Removed duplicate AddProject route */}
             <Route path="/reconfig" element={<ReConfig />} />
             <Route path="/conference" element={<Navigate to="/reconfig" replace />} />
             <Route path="/hackathon" element={<Navigate to="/conference" replace />} />
