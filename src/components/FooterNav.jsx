@@ -13,7 +13,7 @@ const FooterNav = () => {
                         <img src="/logo.png" alt="Web3PHC" className="h-10 w-auto object-contain" />
                     </Link>
                     <p className="text-zinc-500 text-sm leading-relaxed max-w-xs">
-                        Convening founders, builders, and investors to drive meaningful innovation in South-South Nigeria.
+                        Convening founders, builders, and investors to drive meaningful, borderless innovation from Port Harcourt to the world.
                     </p>
                 </div>
 

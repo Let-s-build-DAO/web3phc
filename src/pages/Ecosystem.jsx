@@ -105,6 +105,72 @@ const ECOSYSTEM_DATA = [
     telegram: "https://t.me/+B1NiCLB8TnA0Y2U0",
     tags: ["Projects", "Builder", "Contributor"],
   },
+  {
+    id: "onscript",
+    name: "Onscript",
+    category: "Projects",
+    description: "Cross posting platform that lets you post from X to farcaster, Base App, Zora, Facebook and Instagram. Posting hasn't ever felt like this.",
+    logo: "/projects/onscript.jpg",
+    website: "https://onscript.xyz/",
+    twitter: "https://x.com/Onscript_xyz",
+    telegram: "n/a",
+    tags: ["Projects", "Builder", "Contributor"],
+  },
+  {
+    id: "bitsave",
+    name: "Bitsave Protocol",
+    category: "Projects",
+    description: "Bitsave is the SaveFi protocol that helps web3 income earners save on-chain with stablecoins.",
+    logo: "/projects/bitsave.png",
+    website: "https://www.bitsave.io",
+    twitter: "https://x.com/BitsaveProtocol",
+    telegram: "https://t.me/bitsaveprotocol/1",
+    tags: ["Projects", "Builder", "Contributor"],
+  },
+  {
+    id: "streamlivr",
+    name: "Streamlivr",
+    category: "Projects",
+    description: "Livestreaming and social network for creator and fans to earn crypto and connect globally.",
+    logo: "/projects/streamlivr.png",
+    website: "https://streamlivr.com",
+    twitter: "https://x.com/streamlivr_app",
+    telegram: "https://t.me/streamlivr",
+    tags: ["Projects", "Builder", "Contributor"],
+  },
+  {
+    id: "chainconnectng",
+    name: "ChainConnectNG",
+    category: "Communities",
+    description: "ChainConnect NG is a DevRel-driven Web3 community empowering builders in South-South Nigeria through education, ecosystem partnerships, and hands-on opportunities.",
+    logo: "/projects/chainconnect.jpeg",
+    website: "https://linktr.ee/chainconnect01",
+    twitter: "https://x.com/chainconnectng",
+    telegram: "https://t.me/chainconnectng",
+    tags: ["DevRel", "Education", "Governance", "Builder", "Contributor"],
+  },
+  {
+    id: "planbok",
+    name: "Planbok",
+    category: "Projects",
+    description: "Planbok is a programmable wallet infrastructure with built in payment rails designed to help businesses easily integrated blockchain based features in treasury management, payment & payroll.",
+    logo: "/projects/planbok.png",
+    website: "https://planbok.io/",
+    twitter: "https://x.com/planbokHQ",
+    telegram: "https://t.me/+a92pNyg2g5EwYTQ8",
+    tags: ["Projects", "wallet", "infrastructure", "Builder", "Contributor"],
+  },
+  {
+    id: "byteonchainnews",
+    name: "ByteOnchain News",
+    category: "Events/Media",
+    description: "ByteOnchain News is a Web3-focused media platform amplifying blockchain innovation, projects, and opportunities across Africa, with a strong presence in Port Harcourt and the South-South ecosystem.",
+    logo: "/projects/bon.jpg",
+    website: "https://byteonchain.news",
+    twitter: "https://x.com/ByteOnchain",
+    telegram: "t.me/byteonchainnews",
+    tags: ["Media", "Builder", "Contributor"],
+  },
 ];
 
 const FEATURED_ITEMS = [
@@ -306,9 +372,9 @@ const Ecosystem = () => {
     <div className="min-h-screen pt-20 pb-24 relative overflow-hidden">
       <Helmet>
         <title>Ecosystem | Web3PHC</title>
-        <meta name="description" content="Discover the thriving communities, innovative projects, and events shaping the Web3 landscape in the South-South." />
+        <meta name="description" content="Discover the communities, projects, and events driving borderless Web3 innovation from Port Harcourt to the world." />
         <meta property="og:title" content="Ecosystem | Web3PHC" />
-        <meta property="og:description" content="Discover the thriving communities, innovative projects, and events shaping the Web3 landscape in the South-South." />
+        <meta property="og:description" content="Discover the communities, projects, and events driving borderless Web3 innovation from Port Harcourt to the world." />
         <meta property="og:image" content="/thumb.JPG" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
@@ -342,7 +408,7 @@ const Ecosystem = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-zinc-400 text-lg leading-relaxed mb-8"
           >
-            Discover the thriving communities, innovative projects, and events shaping the Web3 landscape in the South-South.
+            Discover the global convergence of communities, innovative projects, and events driving borderless Web3 innovation.
           </motion.p>
           
         </div>

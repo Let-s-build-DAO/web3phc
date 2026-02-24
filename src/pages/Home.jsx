@@ -20,9 +20,9 @@ const IMPACT_METRICS = [
 ];
 
 const STRATEGIC_PILLARS = [
-  { title: "Ecosystem Visibility & Mapping", description: "We actively spotlight Web3 communities, startups, and builder groups. By documenting who is building what, we turn fragmented efforts into a discoverable ecosystem for global investors and protocols." },
-  { title: "Curated Gatherings", description: "We create intentional spaces—from mixers and founder roundtables to our flagship conference—designed for shared knowledge, deal flow, and real collaboration among builders and operators." },
-  { title: "Physical Infrastructure", description: "We are establishing a physical blockchain hub in Port Harcourt—a home for builders to work, learn, and experiment. This creates continuity between events and ensures long-term ecosystem growth." },
+  { title: "Ecosystem Visibility & Mapping", description: "We actively index and spotlight the deep pool of Web3 communities, startups, and builder groups alongside borderless projects. By rigorously documenting who is building what, we translate local talent into a discoverable hub for international investors and protocols." },
+  { title: "Curated Gatherings & Builder Experiences", description: "We create high-signal environments where builders, founders, and global operators meet with exact purpose. From hackathons to flagship conferences, our spaces are designed to move straight into deep collaboration, learning, and deal flow." },
+  { title: "Physical Infrastructure for Web3 Builders", description: "We are establishing a permanent, world-class blockchain hub in Port Harcourt as the engine room for borderless innovation. By equipping early-stage teams with mentorship and resources, we ensure Port Harcourt remains a high-yielding node on the global Web3 map." },
 ];
 
 const TESTIMONIALS = [
@@ -110,7 +110,7 @@ const Home = () => {
                 <span className="text-gradient-gold">To The World.</span>
               </motion.h1>
               <motion.p className="text-zinc-400 text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mbrand-secondary pb-5" variants={item}>
-                <strong>Web3 Port Harcourt</strong> is the gateway to top Web3 builders, founders, creators, and communities across Rivers State and the South-South region of Nigeria.
+                <strong>Web3 Port Harcourt</strong> is a global convergence point for founders, builders, investors, and ecosystem leaders. Anchored in Port Harcourt. Scaling borderless innovation to the rest of the world.
               </motion.p>
               <motion.div className="flex flex-wrap gap-4 justify-center lg:justify-start" variants={item}>
                 <a href="https://t.me/web3portharcourt" target="_blank" rel="noopener noreferrer" className="btn shadow-lg shadow-brand-primary/20 min-w-[180px] justify-center text-center">
@@ -174,7 +174,7 @@ const Home = () => {
          <div className="glow-blob w-[500px] h-[500px] bg-purple-900/10 top-1/2 left-[-200px] blur-[120px]" />
         <div className="custom-container relative z-10">
           <h2 className="section-title">Our Mission</h2>
-          <p className="section-subtitle mb-12">We don&apos;t just convene conversations—we build the infrastructure that allows Web3 talent to grow.</p>
+          <p className="section-subtitle mb-12">We don&apos;t just convene conversations—we build the foundational infrastructure that allows our tech talent to seamlessly integrate with the global digital economy.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {STRATEGIC_PILLARS.map((p, i) => (
               <div key={p.title} className="card group flex flex-col h-full hover:border-brand-primary/30">
@@ -273,7 +273,7 @@ const Home = () => {
         <div className="custom-container relative z-10">
           <h2 className="section-title">Join The Tribe</h2>
           <h3 className="text-lg font-semibold text-zinc-500 text-center mb-2">Join a Vibrant Community</h3>
-          <p className="section-subtitle mb-12">Connect with Web3 enthusiasts, builders, and innovators across South-South, Nigeria.</p>
+          <p className="section-subtitle mb-12">Connect with a global network of Web3 enthusiasts, builders, and innovators.</p>
           <div className="flex flex-col md:grid md:grid-cols-3 gap-6 lg:gap-8 max-w-3xl mx-auto">
             {COMMUNITY_LINKS.map(({ href, label, Icon, sub }) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="card block w-full text-center hover:bg-brand-primary/10 hover:border-brand-primary/40 transition-all group p-6">
@@ -339,7 +339,7 @@ const Home = () => {
           <div className="inline-block px-4 py-1 rounded-full border border-brand-primary/30 bg-black/50 backdrop-blur-md mb-6">
                <p className="text-brand-primary font-bold text-xs uppercase tracking-[0.2em]">Web3PHC Re:Config</p>
           </div>
-          <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6 tracking-tight">December 5th, 2026</h2>
+          <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6 tracking-tight">October 24th, 2026</h2>
           <p className="text-zinc-300 text-lg mb-10 max-w-xl mx-auto">Our flagship conference bringing together builders, projects, and partners from across Rivers State and beyond.</p>
           <Link to="/reconfig" className="btn inline-flex items-center gap-2 transform hover:scale-105 transition-transform">
             Learn More <FaLongArrowAltRight />

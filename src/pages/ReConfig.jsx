@@ -41,9 +41,9 @@ const ReConfig = () => {
     <>
       <Helmet>
         <title>Re:Config Pitakwa | Web3PHC</title>
-        <meta name="description" content="The Largest Gathering of Builders & Creators in the South-South. 12 Days of Code, Culture, and Capital in the Oil & Gas Capital." />
+        <meta name="description" content="A global convergence point for builders & creators. 8 Days of Code, Culture, and Capital driving borderless innovation." />
         <meta property="og:title" content="Re:Config Pitakwa | Web3PHC" />
-        <meta property="og:description" content="The Largest Gathering of Builders & Creators in the South-South. 12 Days of Code, Culture, and Capital in the Oil & Gas Capital." />
+        <meta property="og:description" content="A global convergence point for builders & creators. 8 Days of Code, Culture, and Capital driving borderless innovation." />
         <meta property="og:image" content="/thumb.JPG" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
@@ -71,7 +71,7 @@ const ReConfig = () => {
                {/* Date & Location Label (EthCC Style: Top Left or distinct) */}
                <motion.div variants={item} className="mb-6 flex flex-col md:flex-row md:items-center gap-4 text-zinc-400 font-mono text-sm md:text-base tracking-widest uppercase border-l-2 border-brand-primary pl-4">
                    <div className="flex items-center gap-2">
-                       <FaCalendarAlt className="text-white" /> Oct 13 – 24, 2026
+                       <FaCalendarAlt className="text-white" /> Oct 17 – 24, 2026
                    </div>
                    <span className="hidden md:block text-zinc-600">|</span>
                    <div className="flex items-center gap-2">
@@ -88,10 +88,10 @@ const ReConfig = () => {
                {/* Positive Value Prop (Builder Focused) */}
                <motion.div variants={item} className="max-w-3xl">
                    <h2 className="text-2xl md:text-4xl text-white font-bold mb-6 leading-tight">
-                       The Largest Gathering of <span className="text-brand-primary">Builders & Creators</span> in the South-South.
+                       A Global Convergence Point for <span className="text-brand-primary">Builders & Creators</span>.
                    </h2>
                    <p className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed mb-10 max-w-2xl">
-                       The sleeper network is awake. A 12-day convergence of 1,200+ active builders ready to deploy on your protocol. We are the engine room of Nigeria’s next crypto wave.
+                       An 8-day convergence of 1,200+ active builders ready to deploy on your protocol. We are the engine room for borderless innovation.
                    </p>
                </motion.div>
 
@@ -126,7 +126,7 @@ const ReConfig = () => {
                  </div>
                  <div className="flex flex-col border-l-4 border-black pl-6">
                      <span className="text-5xl md:text-7xl font-black tracking-tighter mb-2">
-                        <Counter from={0} to={12} />
+                        <Counter from={0} to={8} />
                      </span>
                      <span className="text-sm font-bold uppercase tracking-widest text-zinc-500">Days of innovation</span>
                  </div>
@@ -150,10 +150,10 @@ const ReConfig = () => {
                       <span className="text-zinc-600">TALENT MINE.</span>
                   </h3>
                   <p className="text-xl text-zinc-400 font-light leading-relaxed mb-8">
-                      Pitakwa is hungry. With 6 higher institutions and a thriving network of active DAOs, we are the engine room of Nigeria’s next crypto wave.
+                      Port Harcourt is the cultural and technical heartbeat of the South-South—anchored by at least 6 higher institutions and a builder density that is aggressively hungry for scale. We aren&apos;t just building for the local neighborhood; our founders are engineering dApps and startups designed to serve both local needs and global markets from Day One.
                   </p>
-                   <p className="text-xl text-zinc-400 font-light leading-relaxed mb-12">
-                      Don&apos;t just sponsor an event. Onboard a movement. The builders here aren&apos;t just looking for swag; they represent your next 10,000 active users.
+                  <p className="text-xl text-zinc-400 font-light leading-relaxed mb-12">
+                      We don&apos;t chase visibility; we deliver traction. By spotlighting these high-output teams, we make it effortless for global investors and protocols to discover builders who are solving real-world problems with borderless ambitions. The builders here aren&apos;t waiting for permission—they are shipping scalable code. Partnering with Re:Config means onboarding a pipeline of talent that is ready to service the world.
                   </p>
                   {/* <a href="#" className="inline-flex items-center gap-2 text-white border-b border-brand-primary pb-1 hover:text-brand-primary transition-colors font-bold uppercase tracking-widest text-sm">
                       Read the Manifesto <FaArrowRight />
@@ -165,8 +165,8 @@ const ReConfig = () => {
                   
                   {/* Floating Badge */}
                   <div className="absolute bottom-8 right-8 bg-black/80 backdrop-blur-xl p-8 border-l-4 border-brand-primary max-w-sm shadow-2xl">
-                       <p className="text-white text-xl md:text-2xl font-black leading-tight italic">&quot;The energy in Pitakwa is different. It&apos;s raw, it&apos;s hungry, and it&apos;s ready.&quot;</p>
-                       <div className="mt-6 text-sm text-brand-primary font-mono uppercase tracking-widest font-bold">Great Adams — Lead Web3PHC</div>
+                       <p className="text-white text-xl md:text-2xl font-black leading-tight italic">&quot;It&apos;s raw in Ph, the energy, passion, and drive. And now it&apos;s globally connected.&quot;</p>
+                       <div className="mt-6 text-sm text-brand-primary font-mono uppercase tracking-widest font-bold"><a href="https://x.com/greatAdams01" target="_blank" rel="noopener noreferrer" className="hover:underline">Great Adams</a> — Lead Web3PH</div>
                   </div>
               </div>
           </div>
@@ -186,10 +186,10 @@ const ReConfig = () => {
              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                 {/* Track 1: BUILD */}
                 <div className="group border-t-2 border-white/20 pt-8 hover:border-brand-primary transition-colors">
-                    <div className="text-xs font-bold text-zinc-500 mb-4 uppercase tracking-widest">Oct 13 – 22</div>
+                    <div className="text-xs font-bold text-zinc-500 mb-4 uppercase tracking-widest">Oct 17 – 22</div>
                     <h4 className="text-3xl font-black text-white mb-4 group-hover:text-brand-primary transition-colors">BUILD.</h4>
                     <p className="text-zinc-400 leading-relaxed mb-8">
-                        **The Garden City Residency.**<br/> 50 elite builders living together. 10 days of deep work. Protocol bootcamps. Shipping MVPs that solve real problems.
+                        <span className="text-white font-bold uppercase">The Garden City Residency.</span><br/> 30 elite builders living together. 6 days of deep work. Protocol bootcamps. Shipping MVPs that solve real problems.
                     </p>
                     <ul className="space-y-2 text-sm text-zinc-500">
                         <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-brand-primary"></div> Hacker House</li>
@@ -200,10 +200,10 @@ const ReConfig = () => {
 
                 {/* Track 2: LEARN */}
                 <div className="group border-t-2 border-white/20 pt-8 hover:border-purple-500 transition-colors">
-                    <div className="text-xs font-bold text-zinc-500 mb-4 uppercase tracking-widest">Oct 13 – 23</div>
+                    <div className="text-xs font-bold text-zinc-500 mb-4 uppercase tracking-widest">Oct 17 – 23</div>
                     <h4 className="text-3xl font-black text-white mb-4 group-hover:text-purple-500 transition-colors">LEARN.</h4>
                     <p className="text-zinc-400 leading-relaxed mb-8">
-                        **The Pop-Up City.**<br/> An open innovation hub for everyone. Daily workshops on DeFi, Governance, and Creative Tech. Onboarding the next 10,000.
+                        <span className="text-white font-bold uppercase">The Pop-Up City.</span><br/> An open innovation hub for everyone. Daily workshops on DeFi, Governance, and Creative Tech. Onboarding the next 10,000.
                     </p>
                     <ul className="space-y-2 text-sm text-zinc-500">
                         <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-purple-500"></div> Workshops</li>
@@ -217,7 +217,7 @@ const ReConfig = () => {
                     <div className="text-xs font-bold text-zinc-500 mb-4 uppercase tracking-widest">Oct 24</div>
                     <h4 className="text-3xl font-black text-white mb-4 group-hover:text-green-500 transition-colors">CONNECT.</h4>
                     <p className="text-zinc-400 leading-relaxed mb-8">
-                        **The Summit.**<br/> The grand finale. High-level panels with global leaders, government officials, and VCs. Ending with the "Garden City Glow" afterparty.
+                        <span className="text-white font-bold uppercase">The Summit.</span><br/> The grand finale. High-level panels with global leaders, government officials, and VCs. Ending with the "Garden City Glow" afterparty.
                     </p>
                     <ul className="space-y-2 text-sm text-zinc-500">
                         <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-green-500"></div> Main Stage</li>
@@ -240,27 +240,87 @@ const ReConfig = () => {
                       <FaUsers size={32} className="skew-x-[10deg]" />
                    </div>
                    <h3 className="text-2xl font-bold text-black mb-4">The Builder Density</h3>
-                   <p className="text-zinc-600 leading-relaxed">Home to the largest concentration of technical talent. We have 6 higher institutions within a 20km radius. We don&apos;t just trade; we build.</p>
+                   <p className="text-zinc-600 leading-relaxed">Home to one of the largest concentrations of technical talent in West Africa. With at least 6 higher institutions within a 20km radius, our builders are designing scalable, borderless protocols that serve the world.</p>
                 </div>
                 <div className="group">
                     <div className="w-16 h-16 bg-purple-500/10 flex items-center justify-center rounded-none mb-6 text-purple-500 skew-x-[-10deg]">
                       <FaCode size={32} className="skew-x-[10deg]" />
                    </div>
                    <h3 className="text-2xl font-bold text-black mb-4">The Talent Pipeline</h3>
-                   <p className="text-zinc-600 leading-relaxed">From zero-to-one. Our ecosystem is a factory for shipping products. The &quot;Treasure Base&quot; of human capital is ready to build the next unicorn.</p>
+                   <p className="text-zinc-600 leading-relaxed">From zero-to-one. Our ecosystem is a global factory for shipping products. We are organizing a world-class pipeline of founders ready to scale borderless solutions.</p>
                 </div>
                 <div className="group">
                     <div className="w-16 h-16 bg-green-500/10 flex items-center justify-center rounded-none mb-6 text-green-500 skew-x-[-10deg]">
                       <FaGlobe size={32} className="skew-x-[10deg]" />
                    </div>
                    <h3 className="text-2xl font-bold text-black mb-4">The Cultural Heartbeat</h3>
-                   <p className="text-zinc-600 leading-relaxed">From Afrobeats to Highlife, we export culture. We represent the Ownership Economy—giving artists tools to own their future on-chain.</p>
+                   <p className="text-zinc-600 leading-relaxed">From art to technology, we export culture globally. We represent the borderless Ownership Economy—giving creators tools to own and scale their future on-chain.</p>
                 </div>
              </div>
          </div>
       </section>
 
-      {/* 6. PAST EDITIONS / GALLERY (NEW) */}
+      {/* 6. FOR BUSINESSES: THE CONSUMER LAYER */}
+      <section className="py-24 bg-zinc-950 border-b border-white/10 relative overflow-hidden">
+          <div className="custom-container grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="order-2 lg:order-1 relative h-[500px] w-full bg-zinc-900 rounded-lg overflow-hidden border border-white/10 group">
+                  <div className="absolute inset-0 bg-[url('/images/244.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105 opacity-80 mix-blend-luminosity group-hover:mix-blend-normal"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                  <div className="absolute bottom-8 left-8 right-8">
+                       <div className="w-12 h-12 bg-brand-primary flex items-center justify-center rounded-none skew-x-[-10deg] mb-6">
+                            <FaGlobe size={20} className="text-black skew-x-[10deg]" />
+                       </div>
+                       <h4 className="text-2xl font-black text-white mb-2">Consumer Crypto Adoption</h4>
+                       <p className="text-zinc-400 font-medium tracking-wide">The ultimate sandbox for real-world utilities.</p>
+                  </div>
+              </div>
+              <div className="order-1 lg:order-2">
+                  <h2 className="text-sm font-bold text-brand-primary uppercase tracking-widest mb-6">For Businesses</h2>
+                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[0.9] mb-8">
+                      THE CONSUMER <br/>
+                      <span className="text-zinc-600">LAYER.</span>
+                  </h3>
+                  <p className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed mb-6">
+                      We aren&apos;t just a pipeline for developers—we are a massive distribution engine for consumer-facing Web3 apps. Acquire retail users looking for real-world utility in payments, social, and gaming through multiple high-visibility touchpoints:
+                  </p>
+                  <ul className="space-y-3 text-zinc-300 lg:text-lg mb-8 font-light">
+                      <li className="flex items-start gap-3">
+                         <div className="w-1.5 h-1.5 bg-brand-primary mt-2 flex-shrink-0"></div> 
+                         <span><strong>Digital Distribution:</strong> Millions of monthly impressions across our social media, dedicated newsletter blasts, and priority website features.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                         <div className="w-1.5 h-1.5 bg-brand-primary mt-2 flex-shrink-0"></div> 
+                         <span><strong>Physical Hubs:</strong> Direct user onboarding and product testing at our Pop-Up City Hubs and the Main Conference Day.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                         <div className="w-1.5 h-1.5 bg-brand-primary mt-2 flex-shrink-0"></div> 
+                         <span><strong>Bespoke Experiences:</strong> Request custom side-events, dedicated product tours, or private networking sessions tailored to your protocol.</span>
+                      </li>
+                  </ul>
+                  <p className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed mb-10">
+                      Skip the saturated markets—acquire retail users where the cost-per-acquisition is low and retention is structurally high. 
+                  </p>
+                  
+                  {/* Business Metrics Row */}
+                  <div className="flex gap-8 border-t border-white/10 pt-8 mt-4">
+                      <div>
+                          <p className="text-3xl font-black text-white">4M+</p>
+                          <p className="text-xs uppercase tracking-widest text-zinc-500 font-bold">Social Impressions</p>
+                      </div>
+                      <div>
+                          <p className="text-3xl font-black text-white">15k+</p>
+                          <p className="text-xs uppercase tracking-widest text-zinc-500 font-bold">Newsletter Subs</p>
+                      </div>
+                      <div>
+                          <p className="text-3xl font-black text-white">90%</p>
+                          <p className="text-xs uppercase tracking-widest text-zinc-500 font-bold">Mobile First</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      {/* 7. PAST EDITIONS / GALLERY (NEW) */}
       <section className="py-24 bg-zinc-950 border-b border-white/10 relative">
           <div className="custom-container">
                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
@@ -270,6 +330,26 @@ const ReConfig = () => {
                    </div>
                    <div className="hidden md:block w-32 h-1 bg-white/20"></div>
                </div>
+
+                {/* 2024 Event Numbers */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 border-b border-white/10 pb-16">
+                    <div className="text-center md:text-left border-l-2 border-brand-primary pl-4">
+                        <div className="text-3xl md:text-4xl font-black text-white mb-1">1,200+</div>
+                        <div className="text-xs font-bold uppercase tracking-widest text-zinc-500">2024 Attendees</div>
+                    </div>
+                    <div className="text-center md:text-left border-l-2 border-brand-primary pl-4">
+                        <div className="text-3xl md:text-4xl font-black text-white mb-1">21+</div>
+                        <div className="text-xs font-bold uppercase tracking-widest text-zinc-500">Partners</div>
+                    </div>
+                    <div className="text-center md:text-left border-l-2 border-brand-primary pl-4">
+                        <div className="text-3xl md:text-4xl font-black text-white mb-1">10+</div>
+                        <div className="text-xs font-bold uppercase tracking-widest text-zinc-500">Web3 Projects</div>
+                    </div>
+                    <div className="text-center md:text-left border-l-2 border-brand-primary pl-4">
+                        <div className="text-3xl md:text-4xl font-black text-white mb-1">5</div>
+                        <div className="text-xs font-bold uppercase tracking-widest text-zinc-500">Blockchains</div>
+                    </div>
+                </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {/* Main highlight image - big */}
