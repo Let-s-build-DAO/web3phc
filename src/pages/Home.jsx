@@ -98,18 +98,22 @@ const Home = () => {
       {/* Hero – split 50/50, aligned */}
       {/* Hero – split 50/50, aligned */}
       <section id="about" ref={aboutRef} className="hero-bg min-h-[100dvh] lg:min-h-[90vh] flex items-center relative overflow-hidden pt-12 lg:pt-0">
-        {/* Glow Blobs */}
-        <div className="glow-blob w-96 h-96 bg-brand-primary/20 top-0 left-[-100px] blur-[120px]" />
-        <div className="glow-blob w-96 h-96 bg-purple-600/20 bottom-0 right-[-100px] blur-[120px]" />
+        {/* Animated Glow Blobs */}
+        <div className="glow-blob-animated w-96 h-96 bg-brand-primary/20 top-0 left-[-100px] blur-[120px]" />
+        <div className="glow-blob-animated w-96 h-96 bg-purple-600/20 bottom-0 right-[-100px] blur-[120px]" style={{ animationDelay: '2s' }} />
 
-        <div className="custom-container w-full py-16 lg:py-24 relative z-10">
+        <div className="absolute inset-0 flex items-center justify-center font-display font-black text-[25vw] sm:text-[20vw] text-white/5 select-none pointer-events-none z-0 whitespace-nowrap opacity-20">
+            WEB3PHC
+        </div>
+
+        <div className="custom-container w-full py-20 lg:py-32 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <motion.div className="flex flex-col justify-center text-center lg:text-left" variants={container} initial="hidden" animate="visible">
-              <motion.h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.1]" variants={item}>
+              <motion.h1 className="text-6xl sm:text-7xl lg:text-[7.5rem] font-display font-normal tracking-tight text-white mb-8 leading-[0.9]" variants={item}>
                 From Pitakwa,<br />
-                <span className="text-gradient-gold">To The World.</span>
+                <span className="text-brand-primary italic pr-4">To The World.</span>
               </motion.h1>
-              <motion.p className="text-zinc-400 text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mbrand-secondary pb-5" variants={item}>
+              <motion.p className="text-[#a3a3a3] text-lg lg:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0 font-light pb-8" variants={item}>
                 <strong>Web3 Port Harcourt</strong> is a global convergence point for founders, builders, investors, and ecosystem leaders. Anchored in Port Harcourt. Scaling borderless innovation to the rest of the world.
               </motion.p>
               <motion.div className="flex flex-wrap gap-4 justify-center lg:justify-start" variants={item}>
@@ -135,14 +139,13 @@ const Home = () => {
       </section>
 
       {/* Trusted By Leading Web3 Brands – Brands We've Worked With */}
-      <section className="py-16 lg:py-24 px-4 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent pointer-events-none" />
+      <section className="py-20 lg:py-32 px-4 relative border-t border-[#262626] bg-[#0a0a0a]">
         <div className="custom-container relative z-10">
-          <h2 className="section-title pb-12">Some of our partners</h2>
+          <h2 className="section-title text-center text-4xl lg:text-5xl font-display font-normal text-white mb-16">Trusted By Ecosystem Leaders</h2>
           <div className="relative w-full overflow-hidden mask-gradient-x">
-             {/* Gradient Masks */}
-             <div className="absolute top-0 left-0 h-full w-12 lg:w-32 bg-gradient-to-r from-[#0a0a0a] to-transparent z-20 pointer-events-none" />
-             <div className="absolute top-0 right-0 h-full w-12 lg:w-32 bg-gradient-to-l from-[#0a0a0a] to-transparent z-20 pointer-events-none" />
+             {/* Stronger Gradient Masks for a premium fade effect */}
+             <div className="absolute top-0 left-0 h-full w-24 lg:w-48 bg-gradient-to-r from-black to-transparent z-20 pointer-events-none" />
+             <div className="absolute top-0 right-0 h-full w-24 lg:w-48 bg-gradient-to-l from-black to-transparent z-20 pointer-events-none" />
             
             <div className="flex overflow-hidden">
               <motion.div 
@@ -170,19 +173,18 @@ const Home = () => {
       </section>
 
       {/* How We Drive Impact – From knowledge to community... + 5 cards */}
-      <section id="mission"  ref={impactRef} className="py-16 lg:py-24 px-4 relative">
-         <div className="glow-blob w-[500px] h-[500px] bg-purple-900/10 top-1/2 left-[-200px] blur-[120px]" />
+      <section id="mission"  ref={impactRef} className="py-20 lg:py-32 px-4 relative border-t border-[#262626] bg-[#0a0a0a]">
         <div className="custom-container relative z-10">
-          <h2 className="section-title">Our Mission</h2>
-          <p className="section-subtitle mb-12">We don&apos;t just convene conversations—we build the foundational infrastructure that allows our tech talent to seamlessly integrate with the global digital economy.</p>
+          <h2 className="section-title text-center text-4xl lg:text-5xl font-display font-normal text-white mb-6">Our Mission</h2>
+          <p className="section-subtitle mb-16 max-w-3xl text-[#a3a3a3] font-light">We don&apos;t just convene conversations—we build the foundational infrastructure that allows our tech talent to seamlessly integrate with the global digital economy.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {STRATEGIC_PILLARS.map((p, i) => (
-              <div key={p.title} className="card group flex flex-col h-full hover:border-brand-primary/30">
-                 <div className="w-12 h-12 mb-6 rounded-2xl bg-brand-primary/5 border border-brand-primary/10 flex items-center justify-center group-hover:bg-brand-primary/20 group-hover:scale-110 transition-all duration-300">
-                    <span className="text-brand-primary font-display font-bold text-xl">{i + 1}</span>
+              <div key={p.title} className="card group flex flex-col h-auto min-h-[300px]">
+                 <div className="w-12 h-12 mb-8 rounded-lg bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center group-hover:bg-brand-primary/20 transition-all duration-300">
+                    <span className="text-brand-primary font-display font-normal text-xl">{i + 1}</span>
                 </div>
-                <h3 className="text-2xl font-display font-semibold text-white mb-4 group-hover:text-brand-primary transition-colors">{p.title}</h3>
-                <p className="text-zinc-400 text-base leading-relaxed">{p.description}</p>
+                <h3 className="text-3xl font-display font-normal text-white mb-4 group-hover:text-brand-primary transition-colors">{p.title}</h3>
+                <p className="text-zinc-400 text-sm lg:text-base leading-relaxed tracking-wide">{p.description}</p>
               </div>
             ))}
           </div>
@@ -190,15 +192,15 @@ const Home = () => {
       </section>
 
       {/* Our Impact in Numbers */}
-      <section id="impact" className="py-16 lg:py-24 px-4 relative border-y border-white/5 bg-white/[0.01]">
+      <section id="impact" className="py-20 lg:py-32 px-4 relative border-y border-[#262626] bg-[#0a0a0a]">
         <div className="custom-container">
-          <h2 className="section-title">Our Impact in Numbers</h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mt-12 bg-white/[0.02] rounded-3xl p-8 border border-white/5 backdrop-blur-sm">
+          <h2 className="section-title text-center text-4xl lg:text-5xl font-display font-normal text-white mb-16">Our Impact in Numbers</h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mt-12 card !bg-[#121212]">
             {IMPACT_METRICS.map((m) => (
-              <div key={m.label} className="text-center group">
-                <div className="text-4xl lg:text-5xl font-bold text-transparent bg-clip-text mb-2 group-hover:scale-110 transition-transform duration-300" style={{ backgroundImage: "linear-gradient(to bottom, var(--brand), #f97316)" }}>{m.value}</div>
-                <div className="text-sm font-bold text-white uppercase tracking-wider mb-1">{m.label}</div>
-                <div className="text-xs text-zinc-500">{m.sub}</div>
+              <div key={m.label} className="text-center group p-4 border-l border-[#262626] first:border-l-0">
+                <div className="text-5xl lg:text-6xl font-display font-normal text-white mb-3 group-hover:text-brand-primary transition-colors duration-300">{m.value}</div>
+                <div className="text-sm font-sans font-bold text-[#a3a3a3] uppercase tracking-wider mb-1">{m.label}</div>
+                <div className="text-xs font-sans text-[#737373]">{m.sub}</div>
               </div>
             ))}
           </div>
@@ -208,54 +210,53 @@ const Home = () => {
       {/* Testimonials – Trusted by Community */}
 
 
-      <section ref={communityRef} className="py-16 lg:py-24 px-4 relative overflow-hidden">
-        <div className="glow-blob w-64 h-64 lg:w-[500px] lg:h-[500px] bg-brand-primary/5 bottom-0 right-[-100px] lg:right-[-200px] blur-[80px] lg:blur-[120px]" />
+      <section ref={communityRef} className="py-20 lg:py-32 px-4 relative overflow-hidden border-t border-[#262626] bg-[#0a0a0a]">
         <div className="custom-container relative z-10">
-          <h2 className="section-title">Wetin Men Dey Talk</h2>
-          <h3 className="text-lg font-semibold text-zinc-500 text-center mb-2">Street Cred</h3>
-          <p className="section-subtitle mb-12">Hear from the innovators and builders we&apos;ve empowered.</p>
+          <h2 className="section-title text-center text-4xl lg:text-5xl font-display font-normal text-white mb-6">Wetin Men Dey Talk</h2>
+          <p className="section-subtitle mb-16 max-w-3xl text-[#a3a3a3] font-light">Hear from the innovators and builders we&apos;ve empowered.</p>
           
-          <div className="relative max-w-5xl mx-auto">
+          <div className="relative max-w-[100vw] lg:max-w-6xl mx-auto -mx-4 px-4 lg:mx-auto">
             {/* Scroll Container */}
-            {/* Scroll Container - Added py-8 to prevent hover cut-off at top */}
-            <div className="flex overflow-x-auto py-8 gap-6 lg:gap-8 snap-x snap-mandatory scrollbar-hide">
+            <div className="flex overflow-x-auto py-8 lg:py-12 gap-6 lg:gap-8 snap-x snap-mandatory scrollbar-hide pb-16">
                 {TESTIMONIALS.map((t, i) => (
-                    <div key={i} className="min-w-[85%] md:min-w-[45%] lg:min-w-[30%] snap-center flex">
-                        <div className="card hover:border-brand-primary/30 flex flex-col h-full w-full p-6 lg:p-8 bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl transition-all duration-300 hover:-translate-y-2">
-                            <div className="mb-4 flex justify-between items-start">
-                                <span className="text-brand-primary text-4xl font-serif opacity-30 leading-none">&ldquo;</span>
+                    <div key={i} className="min-w-[85%] md:min-w-[45%] lg:min-w-[380px] snap-center flex pt-4">
+                        <div className="card hover:border-[#404040] flex flex-col h-full w-full p-8 lg:p-10 transition-all duration-300">
+                            <div className="absolute -top-6 left-8 bg-[#1a1a1a] border border-[#262626] w-12 h-12 flex items-center justify-center rounded-full shadow-lg">
+                                <span className="text-white text-4xl font-display mt-2">&ldquo;</span>
+                            </div>
+                            
+                            <div className="mb-6 flex justify-end">
                                 {/* X/Twitter Link */}
                                 <a 
                                     href={t.handle ? `https://x.com/${t.handle.replace('@', '')}` : '#'} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors group/icon"
+                                    className="p-2.5 rounded-full bg-white/5 hover:bg-brand-primary/20 hover:text-brand-primary transition-all duration-300 group/icon border border-transparent hover:border-brand-primary/30"
                                     aria-label={`Visit ${t.name} on X`}
                                 >
                                     {/* X Logo SVG */}
-                                    <svg viewBox="0 0 24 24" className="w-3 h-3 text-white fill-current group-hover/icon:text-brand-primary transition-colors" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" className="w-4 h-4 text-zinc-400 group-hover/icon:text-brand-primary fill-current transition-colors" aria-hidden="true">
                                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
                                     </svg>
                                 </a>
                             </div>
                             
-                            <p className="text-zinc-300 text-sm mb-6 italic leading-relaxed flex-grow relative z-10 break-words whitespace-normal">
+                            <p className="text-zinc-300 text-sm lg:text-base mb-8 italic leading-relaxed flex-grow relative z-10 break-words whitespace-normal">
                                 {t.quote}
                             </p>
                             
-                            <div className="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                            <div className="flex items-center gap-4 mt-auto pt-6 border-t border-[#262626]">
                                 {t.image ? (
-                                    <img src={t.image} alt={t.name} className="w-10 h-10 rounded-full object-cover border border-white/10 shrink-0" />
+                                    <img src={t.image} alt={t.name} className="w-12 h-12 rounded-full object-cover shrink-0" />
                                 ) : (
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-zinc-700 to-zinc-900 flex items-center justify-center text-xs font-bold text-white shrink-0">
+                                    <div className="w-12 h-12 rounded-full bg-[#1a1a1a] flex items-center justify-center text-sm font-bold text-white shrink-0">
                                         {t.name.charAt(0)}
                                     </div>
                                 )}
                                 <div className="min-w-0 flex-1">
-                                    <p className="font-bold text-white text-sm truncate">{t.name}</p>
+                                    <p className="font-bold text-white text-base truncate">{t.name}</p>
                                     <div className="flex flex-col">
-                                        <p className="text-[10px] text-brand-primary truncate leading-tight">{t.role}</p>
-                                        {t.handle && <p className="text-[10px] text-zinc-500 truncate mt-0.5">{t.handle}</p>}
+                                        <p className="text-xs text-brand-primary truncate leading-tight tracking-wide font-medium mt-0.5">{t.role}</p>
                                     </div>
                                 </div>
                             </div>
@@ -263,24 +264,28 @@ const Home = () => {
                     </div>
                 ))}
             </div>
+            
+            <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-black to-transparent pointer-events-none hidden lg:block z-20"></div>
+            <div className="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-black to-transparent pointer-events-none hidden lg:block z-20"></div>
           </div>
         </div>
       </section>
 
       {/* Be Part of The Movement – Join Us: X, WhatsApp, Events */}
-      <section id="tribe" className="py-16 lg:py-24 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/5 to-transparent pointer-events-none" />
+      <section id="tribe" className="py-20 lg:py-32 px-4 relative overflow-hidden border-t border-[#262626] bg-[#0a0a0a]">
+        <div className="absolute inset-0 flex items-center justify-center font-display font-black text-[25vw] sm:text-[20vw] text-white/5 select-none pointer-events-none z-0 whitespace-nowrap opacity-10">
+            CONNECT
+        </div>
         <div className="custom-container relative z-10">
-          <h2 className="section-title">Join The Tribe</h2>
-          <h3 className="text-lg font-semibold text-zinc-500 text-center mb-2">Join a Vibrant Community</h3>
-          <p className="section-subtitle mb-12">Connect with a global network of Web3 enthusiasts, builders, and innovators.</p>
-          <div className="flex flex-col md:grid md:grid-cols-3 gap-6 lg:gap-8 max-w-3xl mx-auto">
+          <h2 className="section-title text-center text-4xl lg:text-5xl font-display font-normal text-white mb-6">Join The Tribe</h2>
+          <p className="section-subtitle mb-16 max-w-3xl text-[#a3a3a3] font-light">Connect with a global network of Web3 enthusiasts, builders, and innovators.</p>
+          <div className="flex flex-col md:grid md:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto">
             {COMMUNITY_LINKS.map(({ href, label, Icon, sub }) => (
-              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="card block w-full text-center hover:bg-brand-primary/10 hover:border-brand-primary/40 transition-all group p-6">
-                <div className="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-3 lg:mb-4 rounded-full bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 group-hover:bg-brand-primary/20">
-                    <Icon className="text-brand-primary w-6 h-6 lg:w-8 lg:h-8 fill-current" />
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="card block w-full text-center hover:bg-[#121212] transition-colors group p-8">
+                <div className="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-4 lg:mb-6 rounded-full bg-[#1a1a1a] flex items-center justify-center transition-transform duration-300">
+                    <Icon className="text-white w-6 h-6 lg:w-8 lg:h-8 fill-current group-hover:text-brand-primary transition-colors" />
                 </div>
-                <p className="font-bold text-white mb-1 text-sm lg:text-base break-words">{label.includes("X") ? "@web3PHC" : label}</p>
+                <p className="font-sans font-bold text-white mb-2 text-base lg:text-lg break-words">{label.includes("X") ? "@web3PHC" : label}</p>
                 <p className="text-xs lg:text-sm text-zinc-400 group-hover:text-zinc-300 break-words">{sub}</p>
               </a>
             ))}

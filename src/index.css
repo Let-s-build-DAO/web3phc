@@ -1,24 +1,28 @@
-/* NextBridge Africa–style styling guide */
-@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+/* Superteam NG Inspired Minimalist Styling */
+@import '@fontsource/instrument-serif/400-italic.css';
+@import '@fontsource/instrument-serif/400.css';
+@import '@fontsource/instrument-sans/400.css';
+@import '@fontsource/instrument-sans/500.css';
+@import '@fontsource/instrument-sans/600.css';
+@import '@fontsource/instrument-sans/700.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-heading: 'Clash Display', sans-serif;
-  --font-body: 'Outfit', sans-serif;
+  --font-heading: 'Instrument Serif', serif;
+  --font-body: 'Instrument Sans', sans-serif;
   
-  --black: #000000;
-  --black-soft: #1a1a1a;
-  --surface: #2d2d2d;
-  --brand: #fe6500;
+  --black: #0a0a0a; /* Deep charcoal/black */
+  --black-soft: #171717; /* Lighter charcoal */
+  --surface: #262626; /* Subtle border color */
+  --brand: #fe6500; /* Keeping Web3PHC primary */
   --brand-light: #f1742e;
-  --white: #fafafa;
-  --muted: #a1a1aa;
-  --radius: 0.75rem;
-  --radius-lg: 1rem;
+  --white: #ffffff;
+  --muted: #a3a3a3; /* Muted gray text */
+  --radius: 0.75rem; /* 12px */
+  --radius-lg: 1rem; /* 16px */
   --transition: 0.2s ease;
 }
 
@@ -61,14 +65,13 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 600;
-  letter-spacing: 0.02em; /* Clash Display looks better with slightly wider tracking for headings */
+  font-weight: 400; /* Serif looks best at regular weight */
+  letter-spacing: normal; 
   color: var(--white);
 }
 
 h1 {
-  letter-spacing: 0; /* Clash Display is solid at large sizes */
-  line-height: 1;
+  line-height: 0.9;
 }
 
 /* Gradient Text */
@@ -97,63 +100,56 @@ h1 {
   background: radial-gradient(circle at 50% 0%, #1a1a1a 0%, var(--black) 70%);
 }
 
-/* Buttons */
+/* Buttons - Minimalist Flat Style */
 .btn {
+  @apply relative overflow-hidden inline-flex items-center justify-center;
   cursor: pointer;
-  color: var(--white);
-  background: var(--brand);
-  border: none;
-  border-radius: var(--radius);
-  padding: 0.875rem 1.75rem; /* Larger touch target */
+  color: var(--black);
+  background-color: var(--white);
+  border: 1px solid transparent;
+  border-radius: var(--radius); /* Rounded rects instead of pills */
+  padding: 0.75rem 1.5rem;
   font-weight: 600;
   font-size: 0.9375rem;
-  transition: all var(--transition);
-  position: relative;
-  overflow: hidden;
+  transition: all 0.2s ease;
 }
 
 .btn:hover {
-  background: var(--brand-light);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px -5px rgba(254, 101, 0, 0.5);
+  background-color: #e5e5e5;
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background-color: var(--brand);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-light);
+  box-shadow: 0 4px 14px 0 rgba(254, 101, 0, 0.2);
 }
 
 .btn-outline {
-  background: transparent;
-  color: var(--white);
-  border: 1px solid var(--surface);
-  backdrop-filter: blur(8px);
+  @apply bg-transparent text-white border border-white/20;
+  border-radius: var(--radius);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  transition: all 0.2s ease;
 }
 
 .btn-outline:hover {
-  border-color: var(--brand);
-  color: var(--brand);
-  background: rgba(254, 101, 0, 0.05);
-  box-shadow: 0 4px 20px -5px rgba(254, 101, 0, 0.1);
+  @apply border-white/40 bg-white/5;
+  transform: translateY(-1px);
 }
 
-/* Cards – Glassmorphism 2.0 */
+/* Cards – Superteam NG Flat Style (No heavy glass) */
 .card {
-  @apply relative overflow-hidden rounded-2xl border border-white/5 bg-zinc-900/[0.3] p-6 lg:p-8 transition-all duration-300 backdrop-blur-sm;
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  border-radius: inherit;
-  padding: 1px; /* border width */
-  background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+  @apply relative overflow-hidden rounded-[16px] bg-[#0a0a0a] border border-[#262626] p-6 lg:p-8 transition-colors duration-300;
 }
 
 .card:hover {
-  @apply -translate-y-1 bg-white/[0.04];
-  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
+  @apply border-[#404040] bg-[#121212];
 }
 
 .custom-container {
@@ -161,10 +157,34 @@ h1 {
 }
 
 .floating {
-  animation: floating 4s ease-in-out infinite;
+  animation: floating 6s ease-in-out infinite;
 }
 
 @keyframes floating {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(1deg); }
+}
+
+/* New Animated Text Gradient */
+.animate-text-gradient {
+  background-size: 200% auto;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Animated Pulse Blob */
+.glow-blob-animated {
+  @apply absolute rounded-full blur-[100px] opacity-20 pointer-events-none mix-blend-screen;
+  animation: pulse-blob 8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-blob {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.15; }
+  50% { transform: scale(1.1) translate(20px, -20px); opacity: 0.25; }
+  100% { transform: scale(0.9) translate(-20px, 20px); opacity: 0.15; }
 }

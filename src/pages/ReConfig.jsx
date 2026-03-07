@@ -80,9 +80,9 @@ const ReConfig = () => {
                </motion.div>
 
                {/* Massive Title */}
-               <motion.h1 variants={item} className="text-[12vw] leading-[0.8] font-black text-white tracking-tighter mb-8 mix-blend-difference">
+               <motion.h1 variants={item} className="text-[14vw] sm:text-[12vw] leading-[0.8] font-display font-normal text-white tracking-tighter mb-8 mix-blend-difference relative">
                   RE:CONFIG<br/>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 via-white to-zinc-500">PITAKWA.</span>
+                  <span className="text-brand-primary italic pr-4">PITAKWA.</span>
                </motion.h1>
 
                {/* Positive Value Prop (Builder Focused) */}
@@ -109,32 +109,32 @@ const ReConfig = () => {
       </section>
 
       {/* 2. STATIC STATS GRID (ETHCC STYLE) */}
-      <section className="bg-white text-black py-20 border-b border-zinc-200">
+      <section className="bg-[#0a0a0a] text-white py-20 border-b border-[#262626]">
          <div className="custom-container">
              <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center md:text-left">
-                 <div className="flex flex-col border-l-4 border-brand-primary pl-6">
-                     <span className="text-5xl md:text-7xl font-black tracking-tighter mb-2">
+                 <div className="flex flex-col border-l border-[#262626] pl-6">
+                     <span className="text-5xl md:text-7xl font-display font-normal tracking-tighter mb-2 text-brand-primary">
                         <Counter from={0} to={1200} suffix="+" />
                      </span>
-                     <span className="text-sm font-bold uppercase tracking-widest text-zinc-500">Active Builders</span>
+                     <span className="text-sm font-sans font-bold uppercase tracking-widest text-[#a3a3a3]">Active Builders</span>
                  </div>
-                 <div className="flex flex-col border-l-4 border-black pl-6">
-                     <span className="text-5xl md:text-7xl font-black tracking-tighter mb-2">
+                 <div className="flex flex-col border-l border-[#262626] pl-6">
+                     <span className="text-5xl md:text-7xl font-display font-normal tracking-tighter mb-2 text-brand-primary">
                         <Counter from={0} to={20} suffix="+" />
                      </span>
-                     <span className="text-sm font-bold uppercase tracking-widest text-zinc-500">Projects</span>
+                     <span className="text-sm font-sans font-bold uppercase tracking-widest text-[#a3a3a3]">Projects</span>
                  </div>
-                 <div className="flex flex-col border-l-4 border-black pl-6">
-                     <span className="text-5xl md:text-7xl font-black tracking-tighter mb-2">
+                 <div className="flex flex-col border-l border-[#262626] pl-6">
+                     <span className="text-5xl md:text-7xl font-display font-normal tracking-tighter mb-2 text-brand-primary">
                         <Counter from={0} to={8} />
                      </span>
-                     <span className="text-sm font-bold uppercase tracking-widest text-zinc-500">Days of innovation</span>
+                     <span className="text-sm font-sans font-bold uppercase tracking-widest text-[#a3a3a3]">Days of innovation</span>
                  </div>
-                 <div className="flex flex-col border-l-4 border-black pl-6">
-                     <span className="text-5xl md:text-7xl font-black tracking-tighter mb-2">
+                 <div className="flex flex-col border-l border-[#262626] pl-6">
+                     <span className="text-5xl md:text-7xl font-display font-normal tracking-tighter mb-2 text-brand-primary">
                         $<Counter from={0} to={50} suffix="k+" />
                      </span>
-                     <span className="text-sm font-bold uppercase tracking-widest text-zinc-500">Total Valuation</span>
+                     <span className="text-sm font-sans font-bold uppercase tracking-widest text-[#a3a3a3]">Total Valuation</span>
                  </div>
              </div>
          </div>
@@ -176,53 +176,68 @@ const ReConfig = () => {
       <section className="py-24 bg-zinc-900 border-t border-black relative">
          <div className="custom-container">
              <div className="text-center mb-20">
-                 <h2 className="text-[15vw] md:text-[8vw] font-black text-white/5 leading-none absolute top-0 left-1/2 -translate-x-1/2 select-none pointer-events-none">PROGRAM</h2>
-                 <h3 className="text-4xl md:text-5xl font-black text-white relative z-10">THREE PILLARS.</h3>
-                 <p className="text-zinc-400 mt-4 max-w-2xl mx-auto relative z-10 text-lg">
+                 <h2 className="text-[15vw] md:text-[8vw] font-display font-normal text-white/5 leading-none absolute top-0 left-1/2 -translate-x-1/2 select-none pointer-events-none">PROGRAM</h2>
+                 <h3 className="text-5xl md:text-6xl font-display font-normal text-white relative z-10">THREE PILLARS.</h3>
+                 <p className="text-[#a3a3a3] mt-6 max-w-2xl mx-auto relative z-10 text-lg font-light">
                     Designed for builders, creatives, and policymakers to co-create the future.
                  </p>
              </div>
 
-             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mt-16">
                 {/* Track 1: BUILD */}
-                <div className="group border-t-2 border-white/20 pt-8 hover:border-brand-primary transition-colors">
-                    <div className="text-xs font-bold text-zinc-500 mb-4 uppercase tracking-widest">Oct 17 – 22</div>
-                    <h4 className="text-3xl font-black text-white mb-4 group-hover:text-brand-primary transition-colors">BUILD.</h4>
-                    <p className="text-zinc-400 leading-relaxed mb-8">
-                        <span className="text-white font-bold uppercase">The Garden City Residency.</span><br/> 30 elite builders living together. 6 days of deep work. Protocol bootcamps. Shipping MVPs that solve real problems.
+                <div className="card group hover:border-brand-primary/50 flex flex-col h-full bg-[#121212]">
+                    <div className="text-xs font-bold font-sans text-[#737373] mb-6 uppercase tracking-widest relative z-10 flex items-center justify-between">
+                        <span>Oct 17 – 22</span>
+                        <div className="w-8 h-8 rounded-full bg-[#1a1a1a] flex items-center justify-center text-white group-hover:text-brand-primary transition-colors">
+                            <FaCode size={12} />
+                        </div>
+                    </div>
+                    <h4 className="text-4xl lg:text-5xl font-display font-normal text-white mb-6 group-hover:text-brand-primary transition-colors relative z-10">BUILD.</h4>
+                    <p className="text-[#a3a3a3] leading-relaxed mb-8 relative z-10 flex-grow font-light">
+                        <span className="text-white font-sans font-bold uppercase block mb-2 text-sm tracking-wider">The Garden City Residency.</span> 30 elite builders living together. 6 days of deep work. Protocol bootcamps. Shipping MVPs that solve real problems.
                     </p>
-                    <ul className="space-y-2 text-sm text-zinc-500">
-                        <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-brand-primary"></div> Hacker House</li>
-                        <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-brand-primary"></div> Mentorship</li>
-                        <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-brand-primary"></div> Demo Day</li>
+                    <ul className="space-y-4 text-sm font-sans text-[#a3a3a3] relative z-10 mt-auto border-t border-[#262626] pt-6">
+                        <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-brand-primary"></div> Hacker House</li>
+                        <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-brand-primary"></div> Mentorship</li>
+                        <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-brand-primary"></div> Demo Day</li>
                     </ul>
                 </div>
 
                 {/* Track 2: LEARN */}
-                <div className="group border-t-2 border-white/20 pt-8 hover:border-purple-500 transition-colors">
-                    <div className="text-xs font-bold text-zinc-500 mb-4 uppercase tracking-widest">Oct 17 – 23</div>
-                    <h4 className="text-3xl font-black text-white mb-4 group-hover:text-purple-500 transition-colors">LEARN.</h4>
-                    <p className="text-zinc-400 leading-relaxed mb-8">
-                        <span className="text-white font-bold uppercase">The Pop-Up City.</span><br/> An open innovation hub for everyone. Daily workshops on DeFi, Governance, and Creative Tech. Onboarding the next 10,000.
+                <div className="card group hover:border-white/50 flex flex-col h-full bg-[#121212]">
+                    <div className="text-xs font-bold font-sans text-[#737373] mb-6 uppercase tracking-widest relative z-10 flex items-center justify-between">
+                        <span>Oct 17 – 23</span>
+                        <div className="w-8 h-8 rounded-full bg-[#1a1a1a] flex items-center justify-center text-white group-hover:text-white transition-colors">
+                            <FaUsers size={12} />
+                        </div>
+                    </div>
+                    <h4 className="text-4xl lg:text-5xl font-display font-normal text-white mb-6 group-hover:text-white transition-colors relative z-10">LEARN.</h4>
+                    <p className="text-[#a3a3a3] leading-relaxed mb-8 relative z-10 flex-grow font-light">
+                        <span className="text-white font-sans font-bold uppercase block mb-2 text-sm tracking-wider">The Pop-Up City.</span> An open innovation hub for everyone. Daily workshops on DeFi, Governance, and Creative Tech. Onboarding the next 10,000.
                     </p>
-                    <ul className="space-y-2 text-sm text-zinc-500">
-                        <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-purple-500"></div> Workshops</li>
-                        <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-purple-500"></div> Policy Lounge</li>
-                        <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-purple-500"></div> Creator Studio</li>
+                    <ul className="space-y-4 text-sm font-sans text-[#a3a3a3] relative z-10 mt-auto border-t border-[#262626] pt-6">
+                        <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-white"></div> Workshops</li>
+                        <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-white"></div> Policy Lounge</li>
+                        <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-white"></div> Creator Studio</li>
                     </ul>
                 </div>
 
                 {/* Track 3: CONNECT */}
-                <div className="group border-t-2 border-white/20 pt-8 hover:border-green-500 transition-colors">
-                    <div className="text-xs font-bold text-zinc-500 mb-4 uppercase tracking-widest">Oct 24</div>
-                    <h4 className="text-3xl font-black text-white mb-4 group-hover:text-green-500 transition-colors">CONNECT.</h4>
-                    <p className="text-zinc-400 leading-relaxed mb-8">
-                        <span className="text-white font-bold uppercase">The Summit.</span><br/> The grand finale. High-level panels with global leaders, government officials, and VCs. Ending with the "Garden City Glow" afterparty.
+                <div className="card group hover:border-brand-primary/50 flex flex-col h-full bg-[#121212]">
+                    <div className="text-xs font-bold font-sans text-[#737373] mb-6 uppercase tracking-widest relative z-10 flex items-center justify-between">
+                        <span>Oct 24</span>
+                        <div className="w-8 h-8 rounded-full bg-[#1a1a1a] flex items-center justify-center text-white group-hover:text-brand-primary transition-colors">
+                            <FaGlobe size={12} />
+                        </div>
+                    </div>
+                    <h4 className="text-4xl lg:text-5xl font-display font-normal text-white mb-6 group-hover:text-brand-primary transition-colors relative z-10">CONNECT.</h4>
+                    <p className="text-[#a3a3a3] leading-relaxed mb-8 relative z-10 flex-grow font-light">
+                        <span className="text-white font-sans font-bold uppercase block mb-2 text-sm tracking-wider">The Summit.</span> The grand finale. High-level panels with global leaders, government officials, and VCs. Ending with the "Garden City Glow" afterparty.
                     </p>
-                    <ul className="space-y-2 text-sm text-zinc-500">
-                        <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-green-500"></div> Main Stage</li>
-                        <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-green-500"></div> Deal Flow</li>
-                        <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-green-500"></div> Networking</li>
+                    <ul className="space-y-4 text-sm font-sans text-[#a3a3a3] relative z-10 mt-auto border-t border-[#262626] pt-6">
+                        <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-brand-primary"></div> Main Stage</li>
+                        <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-brand-primary"></div> Deal Flow</li>
+                        <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-brand-primary"></div> Networking</li>
                     </ul>
                 </div>
              </div>
@@ -230,90 +245,90 @@ const ReConfig = () => {
       </section>
 
       {/* 5. THE AUTHORITY: WHY WE BUILD HERE (BUILDER DENSITY) */}
-      <section className="py-24 bg-white text-black border-y border-zinc-200">
+      <section className="py-24 bg-white text-[#0a0a0a] border-y border-[#262626]">
          <div className="custom-container">
-             <h2 className="text-4xl lg:text-5xl font-black text-black mb-16 max-w-md">WHY WE BUILD HERE.</h2>
+             <h2 className="text-4xl lg:text-5xl font-display font-normal text-[#0a0a0a] mb-16 max-w-md">WHY WE BUILD HERE.</h2>
              
              <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <div className="group">
-                   <div className="w-16 h-16 bg-brand-primary/10 flex items-center justify-center rounded-none mb-6 text-brand-primary skew-x-[-10deg]">
-                      <FaUsers size={32} className="skew-x-[10deg]" />
+                   <div className="w-16 h-16 bg-[#f5f5f5] flex items-center justify-center rounded-lg mb-6 text-[#0a0a0a] transition-transform duration-300 group-hover:scale-105 border border-[#e5e5e5]">
+                      <FaUsers size={32} />
                    </div>
-                   <h3 className="text-2xl font-bold text-black mb-4">The Builder Density</h3>
-                   <p className="text-zinc-600 leading-relaxed">Home to one of the largest concentrations of technical talent in West Africa. With at least 6 higher institutions within a 20km radius, our builders are designing scalable, borderless protocols that serve the world.</p>
+                   <h3 className="text-2xl font-display font-normal text-[#0a0a0a] mb-4">The Builder Density</h3>
+                   <p className="font-sans text-[#737373] leading-relaxed font-light">Home to one of the largest concentrations of technical talent in West Africa. With at least 6 higher institutions within a 20km radius, our builders are designing scalable, borderless protocols that serve the world.</p>
                 </div>
                 <div className="group">
-                    <div className="w-16 h-16 bg-purple-500/10 flex items-center justify-center rounded-none mb-6 text-purple-500 skew-x-[-10deg]">
-                      <FaCode size={32} className="skew-x-[10deg]" />
+                    <div className="w-16 h-16 bg-[#f5f5f5] flex items-center justify-center rounded-lg mb-6 text-[#0a0a0a] transition-transform duration-300 group-hover:scale-105 border border-[#e5e5e5]">
+                      <FaCode size={32} />
                    </div>
-                   <h3 className="text-2xl font-bold text-black mb-4">The Talent Pipeline</h3>
-                   <p className="text-zinc-600 leading-relaxed">From zero-to-one. Our ecosystem is a global factory for shipping products. We are organizing a world-class pipeline of founders ready to scale borderless solutions.</p>
+                   <h3 className="text-2xl font-display font-normal text-[#0a0a0a] mb-4">The Talent Pipeline</h3>
+                   <p className="font-sans text-[#737373] leading-relaxed font-light">From zero-to-one. Our ecosystem is a global factory for shipping products. We are organizing a world-class pipeline of founders ready to scale borderless solutions.</p>
                 </div>
                 <div className="group">
-                    <div className="w-16 h-16 bg-green-500/10 flex items-center justify-center rounded-none mb-6 text-green-500 skew-x-[-10deg]">
-                      <FaGlobe size={32} className="skew-x-[10deg]" />
+                    <div className="w-16 h-16 bg-[#f5f5f5] flex items-center justify-center rounded-lg mb-6 text-[#0a0a0a] transition-transform duration-300 group-hover:scale-105 border border-[#e5e5e5]">
+                      <FaGlobe size={32} />
                    </div>
-                   <h3 className="text-2xl font-bold text-black mb-4">The Cultural Heartbeat</h3>
-                   <p className="text-zinc-600 leading-relaxed">From art to technology, we export culture globally. We represent the borderless Ownership Economy—giving creators tools to own and scale their future on-chain.</p>
+                   <h3 className="text-2xl font-display font-normal text-[#0a0a0a] mb-4">The Cultural Heartbeat</h3>
+                   <p className="font-sans text-[#737373] leading-relaxed font-light">From art to technology, we export culture globally. We represent the borderless Ownership Economy—giving creators tools to own and scale their future on-chain.</p>
                 </div>
              </div>
          </div>
       </section>
 
       {/* 6. FOR BUSINESSES: THE CONSUMER LAYER */}
-      <section className="py-24 bg-zinc-950 border-b border-white/10 relative overflow-hidden">
+      <section className="py-24 bg-[#0a0a0a] border-y border-[#262626] relative overflow-hidden">
           <div className="custom-container grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div className="order-2 lg:order-1 relative h-[500px] w-full bg-zinc-900 rounded-lg overflow-hidden border border-white/10 group">
-                  <div className="absolute inset-0 bg-[url('/images/244.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105 opacity-80 mix-blend-luminosity group-hover:mix-blend-normal"></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-                  <div className="absolute bottom-8 left-8 right-8">
-                       <div className="w-12 h-12 bg-brand-primary flex items-center justify-center rounded-none skew-x-[-10deg] mb-6">
-                            <FaGlobe size={20} className="text-black skew-x-[10deg]" />
+              <div className="order-2 lg:order-1 relative h-[500px] w-full bg-[#121212] rounded-[16px] overflow-hidden border border-[#262626] group">
+                  <div className="absolute inset-0 bg-[url('/images/244.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105 opacity-60 mix-blend-luminosity group-hover:mix-blend-normal"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                  <div className="absolute bottom-10 left-10 right-10">
+                       <div className="w-14 h-14 bg-white flex items-center justify-center rounded-lg mb-6">
+                            <FaGlobe size={24} className="text-[#0a0a0a]" />
                        </div>
-                       <h4 className="text-2xl font-black text-white mb-2">Consumer Crypto Adoption</h4>
-                       <p className="text-zinc-400 font-medium tracking-wide">The ultimate sandbox for real-world utilities.</p>
+                       <h4 className="text-3xl font-display font-normal text-white mb-2">Consumer Crypto Adoption</h4>
+                       <p className="text-[#a3a3a3] font-sans font-light tracking-wide">The ultimate sandbox for real-world utilities.</p>
                   </div>
               </div>
               <div className="order-1 lg:order-2">
-                  <h2 className="text-sm font-bold text-brand-primary uppercase tracking-widest mb-6">For Businesses</h2>
-                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[0.9] mb-8">
+                  <h2 className="text-sm font-sans font-bold text-brand-primary uppercase tracking-widest mb-6">For Businesses</h2>
+                  <h3 className="text-5xl md:text-6xl lg:text-[5rem] font-display font-normal text-white leading-[0.9] mb-8">
                       THE CONSUMER <br/>
-                      <span className="text-zinc-600">LAYER.</span>
+                      <span className="text-[#737373] italic">LAYER.</span>
                   </h3>
-                  <p className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed mb-6">
+                  <p className="text-lg md:text-xl text-[#a3a3a3] font-light leading-relaxed mb-8">
                       We aren&apos;t just a pipeline for developers—we are a massive distribution engine for consumer-facing Web3 apps. Acquire retail users looking for real-world utility in payments, social, and gaming through multiple high-visibility touchpoints:
                   </p>
-                  <ul className="space-y-3 text-zinc-300 lg:text-lg mb-8 font-light">
-                      <li className="flex items-start gap-3">
-                         <div className="w-1.5 h-1.5 bg-brand-primary mt-2 flex-shrink-0"></div> 
-                         <span><strong>Digital Distribution:</strong> Millions of monthly impressions across our social media, dedicated newsletter blasts, and priority website features.</span>
+                  <ul className="space-y-4 text-[#a3a3a3] font-sans text-base lg:text-lg mb-8 font-light">
+                      <li className="flex items-start gap-4">
+                         <div className="w-1.5 h-1.5 bg-brand-primary mt-2.5 flex-shrink-0"></div> 
+                         <span><strong className="text-white font-medium">Digital Distribution:</strong> Millions of monthly impressions across our social media, dedicated newsletter blasts, and priority website features.</span>
                       </li>
-                      <li className="flex items-start gap-3">
-                         <div className="w-1.5 h-1.5 bg-brand-primary mt-2 flex-shrink-0"></div> 
-                         <span><strong>Physical Hubs:</strong> Direct user onboarding and product testing at our Pop-Up City Hubs and the Main Conference Day.</span>
+                      <li className="flex items-start gap-4">
+                         <div className="w-1.5 h-1.5 bg-brand-primary mt-2.5 flex-shrink-0"></div> 
+                         <span><strong className="text-white font-medium">Physical Hubs:</strong> Direct user onboarding and product testing at our Pop-Up City Hubs and the Main Conference Day.</span>
                       </li>
-                      <li className="flex items-start gap-3">
-                         <div className="w-1.5 h-1.5 bg-brand-primary mt-2 flex-shrink-0"></div> 
-                         <span><strong>Bespoke Experiences:</strong> Request custom side-events, dedicated product tours, or private networking sessions tailored to your protocol.</span>
+                      <li className="flex items-start gap-4">
+                         <div className="w-1.5 h-1.5 bg-brand-primary mt-2.5 flex-shrink-0"></div> 
+                         <span><strong className="text-white font-medium">Bespoke Experiences:</strong> Request custom side-events, dedicated product tours, or private networking sessions tailored to your protocol.</span>
                       </li>
                   </ul>
-                  <p className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed mb-10">
+                  <p className="text-lg md:text-xl text-[#a3a3a3] font-light leading-relaxed mb-10">
                       Skip the saturated markets—acquire retail users where the cost-per-acquisition is low and retention is structurally high. 
                   </p>
                   
                   {/* Business Metrics Row */}
-                  <div className="flex gap-8 border-t border-white/10 pt-8 mt-4">
+                  <div className="flex flex-wrap gap-8 border-t border-[#262626] pt-8 mt-4">
                       <div>
-                          <p className="text-3xl font-black text-white">4M+</p>
-                          <p className="text-xs uppercase tracking-widest text-zinc-500 font-bold">Social Impressions</p>
+                          <p className="text-4xl font-display font-normal text-white mb-1">4M+</p>
+                          <p className="text-xs font-sans uppercase tracking-widest text-[#737373] font-bold">Social Impressions</p>
                       </div>
                       <div>
-                          <p className="text-3xl font-black text-white">15k+</p>
-                          <p className="text-xs uppercase tracking-widest text-zinc-500 font-bold">Newsletter Subs</p>
+                          <p className="text-4xl font-display font-normal text-white mb-1">15k+</p>
+                          <p className="text-xs font-sans uppercase tracking-widest text-[#737373] font-bold">Newsletter Subs</p>
                       </div>
                       <div>
-                          <p className="text-3xl font-black text-white">90%</p>
-                          <p className="text-xs uppercase tracking-widest text-zinc-500 font-bold">Mobile First</p>
+                          <p className="text-4xl font-display font-normal text-white mb-1">90%</p>
+                          <p className="text-xs font-sans uppercase tracking-widest text-[#737373] font-bold">Mobile First</p>
                       </div>
                   </div>
               </div>
@@ -321,33 +336,33 @@ const ReConfig = () => {
       </section>
 
       {/* 7. PAST EDITIONS / GALLERY (NEW) */}
-      <section className="py-24 bg-zinc-950 border-b border-white/10 relative">
+      <section className="py-24 bg-[#0a0a0a] border-b border-[#262626] relative">
           <div className="custom-container">
                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                    <div>
-                       <h2 className="text-sm font-bold text-brand-primary uppercase tracking-widest mb-4">Past Editions</h2>
-                       <h3 className="text-4xl md:text-5xl font-black text-white">HISTORY BEING MADE.</h3>
+                       <h2 className="text-sm font-sans font-bold text-brand-primary uppercase tracking-widest mb-4">Past Editions</h2>
+                       <h3 className="text-5xl md:text-6xl font-display font-normal text-white">HISTORY BEING MADE.</h3>
                    </div>
-                   <div className="hidden md:block w-32 h-1 bg-white/20"></div>
+                   <div className="hidden md:block w-32 h-px bg-[#404040]"></div>
                </div>
 
                 {/* 2024 Event Numbers */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 border-b border-white/10 pb-16">
-                    <div className="text-center md:text-left border-l-2 border-brand-primary pl-4">
-                        <div className="text-3xl md:text-4xl font-black text-white mb-1">1,200+</div>
-                        <div className="text-xs font-bold uppercase tracking-widest text-zinc-500">2024 Attendees</div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 border-b border-[#262626] pb-16">
+                    <div className="text-center md:text-left border-l border-[#262626] pl-6">
+                        <div className="text-4xl md:text-5xl font-display font-normal text-white mb-2">1,200+</div>
+                        <div className="text-xs font-sans font-bold uppercase tracking-widest text-[#737373]">2024 Attendees</div>
                     </div>
-                    <div className="text-center md:text-left border-l-2 border-brand-primary pl-4">
-                        <div className="text-3xl md:text-4xl font-black text-white mb-1">21+</div>
-                        <div className="text-xs font-bold uppercase tracking-widest text-zinc-500">Partners</div>
+                    <div className="text-center md:text-left border-l border-[#262626] pl-6">
+                        <div className="text-4xl md:text-5xl font-display font-normal text-white mb-2">21+</div>
+                        <div className="text-xs font-sans font-bold uppercase tracking-widest text-[#737373]">Partners</div>
                     </div>
-                    <div className="text-center md:text-left border-l-2 border-brand-primary pl-4">
-                        <div className="text-3xl md:text-4xl font-black text-white mb-1">10+</div>
-                        <div className="text-xs font-bold uppercase tracking-widest text-zinc-500">Web3 Projects</div>
+                    <div className="text-center md:text-left border-l border-[#262626] pl-6">
+                        <div className="text-4xl md:text-5xl font-display font-normal text-white mb-2">10+</div>
+                        <div className="text-xs font-sans font-bold uppercase tracking-widest text-[#737373]">Web3 Projects</div>
                     </div>
-                    <div className="text-center md:text-left border-l-2 border-brand-primary pl-4">
-                        <div className="text-3xl md:text-4xl font-black text-white mb-1">5</div>
-                        <div className="text-xs font-bold uppercase tracking-widest text-zinc-500">Blockchains</div>
+                    <div className="text-center md:text-left border-l border-[#262626] pl-6">
+                        <div className="text-4xl md:text-5xl font-display font-normal text-white mb-2">5</div>
+                        <div className="text-xs font-sans font-bold uppercase tracking-widest text-[#737373]">Blockchains</div>
                     </div>
                 </div>
 
@@ -413,19 +428,19 @@ const ReConfig = () => {
           </div>
       </section>
 
-      {/* 7. SPONSORSHIP (CLOSE) */}
-      <section className="py-32 relative overflow-hidden bg-zinc-950 text-white text-center">
+      {/* 8. SPONSORSHIP (CLOSE) */}
+      <section className="py-32 relative overflow-hidden bg-[#0a0a0a] text-white text-center border-t border-[#262626]">
          <div className="custom-container relative z-10">
-             <h2 className="text-5xl lg:text-8xl font-black text-white mb-8 tracking-tighter">JOIN THE MOVEMENT.</h2>
-             <p className="text-xl text-zinc-400 max-w-2xl mx-auto mb-12">
+             <h2 className="text-5xl lg:text-[7rem] font-display font-normal text-white mb-8 leading-none tracking-tight">JOIN THE MOVEMENT.</h2>
+             <p className="text-xl text-[#a3a3a3] max-w-2xl mx-auto mb-12 font-light">
                 Partner with Web3 PH Re:Config to capture the highest-value developer and user market in Nigeria.
              </p>
              <div className="flex flex-col sm:flex-row justify-center gap-6">
-                <button className="btn bg-white text-black hover:bg-zinc-200 px-12 py-6 text-xl font-bold rounded-none skew-x-[-10deg]">
-                   <span className="skew-x-[10deg] inline-block">Download Deck</span>
+                <button className="btn bg-white text-black hover:bg-[#e5e5e5] px-12 py-5 text-lg font-bold">
+                   <span>Download Deck</span>
                 </button>
-                <button className="btn-outline border-zinc-700 text-white hover:border-white px-12 py-6 text-xl font-bold rounded-none skew-x-[-10deg]">
-                   <span className="skew-x-[10deg] inline-block">Become a Partner</span>
+                <button className="btn-outline border-[#404040] text-white hover:border-white px-12 py-5 text-lg font-bold">
+                   <span>Become a Partner</span>
                 </button>
              </div>
          </div>
