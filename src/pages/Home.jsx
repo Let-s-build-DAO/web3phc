@@ -63,14 +63,14 @@ const TESTIMONIALS = [
     handle: "@berare01" 
   },
   { 
-    quote: "The Web3PH conference in 2024 was a remarkable event. The wealth of information shared was insightful.", 
+    quote: "The Web3PHC conference in 2024 was a remarkable event. The wealth of information shared was insightful.", 
     name: "Onyeka Adedayo", 
     role: "Founder, Creaitz", 
     image: "/images/onyeka.jpg", 
     handle: "@onyekaekwemozor" 
   },
   { 
-    quote: "Web3PH is a groundbreaking initiative shaping the future of blockchain and decentralized technology. From Port Harcourt, I’ve seen how this ecosystem can empower communities, unlock new opportunities, and redefine the way we engage with digital ownership and collaboration.", 
+    quote: "Web3PHC is a groundbreaking initiative shaping the future of blockchain and decentralized technology. From Port Harcourt, I’ve seen how this ecosystem can empower communities, unlock new opportunities, and redefine the way we engage with digital ownership and collaboration.", 
     name: "Precious Micah", 
     role: "Founder, Straqa", 
     image: "/images/precious.jpg", 

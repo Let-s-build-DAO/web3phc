@@ -231,7 +231,7 @@ const FeaturedCarousel = () => {
       : "bg-white text-black hover:bg-zinc-200 shadow-white/10";
 
   return (
-    <div className="relative overflow-hidden rounded-[16px] bg-[#0a0a0a] border border-[#262626] group transition-colors duration-300">
+    <div className="font-sans relative overflow-hidden rounded-[16px] bg-[#0a0a0a] border border-[#262626] group transition-colors duration-300">
         
          {/* Dynamic Background Glow Removed for Flat Mode */}
         <div className="absolute inset-0 bg-[#0a0a0a] opacity-50 pointer-events-none"></div>
@@ -246,11 +246,11 @@ const FeaturedCarousel = () => {
                 transition={{ duration: 0.8, ease: "circOut" }}
             >
                     <div className="inline-flex items-center gap-3 px-5 py-2 rounded-md border border-[#262626] bg-[#121212] text-[#a3a3a3]">
-                        <span className="text-sm font-sans font-bold tracking-widest uppercase">{currentItem.subtitle}</span>
+                        <span className="font-mono text-xs font-bold tracking-widest uppercase">{currentItem.subtitle}</span>
                     </div>
                     
                     <div className="relative">
-                        <h2 className="text-6xl md:text-7xl lg:text-[6rem] font-display font-normal text-white mb-6 leading-[0.9]">
+                        <h2 className="text-[2.5rem] unbounded-title text-white mb-6 leading-[0.9]">
                             {currentItem.title}
                         </h2>
                         {/* Creative Decorative Line */}
@@ -260,7 +260,7 @@ const FeaturedCarousel = () => {
                             transition={{ duration: 1, delay: 0.4 }}
                             className="h-px bg-[#404040] mb-8" 
                         />
-                        <p className="text-xl md:text-2xl text-[#a3a3a3] font-light leading-relaxed max-w-xl">
+                        <p className="font-sans text-xl md:text-2xl text-[#a3a3a3] font-light leading-relaxed max-w-xl">
                             {currentItem.description}
                         </p>
                     </div>
@@ -270,7 +270,7 @@ const FeaturedCarousel = () => {
                             href={currentItem.ctaLink} 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="btn bg-white text-black hover:bg-[#e5e5e5] px-10 py-4 rounded-md text-lg font-bold"
+                            className="btn font-sans font-bold bg-white text-black hover:bg-[#e5e5e5] px-10 py-4 rounded-md text-lg"
                         >
                             {currentItem.cta}
                         </a>
@@ -278,7 +278,7 @@ const FeaturedCarousel = () => {
                             href={currentItem.link} 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="group flex items-center gap-3 px-8 py-4 rounded-md border border-[#404040] text-white hover:bg-[#121212] transition-colors font-medium text-lg"
+                            className="group font-sans font-medium flex items-center gap-3 px-8 py-4 rounded-md border border-[#404040] text-white hover:bg-[#121212] transition-colors text-lg"
                         >
                             <span>Visit Website</span>
                             <FaExternalLinkAlt className="text-sm opacity-50 group-hover:opacity-100 transition-opacity -translate-y-px group-hover:translate-x-1" />
@@ -300,8 +300,8 @@ const FeaturedCarousel = () => {
                 <div className="absolute inset-x-4 bottom-4 p-4 rounded-md bg-[#1a1a1a] border border-[#262626] flex items-center justify-between">
                      {currentItem.stats.map((stat, i) => (
                         <div key={i} className="flex flex-col px-2">
-                            <span className="text-[10px] font-sans uppercase tracking-widest text-[#737373] font-bold mb-1">{stat.label}</span>
-                            <span className="text-xl font-display font-normal text-white">{stat.value}</span>
+                            <span className="font-mono text-[10px] uppercase tracking-widest text-[#737373] font-bold mb-1">{stat.label}</span>
+                            <span className="font-sans text-xl font-black text-white">{stat.value}</span>
                         </div>
                     ))}
                 </div>
@@ -364,7 +364,7 @@ const Ecosystem = () => {
   }, [activeCategory, searchQuery, sortedData]);
 
   return (
-    <div className="min-h-screen pt-20 pb-24 relative overflow-hidden">
+    <div className="font-sans min-h-screen pt-20 pb-24 relative overflow-hidden">
       <Helmet>
         <title>Ecosystem | Web3PHC</title>
         <meta name="description" content="Discover the communities, projects, and events driving borderless Web3 innovation from Port Harcourt to the world." />
@@ -386,7 +386,7 @@ const Ecosystem = () => {
              transition={{ duration: 0.6 }}
              className="mb-8"
           >
-              <span className="text-[#a3a3a3] font-mono text-sm tracking-widest uppercase">[ WEB3PHC_NETWORK ]</span>
+              <span className="font-mono text-xs tracking-widest text-[#a3a3a3] uppercase">[ WEB3PHC_NETWORK ]</span>
           </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -400,7 +400,7 @@ const Ecosystem = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-[#a3a3a3] text-lg lg:text-xl leading-relaxed mb-8 font-light"
+            className="font-sans text-[#a3a3a3] text-lg lg:text-xl leading-relaxed mb-8 font-light"
           >
             Discover the global convergence of communities, innovative projects, and events driving borderless Web3 innovation.
           </motion.p>
@@ -477,7 +477,7 @@ const Ecosystem = () => {
                                 </span>
                             </div>
                             
-                            <h3 className="text-3xl font-sans font-bold text-black mb-4 uppercase tracking-tighter leading-none group-hover:text-brand-primary transition-colors relative z-10">{item.name}</h3>
+                            <h3 className="text-2xl unbounded-title text-black mb-4 uppercase tracking-tighter leading-none group-hover:text-brand-primary transition-colors relative z-10">{item.name}</h3>
                             <p className="text-black/60 font-sans text-sm font-normal leading-relaxed mb-8 line-clamp-3 flex-1 relative z-10">
                                 {item.description}
                             </p>
@@ -525,7 +525,7 @@ const Ecosystem = () => {
             
              <span className="font-mono text-xs tracking-widest text-[#a3a3a3] uppercase mb-6 inline-block">[ GET_INVOLVED ]</span>
              <h2 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-white mb-6 relative z-10 leading-[0.9] tracking-tighter uppercase">
-                HAVE A PROJECT OR <br/> <span className="font-serif italic font-light text-brand-primary lowercase">COMMUNITY?</span>
+                HAVE A PROJECT OR <br/> <span className="font-display italic font-light text-brand-primary lowercase">COMMUNITY?</span>
              </h2>
              <p className="text-[#a3a3a3] text-lg lg:text-xl mb-12 max-w-2xl mx-auto relative z-10 leading-relaxed font-mono">
                 _Join the growing Web3PHC ecosystem. List your project to get discovered by builders, investors, and community members worldwide.

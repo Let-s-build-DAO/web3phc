@@ -56,7 +56,7 @@ const HeaderNav = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`font-sans fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled || isOpen
           ? "bg-black/90 backdrop-blur-md border-b border-white/10" 
           : "bg-transparent border-b border-transparent"
@@ -75,7 +75,7 @@ const HeaderNav = () => {
               <a
                 key={to}
                 href={to}
-                className="text-zinc-400 hover:text-white text-sm font-medium transition-colors"
+                className="font-sans text-zinc-400 hover:text-white text-sm font-medium transition-colors"
                 onClick={() => {
                     // Smooth scroll for anchor links
                     if (to.startsWith("/#")) {
@@ -89,7 +89,7 @@ const HeaderNav = () => {
               <Link
                 key={to}
                 to={to}
-                className="text-zinc-400 hover:text-white text-sm font-medium transition-colors"
+                className="font-sans text-zinc-400 hover:text-white text-sm font-medium transition-colors"
               >
                 {label}
               </Link>
@@ -103,7 +103,7 @@ const HeaderNav = () => {
                 href="https://t.me/web3portharcourt"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn text-sm py-2 px-6"
+                className="btn font-sans font-bold text-sm py-2 px-6"
             >
                 Join Community
             </a>
@@ -136,7 +136,7 @@ const HeaderNav = () => {
                                     key={to}
                                     href={to}
                                     onClick={() => setIsOpen(false)}
-                                    className="text-2xl sm:text-3xl font-bold text-white hover:text-brand-primary transition-colors tracking-tight"
+                                    className="font-sans text-2xl sm:text-3xl font-bold text-white hover:text-brand-primary transition-colors tracking-tight"
                                 >
                                     {label}
                                 </a>
@@ -144,7 +144,7 @@ const HeaderNav = () => {
                                 <Link
                                     key={to}
                                     to={to}
-                                    className="text-2xl sm:text-3xl font-bold text-white hover:text-brand-primary transition-colors tracking-tight"
+                                    className="font-sans text-2xl sm:text-3xl font-bold text-white hover:text-brand-primary transition-colors tracking-tight"
                                 >
                                     {label}
                                 </Link>
@@ -161,11 +161,11 @@ const HeaderNav = () => {
                                     </svg>
                                 </div>
                                 
-                                <span className="inline-block px-2 py-0.5 mb-2 text-[9px] font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/10 rounded-md border border-brand-primary/20">
+                                <span className="font-mono inline-block px-2 py-0.5 mb-2 text-[9px] font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/10 rounded-md border border-brand-primary/20">
                                     Street Wisdom
                                 </span>
                                 
-                                <p className="text-zinc-300 text-xs font-medium italic leading-relaxed relative z-10">
+                                <p className="font-sans text-zinc-300 text-xs font-medium italic leading-relaxed relative z-10">
                                     &quot;{slang}&quot;
                                 </p>
                             </div>
@@ -176,7 +176,7 @@ const HeaderNav = () => {
                                 href="https://t.me/web3portharcourt"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="btn w-full py-4 text-center justify-center text-lg font-bold"
+                                className="btn font-sans font-bold w-full py-4 text-center justify-center text-lg"
                             >
                                 Join Community
                             </a>
