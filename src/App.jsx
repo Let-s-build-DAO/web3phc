@@ -26,7 +26,7 @@ function App() {
         <ScrollToTop />
         <div className="bg-noise" />
         <HeaderNav />
-        <main className="pt-16">
+        <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/ecosystem" element={<Ecosystem />} />

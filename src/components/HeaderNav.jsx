@@ -14,9 +14,19 @@ const NAV_LINKS = [
 
 const HeaderNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [slang, setSlang] = useState("");
   const location = useLocation();
   const isHome = location.pathname === "/";
+
+  // Track scrolling
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Close menu on route change
   useEffect(() => {
@@ -45,7 +55,13 @@ const HeaderNav = () => {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
+    <header 
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled || isOpen
+          ? "bg-black/90 backdrop-blur-md border-b border-white/10" 
+          : "bg-transparent border-b border-transparent"
+      }`}
+    >
       <div className="custom-container flex items-center justify-between h-16 lg:h-20">
         {/* Logo - Always visible, z-index higher than menu */}
         <Link to="/" className="flex items-center gap-2 relative z-50">
@@ -106,9 +122,9 @@ const HeaderNav = () => {
         <AnimatePresence>
             {isOpen && (
                 <motion.div 
-                    initial={{ y: "-100%" }}
-                    animate={{ y: 0 }}
-                    exit={{ y: "-100%" }}
+                    initial={{ x: "-100%" }}
+                    animate={{ x: 0 }}
+                    exit={{ x: "-100%" }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     className="fixed inset-0 z-40 bg-black flex flex-col pt-24 px-6 md:hidden h-[100dvh]"
                 >

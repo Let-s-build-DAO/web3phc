@@ -1,10 +1,19 @@
 import { useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaLongArrowAltRight, FaTelegram, FaWhatsapp } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import XIcon from "../components/XIcon";
 
 /* NextBridge Africa–style flow: Hero → Trusted By → How We Drive Impact → Impact in Numbers → Testimonials → Be Part of the Movement → Conference teaser */
+
+const HERO_IMAGES = [
+  "/images/243.jpg",
+  "/images/247.jpg", 
+  "/images/246.jpg",
+  "/images/248.jpg",
+  "/images/249.jpg"
+];
 
 const COMMUNITY_LINKS = [
   { href: "https://x.com/web3PHC", label: "X", Icon: XIcon, sub: "Follow Us" },
@@ -82,6 +91,14 @@ const Home = () => {
   const impactRef = useRef(null);
   const communityRef = useRef(null);
   const location = useLocation();
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 4000); // 4 seconds per slide
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const hash = location.hash?.slice(1);
@@ -94,113 +111,180 @@ const Home = () => {
 
   return (
     <>
-      {/* Hero – split 50/50, aligned */}
-      {/* Hero – split 50/50, aligned */}
-      {/* Hero – split 50/50, aligned */}
-      <section id="about" ref={aboutRef} className="hero-bg min-h-[100dvh] lg:min-h-[90vh] flex items-center relative overflow-hidden pt-12 lg:pt-0">
-        {/* Animated Glow Blobs */}
-        <div className="glow-blob-animated w-96 h-96 bg-brand-primary/20 top-0 left-[-100px] blur-[120px]" />
-        <div className="glow-blob-animated w-96 h-96 bg-purple-600/20 bottom-0 right-[-100px] blur-[120px]" style={{ animationDelay: '2s' }} />
-
-        <div className="absolute inset-0 flex items-center justify-center font-display font-black text-[25vw] sm:text-[20vw] text-white/5 select-none pointer-events-none z-0 whitespace-nowrap opacity-20">
-            WEB3PHC
+      <section id="about" ref={aboutRef} className="bg-black min-h-[100dvh] flex flex-col justify-center relative overflow-hidden">
+        
+        {/* Full Bleed Image Background Slider */}
+        <div className="absolute inset-0 z-0 bg-black">
+          <AnimatePresence mode="popLayout">
+            <motion.img 
+              key={currentImage}
+              src={HERO_IMAGES[currentImage]}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.8 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              alt="Web3PHC Event" 
+              className="absolute inset-0 w-full h-full object-cover object-[center_30%] lg:object-[center_20%] scale-105" 
+            />
+          </AnimatePresence>
+          {/* Lightened Overlay for readability without hiding the image */}
+          <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none" />
         </div>
 
-        <div className="custom-container w-full py-20 lg:py-32 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <motion.div className="flex flex-col justify-center text-center lg:text-left" variants={container} initial="hidden" animate="visible">
-              <motion.h1 className="text-6xl sm:text-7xl lg:text-[7.5rem] font-display font-normal tracking-tight text-white mb-8 leading-[0.9]" variants={item}>
-                From Pitakwa,<br />
-                <span className="text-brand-primary italic pr-4">To The World.</span>
-              </motion.h1>
-              <motion.p className="text-[#a3a3a3] text-lg lg:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0 font-light pb-8" variants={item}>
-                <strong>Web3 Port Harcourt</strong> is a global convergence point for founders, builders, investors, and ecosystem leaders. Anchored in Port Harcourt. Scaling borderless innovation to the rest of the world.
-              </motion.p>
-              <motion.div className="flex flex-wrap gap-4 justify-center lg:justify-start" variants={item}>
-                <a href="https://t.me/web3portharcourt" target="_blank" rel="noopener noreferrer" className="btn shadow-lg shadow-brand-primary/20 min-w-[180px] justify-center text-center">
-                  Follow Who Know Road
-                </a>
-                <Link to="/reconfig" className="btn-outline btn inline-flex items-center justify-center gap-2 min-w-[180px] text-center">
-                  Re:Config 2026 <FaLongArrowAltRight />
-                </Link>
-              </motion.div>
-            </motion.div>
+        <div className="w-full relative z-10 px-4 lg:px-12 xl:px-20 max-w-[1600px] mx-auto">
+          <motion.div className="w-full flex flex-col " variants={container} initial="hidden" animate="visible">
             
-            {/* Hero Image / Visual */}
-            <motion.div className="relative flex justify-center lg:justify-end" variants={container} initial="hidden" animate="visible">
-                <div className="relative z-10 w-full max-w-md lg:max-w-full">
-                    <img src="/images/hero.png" alt="Web3PHC" className="w-32 h-32 lg:w-48 lg:h-48 object-contain mx-auto floating opacity-90" />
-                    {/* Placeholder for a more dynamic 3D element if desired later */}
+            {/* Responsive Hero Grid */}
+            <div className="custom-container px-4 lg:px-12 grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[auto_auto] w-full gap-y-6 lg:gap-y-0 lg:items-end mt-16 md:mt-24 lg:mt-0">
+              
+              {/* Massive Title */}
+              <motion.h1 
+                className="order-1 lg:col-start-1 lg:row-start-1 text-[1.5rem] sm:text-[3rem] md:text-[4.5rem] lg:text-[7rem] unbounded-title text-white tracking-tight leading-[0.9] mix-blend-overlay drop-shadow-2xl" 
+                style={{ textShadow: '0 10px 40px rgba(0,0,0,0.6)' }}
+                variants={item}
+              >
+                Web3PHC
+              </motion.h1>
+
+              {/* Subtext - Centered Below Title horizontally */}
+              <div className="order-2 lg:col-start-1 lg:row-start-2 px-0 lg:px-4 mt-2 lg:mt-[50px] pointer-events-none">
+                <motion.p className="text-[#e5e5e5] text-sm md:text-base leading-snug max-w-[300px] sm:max-w-sm lg:max-w-md font-sans drop-shadow-lg text-left" variants={item}>
+                  A global movement transforming Nigeria into a hub for innovation in Web3, and frontier technologies.
+                </motion.p>
+              </div>
+
+              {/* Floating Side Action */}
+              <motion.div className="order-3 lg:col-start-2 lg:row-start-1 flex flex-row items-end justify-end gap-3 lg:gap-4 mt-4 lg:mt-0 lg:-mb-[2%] xl:-mb-[3%] lg:h-[150px] w-full" variants={item}>
+                <div className="mb-[80px] lg:mb-[120px]">
+                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-lg sm:w-8 sm:h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 w-6 h-6">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                   </svg>
                 </div>
-                 <div className="glow-blob w-80 h-80 bg-brand-primary/10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-[80px]" />
-            </motion.div>
-          </div>
+                <h2 className="text-[1.2rem] sm:text-[1.4rem] lg:text-[1.8rem] font-sans font-normal tracking-wide text-white leading-[1.1] text-left uppercase drop-shadow-lg">
+                  BRING<br />
+                  NIGERIA<br />
+                  ONCHAIN
+                </h2>
+              </motion.div>
+            </div>
+
+          </motion.div>
         </div>
       </section>
 
-      {/* Trusted By Leading Web3 Brands – Brands We've Worked With */}
-      <section className="py-20 lg:py-32 px-4 relative border-t border-[#262626] bg-[#0a0a0a]">
-        <div className="custom-container relative z-10">
-          <h2 className="section-title text-center text-4xl lg:text-5xl font-display font-normal text-white mb-16">Trusted By Ecosystem Leaders</h2>
-          <div className="relative w-full overflow-hidden mask-gradient-x">
-             {/* Stronger Gradient Masks for a premium fade effect */}
-             <div className="absolute top-0 left-0 h-full w-24 lg:w-48 bg-gradient-to-r from-black to-transparent z-20 pointer-events-none" />
-             <div className="absolute top-0 right-0 h-full w-24 lg:w-48 bg-gradient-to-l from-black to-transparent z-20 pointer-events-none" />
-            
-            <div className="flex overflow-hidden">
-              <motion.div 
-                className="flex gap-12 lg:gap-24 items-center flex-nowrap py-4"
-                animate={{ x: "-50%" }}
-                transition={{ 
-                  repeat: Infinity, 
-                  ease: "linear", 
-                  duration: 30, // Adjust speed here
-                }}
-              >
-                {[...PARTNER_LOGOS, ...PARTNER_LOGOS].map((src, i) => (
-                  <div key={i} className="flex-shrink-0">
-                     <img 
-                        src={src} 
-                        alt="Partner" 
-                        className="h-10 lg:h-14 w-auto object-contain opacity-50 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 hover:scale-110" 
-                     />
-                  </div>
-                ))}
-              </motion.div>
+      {/* Collaborative Ecosystem */}
+      <section className="py-20 px-4 relative bg-[#f8f9fa] z-20 rounded-t-[48px] lg:rounded-t-[80px] -mt-20 md:-mt-40 overflow-hidden text-black shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+        {/* Geometric Grid Pattern - Edges Only */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#fe650020_1px,transparent_1px),linear-gradient(to_bottom,#0052ff20_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0 opacity-50 [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black_100%)]" />
+        
+        {/* Ambient Background Gradients */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#fe6500]/20 to-transparent blur-[120px] rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#0052ff]/10 to-transparent blur-[120px] rounded-full translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+        
+        <div className="custom-container relative z-10 w-full px-4 lg:px-12 flex flex-col">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 justify-between items-start max-w-[90rem] mx-auto w-full">
+            <div className="flex flex-col gap-6 max-w-4xl">
+              <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-sans font-medium leading-[1.05] tracking-tight text-black">
+                Web3 PHC is a <span className="font-serif italic font-light text-[#fe6500]">collaborative ecosystem</span> designed to elevate both technical and creative talent.
+              </h2>
+              <p className="text-xl sm:text-2xl lg:text-3xl font-sans font-normal leading-snug text-zinc-600 max-w-3xl">
+                We drive high-impact collaboration and amplify the global visibility of our builders, creators, and startups.
+              </p>
+            </div>
+            <div className="hidden lg:flex w-32 h-32 items-center justify-center flex-shrink-0">
+               <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="19" x2="19" y2="5"></line>
+                  <polyline points="5 5 19 5 19 19"></polyline>
+               </svg>
             </div>
           </div>
         </div>
       </section>
 
-      {/* How We Drive Impact – From knowledge to community... + 5 cards */}
-      <section id="mission"  ref={impactRef} className="py-20 lg:py-32 px-4 relative border-t border-[#262626] bg-[#0a0a0a]">
-        <div className="custom-container relative z-10">
-          <h2 className="section-title text-center text-4xl lg:text-5xl font-display font-normal text-white mb-6">Our Mission</h2>
-          <p className="section-subtitle mb-16 max-w-3xl text-[#a3a3a3] font-light">We don&apos;t just convene conversations—we build the foundational infrastructure that allows our tech talent to seamlessly integrate with the global digital economy.</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      {/* Mission / Three Pillars */}
+      <section id="mission"  className="py-20 lg:py-32 px-4 relative bg-[#ebecf0] border-t border-black/10 overflow-hidden">
+        {/* Geometric Grid Pattern - Edges Only */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0052ff20_1px,transparent_1px),linear-gradient(to_bottom,#fe650020_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0 opacity-50 [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black_100%)]" />
+
+        {/* Ambient Background Gradients */}
+        <div className="absolute top-1/4 left-0 w-[700px] h-[700px] bg-gradient-to-r from-[#0052ff]/10 to-transparent blur-[150px] rounded-full -translate-x-1/2 pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-l from-[#fe6500]/15 to-transparent blur-[120px] rounded-full translate-y-1/4 translate-x-1/4 pointer-events-none" />
+
+        <div className="custom-container relative z-10 w-full px-4 lg:px-12">
+          
+          <div className="flex flex-col lg:flex-row justify-between items-start mb-20 max-w-[90rem] mx-auto w-full border-b border-black/20 pb-12">
+            <h2 className="text-4xl lg:text-5xl font-sans font-normal text-black uppercase tracking-tight max-w-2xl leading-[1.1]">
+              OUR <span className="font-bold italic font-serif">MISSION</span> STANDS ON <span className="font-bold italic font-serif">THREE</span> PILLARS:
+            </h2>
+            <div className="hidden lg:flex mt-4 lg:mt-0">
+               <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="19" x2="19" y2="5"></line>
+                  <polyline points="5 5 19 5 19 19"></polyline>
+               </svg>
+            </div>
+          </div>
+
+          <div className="flex flex-col max-w-[90rem] mx-auto w-full">
             {STRATEGIC_PILLARS.map((p, i) => (
-              <div key={p.title} className="card group flex flex-col h-auto min-h-[300px]">
-                 <div className="w-12 h-12 mb-8 rounded-lg bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center group-hover:bg-brand-primary/20 transition-all duration-300">
-                    <span className="text-brand-primary font-display font-normal text-xl">{i + 1}</span>
-                </div>
-                <h3 className="text-3xl font-display font-normal text-white mb-4 group-hover:text-brand-primary transition-colors">{p.title}</h3>
-                <p className="text-zinc-400 text-sm lg:text-base leading-relaxed tracking-wide">{p.description}</p>
+              <div key={p.title} className="flex flex-col lg:flex-row items-start lg:items-center py-10 lg:py-16 border-b border-black/20 last:border-b-0 group">
+                 <div className="w-full lg:w-32 flex-shrink-0 mb-4 lg:mb-0">
+                    <span className="font-mono text-xl lg:text-2xl text-black/90 font-medium">/0{i + 1}</span>
+                 </div>
+                 <div className="w-full lg:w-1/3 pr-8 mb-4 lg:mb-0">
+                   <h3 className="text-2xl lg:text-3xl font-sans font-normal text-black capitalize">{p.title}</h3>
+                 </div>
+                 <div className="w-full lg:w-1/2 ml-auto">
+                   <p className="text-[#404040] text-lg lg:text-xl leading-relaxed font-sans font-medium">_{p.description}</p>
+                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
+      {/* In Order To Accomplish This Section */}
+      {/* <section className="py-24 lg:py-32 px-4 relative bg-gradient-to-b from-[#ebecf0] to-[#cdd1dc] border-t border-black/10">
+        <div className="custom-container relative z-10 w-full px-4 lg:px-12 flex flex-col items-start max-w-[90rem] mx-auto">
+          <h2 className="text-5xl lg:text-7xl font-sans font-normal uppercase text-black max-w-5xl leading-[1.05] tracking-tighter">
+            IN ORDER TO <span className="font-bold italic font-serif">ACCOMPLISH</span> THIS, <br className="hidden md:block"/> WEB3PHC <span className="font-bold italic font-serif">PROVIDES</span>:
+          </h2>
+          <div className="w-full flex justify-end mt-12 lg:-mt-20 opacity-80">
+               <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="19" x2="19" y2="5"></line>
+                  <polyline points="5 5 19 5 19 19"></polyline>
+               </svg>
+          </div>
+        </div>
+      </section> */}
+
+
+
       {/* Our Impact in Numbers */}
-      <section id="impact" className="py-20 lg:py-32 px-4 relative border-y border-[#262626] bg-[#0a0a0a]">
-        <div className="custom-container">
-          <h2 className="section-title text-center text-4xl lg:text-5xl font-display font-normal text-white mb-16">Our Impact in Numbers</h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mt-12 card !bg-[#121212]">
-            {IMPACT_METRICS.map((m) => (
-              <div key={m.label} className="text-center group p-4 border-l border-[#262626] first:border-l-0">
-                <div className="text-5xl lg:text-6xl font-display font-normal text-white mb-3 group-hover:text-brand-primary transition-colors duration-300">{m.value}</div>
-                <div className="text-sm font-sans font-bold text-[#a3a3a3] uppercase tracking-wider mb-1">{m.label}</div>
-                <div className="text-xs font-sans text-[#737373]">{m.sub}</div>
+      <section id="impact" className="py-20 lg:py-32 px-4 relative border-t border-white/10 bg-[#000]">
+        
+        {/* Abstract Brutalist Lines */}
+        <div className="absolute right-8 lg:right-16 top-0 w-[1px] h-full bg-white/10 hidden md:block" />
+        <div className="absolute left-8 lg:left-16 top-0 w-[1px] h-full bg-white/10 hidden md:block" />
+
+        <div className="custom-container relative z-10 pl-4 pr-4 lg:pl-24 lg:pr-24">
+          <div className="flex flex-col mb-16 border-b border-white/10 pb-8">
+            <span className="font-mono text-xs tracking-widest text-[#a3a3a3] uppercase mb-4">[ IMPACT_METRICS ]</span>
+            <h2 className="text-4xl lg:text-5xl font-display font-normal text-white mb-6">
+              <span className="font-sans font-bold block mb-2">BY THE</span> 
+              <span className="font-serif italic font-light text-[#d4d4d4] block">NUMBERS.</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 border border-white/10 bg-[#0a0a0a]">
+            {IMPACT_METRICS.map((m, i) => (
+              <div key={m.label} className="text-left group p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-white/10 last:border-r-0 hover:bg-[#121212] transition-colors">
+                <div className="font-mono text-xs text-brand-primary mb-6">/0{i + 1}</div>
+                <div className="text-5xl lg:text-6xl font-sans font-black text-white mb-4 group-hover:text-brand-primary transition-colors duration-300 tracking-tighter">{m.value}</div>
+                <div className="text-sm font-mono font-bold text-[#e5e5e5] uppercase tracking-widest mb-2">{m.label}</div>
+                <div className="text-xs font-mono text-[#808080]">{m.sub}</div>
               </div>
             ))}
           </div>
@@ -208,55 +292,64 @@ const Home = () => {
       </section>
 
       {/* Testimonials – Trusted by Community */}
+      <section ref={communityRef} className="py-20 lg:py-32 px-4 relative overflow-hidden border-t border-white/10 bg-[#000]">
+        <div className="absolute right-8 lg:right-16 top-0 w-[1px] h-full bg-white/10 hidden md:block" />
+        <div className="absolute left-8 lg:left-16 top-0 w-[1px] h-full bg-white/10 hidden md:block" />
 
-
-      <section ref={communityRef} className="py-20 lg:py-32 px-4 relative overflow-hidden border-t border-[#262626] bg-[#0a0a0a]">
-        <div className="custom-container relative z-10">
-          <h2 className="section-title text-center text-4xl lg:text-5xl font-display font-normal text-white mb-6">Wetin Men Dey Talk</h2>
-          <p className="section-subtitle mb-16 max-w-3xl text-[#a3a3a3] font-light">Hear from the innovators and builders we&apos;ve empowered.</p>
+        <div className="custom-container relative z-10 pl-4 pr-4 lg:pl-24 lg:pr-24">
+          <div className="flex flex-col mb-16 border-b border-white/10 pb-8">
+            <span className="font-mono text-xs tracking-widest text-[#a3a3a3] uppercase mb-4">_COMMUNITY SIGNALS</span>
+            <h2 className="text-4xl lg:text-5xl font-display font-normal text-white mb-6">
+              <span className="font-sans font-bold block mb-2">WHAT THEY</span> 
+              <span className="font-serif italic font-light text-[#d4d4d4] block">SAY.</span>
+            </h2>
+            <p className="max-w-3xl text-[#a3a3a3] font-mono text-sm leading-relaxed">
+              Hear from the innovators and builders we've empowered.
+            </p>
+          </div>
           
-          <div className="relative max-w-[100vw] lg:max-w-6xl mx-auto -mx-4 px-4 lg:mx-auto">
+          <div className="relative max-w-[100vw] lg:max-w-6xl -mx-4 px-4 lg:mx-0 lg:px-0">
             {/* Scroll Container */}
-            <div className="flex overflow-x-auto py-8 lg:py-12 gap-6 lg:gap-8 snap-x snap-mandatory scrollbar-hide pb-16">
+            <div className="flex overflow-x-auto py-8 lg:py-12 gap-6 snap-x snap-mandatory scrollbar-hide pb-16">
                 {TESTIMONIALS.map((t, i) => (
-                    <div key={i} className="min-w-[85%] md:min-w-[45%] lg:min-w-[380px] snap-center flex pt-4">
-                        <div className="card hover:border-[#404040] flex flex-col h-full w-full p-8 lg:p-10 transition-all duration-300">
-                            <div className="absolute -top-6 left-8 bg-[#1a1a1a] border border-[#262626] w-12 h-12 flex items-center justify-center rounded-full shadow-lg">
-                                <span className="text-white text-4xl font-display mt-2">&ldquo;</span>
+                    <div key={i} className="min-w-[85%] md:min-w-[45%] lg:min-w-[400px] snap-center flex">
+                        <div className="bg-[#0a0a0a] border border-white/10 hover:border-white/30 flex flex-col h-full w-full p-8 lg:p-10 transition-all duration-300 relative group">
+                            <div className="absolute top-8 right-8 text-white/10 text-6xl font-serif font-black pointer-events-none group-hover:text-white/20 transition-colors">
+                                "
                             </div>
                             
-                            <div className="mb-6 flex justify-end">
+                            <div className="mb-6 flex justify-end relative z-10">
                                 {/* X/Twitter Link */}
                                 <a 
                                     href={t.handle ? `https://x.com/${t.handle.replace('@', '')}` : '#'} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="p-2.5 rounded-full bg-white/5 hover:bg-brand-primary/20 hover:text-brand-primary transition-all duration-300 group/icon border border-transparent hover:border-brand-primary/30"
+                                    className="p-2.5 bg-transparent hover:bg-white text-[#a3a3a3] hover:text-black transition-all duration-300 border border-white/20 hover:border-white"
                                     aria-label={`Visit ${t.name} on X`}
                                 >
                                     {/* X Logo SVG */}
-                                    <svg viewBox="0 0 24 24" className="w-4 h-4 text-zinc-400 group-hover/icon:text-brand-primary fill-current transition-colors" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current transition-colors" aria-hidden="true">
                                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
                                     </svg>
                                 </a>
                             </div>
                             
-                            <p className="text-zinc-300 text-sm lg:text-base mb-8 italic leading-relaxed flex-grow relative z-10 break-words whitespace-normal">
+                            <p className="text-[#d4d4d4] text-sm lg:text-base mb-8 font-mono leading-relaxed flex-grow relative z-10 break-words whitespace-normal">
                                 {t.quote}
                             </p>
                             
-                            <div className="flex items-center gap-4 mt-auto pt-6 border-t border-[#262626]">
+                            <div className="flex items-center gap-4 mt-auto pt-6 border-t border-white/10">
                                 {t.image ? (
-                                    <img src={t.image} alt={t.name} className="w-12 h-12 rounded-full object-cover shrink-0" />
+                                    <img src={t.image} alt={t.name} className="w-12 h-12 rounded-none grayscale object-cover shrink-0 border border-white/20" />
                                 ) : (
-                                    <div className="w-12 h-12 rounded-full bg-[#1a1a1a] flex items-center justify-center text-sm font-bold text-white shrink-0">
+                                    <div className="w-12 h-12 rounded-none bg-[#1a1a1a] flex items-center justify-center text-sm font-mono font-bold text-white shrink-0 border border-white/20">
                                         {t.name.charAt(0)}
                                     </div>
                                 )}
                                 <div className="min-w-0 flex-1">
-                                    <p className="font-bold text-white text-base truncate">{t.name}</p>
+                                    <p className="font-bold font-sans text-white text-base truncate uppercase tracking-widest">{t.name}</p>
                                     <div className="flex flex-col">
-                                        <p className="text-xs text-brand-primary truncate leading-tight tracking-wide font-medium mt-0.5">{t.role}</p>
+                                        <p className="text-xs font-mono text-[#808080] truncate leading-tight tracking-wide mt-1">__{t.role}</p>
                                     </div>
                                 </div>
                             </div>
@@ -272,83 +365,119 @@ const Home = () => {
       </section>
 
       {/* Be Part of The Movement – Join Us: X, WhatsApp, Events */}
-      <section id="tribe" className="py-20 lg:py-32 px-4 relative overflow-hidden border-t border-[#262626] bg-[#0a0a0a]">
-        <div className="absolute inset-0 flex items-center justify-center font-display font-black text-[25vw] sm:text-[20vw] text-white/5 select-none pointer-events-none z-0 whitespace-nowrap opacity-10">
-            CONNECT
-        </div>
-        <div className="custom-container relative z-10">
-          <h2 className="section-title text-center text-4xl lg:text-5xl font-display font-normal text-white mb-6">Join The Tribe</h2>
-          <p className="section-subtitle mb-16 max-w-3xl text-[#a3a3a3] font-light">Connect with a global network of Web3 enthusiasts, builders, and innovators.</p>
-          <div className="flex flex-col md:grid md:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto">
-            {COMMUNITY_LINKS.map(({ href, label, Icon, sub }) => (
-              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="card block w-full text-center hover:bg-[#121212] transition-colors group p-8">
-                <div className="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-4 lg:mb-6 rounded-full bg-[#1a1a1a] flex items-center justify-center transition-transform duration-300">
-                    <Icon className="text-white w-6 h-6 lg:w-8 lg:h-8 fill-current group-hover:text-brand-primary transition-colors" />
+      <section id="tribe" className="py-20 lg:py-32 px-4 relative overflow-hidden border-t border-white/10 bg-[#000]">
+        <div className="absolute right-8 lg:right-16 top-0 w-[1px] h-full bg-white/10 hidden md:block" />
+        <div className="absolute left-8 lg:left-16 top-0 w-[1px] h-full bg-white/10 hidden md:block" />
+
+        <div className="custom-container relative z-10 pl-4 pr-4 lg:pl-24 lg:pr-24">
+          <div className="flex flex-col mb-16 border-b border-white/10 pb-8 text-center items-center">
+            <span className="font-mono text-xs tracking-widest text-[#a3a3a3] uppercase mb-4">[ JOIN_THE_TRIBE ]</span>
+            <h2 className="text-4xl lg:text-5xl font-display font-normal text-white mb-6">
+              <span className="font-sans font-bold block mb-2">BUILD</span> 
+              <span className="font-serif italic font-light text-[#d4d4d4] block">WITH US.</span>
+            </h2>
+            <p className="max-w-xl text-[#a3a3a3] font-mono text-sm leading-relaxed">
+              Connect with a global network of Web3 enthusiasts, builders, and innovators.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-white/10 bg-[#0a0a0a]">
+            {COMMUNITY_LINKS.map(({ href, label, Icon, sub }, i) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="block text-center hover:bg-[#121212] transition-colors group p-8 lg:p-12 border-b md:border-b-0 md:border-r border-white/10 last:border-r-0 relative overflow-hidden">
+                <div className="absolute top-6 left-6 font-mono text-xs text-brand-primary">/0{i + 1}</div>
+                <div className="w-16 h-16 mx-auto mb-8 bg-[#1a1a1a] flex items-center justify-center transition-transform duration-300 rounded-none border border-white/20 group-hover:border-white/50">
+                    <Icon className="text-white w-8 h-8 fill-current group-hover:text-brand-primary transition-colors" />
                 </div>
-                <p className="font-sans font-bold text-white mb-2 text-base lg:text-lg break-words">{label.includes("X") ? "@web3PHC" : label}</p>
-                <p className="text-xs lg:text-sm text-zinc-400 group-hover:text-zinc-300 break-words">{sub}</p>
+                <p className="font-sans font-bold text-white mb-2 text-xl tracking-tight uppercase">{label.includes("X") ? "@web3PHC" : label}</p>
+                <p className="text-xs font-mono text-zinc-400 group-hover:text-zinc-300">_{sub}</p>
               </a>
             ))}
           </div>
+
           <div className="flex justify-center mt-12">
-            <Link to="/reconfig" className="btn-outline btn inline-flex items-center gap-2 px-8 py-3">
-              Lap this Unit!! <FaLongArrowAltRight />
+            <Link to="/reconfig" className="bg-white text-black font-sans font-bold text-sm uppercase tracking-wider px-8 py-4 hover:bg-[#e5e5e5] transition-colors inline-flex flex-row items-center gap-2 border border-white">
+              LAP THIS UNIT!! <FaLongArrowAltRight />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Contact Us */}
-      <section id="hello" className="py-16 lg:py-24 px-4 relative">
-        <div className="custom-container">
-            <h2 className="section-title">Say Who goes!!!</h2>
-            <p className="section-subtitle mb-12">Got questions or want to partner with us? Reach out directly.</p>
+      {/* Contact Us - Adapted to Brutalist/Metrics Style */}
+      <section id="hello" className="py-20 lg:py-32 px-4 relative border-t border-white/10 bg-[#000]">
+        
+        {/* Abstract Brutalist Lines */}
+        <div className="absolute right-8 lg:right-16 top-0 w-[1px] h-full bg-white/10 hidden md:block" />
+        <div className="absolute left-8 lg:left-16 top-0 w-[1px] h-full bg-white/10 hidden md:block" />
+
+        <div className="custom-container relative z-10 pl-4 pr-4 lg:pl-24 lg:pr-24">
+            <div className="flex flex-col mb-16 border-b border-white/10 pb-8">
+                <span className="font-mono text-xs tracking-widest text-[#a3a3a3] uppercase mb-4">[ DIRECT_CONTACT ]</span>
+                <h2 className="text-4xl lg:text-5xl font-display font-normal text-white mb-6">
+                  <span className="font-sans font-bold block mb-2">SAY WHO</span> 
+                  <span className="font-serif italic font-light text-[#d4d4d4] block">GOES!!!</span>
+                </h2>
+                <p className="max-w-xl text-[#a3a3a3] font-mono text-sm leading-relaxed">
+                  Got questions or want to partner with us? Reach out directly.
+                </p>
+            </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                <a href="mailto:hello@lbdao.xyz" className="card group text-center hover:border-brand-primary/30">
-                    <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary group-hover:scale-110 transition-transform">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-white/10 bg-[#0a0a0a]">
+                <a href="mailto:hello@lbdao.xyz" className="block text-center hover:bg-[#121212] transition-colors group p-8 lg:p-12 border-b md:border-b-0 md:border-r border-white/10 relative overflow-hidden">
+                    <div className="absolute top-6 left-6 font-mono text-xs text-brand-primary">/01</div>
+                    <div className="w-16 h-16 mx-auto mb-8 bg-[#1a1a1a] flex items-center justify-center transition-transform duration-300 rounded-none border border-white/20 group-hover:border-white/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-white group-hover:text-brand-primary transition-colors">
                             <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
                             <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
                         </svg>
                     </div>
-                    <p className="font-semibold text-white mb-1">General Inquiries</p>
-                    <p className="text-zinc-400 text-sm group-hover:text-brand-primary transition-colors">hello@lbdao.xyz</p>
+                    <p className="font-sans font-bold text-white mb-2 text-lg tracking-tight uppercase">General Inquiries</p>
+                    <p className="text-xs font-mono text-zinc-400 group-hover:text-zinc-300">_hello@lbdao.xyz</p>
                 </a>
-                 <a href="mailto:adams@lbdao.xyz" className="card group text-center hover:border-brand-primary/30">
-                    <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary group-hover:scale-110 transition-transform">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                 <a href="mailto:adams@lbdao.xyz" className="block text-center hover:bg-[#121212] transition-colors group p-8 lg:p-12 border-b md:border-b-0 md:border-r border-white/10 relative overflow-hidden">
+                    <div className="absolute top-6 left-6 font-mono text-xs text-brand-primary">/02</div>
+                    <div className="w-16 h-16 mx-auto mb-8 bg-[#1a1a1a] flex items-center justify-center transition-transform duration-300 rounded-none border border-white/20 group-hover:border-white/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-white group-hover:text-brand-primary transition-colors">
                           <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
                         </svg>
                     </div>
-                    <p className="font-semibold text-white mb-1">Direct Contact</p>
-                    <p className="text-zinc-400 text-sm group-hover:text-brand-primary transition-colors">adams@lbdao.xyz</p>
+                    <p className="font-sans font-bold text-white mb-2 text-lg tracking-tight uppercase">Direct Contact</p>
+                    <p className="text-xs font-mono text-zinc-400 group-hover:text-zinc-300">_adams@lbdao.xyz</p>
                 </a>
-                 <a href="tel:+2349050811584" className="card group text-center hover:border-brand-primary/30">
-                    <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary group-hover:scale-110 transition-transform">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                 <a href="tel:+2349050811584" className="block text-center hover:bg-[#121212] transition-colors group p-8 lg:p-12 relative overflow-hidden">
+                    <div className="absolute top-6 left-6 font-mono text-xs text-brand-primary">/03</div>
+                    <div className="w-16 h-16 mx-auto mb-8 bg-[#1a1a1a] flex items-center justify-center transition-transform duration-300 rounded-none border border-white/20 group-hover:border-white/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-white group-hover:text-brand-primary transition-colors">
                           <path fillRule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clipRule="evenodd" />
                         </svg>
                     </div>
-                    <p className="font-semibold text-white mb-1">Phone</p>
-                    <p className="text-zinc-400 text-sm group-hover:text-brand-primary transition-colors">+234 905 081 1584</p>
+                    <p className="font-sans font-bold text-white mb-2 text-lg tracking-tight uppercase">Phone</p>
+                    <p className="text-xs font-mono text-zinc-400 group-hover:text-zinc-300">_+234 905 081 1584</p>
                 </a>
             </div>
         </div>
       </section>
 
-      {/* Conference teaser – NEXT ACADEMY style: Web3PHC Conference Coming Soon */}
-      <section className="py-24 lg:py-32 px-4 relative mt-12">
-        <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-brand-primary/10 via-transparent to-transparent pointer-events-none" />
-        <div className="custom-container text-center max-w-3xl mx-auto relative z-10">
-          <div className="inline-block px-4 py-1 rounded-full border border-brand-primary/30 bg-black/50 backdrop-blur-md mb-6">
-               <p className="text-brand-primary font-bold text-xs uppercase tracking-[0.2em]">Web3PHC Re:Config</p>
-          </div>
-          <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6 tracking-tight">October 24th, 2026</h2>
-          <p className="text-zinc-300 text-lg mb-10 max-w-xl mx-auto">Our flagship conference bringing together builders, projects, and partners from across Rivers State and beyond.</p>
-          <Link to="/reconfig" className="btn inline-flex items-center gap-2 transform hover:scale-105 transition-transform">
-            Learn More <FaLongArrowAltRight />
-          </Link>
+      {/* Conference teaser – NEXT ACADEMY style Adapted to Metrics Style */}
+      <section className="py-24 lg:py-40 px-4 relative mt-0 border-t border-white/10 bg-[#000] overflow-hidden">
+        {/* Abstract Brutalist Lines */}
+        <div className="absolute right-8 lg:right-16 top-0 w-[1px] h-full bg-white/10 hidden md:block" />
+        <div className="absolute left-8 lg:left-16 top-0 w-[1px] h-full bg-white/10 hidden md:block" />
+        
+        <div className="absolute inset-x-0 bottom-0 h-[300px] bg-gradient-to-t from-[#fe6500]/10 via-transparent to-transparent pointer-events-none" />
+        
+        <div className="custom-container text-center max-w-3xl mx-auto relative z-10 pl-4 pr-4 lg:pl-24 lg:pr-24">
+            <span className="font-mono text-xs tracking-widest text-[#a3a3a3] uppercase mb-6 inline-block">[ FLAGSHIP_EVENT ]</span>
+            <h2 className="text-5xl lg:text-7xl font-display font-normal text-white mb-8">
+              <span className="font-sans font-bold block mb-2 leading-[0.9] tracking-tight">ROAD TO</span> 
+              <span className="font-serif italic font-light text-[#fe6500] block">RE:CONFIG.</span>
+            </h2>
+            <p className="text-[#a3a3a3] text-lg lg:text-xl font-mono mb-12 max-w-2xl mx-auto leading-relaxed">
+              The premier gathering for Web3 founders, builders, and investors in Nigeria.
+            </p>
+            
+            <Link to="/reconfig" className="bg-white text-black font-sans font-bold text-sm uppercase tracking-wider px-10 py-5 hover:bg-[#e5e5e5] transition-colors inline-block border border-white">
+              DISCOVER RE:CONFIG
+            </Link>
         </div>
       </section>
     </>

@@ -29,7 +29,7 @@ const Preloader = ({ onComplete }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Web3 in the South is
+          Global visibility 🌎
         </motion.p>
         <motion.h1
           className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-transparent bg-clip-text drop-shadow-[0_0_15px_rgba(254,101,0,0.5)]"
@@ -38,7 +38,7 @@ const Preloader = ({ onComplete }) => {
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
         >
-          EVOLVING
+          LOCAL DEPTH
         </motion.h1>
       </div>
       

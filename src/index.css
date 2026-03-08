@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@800&display=swap');
 /* Superteam NG Inspired Minimalist Styling */
 @import '@fontsource/instrument-serif/400-italic.css';
 @import '@fontsource/instrument-serif/400.css';
@@ -9,6 +10,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.unbounded-title {
+  font-family: "Unbounded", system-ui, sans-serif;
+  font-weight: 800;
+}
 
 :root {
   --font-heading: 'Instrument Serif', serif;
