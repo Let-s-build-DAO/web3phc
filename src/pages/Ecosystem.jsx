@@ -374,26 +374,27 @@ const Ecosystem = () => {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       {/* Background Blobs Removed for flat mode */}
-      <div className="absolute inset-0 bg-[#0a0a0a] pointer-events-none z-0"></div>
+      <div className="absolute inset-x-0 top-0 h-[500px] bg-gradient-to-b from-[#fe6500]/10 via-transparent to-transparent pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none z-0"></div>
 
       <div className="custom-container relative z-10 px-4">
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-4xl mx-auto mb-16 pt-12 md:pt-20">
           <motion.div 
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 0.6 }}
-             className="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-[#262626] bg-[#121212] mb-6"
+             className="mb-8"
           >
-              <span className="text-[#a3a3a3] text-xs font-sans font-bold uppercase tracking-wider">The Web3PHC Network</span>
+              <span className="text-[#a3a3a3] font-mono text-sm tracking-widest uppercase">[ WEB3PHC_NETWORK ]</span>
           </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-display font-normal text-white mb-6"
+            className="text-5xl sm:text-6xl md:text-8xl lg:text-[7rem] unbounded-title text-white mb-8 tracking-tight leading-[0.9]"
           >
-            Ecosystem.
+            THE <br /> ECOSYSTEM
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -416,111 +417,130 @@ const Ecosystem = () => {
              <FeaturedCarousel />
         </motion.div>
 
-        {/* Filter & Search Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12 bg-[#121212] border border-[#262626] rounded-lg p-2 md:p-3 max-w-7xl mx-auto">
-            {/* Categories */}
-            <div className="flex flex-wrap justify-center gap-2 w-full md:w-auto">
-                {CATEGORIES.map(cat => (
-                    <button
-                        key={cat}
-                        onClick={() => setActiveCategory(cat)}
-                        className={`px-4 py-2 rounded-md font-sans text-sm font-medium transition-all duration-300 ${
-                            activeCategory === cat 
-                            ? "bg-white text-black" 
-                            : "text-[#a3a3a3] hover:text-white hover:bg-[#1a1a1a]"
-                        }`}
-                    >
-                        {cat}
-                    </button>
-                ))}
-            </div>
+      {/* Main Light Brutalist Section */}
+      <div className="relative bg-gradient-to-b from-[#ebecf0] to-[#cdd1dc] z-20 py-20 px-4 rounded-t-[48px] lg:rounded-t-[80px] -mt-12 text-black shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+        
+        {/* Geometric Grid Pattern - Edges Only */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#fe650020_1px,transparent_1px),linear-gradient(to_bottom,#0052ff20_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0 opacity-50 [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black_100%)]" />
 
-            {/* Search */}
-            <div className="relative w-full md:w-72">
-                <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-zinc-500" />
-                <input 
-                    type="text" 
-                    placeholder="Search ecosystem..." 
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full bg-black/40 border border-white/10 rounded-xl py-2.5 pl-10 pr-4 text-white placeholder-zinc-500 focus:outline-none focus:border-brand-primary/50 transition-all font-outfit"
-                />
-            </div>
-        </div>
-
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-20 relative z-20">
-            {filteredData.length > 0 ? (
-                filteredData.map((item) => (
-                    <motion.div 
-                        key={item.id}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="card group flex flex-col h-full hover:border-[#404040]"
-                    >
-                        <div className="flex items-start justify-between mb-6">
-                            <div className="w-16 h-16 rounded-lg bg-[#1a1a1a] p-1 border border-[#262626] overflow-hidden group-hover:scale-105 transition-transform duration-300">
-                                <img src={item.logo} alt={item.name} className="w-full h-full object-cover rounded-md opacity-80 group-hover:opacity-100 mix-blend-luminosity group-hover:mix-blend-normal" />
-                            </div>
-                            <span className="px-3 py-1 rounded-sm text-xs font-sans font-semibold bg-[#1a1a1a] text-[#737373] border border-[#262626]">
-                                {item.category}
-                            </span>
-                        </div>
-                        
-                        <h3 className="text-2xl font-display font-normal text-white mb-3 group-hover:text-brand-primary transition-colors">{item.name}</h3>
-                        <p className="text-[#a3a3a3] font-sans text-sm font-light leading-relaxed mb-6 line-clamp-3 flex-1">
-                            {item.description}
-                        </p>
-
-                        <div className="flex items-center justify-between pt-6 border-t border-[#262626] mt-auto">
-                            <div className="flex gap-4">
-                                {item.website && (
-                                    <a href={item.website} target="_blank" rel="noopener noreferrer" className="text-[#a3a3a3] hover:text-white transition-colors">
-                                        <FaGlobe />
-                                    </a>
-                                )}
-                                {item.twitter && (
-                                    <a href={item.twitter} target="_blank" rel="noopener noreferrer" className="text-[#a3a3a3] hover:text-white transition-colors">
-                                        <XIcon />
-                                    </a>
-                                )}
-                                {item.telegram && (
-                                    <a href={item.telegram} target="_blank" rel="noopener noreferrer" className="text-[#a3a3a3] hover:text-white transition-colors">
-                                        <FaTelegram />
-                                    </a>
-                                )}
-                            </div>
-                            <a href={item.website} target="_blank" rel="noopener noreferrer" className="text-xs font-sans font-bold text-white hover:text-[#d4d4d4] uppercase tracking-widest flex items-center gap-2 group/link transition-colors">
-                                Visit <FaArrowRight className="transform group-hover/link:translate-x-1 transition-transform" />
-                            </a>
-                        </div>
-                    </motion.div>
-                ))
-            ) : (
-                <div className="col-span-full text-center py-20">
-                    <p className="text-zinc-500 text-lg">No results found matching your criteria.</p>
+        <div className="custom-container relative z-10 px-4">
+            {/* Filter & Search Bar */}
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-16 bg-white/50 backdrop-blur-sm border border-black/10 rounded-lg p-2 md:p-3 max-w-7xl mx-auto">
+                {/* Categories */}
+                <div className="flex flex-wrap justify-center gap-2 w-full md:w-auto">
+                    {CATEGORIES.map(cat => (
+                        <button
+                            key={cat}
+                            onClick={() => setActiveCategory(cat)}
+                            className={`px-4 py-2 rounded-md font-sans text-sm font-medium transition-all duration-300 ${
+                                activeCategory === cat 
+                                ? "bg-black text-white" 
+                                : "text-black/60 hover:text-black hover:bg-black/5"
+                            }`}
+                        >
+                            {cat}
+                        </button>
+                    ))}
                 </div>
-            )}
+
+                {/* Search */}
+                <div className="relative w-full md:w-72">
+                    <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-black/40" />
+                    <input 
+                        type="text" 
+                        placeholder="Search ecosystem..." 
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="w-full bg-transparent border border-black/10 hover:border-black/30 rounded-xl py-2.5 pl-10 pr-4 text-black placeholder-black/40 focus:outline-none focus:border-brand-primary/50 transition-all font-sans"
+                    />
+                </div>
+            </div>
+
+            {/* Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto mb-20 relative z-20">
+                {filteredData.length > 0 ? (
+                    filteredData.map((item) => (
+                        <motion.div 
+                            key={item.id}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="bg-white group flex flex-col h-full hover:shadow-2xl hover:shadow-brand-primary/10 transition-all duration-300 border border-black/10 hover:border-black/20 p-8 lg:p-10 rounded-2xl relative overflow-hidden"
+                        >
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-radial from-brand-primary/10 to-transparent -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700 pointer-events-none" />
+                            
+                            <div className="flex items-start justify-between mb-8 relative z-10">
+                                <div className="w-20 h-20 rounded-xl bg-white p-2 border border-black/5 overflow-hidden group-hover:scale-105 group-hover:border-black/10 transition-all duration-300 shadow-sm">
+                                    <img src={item.logo} alt={item.name} className="w-full h-full object-contain rounded-lg mix-blend-multiply" />
+                                </div>
+                                <span className="px-3 py-1 rounded-sm text-xs font-mono font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/10 border border-brand-primary/20">
+                                    {item.category}
+                                </span>
+                            </div>
+                            
+                            <h3 className="text-3xl font-sans font-bold text-black mb-4 uppercase tracking-tighter leading-none group-hover:text-brand-primary transition-colors relative z-10">{item.name}</h3>
+                            <p className="text-black/60 font-sans text-sm font-normal leading-relaxed mb-8 line-clamp-3 flex-1 relative z-10">
+                                {item.description}
+                            </p>
+
+                            <div className="pt-6 border-t border-black/10 mt-auto relative z-10 flex flex-col gap-4">
+                                <div className="flex justify-between items-center w-full">
+                                    <div className="flex gap-4">
+                                        {item.twitter && (
+                                            <a href={item.twitter} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-black/60 hover:text-black hover:bg-black/5 hover:border-black/20 transition-all" aria-label={`Twitter/X for ${item.name}`}>
+                                                <XIcon className="w-4 h-4" />
+                                            </a>
+                                        )}
+                                        {item.telegram && item.telegram.toLowerCase() !== "n/a" && (
+                                            <a href={item.telegram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-black/60 hover:text-black hover:bg-black/5 hover:border-black/20 transition-all" aria-label={`Telegram for ${item.name}`}>
+                                                <FaTelegram className="w-5 h-5" />
+                                            </a>
+                                        )}
+                                        {item.website && (
+                                            <a href={item.website} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-black/60 hover:text-black hover:bg-black/5 hover:border-black/20 transition-all" aria-label={`Website for ${item.name}`}>
+                                                <FaGlobe className="w-5 h-5" />
+                                            </a>
+                                        )}
+                                    </div>
+                                    {item.website && (
+                                        <a href={item.website} target="_blank" rel="noopener noreferrer" className="group/link flex items-center justify-center w-10 h-10 rounded-full bg-black text-white hover:bg-brand-primary transition-colors" aria-label={`Visit ${item.name}`}>
+                                            <FaArrowRight className="transform -rotate-45 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                                        </a>
+                                    )}
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))
+                ) : (
+                    <div className="col-span-full text-center py-20 bg-white/50 backdrop-blur-sm border border-black/10 rounded-2xl">
+                        <p className="text-black/60 font-mono text-sm uppercase tracking-widest">[ NO_RESULTS_FOUND ]</p>
+                    </div>
+                )}
+            </div>
         </div>
 
         {/* CTA Section (Bottom) */}
-        <div className="max-w-4xl mx-auto text-center bg-[#121212] border border-[#262626] rounded-[16px] p-12 md:p-16 relative overflow-hidden">
-             
-             <h2 className="text-5xl md:text-6xl lg:text-[5rem] font-display font-normal text-white mb-6 relative z-10 leading-[0.9]">
-                Have a project or community?
+        <div className="max-w-5xl mx-auto text-center bg-[#000] border border-white/10 rounded-none p-16 md:p-24 relative overflow-hidden mt-32 mb-16">
+            <div className="absolute top-0 left-8 w-[1px] h-full bg-white/10 hidden md:block" />
+            <div className="absolute top-0 right-8 w-[1px] h-full bg-white/10 hidden md:block" />
+            
+             <span className="font-mono text-xs tracking-widest text-[#a3a3a3] uppercase mb-6 inline-block">[ GET_INVOLVED ]</span>
+             <h2 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-white mb-6 relative z-10 leading-[0.9] tracking-tighter uppercase">
+                HAVE A PROJECT OR <br/> <span className="font-serif italic font-light text-brand-primary lowercase">COMMUNITY?</span>
              </h2>
-             <p className="text-[#a3a3a3] text-lg lg:text-xl mb-10 max-w-2xl mx-auto relative z-10 leading-relaxed font-light">
-                Join the growing Web3PHC ecosystem. List your project to get discovered by builders, investors, and community members worldwide.
+             <p className="text-[#a3a3a3] text-lg lg:text-xl mb-12 max-w-2xl mx-auto relative z-10 leading-relaxed font-mono">
+                _Join the growing Web3PHC ecosystem. List your project to get discovered by builders, investors, and community members worldwide.
              </p>
              <a 
               href="https://docs.google.com/forms/d/e/1FAIpQLScyU7PsF8zWkmuSce2nW2IP0IAiLNkcqaxd2-BHZvBm6H2q1Q/viewform?usp=publish-editor"
               target="_blank"
               rel="noopener noreferrer" 
-              className="relative z-10 btn bg-white text-black hover:bg-[#e5e5e5] px-10 py-4 text-lg font-bold inline-flex items-center gap-2 transition-colors"
+              className="relative z-10 bg-white text-black font-sans font-bold text-sm uppercase tracking-wider px-10 py-5 hover:bg-[#e5e5e5] transition-colors inline-flex items-center gap-2 border border-white"
             >
-              Add Your Project <FaArrowRight />
+              SUBMIT APPLICATION <FaArrowRight />
             </a>
         </div>
+      </div>
+      
       </div>
     </div>
   );

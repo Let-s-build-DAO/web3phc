@@ -53,7 +53,7 @@ const ReConfig = () => {
            style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}>
       </div>
 
-      {/* 1. HERO SECTION: ETHCC STYLE (MASSIVE TYPOGRAPHY) */}
+      {/* 1. HERO SECTION */}
       <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-black pt-20">
         {/* Background Visuals */}
         <div className="absolute inset-0 z-0">
@@ -68,73 +68,72 @@ const ReConfig = () => {
                 initial="hidden"
                 animate="visible"
             >
-               {/* Date & Location Label (EthCC Style: Top Left or distinct) */}
-               <motion.div variants={item} className="mb-6 flex flex-col md:flex-row md:items-center gap-4 text-zinc-400 font-mono text-sm md:text-base tracking-widest uppercase border-l-2 border-brand-primary pl-4">
-                   <div className="flex items-center gap-2">
-                       <FaCalendarAlt className="text-white" /> Oct 17 – 24, 2026
-                   </div>
-                   <span className="hidden md:block text-zinc-600">|</span>
-                   <div className="flex items-center gap-2">
-                       <MdLocationOn className="text-white" /> Pitakwa (PHC), Rivers State
-                   </div>
+               {/* Date & Location Label */}
+               <motion.div variants={item} className="mb-8">
+                    <span className="text-[#a3a3a3] font-mono text-sm tracking-widest uppercase inline-block border border-white/10 bg-white/5 py-2 px-4 rounded-sm">
+                        [ OCT_17–24_2026 | PITAKWA_RIVERS_STATE ]
+                    </span>
                </motion.div>
 
-               {/* Massive Title */}
-               <motion.h1 variants={item} className="text-[14vw] sm:text-[12vw] leading-[0.8] font-display font-normal text-white tracking-tighter mb-8 mix-blend-difference relative">
+               {/* Split Typography Title */}
+               <motion.h1 variants={item} className="text-[12vw] sm:text-[10vw] leading-[0.8] font-sans font-black text-white tracking-tighter mb-8 relative uppercase">
                   RE:CONFIG<br/>
-                  <span className="text-brand-primary italic pr-4">PITAKWA.</span>
+                  <span className="text-brand-primary font-serif italic font-light lowercase">pitakwa.</span>
                </motion.h1>
 
                {/* Positive Value Prop (Builder Focused) */}
-               <motion.div variants={item} className="max-w-3xl">
-                   <h2 className="text-2xl md:text-4xl text-white font-bold mb-6 leading-tight">
-                       A Global Convergence Point for <span className="text-brand-primary">Builders & Creators</span>.
+               <motion.div variants={item} className="max-w-3xl mb-12">
+                   <h2 className="text-sm font-mono tracking-widest text-[#a3a3a3] uppercase mb-4">
+                       [ THE_CONVERGENCE_POINT ]
                    </h2>
-                   <p className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed mb-10 max-w-2xl">
-                       An 8-day convergence of 1,200+ active builders ready to deploy on your protocol. We are the engine room for borderless innovation.
+                   <p className="text-xl md:text-2xl text-white font-sans font-light leading-relaxed max-w-2xl">
+                       An 8-day engine room for borderless innovation. Join 1,200+ active builders ready to deploy on your protocol. Don't chase visibility; deliver traction.
                    </p>
                </motion.div>
 
                {/* CTAs */}
                <motion.div variants={item} className="flex flex-col sm:flex-row gap-4">
-                  <button className="btn bg-brand-primary text-black hover:scale-105 transition-transform px-10 py-5 text-lg font-bold rounded-none skew-x-[-10deg] border-2 border-transparent">
-                    <span className="skew-x-[10deg] inline-block">Get Tickets</span>
+                  <button className="bg-white text-black hover:bg-[#e5e5e5] transition-colors border-2 border-transparent px-10 py-5 text-sm uppercase font-sans font-bold tracking-widest flex justify-center items-center gap-2">
+                    GET TICKETS <FaArrowRight />
                   </button>
-                  <button className="btn-outline text-white border-white/20 hover:bg-white text-lg px-10 py-5 font-bold rounded-none skew-x-[-10deg] hover:text-black transition-colors">
-                     <span className="skew-x-[10deg] inline-block">Apply to Speak</span>
+                  <button className="bg-transparent text-white border-2 border-white/20 hover:bg-white hover:text-black transition-colors px-10 py-5 text-sm uppercase font-sans font-bold tracking-widest flex justify-center items-center">
+                    APPLY TO SPEAK
                   </button>
                </motion.div>
             </motion.div>
         </div>
       </section>
 
-      {/* 2. STATIC STATS GRID (ETHCC STYLE) */}
-      <section className="bg-[#0a0a0a] text-white py-20 border-b border-[#262626]">
-         <div className="custom-container">
-             <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center md:text-left">
-                 <div className="flex flex-col border-l border-[#262626] pl-6">
-                     <span className="text-5xl md:text-7xl font-display font-normal tracking-tighter mb-2 text-brand-primary">
+      {/* 2. STATS GRID */}
+      <section className="bg-black text-white py-20 border-b border-white/10 relative">
+         <div className="absolute top-0 right-1/4 w-[1px] h-full bg-white/10 hidden lg:block" />
+         <div className="absolute top-0 right-1/2 w-[1px] h-full bg-white/10 hidden lg:block" />
+         <div className="absolute top-0 right-[75%] w-[1px] h-full bg-white/10 hidden lg:block" />
+         <div className="custom-container relative z-10">
+             <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-0 lg:-mx-12">
+                 <div className="flex flex-col lg:px-12">
+                     <span className="text-5xl md:text-7xl font-sans font-black tracking-tighter mb-2 text-white">
                         <Counter from={0} to={1200} suffix="+" />
                      </span>
-                     <span className="text-sm font-sans font-bold uppercase tracking-widest text-[#a3a3a3]">Active Builders</span>
+                     <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#737373]">Active Builders</span>
                  </div>
-                 <div className="flex flex-col border-l border-[#262626] pl-6">
-                     <span className="text-5xl md:text-7xl font-display font-normal tracking-tighter mb-2 text-brand-primary">
+                 <div className="flex flex-col lg:px-12">
+                     <span className="text-5xl md:text-7xl font-sans font-black tracking-tighter mb-2 text-white">
                         <Counter from={0} to={20} suffix="+" />
                      </span>
-                     <span className="text-sm font-sans font-bold uppercase tracking-widest text-[#a3a3a3]">Projects</span>
+                     <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#737373]">Projects Demoed</span>
                  </div>
-                 <div className="flex flex-col border-l border-[#262626] pl-6">
-                     <span className="text-5xl md:text-7xl font-display font-normal tracking-tighter mb-2 text-brand-primary">
+                 <div className="flex flex-col lg:px-12">
+                     <span className="text-5xl md:text-7xl font-sans font-black tracking-tighter mb-2 text-white">
                         <Counter from={0} to={8} />
                      </span>
-                     <span className="text-sm font-sans font-bold uppercase tracking-widest text-[#a3a3a3]">Days of innovation</span>
+                     <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#737373]">Days of Innovation</span>
                  </div>
-                 <div className="flex flex-col border-l border-[#262626] pl-6">
-                     <span className="text-5xl md:text-7xl font-display font-normal tracking-tighter mb-2 text-brand-primary">
+                 <div className="flex flex-col lg:px-12">
+                     <span className="text-5xl md:text-7xl font-sans font-black tracking-tighter mb-2 text-white">
                         $<Counter from={0} to={50} suffix="k+" />
                      </span>
-                     <span className="text-sm font-sans font-bold uppercase tracking-widest text-[#a3a3a3]">Total Valuation</span>
+                     <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#737373]">Total Valuation</span>
                  </div>
              </div>
          </div>
@@ -144,20 +143,17 @@ const ReConfig = () => {
       <section className="py-24 bg-zinc-950 border-b border-white/10 relative overflow-hidden">
           <div className="custom-container grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                  <h2 className="text-sm font-bold text-brand-primary uppercase tracking-widest mb-6">The Opportunity</h2>
-                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[0.9] mb-8">
+                  <h2 className="font-mono text-sm tracking-widest text-[#a3a3a3] uppercase mb-6">[ THE_OPPORTUNITY ]</h2>
+                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-sans font-black text-white leading-[0.9] mb-8 uppercase tracking-tighter">
                       THE UNTAPPED <br/>
-                      <span className="text-zinc-600">TALENT MINE.</span>
+                      <span className="font-serif italic font-light lowercase text-[#737373]">talent mine.</span>
                   </h3>
-                  <p className="text-xl text-zinc-400 font-light leading-relaxed mb-8">
+                  <p className="text-xl text-zinc-400 font-sans font-light leading-relaxed mb-8">
                       Port Harcourt is the cultural and technical heartbeat of the South-South—anchored by at least 6 higher institutions and a builder density that is aggressively hungry for scale. We aren&apos;t just building for the local neighborhood; our founders are engineering dApps and startups designed to serve both local needs and global markets from Day One.
                   </p>
-                  <p className="text-xl text-zinc-400 font-light leading-relaxed mb-12">
+                  <p className="text-xl text-zinc-400 font-sans font-light leading-relaxed mb-12">
                       We don&apos;t chase visibility; we deliver traction. By spotlighting these high-output teams, we make it effortless for global investors and protocols to discover builders who are solving real-world problems with borderless ambitions. The builders here aren&apos;t waiting for permission—they are shipping scalable code. Partnering with Re:Config means onboarding a pipeline of talent that is ready to service the world.
                   </p>
-                  {/* <a href="#" className="inline-flex items-center gap-2 text-white border-b border-brand-primary pb-1 hover:text-brand-primary transition-colors font-bold uppercase tracking-widest text-sm">
-                      Read the Manifesto <FaArrowRight />
-                  </a> */}
               </div>
               <div className="relative h-[600px] w-full bg-zinc-900 rounded-lg overflow-hidden border border-white/10 group">
                   <div className="absolute inset-0 bg-[url('/images/241.JPG')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
@@ -176,8 +172,11 @@ const ReConfig = () => {
       <section className="py-24 bg-zinc-900 border-t border-black relative">
          <div className="custom-container">
              <div className="text-center mb-20">
-                 <h2 className="text-[15vw] md:text-[8vw] font-display font-normal text-white/5 leading-none absolute top-0 left-1/2 -translate-x-1/2 select-none pointer-events-none">PROGRAM</h2>
-                 <h3 className="text-5xl md:text-6xl font-display font-normal text-white relative z-10">THREE PILLARS.</h3>
+                 <h2 className="text-[15vw] md:text-[8vw] font-sans font-black tracking-tighter text-white/5 leading-none absolute top-0 left-1/2 -translate-x-1/2 select-none pointer-events-none">PROGRAM</h2>
+                 <h3 className="text-5xl md:text-6xl font-sans font-black tracking-tighter text-white relative z-10 uppercase">
+                    THREE <br className="md:hidden" />
+                    <span className="font-serif italic font-light lowercase text-brand-primary">pillars.</span>
+                 </h3>
                  <p className="text-[#a3a3a3] mt-6 max-w-2xl mx-auto relative z-10 text-lg font-light">
                     Designed for builders, creatives, and policymakers to co-create the future.
                  </p>
@@ -192,7 +191,7 @@ const ReConfig = () => {
                             <FaCode size={12} />
                         </div>
                     </div>
-                    <h4 className="text-4xl lg:text-5xl font-display font-normal text-white mb-6 group-hover:text-brand-primary transition-colors relative z-10">BUILD.</h4>
+                    <h4 className="text-4xl lg:text-5xl font-sans font-black tracking-tight text-white mb-6 group-hover:text-brand-primary transition-colors relative z-10">BUILD.</h4>
                     <p className="text-[#a3a3a3] leading-relaxed mb-8 relative z-10 flex-grow font-light">
                         <span className="text-white font-sans font-bold uppercase block mb-2 text-sm tracking-wider">The Garden City Residency.</span> 30 elite builders living together. 6 days of deep work. Protocol bootcamps. Shipping MVPs that solve real problems.
                     </p>
@@ -211,7 +210,7 @@ const ReConfig = () => {
                             <FaUsers size={12} />
                         </div>
                     </div>
-                    <h4 className="text-4xl lg:text-5xl font-display font-normal text-white mb-6 group-hover:text-white transition-colors relative z-10">LEARN.</h4>
+                    <h4 className="text-4xl lg:text-5xl font-sans font-black tracking-tight text-white mb-6 group-hover:text-white transition-colors relative z-10">LEARN.</h4>
                     <p className="text-[#a3a3a3] leading-relaxed mb-8 relative z-10 flex-grow font-light">
                         <span className="text-white font-sans font-bold uppercase block mb-2 text-sm tracking-wider">The Pop-Up City.</span> An open innovation hub for everyone. Daily workshops on DeFi, Governance, and Creative Tech. Onboarding the next 10,000.
                     </p>
@@ -230,7 +229,7 @@ const ReConfig = () => {
                             <FaGlobe size={12} />
                         </div>
                     </div>
-                    <h4 className="text-4xl lg:text-5xl font-display font-normal text-white mb-6 group-hover:text-brand-primary transition-colors relative z-10">CONNECT.</h4>
+                    <h4 className="text-4xl lg:text-5xl font-sans font-black tracking-tight text-white mb-6 group-hover:text-brand-primary transition-colors relative z-10">CONNECT.</h4>
                     <p className="text-[#a3a3a3] leading-relaxed mb-8 relative z-10 flex-grow font-light">
                         <span className="text-white font-sans font-bold uppercase block mb-2 text-sm tracking-wider">The Summit.</span> The grand finale. High-level panels with global leaders, government officials, and VCs. Ending with the "Garden City Glow" afterparty.
                     </p>
@@ -247,28 +246,31 @@ const ReConfig = () => {
       {/* 5. THE AUTHORITY: WHY WE BUILD HERE (BUILDER DENSITY) */}
       <section className="py-24 bg-white text-[#0a0a0a] border-y border-[#262626]">
          <div className="custom-container">
-             <h2 className="text-4xl lg:text-5xl font-display font-normal text-[#0a0a0a] mb-16 max-w-md">WHY WE BUILD HERE.</h2>
+             <h2 className="text-4xl lg:text-5xl font-sans font-black tracking-tight uppercase text-[#0a0a0a] mb-16 max-w-md">
+                 WHY WE BUILD <br />
+                 <span className="font-serif italic font-light lowercase text-brand-primary">here.</span>
+             </h2>
              
              <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <div className="group">
                    <div className="w-16 h-16 bg-[#f5f5f5] flex items-center justify-center rounded-lg mb-6 text-[#0a0a0a] transition-transform duration-300 group-hover:scale-105 border border-[#e5e5e5]">
                       <FaUsers size={32} />
                    </div>
-                   <h3 className="text-2xl font-display font-normal text-[#0a0a0a] mb-4">The Builder Density</h3>
+                   <h3 className="text-2xl font-sans font-black tracking-tighter text-[#0a0a0a] mb-4">The Builder Density</h3>
                    <p className="font-sans text-[#737373] leading-relaxed font-light">Home to one of the largest concentrations of technical talent in West Africa. With at least 6 higher institutions within a 20km radius, our builders are designing scalable, borderless protocols that serve the world.</p>
                 </div>
                 <div className="group">
                     <div className="w-16 h-16 bg-[#f5f5f5] flex items-center justify-center rounded-lg mb-6 text-[#0a0a0a] transition-transform duration-300 group-hover:scale-105 border border-[#e5e5e5]">
                       <FaCode size={32} />
                    </div>
-                   <h3 className="text-2xl font-display font-normal text-[#0a0a0a] mb-4">The Talent Pipeline</h3>
+                   <h3 className="text-2xl font-sans font-black tracking-tighter text-[#0a0a0a] mb-4">The Talent Pipeline</h3>
                    <p className="font-sans text-[#737373] leading-relaxed font-light">From zero-to-one. Our ecosystem is a global factory for shipping products. We are organizing a world-class pipeline of founders ready to scale borderless solutions.</p>
                 </div>
                 <div className="group">
                     <div className="w-16 h-16 bg-[#f5f5f5] flex items-center justify-center rounded-lg mb-6 text-[#0a0a0a] transition-transform duration-300 group-hover:scale-105 border border-[#e5e5e5]">
                       <FaGlobe size={32} />
                    </div>
-                   <h3 className="text-2xl font-display font-normal text-[#0a0a0a] mb-4">The Cultural Heartbeat</h3>
+                   <h3 className="text-2xl font-sans font-black tracking-tighter text-[#0a0a0a] mb-4">The Cultural Heartbeat</h3>
                    <p className="font-sans text-[#737373] leading-relaxed font-light">From art to technology, we export culture globally. We represent the borderless Ownership Economy—giving creators tools to own and scale their future on-chain.</p>
                 </div>
              </div>
@@ -285,17 +287,17 @@ const ReConfig = () => {
                        <div className="w-14 h-14 bg-white flex items-center justify-center rounded-lg mb-6">
                             <FaGlobe size={24} className="text-[#0a0a0a]" />
                        </div>
-                       <h4 className="text-3xl font-display font-normal text-white mb-2">Consumer Crypto Adoption</h4>
+                       <h4 className="text-3xl font-sans font-black tracking-tighter text-white mb-2">Consumer Crypto Adoption</h4>
                        <p className="text-[#a3a3a3] font-sans font-light tracking-wide">The ultimate sandbox for real-world utilities.</p>
                   </div>
               </div>
               <div className="order-1 lg:order-2">
                   <h2 className="text-sm font-sans font-bold text-brand-primary uppercase tracking-widest mb-6">For Businesses</h2>
-                  <h3 className="text-5xl md:text-6xl lg:text-[5rem] font-display font-normal text-white leading-[0.9] mb-8">
+                  <h3 className="text-5xl md:text-6xl lg:text-[5rem] font-sans font-black uppercase text-white leading-[0.9] mb-8">
                       THE CONSUMER <br/>
-                      <span className="text-[#737373] italic">LAYER.</span>
+                      <span className="font-serif italic font-light lowercase text-[#737373]">layer.</span>
                   </h3>
-                  <p className="text-lg md:text-xl text-[#a3a3a3] font-light leading-relaxed mb-8">
+                  <p className="text-lg md:text-xl text-[#a3a3a3] font-sans font-light leading-relaxed mb-8">
                       We aren&apos;t just a pipeline for developers—we are a massive distribution engine for consumer-facing Web3 apps. Acquire retail users looking for real-world utility in payments, social, and gaming through multiple high-visibility touchpoints:
                   </p>
                   <ul className="space-y-4 text-[#a3a3a3] font-sans text-base lg:text-lg mb-8 font-light">
@@ -312,22 +314,22 @@ const ReConfig = () => {
                          <span><strong className="text-white font-medium">Bespoke Experiences:</strong> Request custom side-events, dedicated product tours, or private networking sessions tailored to your protocol.</span>
                       </li>
                   </ul>
-                  <p className="text-lg md:text-xl text-[#a3a3a3] font-light leading-relaxed mb-10">
+                  <p className="text-lg md:text-xl text-[#a3a3a3] font-sans font-light leading-relaxed mb-10">
                       Skip the saturated markets—acquire retail users where the cost-per-acquisition is low and retention is structurally high. 
                   </p>
                   
                   {/* Business Metrics Row */}
                   <div className="flex flex-wrap gap-8 border-t border-[#262626] pt-8 mt-4">
                       <div>
-                          <p className="text-4xl font-display font-normal text-white mb-1">4M+</p>
+                          <p className="text-4xl font-sans font-black tracking-tighter text-white mb-1">4M+</p>
                           <p className="text-xs font-sans uppercase tracking-widest text-[#737373] font-bold">Social Impressions</p>
                       </div>
                       <div>
-                          <p className="text-4xl font-display font-normal text-white mb-1">15k+</p>
+                          <p className="text-4xl font-sans font-black tracking-tighter text-white mb-1">15k+</p>
                           <p className="text-xs font-sans uppercase tracking-widest text-[#737373] font-bold">Newsletter Subs</p>
                       </div>
                       <div>
-                          <p className="text-4xl font-display font-normal text-white mb-1">90%</p>
+                          <p className="text-4xl font-sans font-black tracking-tighter text-white mb-1">90%</p>
                           <p className="text-xs font-sans uppercase tracking-widest text-[#737373] font-bold">Mobile First</p>
                       </div>
                   </div>
@@ -341,7 +343,10 @@ const ReConfig = () => {
                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                    <div>
                        <h2 className="text-sm font-sans font-bold text-brand-primary uppercase tracking-widest mb-4">Past Editions</h2>
-                       <h3 className="text-5xl md:text-6xl font-display font-normal text-white">HISTORY BEING MADE.</h3>
+                       <h3 className="text-5xl md:text-6xl font-sans font-black tracking-tighter uppercase text-white">
+                           HISTORY BEING <br className="md:hidden" />
+                           <span className="font-serif italic font-light lowercase text-brand-primary">made.</span>
+                       </h3>
                    </div>
                    <div className="hidden md:block w-32 h-px bg-[#404040]"></div>
                </div>
@@ -349,19 +354,19 @@ const ReConfig = () => {
                 {/* 2024 Event Numbers */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 border-b border-[#262626] pb-16">
                     <div className="text-center md:text-left border-l border-[#262626] pl-6">
-                        <div className="text-4xl md:text-5xl font-display font-normal text-white mb-2">1,200+</div>
+                        <div className="text-4xl md:text-5xl font-sans font-black tracking-tighter text-white mb-2">1,200+</div>
                         <div className="text-xs font-sans font-bold uppercase tracking-widest text-[#737373]">2024 Attendees</div>
                     </div>
                     <div className="text-center md:text-left border-l border-[#262626] pl-6">
-                        <div className="text-4xl md:text-5xl font-display font-normal text-white mb-2">21+</div>
+                        <div className="text-4xl md:text-5xl font-sans font-black tracking-tighter text-white mb-2">21+</div>
                         <div className="text-xs font-sans font-bold uppercase tracking-widest text-[#737373]">Partners</div>
                     </div>
                     <div className="text-center md:text-left border-l border-[#262626] pl-6">
-                        <div className="text-4xl md:text-5xl font-display font-normal text-white mb-2">10+</div>
+                        <div className="text-4xl md:text-5xl font-sans font-black tracking-tighter text-white mb-2">10+</div>
                         <div className="text-xs font-sans font-bold uppercase tracking-widest text-[#737373]">Web3 Projects</div>
                     </div>
                     <div className="text-center md:text-left border-l border-[#262626] pl-6">
-                        <div className="text-4xl md:text-5xl font-display font-normal text-white mb-2">5</div>
+                        <div className="text-4xl md:text-5xl font-sans font-black tracking-tighter text-white mb-2">5</div>
                         <div className="text-xs font-sans font-bold uppercase tracking-widest text-[#737373]">Blockchains</div>
                     </div>
                 </div>
@@ -431,16 +436,19 @@ const ReConfig = () => {
       {/* 8. SPONSORSHIP (CLOSE) */}
       <section className="py-32 relative overflow-hidden bg-[#0a0a0a] text-white text-center border-t border-[#262626]">
          <div className="custom-container relative z-10">
-             <h2 className="text-5xl lg:text-[7rem] font-display font-normal text-white mb-8 leading-none tracking-tight">JOIN THE MOVEMENT.</h2>
-             <p className="text-xl text-[#a3a3a3] max-w-2xl mx-auto mb-12 font-light">
+             <h2 className="text-[12vw] sm:text-[8vw] font-sans font-black tracking-tighter uppercase text-white mb-8 leading-[0.8]">
+                 JOIN THE <br className="md:hidden" />
+                 <span className="font-serif italic font-light lowercase text-brand-primary">movement.</span>
+             </h2>
+             <p className="text-xl text-[#a3a3a3] max-w-2xl mx-auto mb-12 font-sans font-light">
                 Partner with Web3 PH Re:Config to capture the highest-value developer and user market in Nigeria.
              </p>
-             <div className="flex flex-col sm:flex-row justify-center gap-6">
-                <button className="btn bg-white text-black hover:bg-[#e5e5e5] px-12 py-5 text-lg font-bold">
-                   <span>Download Deck</span>
+             <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <button className="bg-white text-black hover:bg-[#e5e5e5] px-10 py-5 text-sm uppercase font-sans font-bold tracking-widest border-2 border-transparent transition-colors">
+                   DOWNLOAD DECK
                 </button>
-                <button className="btn-outline border-[#404040] text-white hover:border-white px-12 py-5 text-lg font-bold">
-                   <span>Become a Partner</span>
+                <button className="bg-transparent border-2 border-[#404040] text-white hover:border-white hover:bg-white hover:text-black px-10 py-5 text-sm uppercase font-sans font-bold tracking-widest transition-colors">
+                   BECOME A PARTNER
                 </button>
              </div>
          </div>
