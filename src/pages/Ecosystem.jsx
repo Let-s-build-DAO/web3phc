@@ -42,13 +42,13 @@ const ECOSYSTEM_DATA = [
   {
     id: "lamba-card",
     name: "LambaCard",
-    category: "Projects",
+    category: "Start-ups",
     description: "Cushioning the effect of inflation by rewarding brand customers limited crypto asset when they buy a product or service",
     logo: "/projects/lamba.png", // Using same logo for now as placeholder or if generic
     website: "https://card.lambatoken.com/",
     twitter: "https://x.com/lambatoken",
     telegram: "N/A",
-    tags: ["Projects", "Builder", "Contributor"],
+    tags: ["Start-ups", "Builder", "Contributor"],
   },
   {
     id: "borderless",
@@ -64,13 +64,13 @@ const ECOSYSTEM_DATA = [
   {
     id: "slimepay",
     name: "Slimepay",
-    category: "Projects",
+    category: "Start-ups",
     description: "People earn globally in crypto, but accessing that money locally is slow, stressful, and unreliable. With Slimepay, users don’t log into apps, don’t request withdrawals, and don’t wait days. They simply share their wallet address, receive payment, and the money lands in their bank account instantly.We’re building a non-custodial, multi-chain off-ramp that works quietly in the background for freelancers,onchain earners, traders, and platforms. Our goal is simple: make getting paid in Africa feel as effortless as receiving a bank transfer  without sacrificing speed, privacy, or control.",
     logo: "/projects/slime.jpeg", // Using same logo for now as placeholder or if generic
     website: "https://slimepay.com/",
     twitter: "https://x.com/slimepay_",
     telegram: "https://t.me/Slimepay_finance",
-    tags: ["Projects", "Builder", "Contributor"],
+    tags: ["Start-ups", "Builder", "Contributor"],
   },
   {
     id: "buildthefutureonchain",
@@ -97,46 +97,46 @@ const ECOSYSTEM_DATA = [
   {
     id: "swiftransact",
     name: "Swiftransact",
-    category: "Projects",
+    category: "Start-ups",
     description: "A crypto-off ramp payment platform that enable users make payments directly from their non-custodial wallet without p2p or exchanges.",
     logo: "/projects/swift.jpeg",
     website: "https://x.com/swiftransacthq",
     twitter: "https://x.com/swiftransacthq",
     telegram: "https://t.me/+B1NiCLB8TnA0Y2U0",
-    tags: ["Projects", "Builder", "Contributor"],
+    tags: ["Start-ups", "Builder", "Contributor"],
   },
   {
     id: "onscript",
     name: "Onscript",
-    category: "Projects",
+    category: "Start-ups",
     description: "Cross posting platform that lets you post from X to farcaster, Base App, Zora, Facebook and Instagram. Posting hasn't ever felt like this.",
     logo: "/projects/onscript.jpg",
     website: "https://onscript.xyz/",
     twitter: "https://x.com/Onscript_xyz",
     telegram: "n/a",
-    tags: ["Projects", "Builder", "Contributor"],
+    tags: ["Start-ups", "Builder", "Contributor"],
   },
   {
     id: "bitsave",
     name: "Bitsave Protocol",
-    category: "Projects",
+    category: "Start-ups",
     description: "Bitsave is the SaveFi protocol that helps web3 income earners save on-chain with stablecoins.",
     logo: "/projects/bitsave.png",
     website: "https://www.bitsave.io",
     twitter: "https://x.com/BitsaveProtocol",
     telegram: "https://t.me/bitsaveprotocol/1",
-    tags: ["Projects", "Builder", "Contributor"],
+    tags: ["Start-ups", "Builder", "Contributor"],
   },
   {
     id: "streamlivr",
     name: "Streamlivr",
-    category: "Projects",
+    category: "Start-ups",
     description: "Livestreaming and social network for creator and fans to earn crypto and connect globally.",
     logo: "/projects/streamlivr.png",
     website: "https://streamlivr.com",
     twitter: "https://x.com/streamlivr_app",
     telegram: "https://t.me/streamlivr",
-    tags: ["Projects", "Builder", "Contributor"],
+    tags: ["Start-ups", "Builder", "Contributor"],
   },
   {
     id: "chainconnectng",
@@ -152,13 +152,13 @@ const ECOSYSTEM_DATA = [
   {
     id: "planbok",
     name: "Planbok",
-    category: "Projects",
+    category: "Start-ups",
     description: "Planbok is a programmable wallet infrastructure with built in payment rails designed to help businesses easily integrated blockchain based features in treasury management, payment & payroll.",
     logo: "/projects/planbok.png",
     website: "https://planbok.io/",
     twitter: "https://x.com/planbokHQ",
     telegram: "https://t.me/+a92pNyg2g5EwYTQ8",
-    tags: ["Projects", "wallet", "infrastructure", "Builder", "Contributor"],
+    tags: ["Start-ups", "wallet", "infrastructure", "Builder", "Contributor"],
   },
   {
     id: "byteonchainnews",
@@ -170,6 +170,17 @@ const ECOSYSTEM_DATA = [
     twitter: "https://x.com/ByteOnchain",
     telegram: "t.me/byteonchainnews",
     tags: ["Media", "Builder", "Contributor"],
+  },
+  {
+    id: "payora",
+    name: "Payora",
+    category: "Start-ups",
+    description: "Payora is a gifting/reward platform where users can create, redeem and send/distribute crypto giftcards and vouchers instantly.",
+    logo: "/projects/payora.png",
+    website: "https://payora.fun/",
+    twitter: "https://x.com/payorahq/",
+    telegram: "https://t.me/payorachat",
+    tags: ["Start-ups", "wallet", "giftcards", "Builder", "Contributor"],
   },
 ];
 
@@ -206,7 +217,7 @@ const FEATURED_ITEMS = [
   }
 ];
 
-const CATEGORIES = ["All", "Communities", "Projects", "Education", "Events/Media"];
+const CATEGORIES = ["All", "Communities", "Start-ups", "Education", "Events/Media"];
 
 import { FaChevronLeft, FaChevronRight, FaExternalLinkAlt } from "react-icons/fa";
 
@@ -354,7 +365,7 @@ const Ecosystem = () => {
         const matchesCategory = activeCategory === "All" || 
                                 (item.category === activeCategory) ||
                                 (activeCategory === "Communities" && item.tags.includes("Community")) ||
-                                (activeCategory === "Projects" && item.tags.includes("Projects"));
+                                (activeCategory === "Start-ups" && item.tags.includes("Start-ups"));
         
         const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                               item.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -364,12 +375,12 @@ const Ecosystem = () => {
   }, [activeCategory, searchQuery, sortedData]);
 
   return (
-    <div className="font-sans min-h-screen pt-20 pb-24 relative overflow-hidden">
+    <div className="font-sans min-h-screen pt-20 relative overflow-hidden">
       <Helmet>
         <title>Ecosystem | Web3PHC</title>
-        <meta name="description" content="Discover the communities, projects, and events driving borderless Web3 innovation from Port Harcourt to the world." />
+        <meta name="description" content="Discover the communities, projects, and events driving borderless Web3 innovation from our ecosystem." />
         <meta property="og:title" content="Ecosystem | Web3PHC" />
-        <meta property="og:description" content="Discover the communities, projects, and events driving borderless Web3 innovation from Port Harcourt to the world." />
+        <meta property="og:description" content="Discover the communities, projects, and events driving borderless Web3 innovation from our ecosystem." />
         <meta property="og:image" content="/thumb.JPG" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
@@ -416,8 +427,9 @@ const Ecosystem = () => {
         >
              <FeaturedCarousel />
         </motion.div>
-
-      {/* Main Light Brutalist Section */}
+      </div>
+      <section>
+        {/* Main Light Brutalist Section */}
       <div className="relative bg-gradient-to-b from-[#ebecf0] to-[#cdd1dc] z-20 py-20 px-4 rounded-t-[48px] lg:rounded-t-[80px] -mt-12 text-black shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
         
         {/* Geometric Grid Pattern - Edges Only */}
@@ -495,11 +507,11 @@ const Ecosystem = () => {
                                                 <FaTelegram className="w-5 h-5" />
                                             </a>
                                         )}
-                                        {item.website && (
+                                        {/* {item.website && (
                                             <a href={item.website} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-black/60 hover:text-black hover:bg-black/5 hover:border-black/20 transition-all" aria-label={`Website for ${item.name}`}>
                                                 <FaGlobe className="w-5 h-5" />
                                             </a>
-                                        )}
+                                        )} */}
                                     </div>
                                     {item.website && (
                                         <a href={item.website} target="_blank" rel="noopener noreferrer" className="group/link flex items-center justify-center w-10 h-10 rounded-full bg-black text-white hover:bg-brand-primary transition-colors" aria-label={`Visit ${item.name}`}>
@@ -540,8 +552,7 @@ const Ecosystem = () => {
             </a>
         </div>
       </div>
-      
-      </div>
+      </section>
     </div>
   );
 };
