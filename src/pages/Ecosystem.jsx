@@ -182,6 +182,17 @@ const ECOSYSTEM_DATA = [
     telegram: "https://t.me/payorachat",
     tags: ["Start-ups", "wallet", "giftcards", "Builder", "Contributor"],
   },
+  { 
+    id: "nerdwork",
+    name: "Nerdwork",
+    category: "Start-ups",
+    description: "Nerdwork is a platform built to elevate African storytelling and give them the spotlight they deserve!",
+    logo: "/projects/nerdwork.png",
+    website: "https://www.nerdworkng.com",
+    twitter: "https://x.com/Nerdwork_ng",
+    telegram: "none",
+    tags: ["Start-ups", "Gaming", "Contributor"],
+  }
 ];
 
 const FEATURED_ITEMS = [
@@ -489,7 +500,7 @@ const Ecosystem = () => {
                                 </span>
                             </div>
                             
-                            <h3 className="text-2xl unbounded-title text-black mb-4 uppercase tracking-tighter leading-none group-hover:text-brand-primary transition-colors relative z-10">{item.name}</h3>
+                            <h3 className="text-xl unbounded-title text-black mb-4 uppercase tracking-tighter leading-none group-hover:text-brand-primary transition-colors relative z-10">{item.name}</h3>
                             <p className="text-black/60 font-sans text-sm font-normal leading-relaxed mb-8 line-clamp-3 flex-1 relative z-10">
                                 {item.description}
                             </p>
