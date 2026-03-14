@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaLongArrowAltRight, FaTelegram, FaWhatsapp } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView, useMotionValue, useTransform, animate } from "framer-motion";
 import { useState } from "react";
 import XIcon from "../components/XIcon";
 
@@ -22,9 +22,9 @@ const COMMUNITY_LINKS = [
 ];
 
 const IMPACT_METRICS = [
-  { value: "1,200", label: "Community reach", sub: "Through workshops, events, and online" },
-  { value: "21+", label: "Community partners", sub: "Across Rivers State and beyond" },
-  { value: "10+", label: "Web3 projects", sub: "Highlighted and supported" },
+  { value: "5,000+", label: "Community reach", sub: "Through workshops, events, and online" },
+  { value: "25+", label: "Community partners", sub: "Across Nigeria and beyond" },
+  { value: "20+", label: "Web3 projects", sub: "Highlighted and supported" },
   { value: "5", label: "Blockchains", sub: "Sponsors from 5 blockchains" },
 ];
 
@@ -85,6 +85,37 @@ const PARTNER_LOGOS = [
   "/images/superteam.png", "/images/brsu.png", "/images/wid.png",
   "/images/gdg.png", 
 ];
+
+const Counter = ({ value }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  
+  // Extract numeric part and suffixes (like '+' or ',')
+  const numericValue = parseFloat(value.replace(/,/g, '')) || 0;
+  const hasComma = value.includes(',');
+  const suffix = value.match(/[^\d,]+/g)?.[0] || "";
+  
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => {
+    let num = Math.round(latest);
+    if (hasComma) {
+      return num.toLocaleString() + suffix;
+    }
+    return num + suffix;
+  });
+
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(count, numericValue, { 
+        duration: 2, 
+        ease: "easeOut" 
+      });
+      return controls.stop;
+    }
+  }, [isInView, numericValue, count]);
+
+  return <motion.span ref={ref}>{rounded}</motion.span>;
+};
 
 const Home = () => {
   const aboutRef = useRef(null);
@@ -292,7 +323,9 @@ const Home = () => {
             {IMPACT_METRICS.map((m, i) => (
               <div key={m.label} className="text-left group p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-white/10 last:border-r-0 hover:bg-[#121212] transition-colors">
                 <div className="font-mono text-xs text-brand-primary mb-6">/0{i + 1}</div>
-                <div className="text-5xl lg:text-6xl font-sans font-black text-white mb-4 group-hover:text-brand-primary transition-colors duration-300 tracking-tighter">{m.value}</div>
+                <div className="text-5xl lg:text-6xl font-sans font-black text-white mb-4 group-hover:text-brand-primary transition-colors duration-300 tracking-tighter">
+                  <Counter value={m.value} />
+                </div>
                 <div className="text-sm font-mono font-bold text-[#e5e5e5] uppercase tracking-widest mb-2">{m.label}</div>
                 <div className="text-xs font-mono text-[#808080]">{m.sub}</div>
               </div>
