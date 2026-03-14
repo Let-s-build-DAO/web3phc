@@ -36,27 +36,27 @@ const STRATEGIC_PILLARS = [
 
 const TESTIMONIALS = [
   { 
-    quote: "My experience with Web3Ph has been nothing short of exceptional. From community advocacy to event hosting and strategic partnerships, they consistently operate at the highest level. The executive team brings a rare blend of deep technical knowledge and operational expertise, ensuring members receive a perfect balance of theory and hands-on practice. For anyone looking to scale Web3 products in South-South Nigeria, Web3Ph is my top recommendation", 
+    quote: "My experience with Web3Ph has been nothing short of exceptional. From community advocacy to event hosting and strategic partnerships, they consistently operate at the highest level. The executive team brings a rare blend of deep technical knowledge and operational expertise, ensuring members receive a perfect balance of theory and hands-on practice. For anyone looking to scale Web3 products in Nigeria and beyond, Web3Ph is my top recommendation", 
     name: "Dikachi Ibekwe", 
     role: "CEO Lambabros Deals | Lead Ambassador Lambatoken", 
     image: "/images/dike.jpg", 
     handle: "@coachkach" 
   },
   { 
-    quote: "To be honest, I didn’t expect much from Web3 events, many felt repetitive and lacked true innovation. But being part of the Web3 Port Harcourt team completely changed that perspective. I saw firsthand the power of great minds coming together, not to compete, but to collaborate and create meaningful solutions within the ecosystem. One thing I hope to see more of is this focus on building something new, rather than just hyping events.", 
+    quote: "To be honest, I didn’t expect much from Web3 events, many felt repetitive and lacked true innovation. But being part of the Web3PHC team completely changed that perspective. I saw firsthand the power of great minds coming together, not to compete, but to collaborate and create meaningful solutions within the ecosystem. One thing I hope to see more of is this focus on building something new, rather than just hyping events.", 
     name: "Richard Hezekiah", 
     role: "Graphic Artist", 
     handle: "@iamcharddo" 
   },
   { 
-    quote: "Witnessing a platform like Web3 Port Harcourt do what it does is like a breathe of fresh Air to the Web3 Ecosystem across the South-Southern part of Nigeria.There's so much that can happen when Web3 Enthusiasts, Professionals, communities, Project founders and investors all converge. Looking forward to what lies ahead of this great initiative.", 
+    quote: "Witnessing a platform like Web3PHC do what it does is like a breathe of fresh Air to the Web3 Ecosystem across Nigeria. There's so much that can happen when Web3 Enthusiasts, Professionals, communities, Project founders and investors all converge. Looking forward to what lies ahead of this great initiative.", 
     name: "Jehu Oreri", 
     role: "Web3 Business developer", 
     image: "/images/jehu.png", 
     handle: "@JehuTech" 
   },  
   { 
-    quote: "I’m grateful to be part of a community that believes in empowerment, collaboration, and building real solutions for Africa and the world. Web3 Port Harcourt isn’t just a community, it’s a movement.", 
+    quote: "I’m grateful to be part of a community that believes in empowerment, collaboration, and building real solutions for Africa and the world. Web3PHC isn’t just a community, it’s a movement.", 
     name: "Nurudeen Hamzah", 
     role: "Web3 Builder-in-Training", 
     image: "/images/nuru.jpg", 

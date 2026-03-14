@@ -149,7 +149,7 @@ const ReConfig = () => {
                       <span className="font-serif italic font-light lowercase text-[#737373]">talent mine.</span>
                   </h3>
                   <p className="text-xl text-zinc-400 font-sans font-light leading-relaxed mb-8">
-                      Port Harcourt is the cultural and technical heartbeat of the South-South—anchored by at least 6 higher institutions and a builder density that is aggressively hungry for scale. We aren&apos;t just building for the local neighborhood; our founders are engineering dApps and startups designed to serve both local needs and global markets from Day One.
+                      Port Harcourt is a cultural and technical heartbeat—anchored by at least 6 higher institutions and a builder density that is aggressively hungry for scale. We aren&apos;t just building for the local neighborhood; our founders are engineering dApps and startups designed to serve both local needs and global markets from Day One.
                   </p>
                   <p className="text-xl text-zinc-400 font-sans font-light leading-relaxed mb-12">
                       We don&apos;t chase visibility; we deliver traction. By spotlighting these high-output teams, we make it effortless for global investors and protocols to discover builders who are solving real-world problems with borderless ambitions. The builders here aren&apos;t waiting for permission—they are shipping scalable code. Partnering with Re:Config means onboarding a pipeline of talent that is ready to service the world.
