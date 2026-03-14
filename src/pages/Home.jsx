@@ -100,6 +100,14 @@ const Home = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // Preload rest of hero images
+  useEffect(() => {
+    HERO_IMAGES.slice(1).forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   useEffect(() => {
     const hash = location.hash?.slice(1);
     const el = hash === "about" ? aboutRef.current : hash === "impact" ? impactRef.current : hash === "community" ? communityRef.current : null;
@@ -125,6 +133,8 @@ const Home = () => {
               transition={{ duration: 1.5, ease: "easeInOut" }}
               alt="Web3PHC Event" 
               className="absolute inset-0 w-full h-full object-cover object-[center_30%] lg:object-[center_20%] scale-105" 
+              fetchpriority={currentImage === 0 ? "high" : "auto"}
+              loading="eager"
             />
           </AnimatePresence>
           {/* Lightened Overlay for readability without hiding the image */}

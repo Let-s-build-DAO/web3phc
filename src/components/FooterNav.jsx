@@ -7,13 +7,13 @@ const FooterNav = () => {
     <footer className="bg-black pt-20 pb-0 px-4 mt-auto overflow-hidden relative border-t border-white/5">
         <div className="custom-container relative z-10 flex flex-col h-full">
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-20 lg:mb-32">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-20 lg:mb-32 items-start">
                 <div className="col-span-2 md:col-span-1">
                     <Link to="/" className="flex items-center gap-2 mb-6">
                         <img src="/logo.png" alt="Web3PHC" className="h-10 w-auto object-contain" />
                     </Link>
                     <p className="text-[#a3a3a3] font-mono text-sm leading-relaxed max-w-xs">
-                        _Convening founders, builders, and investors to drive meaningful, borderless innovation from Port Harcourt to the world.
+                        _A collaborative ecosystem designed to elevate technical and creative talent, driving high-impact collaboration and global visibility for builders, creators, and startups.
                     </p>
                 </div>
 
