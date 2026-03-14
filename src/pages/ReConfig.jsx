@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { FaGlobe, FaCode, FaArrowRight, FaCalendarAlt, FaUsers } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 import { useEffect, useRef } from "react";
+import SEO from "../components/SEO";
 
 const Counter = ({ from = 0, to, duration = 2, suffix = "" }) => {
   const ref = useRef(null);
@@ -31,22 +32,36 @@ const Counter = ({ from = 0, to, duration = 2, suffix = "" }) => {
 
   return <motion.span ref={ref}>{displayValue}</motion.span>;
 };
-
 const ReConfig = () => {
-  // Animation Variants
-  const container = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { delayChildren: 0.2, staggerChildren: 0.1 } } };
-  const item = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } };
+  const eventSchema = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Re:Config Pitakwa",
+    "description": "A global convergence point for builders & creators. 8 Days of Code, Culture, and Capital driving borderless innovation.",
+    "startDate": "2024-03-24", // Adjust to actual date if known
+    "location": {
+      "@type": "Place",
+      "name": "Port Harcourt, Nigeria",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Port Harcourt",
+        "addressCountry": "NG"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Web3PHC",
+      "url": "https://web3phc.com"
+    }
+  };
 
   return (
     <>
-      <Helmet>
-        <title>Re:Config Pitakwa | Web3PHC</title>
-        <meta name="description" content="A global convergence point for builders & creators. 8 Days of Code, Culture, and Capital driving borderless innovation." />
-        <meta property="og:title" content="Re:Config Pitakwa | Web3PHC" />
-        <meta property="og:description" content="A global convergence point for builders & creators. 8 Days of Code, Culture, and Capital driving borderless innovation." />
-        <meta property="og:image" content="/thumb.JPG" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Helmet>
+      <SEO 
+        title="Re:Config Pitakwa"
+        description="A global convergence point for builders & creators. 8 Days of Code, Culture, and Capital driving borderless innovation."
+        schemaData={eventSchema}
+      />
 
       {/* GLOBAL NOISE TEXTURE */}
       <div className="fixed inset-0 pointer-events-none z-50 opacity-[0.03] mix-blend-overlay" 

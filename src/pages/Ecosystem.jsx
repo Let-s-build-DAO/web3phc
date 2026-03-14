@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { FaSearch, FaTelegram, FaArrowRight, FaChevronLeft, FaChevronRight, FaExternalLinkAlt } from "react-icons/fa";
 import { ECOSYSTEM_DATA, CATEGORIES } from "../data/ecosystemData";
 import XIcon from "../components/XIcon";
+import SEO from "../components/SEO";
 
 const FEATURED_ITEMS = [
   {
@@ -183,10 +184,10 @@ const Ecosystem = () => {
 
   return (
     <div className="font-sans min-h-screen pt-20 relative overflow-hidden">
-      <Helmet>
-        <title>Ecosystem | Web3PHC</title>
-        <meta name="description" content="Discover the communities, projects, and events driving borderless Web3 innovation from our ecosystem." />
-      </Helmet>
+      <SEO 
+        title="Ecosystem"
+        description="Discover the communities, projects, and events driving borderless Web3 innovation from our ecosystem."
+      />
       
       <div className="absolute inset-x-0 top-0 h-[500px] bg-gradient-to-b from-[#fe6500]/10 via-transparent to-transparent pointer-events-none z-0" />
       <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none z-0"></div>

@@ -3,7 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 import { FaLongArrowAltRight, FaTelegram, FaWhatsapp } from "react-icons/fa";
 import { motion, AnimatePresence, useInView, useMotionValue, useTransform, animate } from "framer-motion";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import XIcon from "../components/XIcon";
+import SEO from "../components/SEO";
 
 /* NextBridge Africa–style flow: Hero → Trusted By → How We Drive Impact → Impact in Numbers → Testimonials → Be Part of the Movement → Conference teaser */
 
@@ -117,7 +119,21 @@ const Counter = ({ value }) => {
   return <motion.span ref={ref}>{rounded}</motion.span>;
 };
 
+
 const Home = () => {
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Web3PHC",
+    "url": "https://web3phc.com",
+    "logo": "https://web3phc.com/logo.png",
+    "sameAs": [
+      "https://x.com/web3PHC",
+      "https://t.me/web3portharcourt"
+    ],
+    "description": "Connecting builders, investors, and creatives across Nigeria and beyond to forge a decentralized future."
+  };
+
   const aboutRef = useRef(null);
   const impactRef = useRef(null);
   const communityRef = useRef(null);
@@ -150,6 +166,10 @@ const Home = () => {
 
   return (
     <>
+      <SEO 
+        description="Connecting builders, investors, and creatives across Nigeria and beyond to forge a decentralized future."
+        schemaData={orgSchema}
+      />
       <section id="about" ref={aboutRef} className="bg-black min-h-[100dvh] flex flex-col justify-center relative overflow-hidden">
         
         {/* Full Bleed Image Background Slider */}

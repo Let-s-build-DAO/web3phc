@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { FaTelegram, FaGlobe, FaArrowLeft, FaArrowRight, FaTwitter } from "react-icons/fa";
 import { ECOSYSTEM_DATA } from "../data/ecosystemData";
 import XIcon from "../components/XIcon";
+import SEO from "../components/SEO";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -25,12 +26,23 @@ const ProjectDetail = () => {
   // DiceBear Bitmoji-style avatar logic - Using robust 7.x parameters
   const avatarUrl = `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(project.founder || project.name)}&backgroundColor=b6e3f4,c0aede,d1d4f9${project.founderGender === 'male' ? '&top=dreads,fro,shavedSides,shortCurly,shortFlat,shortRound,shortWaved,sides' : '&top=bigHair,bob,bun,curly,curvy,frida,froBand,hijab,longButNotTooLong,miaWallace,straightAndStrand,straight01,straight02,turban'}&radius=50`;
 
+  const projectSchema = {
+    "@context": "https://schema.org",
+    "@type": project.category === "Start-ups" ? "SoftwareApplication" : "Organization",
+    "name": project.name,
+    "description": project.description,
+    "url": project.website || `https://web3phc.com/ecosystem/${project.id}`,
+    "applicationCategory": project.tags?.join(", "),
+    "operatingSystem": "Web"
+  };
+
   return (
     <div className="min-h-screen pt-32 pb-32 bg-black text-white font-sans overflow-hidden">
-      <Helmet>
-        <title>{project.name} | Ecosystem | Web3PHC</title>
-        <meta name="description" content={project.description} />
-      </Helmet>
+      <SEO 
+        title={`${project.name} | Ecosystem`}
+        description={project.description}
+        schemaData={projectSchema}
+      />
 
       {/* Hero Background Elements */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand-primary/5 blur-[120px] rounded-full -translate-y-1/2 pointer-events-none" />
