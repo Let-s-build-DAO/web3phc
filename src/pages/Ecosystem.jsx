@@ -1,199 +1,10 @@
 import { useState, useMemo } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { FaSearch, FaTelegram, FaGlobe, FaArrowRight } from "react-icons/fa";
+import { FaSearch, FaTelegram, FaArrowRight, FaChevronLeft, FaChevronRight, FaExternalLinkAlt } from "react-icons/fa";
+import { ECOSYSTEM_DATA, CATEGORIES } from "../data/ecosystemData";
 import XIcon from "../components/XIcon";
-
-const ECOSYSTEM_DATA = [
-  {
-    id: "lb-dao",
-    name: "LB DAO",
-    category: "Communities",
-    description: "LB DAO’s mission is to power sustainable Web3 adoption by combining data intelligence, funding, and community support for builders and founders worldwide especially in emerging markets.",
-    logo: "/projects/lbdao.jpg",
-    website: "https://www.lbdao.xyz/",
-    twitter: "https://x.com/letsbuild_dao",
-    telegram: "https://t.me/lbdaocommunity",
-    tags: ["DAO", "Community", "Builder"],
-  },
-  {
-    id: "lb-academy",
-    name: "LB Academy",
-    category: "Education",
-    description: "A self-learning engine that produces on-chain builders, contributors, and fundable projects.",
-    logo: "/projects/lbdao.jpg", // Using same logo for now as placeholder or if generic
-    website: "https://academy.lbdao.xyz",
-    twitter: "https://x.com/letsbuild_dao",
-    telegram: "https://t.me/lbdaocommunity",
-    tags: ["Education", "Builder", "Contributor"],
-  },
-  {
-    id: "soll-network",
-    name: "The Soll Network",
-    category: "Communities",
-    description: "The Soll Network is an initiative focused on adoption, education, and collaboration for a sustainable world.",
-    logo: "/projects/soll.png", // Using same logo for now as placeholder or if generic
-    website: "https://x.com/thesollnetwork_",
-    twitter: "https://x.com/thesollnetwork_",
-    telegram: "https://x.com/thesollnetwork_",
-    tags: ["Community", "Builder", "Contributor"],
-  },
-  {
-    id: "lamba-card",
-    name: "LambaCard",
-    category: "Start-ups",
-    description: "Cushioning the effect of inflation by rewarding brand customers limited crypto asset when they buy a product or service",
-    logo: "/projects/lamba.png", // Using same logo for now as placeholder or if generic
-    website: "https://card.lambatoken.com/",
-    twitter: "https://x.com/lambatoken",
-    telegram: "N/A",
-    tags: ["Start-ups", "Builder", "Contributor"],
-  },
-  {
-    id: "borderless",
-    name: "Borderless",
-    category: "Education",
-    description: "We are an NGO raising youths to become relevant in the tech space.",
-    logo: "/projects/borderless.png", // Using same logo for now as placeholder or if generic
-    website: "https://borderlessbuild.dev",
-    twitter: "https://x.com/borderlessdev",
-    telegram: "https://t.me/borderlessbuilders",
-    tags: ["Education", "Builder", "Contributor"],
-  },
-  {
-    id: "slimepay",
-    name: "Slimepay",
-    category: "Start-ups",
-    description: "People earn globally in crypto, but accessing that money locally is slow, stressful, and unreliable. With Slimepay, users don’t log into apps, don’t request withdrawals, and don’t wait days. They simply share their wallet address, receive payment, and the money lands in their bank account instantly.We’re building a non-custodial, multi-chain off-ramp that works quietly in the background for freelancers,onchain earners, traders, and platforms. Our goal is simple: make getting paid in Africa feel as effortless as receiving a bank transfer  without sacrificing speed, privacy, or control.",
-    logo: "/projects/slime.jpeg", // Using same logo for now as placeholder or if generic
-    website: "https://slimepay.com/",
-    twitter: "https://x.com/slimepay_",
-    telegram: "https://t.me/Slimepay_finance",
-    tags: ["Start-ups", "Builder", "Contributor"],
-  },
-  {
-    id: "buildthefutureonchain",
-    name: "Build the Future Onchain",
-    category: "Events/Media",
-    description: "A community of creators, innovators and enthusiasts in the blockchain, AI and Crypto space.",
-    logo: "/projects/btfoc.jpeg", // Using same logo for now as placeholder or if generic
-    website: "https://www.instagram.com/buildthefutureonchain",
-    twitter: "https://x.com/buildonchain_ng",
-    telegram: "https://t.me/+032EzDuH9EdmM2Jk",
-    tags: ["Events/Media", "Community", "Media"],
-  },
-  {
-    id: "thedao",
-    name: "The Dao Network",
-    category: "Communities",
-    description: "TDN started as a small circle of innovators who were tired of “networking communities” with no real outcomes. So we built our own — one focused on actual progress, not hype.",
-    logo: "/projects/tdn.jpg", // Using same logo for now as placeholder or if generic
-    website: "https://x.com/thedaonetwork_",
-    twitter: "https://x.com/thedaonetwork_",
-    telegram: "N/A",
-    tags: ["Communities", "Builder", "Contributor"],
-  },
-  {
-    id: "swiftransact",
-    name: "Swiftransact",
-    category: "Start-ups",
-    description: "A crypto-off ramp payment platform that enable users make payments directly from their non-custodial wallet without p2p or exchanges.",
-    logo: "/projects/swift.jpeg",
-    website: "https://x.com/swiftransacthq",
-    twitter: "https://x.com/swiftransacthq",
-    telegram: "https://t.me/+B1NiCLB8TnA0Y2U0",
-    tags: ["Start-ups", "Builder", "Contributor"],
-  },
-  {
-    id: "onscript",
-    name: "Onscript",
-    category: "Start-ups",
-    description: "Cross posting platform that lets you post from X to farcaster, Base App, Zora, Facebook and Instagram. Posting hasn't ever felt like this.",
-    logo: "/projects/onscript.jpg",
-    website: "https://onscript.xyz/",
-    twitter: "https://x.com/Onscript_xyz",
-    telegram: "n/a",
-    tags: ["Start-ups", "Builder", "Contributor"],
-  },
-  {
-    id: "bitsave",
-    name: "Bitsave Protocol",
-    category: "Start-ups",
-    description: "Bitsave is the SaveFi protocol that helps web3 income earners save on-chain with stablecoins.",
-    logo: "/projects/bitsave.png",
-    website: "https://www.bitsave.io",
-    twitter: "https://x.com/BitsaveProtocol",
-    telegram: "https://t.me/bitsaveprotocol/1",
-    tags: ["Start-ups", "Builder", "Contributor"],
-  },
-  {
-    id: "streamlivr",
-    name: "Streamlivr",
-    category: "Start-ups",
-    description: "Livestreaming and social network for creator and fans to earn crypto and connect globally.",
-    logo: "/projects/streamlivr.png",
-    website: "https://streamlivr.com",
-    twitter: "https://x.com/streamlivr_app",
-    telegram: "https://t.me/streamlivr",
-    tags: ["Start-ups", "Builder", "Contributor"],
-  },
-  {
-    id: "chainconnectng",
-    name: "ChainConnectNG",
-    category: "Communities",
-    description: "ChainConnect NG is a DevRel-driven Web3 community empowering builders in South-South Nigeria through education, ecosystem partnerships, and hands-on opportunities.",
-    logo: "/projects/chainconnect.jpeg",
-    website: "https://linktr.ee/chainconnect01",
-    twitter: "https://x.com/chainconnectng",
-    telegram: "https://t.me/chainconnectng",
-    tags: ["DevRel", "Education", "Governance", "Builder", "Contributor"],
-  },
-  {
-    id: "planbok",
-    name: "Planbok",
-    category: "Start-ups",
-    description: "Planbok is a programmable wallet infrastructure with built in payment rails designed to help businesses easily integrated blockchain based features in treasury management, payment & payroll.",
-    logo: "/projects/planbok.png",
-    website: "https://planbok.io/",
-    twitter: "https://x.com/planbokHQ",
-    telegram: "https://t.me/+a92pNyg2g5EwYTQ8",
-    tags: ["Start-ups", "wallet", "infrastructure", "Builder", "Contributor"],
-  },
-  {
-    id: "byteonchainnews",
-    name: "ByteOnchain News",
-    category: "Events/Media",
-    description: "ByteOnchain News is a Web3-focused media platform amplifying blockchain innovation, projects, and opportunities across Africa, with a strong presence in Port Harcourt and the South-South ecosystem.",
-    logo: "/projects/bon.jpg",
-    website: "https://byteonchain.news",
-    twitter: "https://x.com/ByteOnchain",
-    telegram: "t.me/byteonchainnews",
-    tags: ["Media", "Builder", "Contributor"],
-  },
-  {
-    id: "payora",
-    name: "Payora",
-    category: "Start-ups",
-    description: "Payora is a gifting/reward platform where users can create, redeem and send/distribute crypto giftcards and vouchers instantly.",
-    logo: "/projects/payora.png",
-    website: "https://payora.fun/",
-    twitter: "https://x.com/payorahq/",
-    telegram: "https://t.me/payorachat",
-    tags: ["Start-ups", "wallet", "giftcards", "Builder", "Contributor"],
-  },
-  { 
-    id: "nerdwork",
-    name: "Nerdwork",
-    category: "Start-ups",
-    description: "Nerdwork is a platform built to elevate African storytelling and give them the spotlight they deserve!",
-    logo: "/projects/nerdwork.png",
-    website: "https://www.nerdworkng.com",
-    twitter: "https://x.com/Nerdwork_ng",
-    telegram: "none",
-    tags: ["Start-ups", "Gaming", "Contributor"],
-  }
-];
 
 const FEATURED_ITEMS = [
   {
@@ -205,7 +16,7 @@ const FEATURED_ITEMS = [
     link: "https://www.lbdao.xyz/",
     cta: "Join Community",
     ctaLink: "https://t.me/lbdaocommunity",
-    theme: "amber", // Custom theme color
+    theme: "amber",
     stats: [
         { label: "Members", value: "500+" },
         { label: "Status", value: "Active", color: "text-green-400" }
@@ -216,21 +27,17 @@ const FEATURED_ITEMS = [
     title: "LB Academy",
     subtitle: "Featured Education",
     description: "Master Web3 development with our cohort-based learning paths. From zero to shipping dApps on Stylus, Solana, and more.",
-    image: "/projects/lbdao.jpg", // Placeholder
+    image: "/projects/lbdao.jpg",
     link: "https://academy.lbdao.xyz",
     cta: "Start Learning",
     ctaLink: "https://academy.lbdao.xyz",
-    theme: "blue", // Custom theme color
+    theme: "blue",
     stats: [
         { label: "Students", value: "120+" },
         { label: "Cohorts", value: "3", color: "text-blue-400" }
     ]
   }
 ];
-
-const CATEGORIES = ["All", "Communities", "Start-ups", "Education", "Events/Media"];
-
-import { FaChevronLeft, FaChevronRight, FaExternalLinkAlt } from "react-icons/fa";
 
 const FeaturedCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -245,17 +52,8 @@ const FeaturedCarousel = () => {
 
   const currentItem = FEATURED_ITEMS[currentIndex];
   
-  // Dynamic glow color based on theme
-  const glowColor = currentItem.theme === "blue" ? "bg-blue-600/20" : "bg-amber-600/20";
-  const accentColor = currentItem.theme === "blue" ? "text-blue-400" : "text-amber-400";
-  const buttonClass = currentItem.theme === "blue" 
-      ? "bg-blue-600 text-white hover:bg-blue-500 shadow-blue-900/40" 
-      : "bg-white text-black hover:bg-zinc-200 shadow-white/10";
-
   return (
     <div className="font-sans relative overflow-hidden rounded-[16px] bg-[#0a0a0a] border border-[#262626] group transition-colors duration-300">
-        
-         {/* Dynamic Background Glow Removed for Flat Mode */}
         <div className="absolute inset-0 bg-[#0a0a0a] opacity-50 pointer-events-none"></div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 p-8 md:p-12 lg:p-16 relative z-10 items-center min-h-[500px]">
@@ -275,7 +73,6 @@ const FeaturedCarousel = () => {
                         <h2 className="text-[2.5rem] unbounded-title text-white mb-6 leading-[0.9]">
                             {currentItem.title}
                         </h2>
-                        {/* Creative Decorative Line */}
                         <motion.div 
                             initial={{ width: 0 }}
                             animate={{ width: "80px" }}
@@ -366,7 +163,6 @@ const Ecosystem = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Sort data alphabetically by name
   const sortedData = useMemo(() => {
     return [...ECOSYSTEM_DATA].sort((a, b) => a.name.localeCompare(b.name));
   }, []);
@@ -390,22 +186,16 @@ const Ecosystem = () => {
       <Helmet>
         <title>Ecosystem | Web3PHC</title>
         <meta name="description" content="Discover the communities, projects, and events driving borderless Web3 innovation from our ecosystem." />
-        <meta property="og:title" content="Ecosystem | Web3PHC" />
-        <meta property="og:description" content="Discover the communities, projects, and events driving borderless Web3 innovation from our ecosystem." />
-        <meta property="og:image" content="/thumb.JPG" />
-        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
-      {/* Background Blobs Removed for flat mode */}
+      
       <div className="absolute inset-x-0 top-0 h-[500px] bg-gradient-to-b from-[#fe6500]/10 via-transparent to-transparent pointer-events-none z-0" />
       <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none z-0"></div>
 
       <div className="custom-container relative z-10 px-4">
-        {/* Header Section */}
         <div className="text-center max-w-4xl mx-auto mb-16 pt-12 md:pt-20">
           <motion.div 
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.6 }}
              className="mb-8"
           >
               <span className="font-mono text-xs tracking-widest text-[#a3a3a3] uppercase">[ WEB3PHC_NETWORK ]</span>
@@ -413,7 +203,6 @@ const Ecosystem = () => {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
             className="text-5xl sm:text-6xl md:text-8xl lg:text-[7rem] unbounded-title text-white mb-8 tracking-tight leading-[0.9]"
           >
             THE <br /> ECOSYSTEM
@@ -421,35 +210,27 @@ const Ecosystem = () => {
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
             className="font-sans text-[#a3a3a3] text-lg lg:text-xl leading-relaxed mb-8 font-light"
           >
             Discover the global convergence of communities, innovative projects, and events driving borderless Web3 innovation.
           </motion.p>
-          
         </div>
 
-        {/* Featured Carousel Section - Wider & More Creative */}
         <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "circOut", delay: 0.2 }}
             className="w-full max-w-[1400px] mx-auto mb-24 relative z-20"
         >
              <FeaturedCarousel />
         </motion.div>
       </div>
+
       <section>
-        {/* Main Light Brutalist Section */}
       <div className="relative bg-gradient-to-b from-[#ebecf0] to-[#cdd1dc] z-20 py-20 px-4 rounded-t-[48px] lg:rounded-t-[80px] -mt-12 text-black shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
-        
-        {/* Geometric Grid Pattern - Edges Only */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#fe650020_1px,transparent_1px),linear-gradient(to_bottom,#0052ff20_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0 opacity-50 [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black_100%)]" />
 
         <div className="custom-container relative z-10 px-4">
-            {/* Filter & Search Bar */}
             <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-16 bg-white/50 backdrop-blur-sm border border-black/10 rounded-lg p-2 md:p-3 max-w-7xl mx-auto">
-                {/* Categories */}
                 <div className="flex flex-wrap justify-center gap-2 w-full md:w-auto">
                     {CATEGORIES.map(cat => (
                         <button
@@ -466,7 +247,6 @@ const Ecosystem = () => {
                     ))}
                 </div>
 
-                {/* Search */}
                 <div className="relative w-full md:w-72">
                     <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-black/40" />
                     <input 
@@ -479,7 +259,6 @@ const Ecosystem = () => {
                 </div>
             </div>
 
-            {/* Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto mb-20 relative z-20">
                 {filteredData.length > 0 ? (
                     filteredData.map((item) => (
@@ -501,35 +280,31 @@ const Ecosystem = () => {
                             </div>
                             
                             <h3 className="text-xl unbounded-title text-black mb-4 uppercase tracking-tighter leading-none group-hover:text-brand-primary transition-colors relative z-10">{item.name}</h3>
-                            <p className="text-black/60 font-sans text-sm font-normal leading-relaxed mb-8 line-clamp-3 flex-1 relative z-10">
+                            <p className="text-black/60 font-sans text-sm font-normal leading-relaxed mb-8 line-clamp-3 relative z-10 flex-1">
                                 {item.description}
                             </p>
 
-                            <div className="pt-6 border-t border-black/10 mt-auto relative z-10 flex flex-col gap-4">
-                                <div className="flex justify-between items-center w-full">
-                                    <div className="flex gap-4">
-                                        {item.twitter && (
-                                            <a href={item.twitter} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-black/60 hover:text-black hover:bg-black/5 hover:border-black/20 transition-all" aria-label={`Twitter/X for ${item.name}`}>
-                                                <XIcon className="w-4 h-4" />
-                                            </a>
-                                        )}
-                                        {item.telegram && item.telegram.toLowerCase() !== "n/a" && (
-                                            <a href={item.telegram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-black/60 hover:text-black hover:bg-black/5 hover:border-black/20 transition-all" aria-label={`Telegram for ${item.name}`}>
-                                                <FaTelegram className="w-5 h-5" />
-                                            </a>
-                                        )}
-                                        {/* {item.website && (
-                                            <a href={item.website} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-black/60 hover:text-black hover:bg-black/5 hover:border-black/20 transition-all" aria-label={`Website for ${item.name}`}>
-                                                <FaGlobe className="w-5 h-5" />
-                                            </a>
-                                        )} */}
-                                    </div>
-                                    {item.website && (
-                                        <a href={item.website} target="_blank" rel="noopener noreferrer" className="group/link flex items-center justify-center w-10 h-10 rounded-full bg-black text-white hover:bg-brand-primary transition-colors" aria-label={`Visit ${item.name}`}>
-                                            <FaArrowRight className="transform -rotate-45 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                            <div className="pt-6 border-t border-black/10 mt-auto relative z-10 flex items-center justify-between">
+                                <div className="flex gap-4">
+                                    {item.twitter && (
+                                        <a href={item.twitter} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-black/60 hover:text-black hover:bg-black/5 hover:border-black/20 transition-all" aria-label={`Twitter/X for ${item.name}`}>
+                                            <XIcon className="w-4 h-4" />
+                                        </a>
+                                    )}
+                                    {item.telegram && item.telegram.toLowerCase() !== "n/a" && (
+                                        <a href={item.telegram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-black/60 hover:text-black hover:bg-black/5 hover:border-black/20 transition-all" aria-label={`Telegram for ${item.name}`}>
+                                            <FaTelegram className="w-5 h-5" />
                                         </a>
                                     )}
                                 </div>
+                                
+                                <Link 
+                                    to={`/ecosystem/${item.id}`}
+                                    className="px-4 py-2 rounded-full bg-black text-white text-[10px] font-mono font-black uppercase tracking-widest flex items-center gap-2 group/btn hover:bg-brand-primary transition-all duration-300"
+                                >
+                                    Read More
+                                    <FaArrowRight className="text-[10px] transform -rotate-45 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                                </Link>
                             </div>
                         </motion.div>
                     ))
@@ -541,7 +316,6 @@ const Ecosystem = () => {
             </div>
         </div>
 
-        {/* CTA Section (Bottom) */}
         <div className="max-w-5xl mx-auto text-center bg-[#000] border border-white/10 rounded-none p-16 md:p-24 relative overflow-hidden mt-32 mb-16">
             <div className="absolute top-0 left-8 w-[1px] h-full bg-white/10 hidden md:block" />
             <div className="absolute top-0 right-8 w-[1px] h-full bg-white/10 hidden md:block" />

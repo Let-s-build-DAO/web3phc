@@ -4,6 +4,7 @@ import HeaderNav from "./components/HeaderNav";
 import FooterNav from "./components/FooterNav";
 import ReConfig from "./pages/ReConfig";
 import Ecosystem from "./pages/Ecosystem";
+import ProjectDetail from "./pages/ProjectDetail";
 import AddProject from "./pages/AddProject";
 import Analytics from "./components/Analytics";
 
@@ -30,6 +31,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/ecosystem" element={<Ecosystem />} />
+            <Route path="/ecosystem/:id" element={<ProjectDetail />} />
             <Route path="/ecosystem/add" element={<AddProject />} />
             {/* Removed duplicate AddProject route */}
             <Route path="/reconfig" element={<ReConfig />} />
