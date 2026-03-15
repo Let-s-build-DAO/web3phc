@@ -23,8 +23,6 @@ const ProjectDetail = () => {
     );
   }
 
-  // DiceBear Bitmoji-style avatar logic - Using robust 7.x parameters
-  const avatarUrl = `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(project.founder || project.name)}&backgroundColor=b6e3f4,c0aede,d1d4f9${project.founderGender === 'male' ? '&top=dreads,fro,shavedSides,shortCurly,shortFlat,shortRound,shortWaved,sides' : '&top=bigHair,bob,bun,curly,curvy,frida,froBand,hijab,longButNotTooLong,miaWallace,straightAndStrand,straight01,straight02,turban'}&radius=50`;
 
   const projectSchema = {
     "@context": "https://schema.org",
@@ -37,7 +35,7 @@ const ProjectDetail = () => {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-32 bg-black text-white font-sans overflow-hidden">
+    <div className="min-h-screen pt-32 pb-32 bg-black text-white font-sans overflow-x-hidden">
       <SEO 
         title={`${project.name} | Ecosystem`}
         description={project.description}
@@ -62,15 +60,15 @@ const ProjectDetail = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center gap-6 mb-8">
-                <div className="w-24 h-24 rounded-2xl bg-white p-3 border border-white/10 shadow-xl overflow-hidden flex-shrink-0">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-white p-3 border border-white/10 shadow-xl overflow-hidden flex-shrink-0">
                     <img src={project.logo} alt={project.name} className="w-full h-full object-contain mix-blend-multiply" />
                 </div>
                 <div>
                     <span className="inline-block px-3 py-1 rounded-sm text-[10px] font-mono font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/10 border border-brand-primary/20 mb-3">
                         {project.category}
                     </span>
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl unbounded-title text-white tracking-tighter uppercase leading-none">
+                    <h1 className="text-4xl md:text-7xl lg:text-8xl unbounded-title text-white tracking-tighter uppercase leading-[1.1] md:leading-none">
                         {project.name}
                     </h1>
                 </div>
@@ -114,7 +112,7 @@ const ProjectDetail = () => {
                     [ MISSION_AND_IMPACT ]
                 </h4>
                 <div className="space-y-8">
-                    <p className="text-2xl md:text-3xl text-white font-sans font-light leading-relaxed max-w-4xl tracking-tight">
+                    <p className="text-xl md:text-3xl text-white font-sans font-light leading-relaxed max-w-4xl tracking-tight">
                         {project.fullDescription}
                     </p>
                 </div>
@@ -147,28 +145,18 @@ const ProjectDetail = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="border-t border-white/5 pt-20"
+            className="border-t border-white/5 pt-12 md:pt-20"
         >
-            <div className="max-w-5xl mx-auto bg-gradient-to-br from-[#0a0a0a] to-[#050505] border border-white/5 p-12 lg:p-16 rounded-[40px] relative overflow-hidden">
+            <div className="max-w-5xl mx-auto bg-gradient-to-br from-[#0a0a0a] to-[#050505] border border-white/5 p-6 sm:p-8 md:p-12 lg:p-16 rounded-[32px] md:rounded-[40px] relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary/10 blur-[80px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-                
-                <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
-                    <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-brand-primary/20 to-blue-500/20 p-[2px] overflow-hidden flex-shrink-0">
-                        <div className="w-full h-full rounded-full bg-[#0a0a0a] overflow-hidden relative">
-                            <img 
-                                src={avatarUrl} 
-                                alt={project.founder} 
-                                className="w-full h-full object-cover scale-[1.3] translate-y-[10%]" 
-                            />
-                        </div>
-                    </div>
+                                <div className="flex flex-col items-center md:items-start relative z-10">
                     
-                    <div className="text-center md:text-left flex-1">
+                    <div className="text-center md:text-left flex-1 w-full">
                         <span className="font-mono text-[10px] uppercase tracking-widest text-brand-primary font-bold mb-4 inline-block tracking-[0.2em]">[ MEET_THE_FOUNDER ]</span>
-                        <h2 className="text-5xl md:text-6xl font-sans font-bold text-white mb-6 leading-none tracking-tighter">
+                        <h2 className="text-3xl sm:text-4xl md:text-6xl font-sans font-bold text-white mb-6 leading-tight md:leading-none tracking-tighter break-words">
                             {project.founder}
                         </h2>
-                        <p className="font-sans text-[#a3a3a3] text-xl leading-relaxed max-w-xl mb-10 font-medium">
+                        <p className="font-sans text-[#a3a3a3] text-base md:text-xl leading-relaxed max-w-xl mb-10 font-medium">
                             Driving {project.name}'s mission forward and contributing to the borderless innovation of the Web3PHC ecosystem.
                         </p>
 
@@ -199,11 +187,11 @@ const ProjectDetail = () => {
                                             href={href}
                                             target="_blank" 
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-3 px-6 py-4 rounded-full bg-white/5 border border-white/10 text-white font-mono text-xs uppercase tracking-widest hover:bg-brand-primary hover:border-brand-primary transition-all duration-300 group/contact shadow-xl backdrop-blur-sm"
+                                            className="inline-flex flex-col sm:flex-row items-center sm:items-start gap-1 sm:gap-3 px-6 py-4 rounded-2xl md:rounded-full bg-white/5 border border-white/10 text-white font-mono text-xs uppercase tracking-widest hover:bg-brand-primary hover:border-brand-primary transition-all duration-300 group/contact shadow-xl backdrop-blur-sm w-full sm:w-auto overflow-hidden"
                                         >
                                             <span className="opacity-60 group-hover/contact:opacity-100 transition-opacity whitespace-nowrap">{label}:</span>
-                                            <span className="font-bold underline underline-offset-4 decoration-white/20">{cleanedContact}</span>
-                                            <FaArrowRight className="ml-2 transform -rotate-45 group-hover/contact:translate-x-1 group-hover/contact:-translate-y-1 transition-transform" />
+                                            <span className="font-bold underline underline-offset-4 decoration-white/20 break-all">{cleanedContact}</span>
+                                            <FaArrowRight className="hidden sm:block ml-2 transform -rotate-45 group-hover/contact:translate-x-1 group-hover/contact:-translate-y-1 transition-transform" />
                                         </a>
                                     );
                                 })}
