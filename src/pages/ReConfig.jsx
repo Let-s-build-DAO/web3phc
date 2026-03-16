@@ -206,16 +206,16 @@ const ReConfig = () => {
             <section className="py-24 bg-zinc-950 border-b border-white/10 relative overflow-hidden">
                 <div className="custom-container grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div>
-                        <h2 className="font-mono text-sm tracking-widest text-[#a3a3a3] uppercase mb-6">[ THE_OPPORTUNITY ]</h2>
+                        <h2 className="font-mono text-sm tracking-widest text-[#a3a3a3] uppercase mb-6">[ MARKET_CONVERGENCE ]</h2>
                         <h3 className="text-4xl md:text-5xl lg:text-6xl font-sans font-black text-white leading-[0.9] mb-8 uppercase tracking-tighter">
-                            THE UNTAPPED <br/>
-                            <span className="font-serif italic font-light lowercase text-[#737373]">talent mine.</span>
+                            THE GLOBAL <br/>
+                            <span className="font-serif italic font-light lowercase text-[#737373]">web3 bridge.</span>
                         </h3>
                         <p className="text-xl text-zinc-400 font-sans font-light leading-relaxed mb-8">
-                            Port Harcourt is a cultural and technical heartbeat—anchored by at least 6 higher institutions and a builder density that is aggressively hungry for scale. We aren&apos;t just building for the local neighborhood; our founders are engineering dApps and startups designed to serve both local needs and global markets from Day One.
+                            The African tech scene is no longer just a frontier; it is the most active laboratory for Web3 utility. With Nigeria leading global adoption, Re:Config is positioned at the intersection of high-density engineering and real-world demand. We are moving beyond speculation, tapping into a market where on-chain intelligence and decentralized finance solve systemic infrastructure gaps.
                         </p>
                         <p className="text-xl text-zinc-400 font-sans font-light leading-relaxed mb-12">
-                            We don&apos;t chase visibility; we deliver traction. By spotlighting these high-output teams, we make it effortless for global investors and protocols to discover builders who are solving real-world problems with borderless ambitions. The builders here aren&apos;t waiting for permission—they are shipping scalable code. Partnering with Re:Config means onboarding a pipeline of talent that is ready to service the world.
+                            Re:Config acts as the critical architectural layer—connecting the raw technical drive of Port Harcourt with the scale of the African continent and the liquidity of global protocols. By bringing together local builders and international stakeholders, we are ensuring that the next billion users aren&apos;t just consuming Web3; they are building the protocols that define it. This is where local traction meets global scaling.
                         </p>
                     </div>
                     <div className="relative h-[600px] w-full bg-zinc-900 rounded-lg overflow-hidden border border-white/10 group">
