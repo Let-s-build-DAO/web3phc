@@ -55,6 +55,22 @@ const ReConfig = () => {
     }
   };
 
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <>
       <SEO 
@@ -72,7 +88,7 @@ const ReConfig = () => {
       <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-black pt-20">
         {/* Background Visuals */}
         <div className="absolute inset-0 z-0">
-             <div className="absolute inset-0 bg-[url('/images/refinery-bg.jpg')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+             <div className="absolute inset-0 bg-[url('/images/243.jpg')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
         </div>
 
