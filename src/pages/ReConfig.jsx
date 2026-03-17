@@ -111,15 +111,18 @@ const ReConfig = () => {
             />
 
             {/* ─── HERO ─── */}
-            <section className="relative h-screen flex items-end overflow-hidden">
+            <section className="relative min-h-[100dvh] md:h-screen flex items-end overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <video
                         ref={videoRef}
                         src="/eventvid.mp4"
-                        autoPlay loop muted playsInline
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                         preload="none"
                         style={{ willChange: 'transform' }}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/10" />
                 </div>
@@ -142,7 +145,7 @@ const ReConfig = () => {
                     )}
                 </button>
 
-                <div className="custom-container relative z-20 pb-20 w-full">
+                <div className="custom-container relative z-20 pb-16 pt-24 sm:pt-28 w-full px-4">
                     <motion.div variants={container} initial="hidden" animate="show">
                         <motion.p variants={item} className="font-mono text-xs tracking-widest text-brand-primary uppercase mb-6">
                             [ RE:CONFIG · OCT 17–24 · PORT HARCOURT ]
@@ -156,7 +159,7 @@ const ReConfig = () => {
                         </motion.p>
                         <motion.div variants={item} className="flex flex-col sm:flex-row gap-4">
                             <button className="bg-brand-primary text-black hover:bg-white transition-colors px-10 py-5 text-sm uppercase font-sans font-black tracking-widest flex items-center gap-2">
-                                PARTNER WITH US <FaArrowRight />
+                                SPONSOR US <FaArrowRight />
                             </button>
                             <button className="bg-transparent text-white border-2 border-white/20 hover:bg-white hover:text-black transition-colors px-10 py-5 text-sm uppercase font-sans font-bold tracking-widest">
                                 GET TICKETS
@@ -196,20 +199,22 @@ const ReConfig = () => {
             </section>
 
             {/* ─── THE PROBLEM / PITCH ─── */}
-            <section className="py-28 bg-black border-b border-white/10">
-                <div className="custom-container">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <section className="py-20 px-4 relative bg-[#f8f9fa] z-20 rounded-t-[48px] lg:rounded-t-[80px] -mt-16 md:-mt-24 overflow-hidden text-black shadow-[0_-20px_50px_rgba(0,0,0,0.5)] border-t border-black/10">
+                {/* Geometric Grid Pattern - Edges Only */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#fe650020_1px,transparent_1px),linear-gradient(to_bottom,#0052ff20_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0 opacity-40 [mask-image:radial-gradient(ellipse_at_center,transparent_45%,black_100%)]" />
+                <div className="custom-container relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div>
-                            <h2 className="font-mono text-xs tracking-widest text-brand-primary uppercase mb-6">[ THE_OPPORTUNITY ]</h2>
-                            <h3 className="text-5xl md:text-6xl font-sans font-black text-white leading-[0.9] tracking-tighter uppercase mb-8">
+                            <h2 className="font-mono text-xs tracking-widest text-[#525252] uppercase mb-6">[ THE_OPPORTUNITY ]</h2>
+                            <h3 className="text-5xl md:text-6xl font-sans font-black text-[#0a0a0a] leading-[0.9] tracking-tighter uppercase mb-8">
                                 FIVE SECTORS.<br />
-                                <span className="font-serif italic font-light lowercase text-zinc-500">one deployment event.</span>
+                                <span className="font-serif italic font-light lowercase text-[#737373]">one deployment event.</span>
                             </h3>
-                            <p className="text-xl text-zinc-400 leading-relaxed mb-8">
-                                The biggest sectors in global Web3—RWA, DeFAI, AI Agents, Stablecoins, and x402—all share one critical need: <strong className="text-white">builders who can ship</strong>. Africa is not just a market to enter; it is the laboratory where these primitives find their highest-stakes, real-world use.
+                            <p className="text-xl text-[#404040] leading-relaxed mb-8">
+                                The biggest sectors in global Web3—RWA, DeFAI, AI Agents, Stablecoins, and x402—all share one critical need: <strong className="text-black">builders who can ship</strong>. Africa is not just a market to enter; it is the laboratory where these primitives find their highest-stakes, real-world use.
                             </p>
-                            <p className="text-xl text-zinc-400 leading-relaxed">
-                                Re:Config is the deployment event. Protocols that want traction, not just visibility, partner with us to put their stack in front of 1,200+ developers, founders, and decision-makers who build for a living.
+                            <p className="text-xl text-[#404040] leading-relaxed">
+                                Re:Config is the deployment event. Protocols that want traction, not just visibility, sponsor this platform to put their stack in front of 1,200+ developers, founders, and decision-makers who build for a living.
                             </p>
                         </div>
                         <div className="grid grid-cols-2 gap-4">
@@ -219,10 +224,10 @@ const ReConfig = () => {
                                 { v: "52%", l: "Sub-Saharan growth", sub: "YoY on-chain volume" },
                                 { v: "95%", l: "prefer stablecoins", sub: "over the naira" },
                             ].map((s) => (
-                                <div key={s.l} className="border border-white/10 bg-zinc-950 p-6 rounded-lg">
-                                    <div className="text-4xl font-sans font-black text-white mb-1">{s.v}</div>
-                                    <div className="text-sm font-mono font-bold uppercase text-white tracking-widest mb-1">{s.l}</div>
-                                    <div className="text-xs font-mono text-zinc-500 uppercase">{s.sub}</div>
+                                <div key={s.l} className="border border-black/10 bg-white/80 backdrop-blur-sm p-6 rounded-lg">
+                                    <div className="text-4xl font-sans font-black text-[#0a0a0a] mb-1">{s.v}</div>
+                                    <div className="text-sm font-mono font-bold uppercase text-[#0a0a0a] tracking-widest mb-1">{s.l}</div>
+                                    <div className="text-xs font-mono text-[#737373] uppercase">{s.sub}</div>
                                 </div>
                             ))}
                         </div>
@@ -263,7 +268,7 @@ const ReConfig = () => {
                                 <p className="text-sm text-black/70 font-light">Integrate your stack, sponsor a track, or run a live hackathon challenge. Get your protocol in front of builders who actually deploy.</p>
                             </div>
                             <button className="mt-8 bg-black text-white hover:bg-zinc-900 transition-colors px-6 py-4 text-xs uppercase font-mono font-bold tracking-widest flex items-center gap-2 self-start">
-                                BECOME A PARTNER <FaArrowRight />
+                                BECOME A SPONSOR <FaArrowRight />
                             </button>
                         </div>
                     </div>
@@ -436,7 +441,7 @@ const ReConfig = () => {
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <button className="bg-black text-white hover:bg-zinc-800 transition-colors px-10 py-5 text-sm uppercase font-sans font-black tracking-widest flex items-center gap-2">
-                                    PARTNER WITH US <FaArrowRight />
+                                    SPONSOR US <FaArrowRight />
                                 </button>
                                 <button className="bg-transparent text-black border-2 border-black/20 hover:bg-black hover:text-white transition-colors px-10 py-5 text-sm uppercase font-sans font-bold tracking-widest">
                                     GET TICKETS
