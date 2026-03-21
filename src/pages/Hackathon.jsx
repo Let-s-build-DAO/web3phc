@@ -58,7 +58,7 @@ const Hackathon = () => {
           </h3>
           <p className="text-sm lg:text-xl text-[#6A674A]">
             The
-            <span className="font-bold"> Web3 Port Harcourt Buildathon</span> is
+            <span className="font-bold"> WEB3PHC Buildathon</span> is
             a hackathon and conference aimed at creating impactful projects with
             real-world applications. Participants form teams of 3-7 members,
             with 50-100 builders expected.
@@ -224,7 +224,7 @@ const Hackathon = () => {
               Win from a N1,600,000.00 prize pool
             </div>
             <p className="text-sm lg:text-xl text-[#6A674A]">
-              Ready to build the future of Web3? Join the Web3 Port Harcourt
+              Ready to build the future of Web3? Join the WEB3PHC
               Buildathon and compete for a{" "}
               <span className="font-bold"> N1,600,000.00 </span> prize pool.
               <br /> <br />

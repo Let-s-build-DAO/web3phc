@@ -50,7 +50,7 @@ const FooterNav = () => {
             <div className="w-full flex justify-center mt-auto pb-24">
                 <img 
                     src="/images/footerWhite.png" 
-                    alt="WEB3 PORT HARCOURT" 
+                    alt="WEB3PHC" 
                     className="w-full max-w-[90%] md:max-w-[80%] object-contain translate-y-[20%]" 
                 />
             </div>

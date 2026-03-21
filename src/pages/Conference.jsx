@@ -15,7 +15,7 @@ const Conference = () => {
       {/* Hero – NextBridge style: centered, minimal */}
       <section className="bgoverlay2 flex flex-col items-center justify-center min-h-[70vh] text-center px-4 py-20">
         <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white mb-4">
-          Web3 Port Harcourt Conference
+          WEB3PHC Conference
         </h1>
         <p className="text-brand-primary text-lg mb-6">Next conference: December 5th, 2026</p>
         <div className="flex justify-center mb-8">
@@ -40,7 +40,7 @@ const Conference = () => {
         <div className="custom-container">
           <h2 className="section-title">Overview</h2>
           <p className="section-subtitle mt-4 max-w-3xl mx-auto">
-            The <span className="font-semibold text-white">Web3 Port Harcourt Conference</span> is our flagship event—a hackathon and conference aimed at creating impactful projects with real-world applications. Participants form teams of 3–7 members, with builders from across Rivers State and beyond.
+            The <span className="font-semibold text-white">WEB3PHC Conference</span> is our flagship event—a hackathon and conference aimed at creating impactful projects with real-world applications. Participants form teams of 3–7 members, with builders from across Rivers State and beyond.
             <br /><br />
             Categories include Real World Assets & DeFi, On-chain Gaming, Educational DApps, and Smart Contract Security Tools. The event fosters innovation in tokenizing assets, decentralized finance, gaming, and education, focusing on social impact and security.
           </p>
@@ -114,7 +114,7 @@ const Conference = () => {
             <div className="lg:w-3/5 text-center lg:text-left">
               <p className="text-xl lg:text-2xl font-bold text-white mb-4">Win from a N1,600,000.00 prize pool</p>
               <p className="text-zinc-400 leading-relaxed mb-6">
-                Ready to build the future of Web3? Join the Web3 Port Harcourt Conference and compete for a <span className="font-bold text-brand-primary">N1,600,000.00</span> prize pool.
+                Ready to build the future of Web3? Join the WEB3PHC Conference and compete for a <span className="font-bold text-brand-primary">N1,600,000.00</span> prize pool.
                 <br /><br />
                 Develop groundbreaking projects in DeFi, gaming, education, and security, all while gaining mentorship and showcasing your ideas to industry leaders. Don&apos;t miss it!
               </p>
