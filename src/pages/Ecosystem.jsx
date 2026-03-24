@@ -184,8 +184,9 @@ const Ecosystem = () => {
 
   return (
     <div className="font-sans min-h-screen pt-20 relative overflow-hidden">
-      <SEO 
+      <SEO
         title="Ecosystem"
+        url="/ecosystem"
         description="Discover the communities, projects, and events driving borderless Web3 innovation from our ecosystem."
       />
       

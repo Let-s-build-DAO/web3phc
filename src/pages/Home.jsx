@@ -3,9 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 import { FaLongArrowAltRight, FaTelegram, FaWhatsapp } from "react-icons/fa";
 import { motion, AnimatePresence, useInView, useMotionValue, useTransform, animate } from "framer-motion";
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
 import XIcon from "../components/XIcon";
 import SEO from "../components/SEO";
+import { SITE_ORIGIN, absoluteUrl } from "../config/site";
 
 /* NextBridge Africa–style flow: Hero → Trusted By → How We Drive Impact → Impact in Numbers → Testimonials → Be Part of the Movement → Conference teaser */
 
@@ -125,8 +125,8 @@ const Home = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Web3PHC",
-    "url": "https://web3phc.com",
-    "logo": "https://web3phc.com/logo.png",
+    "url": SITE_ORIGIN,
+    "logo": absoluteUrl("/logo.png"),
     "sameAs": [
       "https://x.com/web3PHC",
       "https://t.me/web3portharcourt"
@@ -166,7 +166,8 @@ const Home = () => {
 
   return (
     <>
-      <SEO 
+      <SEO
+        url="/"
         description="Connecting builders, investors, and creatives across Nigeria and beyond to forge a decentralized future."
         schemaData={orgSchema}
       />

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FaArrowRight, FaCode, FaUsers, FaGlobe, FaChartBar, FaBolt, FaLock, FaRobot } from 'react-icons/fa';
-import { Helmet } from 'react-helmet-async';
 import SEO from '../components/SEO';
+import { SITE_ORIGIN, absoluteUrl } from '../config/site';
 
 const SECTORS = [
   {
@@ -48,6 +48,47 @@ const SECTORS = [
 ];
 const HERO_TERMS = ["config", "peat", "frame", "route", "deploy"];
 
+const RECONFIG_SEO_DESCRIPTION =
+    "Re:Config is Web3PHC's multi-day Web3 deployment event in Port Harcourt, Rivers State, Nigeria. Protocols and sponsors meet builders working across RWA, DeFAI, AI agents, stablecoins, and x402 payment rails.";
+
+const reconfigJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": `${SITE_ORIGIN}/#organization`,
+            name: "Web3PHC",
+            url: SITE_ORIGIN,
+            logo: absoluteUrl("/logo.png"),
+            sameAs: ["https://x.com/web3PHC", "https://t.me/web3portharcourt"],
+        },
+        {
+            "@type": "Event",
+            "@id": `${SITE_ORIGIN}/reconfig#event`,
+            name: "Re:Config",
+            alternateName: "Re:Config Pitakwa",
+            description: RECONFIG_SEO_DESCRIPTION,
+            url: absoluteUrl("/reconfig"),
+            image: absoluteUrl("/thumb.JPG"),
+            startDate: "2026-10-17",
+            endDate: "2026-10-24",
+            eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+            eventStatus: "https://schema.org/EventScheduled",
+            location: {
+                "@type": "Place",
+                name: "Port Harcourt",
+                address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Port Harcourt",
+                    addressRegion: "Rivers State",
+                    addressCountry: "NG",
+                },
+            },
+            organizer: { "@id": `${SITE_ORIGIN}/#organization` },
+        },
+    ],
+};
+
 const ReConfig = () => {
     const [activeTerm, setActiveTerm] = useState(HERO_TERMS[0]);
 
@@ -70,14 +111,16 @@ const ReConfig = () => {
     const item = { hidden: { opacity: 0 }, show: { opacity: 1 } };
 
     return (
-        <main className="bg-black min-h-screen selection:bg-brand-primary selection:text-black" aria-labelledby="reconfig-hero-title">
-            <Helmet>
-                <title>Re:Config | Build the Next Web3 Frontier</title>
-            </Helmet>
+        <div
+            className="bg-black min-h-screen selection:bg-brand-primary selection:text-black"
+            aria-labelledby="reconfig-hero-title"
+        >
             <SEO
-                title="Re:Config | Where Protocols Find Traction"
-                description="Re:Config is a premier Web3 deployment event. Connect your protocol with builders across RWA, DeFAI, AI Agents, Stablecoins, and x402."
+                title="Re:Config"
+                url="/reconfig"
+                description={RECONFIG_SEO_DESCRIPTION}
                 type="website"
+                schemaData={reconfigJsonLd}
             />
 
             {/* ─── HERO ─── */}
@@ -415,7 +458,7 @@ const ReConfig = () => {
                     </div>
                 </div>
             </section>
-        </main>
+        </div>
     );
 };
 

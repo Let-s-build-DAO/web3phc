@@ -5,6 +5,7 @@ import { FaTelegram, FaGlobe, FaArrowLeft, FaArrowRight, FaTwitter } from "react
 import { ECOSYSTEM_DATA } from "../data/ecosystemData";
 import XIcon from "../components/XIcon";
 import SEO from "../components/SEO";
+import { absoluteUrl } from "../config/site";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -29,15 +30,16 @@ const ProjectDetail = () => {
     "@type": project.category === "Start-ups" ? "SoftwareApplication" : "Organization",
     "name": project.name,
     "description": project.description,
-    "url": project.website || `https://web3phc.com/ecosystem/${project.id}`,
+    "url": project.website || absoluteUrl(`/ecosystem/${project.id}`),
     "applicationCategory": project.tags?.join(", "),
     "operatingSystem": "Web"
   };
 
   return (
     <div className="min-h-screen pt-32 pb-32 bg-black text-white font-sans overflow-x-hidden">
-      <SEO 
+      <SEO
         title={`${project.name} | Ecosystem`}
+        url={`/ecosystem/${project.id}`}
         description={project.description}
         schemaData={projectSchema}
       />
