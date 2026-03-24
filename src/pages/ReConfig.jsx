@@ -1,43 +1,8 @@
-import React, { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { FaArrowRight, FaCode, FaUsers, FaGlobe, FaChartBar, FaBolt, FaLock, FaRobot } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
 import SEO from '../components/SEO';
-
-const Counter = ({ from = 0, to, duration = 1, suffix = "" }) => {
-  const [count, setCount] = React.useState(from);
-
-  React.useEffect(() => {
-    let startTime = null;
-    const startVal = from;
-    const endVal = to;
-    const totalMs = duration * 1000;
-    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
-
-    const step = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-      const elapsed = timestamp - startTime;
-      const progress = Math.min(elapsed / totalMs, 1);
-      const current = startVal + (endVal - startVal) * easeOut(progress);
-      if (suffix === " Tn") {
-        setCount(parseFloat(current.toFixed(1)));
-      } else {
-        setCount(Math.round(current));
-      }
-      if (progress < 1) requestAnimationFrame(step);
-    };
-
-    const raf = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(raf);
-  }, [from, to, duration]);
-
-  const formatNumber = (num) => {
-    if (suffix === " Tn") return num.toFixed(1);
-    return Math.floor(num);
-  };
-
-  return <span>{formatNumber(count)}{suffix}</span>;
-};
 
 const SECTORS = [
   {
@@ -81,78 +46,74 @@ const SECTORS = [
     icon: <FaGlobe size={20} />,
   },
 ];
+const HERO_TERMS = ["config", "peat", "frame", "route", "deploy"];
 
 const ReConfig = () => {
-    const videoRef = useRef(null);
-    const [muted, setMuted] = useState(true);
+    const [activeTerm, setActiveTerm] = useState(HERO_TERMS[0]);
 
-    const toggleMute = () => {
-        const video = videoRef.current;
-        if (!video) return;
-        video.muted = !video.muted;
-        setMuted(video.muted);
-    };
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveTerm((current) => {
+                const currentIndex = HERO_TERMS.indexOf(current);
+                const nextIndex = (currentIndex + 1) % HERO_TERMS.length;
+                return HERO_TERMS[nextIndex];
+            });
+        }, 3200);
+
+        return () => clearInterval(interval);
+    }, []);
 
     const container = {
         hidden: { opacity: 0 },
-        show: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.3 } }
+        show: { opacity: 1, transition: { staggerChildren: 0.04, delayChildren: 0.05 } }
     };
-    const item = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } };
+    const item = { hidden: { opacity: 0 }, show: { opacity: 1 } };
 
     return (
-        <div className="bg-black min-h-screen selection:bg-brand-primary selection:text-black">
+        <main className="bg-black min-h-screen selection:bg-brand-primary selection:text-black" aria-labelledby="reconfig-hero-title">
             <Helmet>
                 <title>Re:Config | Build the Next Web3 Frontier</title>
             </Helmet>
             <SEO
                 title="Re:Config | Where Protocols Find Traction"
-                description="Re:Config is Africa's premier Web3 deployment event. Connect your protocol with 1,200+ builders across RWA, DeFAI, AI Agents, Stablecoins, and x402."
+                description="Re:Config is a premier Web3 deployment event. Connect your protocol with builders across RWA, DeFAI, AI Agents, Stablecoins, and x402."
                 type="website"
             />
 
             {/* ─── HERO ─── */}
-            <section className="relative min-h-[100dvh] md:h-screen flex items-end overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <video
-                        ref={videoRef}
-                        src="/eventvid.mp4"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="none"
-                        style={{ willChange: 'transform' }}
-                        className="w-full h-full object-cover object-center"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/10" />
-                </div>
-
-                {/* Sound toggle */}
-                <button
-                    onClick={toggleMute}
-                    className="absolute top-8 right-8 z-30 w-10 h-10 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                    aria-label={muted ? 'Unmute' : 'Mute'}
-                >
-                    {muted ? (
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                            <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.347 2.595.341 1.24 1.518 1.905 2.659 1.905H6.44l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM17.78 9.22a.75.75 0 1 0-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 1 0 1.06-1.06L20.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-1.72 1.72-1.72-1.72Z" />
-                        </svg>
-                    ) : (
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                            <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.347 2.595.341 1.24 1.518 1.905 2.659 1.905H6.44l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z" />
-                            <path d="M15.932 7.757a.75.75 0 0 1 1.061 0 6 6 0 0 1 0 8.486.75.75 0 0 1-1.06-1.061 4.5 4.5 0 0 0 0-6.364.75.75 0 0 1 0-1.06Z" />
-                        </svg>
-                    )}
-                </button>
+            <header className="relative min-h-[100dvh] md:h-screen flex items-end overflow-hidden border-b border-white/10 bg-[#050505] isolate mb-60">
+                {/* Single paint layer: one gradient + subtle vignette (no tiled grid — cheaper on mobile GPU) */}
+                <div
+                    className="absolute inset-0 z-0 bg-gradient-to-b from-[#0f0f0f] via-[#060606] to-black"
+                    aria-hidden
+                />
+                <div
+                    className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_-10%,rgba(254,101,0,0.18),transparent_55%)]"
+                    aria-hidden
+                />
+                <div className="absolute inset-0 z-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none" aria-hidden />
 
                 <div className="custom-container relative z-20 pb-16 pt-24 sm:pt-28 w-full px-4">
                     <motion.div variants={container} initial="hidden" animate="show">
-                        <motion.p variants={item} className="font-mono text-xs tracking-widest text-brand-primary uppercase mb-6">
-                            [ RE:CONFIG · OCT 17–24 · PORT HARCOURT ]
-                        </motion.p>
-                        <motion.h1 variants={item} className="text-6xl md:text-8xl lg:text-[7rem] font-sans font-black text-white leading-[0.85] tracking-tighter uppercase mb-8 max-w-5xl">
-                            YOUR PROTOCOL.<br />
-                            <span className="font-serif italic font-light lowercase text-brand-primary">1,200 builders.</span>
+                        
+                        <motion.h1 id="reconfig-hero-title" variants={item} className="text-5xl md:text-8xl lg:text-[7rem] font-sans font-black text-white leading-[0.85] tracking-tighter mb-8 max-w-5xl">
+                            <span className="inline-flex items-baseline gap-3 md:gap-5">
+                                <span className="text-white">re:</span>
+                                <span className="relative inline-block min-w-[7ch] text-brand-primary lowercase tabular-nums">
+                                    <AnimatePresence mode="wait" initial={false}>
+                                        <motion.span
+                                            key={activeTerm}
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            transition={{ duration: 0.22, ease: "easeOut" }}
+                                            className="block font-serif italic font-light"
+                                        >
+                                            {activeTerm}
+                                        </motion.span>
+                                    </AnimatePresence>
+                                </span>
+                            </span>
                         </motion.h1>
                         <motion.p variants={item} className="text-xl md:text-2xl text-zinc-300 font-sans font-light leading-relaxed max-w-2xl mb-10">
                             Re:Config is where blockchain protocols meet Africa&apos;s most active Web3 builder base. Deploy, test, and scale across RWA, DeFAI, AI Agents, Stablecoins, and x402—with a crowd that ships.
@@ -167,46 +128,34 @@ const ReConfig = () => {
                         </motion.div>
                     </motion.div>
                 </div>
-            </section>
+            </header>
 
-            {/* ─── MARKET SIGNAL TICKER ─── */}
-            <section className="bg-brand-primary py-4 overflow-hidden border-y border-brand-primary">
-                <div className="flex gap-16 animate-[marquee_30s_linear_infinite] whitespace-nowrap w-max">
-                    {[
-                        "🇳🇬 Nigeria #2 Global Crypto Adoption · Chainalysis 2024",
-                        "💰 $92B Nigeria On-Chain Volume · Annual",
-                        "📈 52% Sub-Saharan Africa YoY Growth",
-                        "🏦 95% of Nigerians Prefer Stablecoins Over Naira",
-                        "🌍 RWA On-Chain: $35B+ and growing",
-                        "🤖 1M+ AI Agents On-Chain by End of 2025",
-                        "⚡ x402: 100M+ Transactions · Backed by Google, Visa & Cloudflare",
-                        "📊 Stablecoin Market Cap: $300B · Tx Volume: $33T",
-                        "🧠 DeFAI: $1B → $10B in 2025",
-                    ].concat([
-                        "🇳🇬 Nigeria #2 Global Crypto Adoption · Chainalysis 2024",
-                        "💰 $92B Nigeria On-Chain Volume · Annual",
-                        "📈 52% Sub-Saharan Africa YoY Growth",
-                        "🏦 95% of Nigerians Prefer Stablecoins Over Naira",
-                        "🌍 RWA On-Chain: $35B+ and growing",
-                        "🤖 1M+ AI Agents On-Chain by End of 2025",
-                        "⚡ x402: 100M+ Transactions · Backed by Google, Visa & Cloudflare",
-                        "📊 Stablecoin Market Cap: $300B · Tx Volume: $33T",
-                        "🧠 DeFAI: $1B → $10B in 2025",
-                    ]).map((text, i) => (
-                        <span key={i} className="text-black font-mono text-xs font-bold uppercase tracking-wider">{text}</span>
-                    ))}
-                </div>
-            </section>
+ 
 
-            {/* ─── THE PROBLEM / PITCH ─── */}
-            <section className="py-20 px-4 relative bg-[#f8f9fa] z-20 rounded-t-[48px] lg:rounded-t-[80px] -mt-16 md:-mt-24 overflow-hidden text-black shadow-[0_-20px_50px_rgba(0,0,0,0.5)] border-t border-black/10">
-                {/* Geometric Grid Pattern - Edges Only */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#fe650020_1px,transparent_1px),linear-gradient(to_bottom,#0052ff20_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0 opacity-40 [mask-image:radial-gradient(ellipse_at_center,transparent_45%,black_100%)]" />
-                <div className="custom-container relative z-10">
+            {/* ─── THE PROBLEM / PITCH (matches Home “Collaborative Ecosystem” surface) ─── */}
+            <section
+                className="py-20 px-4 relative bg-[#f8f9fa] z-20 rounded-t-[48px] lg:rounded-t-[80px] -mt-20 md:-mt-40 overflow-hidden text-black shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
+                aria-labelledby="opportunity-heading"
+            >
+                {/* Geometric grid + radial mask — same as landing */}
+                <div
+                    className="absolute inset-0 bg-[linear-gradient(to_right,#fe650020_1px,transparent_1px),linear-gradient(to_bottom,#0052ff20_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0 opacity-50 [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black_100%)]"
+                    aria-hidden
+                />
+                {/* Ambient gradients — same as landing */}
+                <div
+                    className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#fe6500]/20 to-transparent blur-[120px] rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none z-0"
+                    aria-hidden
+                />
+                <div
+                    className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#0052ff]/10 to-transparent blur-[120px] rounded-full translate-y-1/3 -translate-x-1/4 pointer-events-none z-0"
+                    aria-hidden
+                />
+                <div className="custom-container relative z-10 w-full px-4 lg:px-12">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div>
                             <h2 className="font-mono text-xs tracking-widest text-[#525252] uppercase mb-6">[ THE_OPPORTUNITY ]</h2>
-                            <h3 className="text-5xl md:text-6xl font-sans font-black text-[#0a0a0a] leading-[0.9] tracking-tighter uppercase mb-8">
+                            <h3 id="opportunity-heading" className="text-5xl md:text-6xl font-sans font-black text-[#0a0a0a] leading-[0.9] tracking-tighter uppercase mb-8">
                                 FIVE SECTORS.<br />
                                 <span className="font-serif italic font-light lowercase text-[#737373]">one deployment event.</span>
                             </h3>
@@ -224,7 +173,7 @@ const ReConfig = () => {
                                 { v: "52%", l: "Sub-Saharan growth", sub: "YoY on-chain volume" },
                                 { v: "95%", l: "prefer stablecoins", sub: "over the naira" },
                             ].map((s) => (
-                                <div key={s.l} className="border border-black/10 bg-white/80 backdrop-blur-sm p-6 rounded-lg">
+                                <div key={s.l} className="border border-black/10 bg-white p-6 rounded-lg shadow-sm">
                                     <div className="text-4xl font-sans font-black text-[#0a0a0a] mb-1">{s.v}</div>
                                     <div className="text-sm font-mono font-bold uppercase text-[#0a0a0a] tracking-widest mb-1">{s.l}</div>
                                     <div className="text-xs font-mono text-[#737373] uppercase">{s.sub}</div>
@@ -236,11 +185,11 @@ const ReConfig = () => {
             </section>
 
             {/* ─── SECTOR GRID ─── */}
-            <section className="py-28 bg-zinc-950 border-b border-white/10">
+            <section className="py-28 bg-zinc-950 border-b border-white/10" aria-labelledby="build-on-heading">
                 <div className="custom-container">
                     <div className="mb-16">
                         <h2 className="font-mono text-xs tracking-widest text-brand-primary uppercase mb-4">[ BUILD_ON ]</h2>
-                        <h3 className="text-5xl md:text-6xl font-sans font-black text-white leading-[0.9] tracking-tighter uppercase">
+                        <h3 id="build-on-heading" className="text-5xl md:text-6xl font-sans font-black text-white leading-[0.9] tracking-tighter uppercase">
                             WHAT WE&apos;RE<br />
                             <span className="font-serif italic font-light lowercase text-zinc-500">building this year.</span>
                         </h3>
@@ -276,7 +225,7 @@ const ReConfig = () => {
             </section>
 
             {/* ─── THE BUILDER PIPELINE ─── */}
-            <section className="py-28 bg-black border-b border-white/10">
+            <section className="py-28 bg-black border-b border-white/10" aria-labelledby="builders-heading">
                 <div className="custom-container">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                         <div className="relative h-[580px] w-full bg-zinc-900 rounded-xl overflow-hidden border border-white/10 group order-last lg:order-first">
@@ -292,7 +241,7 @@ const ReConfig = () => {
                         </div>
                         <div>
                             <h2 className="font-mono text-xs tracking-widest text-brand-primary uppercase mb-6">[ THE_BUILDERS ]</h2>
-                            <h3 className="text-5xl md:text-6xl font-sans font-black text-white leading-[0.9] tracking-tighter uppercase mb-8">
+                            <h3 id="builders-heading" className="text-5xl md:text-6xl font-sans font-black text-white leading-[0.9] tracking-tighter uppercase mb-8">
                                 1,200+<br />
                                 <span className="font-serif italic font-light lowercase text-zinc-500">ready to ship.</span>
                             </h3>
@@ -320,12 +269,12 @@ const ReConfig = () => {
             </section>
 
             {/* ─── THREE PILLARS (PROGRAM) ─── */}
-            <section className="py-28 bg-zinc-900 border-b border-black">
+            <section className="py-28 bg-zinc-900 border-b border-black" aria-labelledby="program-heading">
                 <div className="custom-container">
                     <div className="text-center mb-20 relative">
                         <h2 className="text-[15vw] md:text-[8vw] font-sans font-black tracking-tighter text-white/5 leading-none absolute top-0 left-1/2 -translate-x-1/2 select-none pointer-events-none uppercase">PROGRAM</h2>
                         <p className="font-mono text-xs tracking-widest text-brand-primary uppercase mb-4 relative z-10">[ THE_PROGRAM ]</p>
-                        <h3 className="text-5xl md:text-6xl font-sans font-black tracking-tighter text-white relative z-10 uppercase">
+                        <h3 id="program-heading" className="text-5xl md:text-6xl font-sans font-black tracking-tighter text-white relative z-10 uppercase">
                             THREE <span className="font-serif italic font-light lowercase text-brand-primary">pillars.</span>
                         </h3>
                         <p className="text-zinc-400 mt-4 max-w-xl mx-auto relative z-10 text-lg font-light">
@@ -378,13 +327,13 @@ const ReConfig = () => {
             </section>
 
             {/* ─── AI AGENTS & VIBE CODERS ENGINE ROOM ─── */}
-            <section className="py-28 bg-black border-b border-white/10 relative overflow-hidden">
+            <section className="py-28 bg-black border-b border-white/10 relative overflow-hidden" aria-labelledby="engine-room-heading">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-primary/5 via-transparent to-transparent pointer-events-none" />
                 <div className="custom-container">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div>
                             <h2 className="font-mono text-xs tracking-widest text-brand-primary uppercase mb-6">[ AI_VIBE_CODERS ]</h2>
-                            <h3 className="text-5xl md:text-6xl font-sans font-black text-white leading-[0.9] tracking-tighter uppercase mb-8">
+                            <h3 id="engine-room-heading" className="text-5xl md:text-6xl font-sans font-black text-white leading-[0.9] tracking-tighter uppercase mb-8">
                                 THE ENGINE<br />
                                 <span className="font-serif italic font-light lowercase text-zinc-500">room.</span>
                             </h3>
@@ -427,12 +376,12 @@ const ReConfig = () => {
             </section>
 
             {/* ─── FINAL CTA ─── */}
-            <section className="py-28 bg-white text-black">
+            <section className="py-28 bg-white text-black" aria-labelledby="final-cta-heading">
                 <div className="custom-container">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div>
                             <p className="font-mono text-xs tracking-widest text-black/40 uppercase mb-6">[ YOUR_MOVE ]</p>
-                            <h3 className="text-5xl md:text-6xl font-sans font-black leading-[0.9] tracking-tighter uppercase mb-8">
+                            <h3 id="final-cta-heading" className="text-5xl md:text-6xl font-sans font-black leading-[0.9] tracking-tighter uppercase mb-8">
                                 GET YOUR<br />
                                 <span className="font-serif italic font-light lowercase">protocol in the room.</span>
                             </h3>
@@ -466,7 +415,7 @@ const ReConfig = () => {
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
     );
 };
 
