@@ -18,7 +18,7 @@
 
 :root {
   --font-heading: 'Instrument Serif', serif;
-  --font-body: 'Instrument Sans', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
   
   --black: #0a0a0a; /* Deep charcoal/black */
   --black-soft: #171717; /* Lighter charcoal */
@@ -159,7 +159,12 @@ h1 {
 }
 
 .custom-container {
-  @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0;
+}
+
+/* Prevent horizontal scroll from full-bleed sections */
+main {
+  @apply overflow-x-hidden min-w-0 w-full;
 }
 
 .floating {
@@ -198,4 +203,9 @@ h1 {
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(400%); }
 }

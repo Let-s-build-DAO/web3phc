@@ -57,7 +57,7 @@ const FeaturedCarousel = () => {
     <div className="font-sans relative overflow-hidden rounded-[16px] bg-[#0a0a0a] border border-[#262626] group transition-colors duration-300">
         <div className="absolute inset-0 bg-[#0a0a0a] opacity-50 pointer-events-none"></div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 p-8 md:p-12 lg:p-16 relative z-10 items-center min-h-[500px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 p-6 sm:p-8 md:p-12 lg:p-16 relative z-10 items-center min-h-0 lg:min-h-[500px] pb-24 sm:pb-28">
             {/* Text Content */}
             <motion.div 
                 key={`text-${currentIndex}`}
@@ -71,7 +71,7 @@ const FeaturedCarousel = () => {
                     </div>
                     
                     <div className="relative">
-                        <h2 className="text-[2.5rem] unbounded-title text-white mb-6 leading-[0.9]">
+                        <h2 className="text-3xl sm:text-[2.5rem] unbounded-title text-white mb-4 sm:mb-6 leading-[0.9] break-words">
                             {currentItem.title}
                         </h2>
                         <motion.div 
@@ -85,12 +85,12 @@ const FeaturedCarousel = () => {
                         </p>
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-5 pt-4">
+                    <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-5 pt-4 w-full">
                         <a 
                             href={currentItem.ctaLink} 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="btn font-sans font-bold bg-white text-black hover:bg-[#e5e5e5] px-10 py-4 rounded-md text-lg"
+                            className="btn font-sans font-bold bg-white text-black hover:bg-[#e5e5e5] px-8 sm:px-10 py-3 sm:py-4 rounded-md text-base sm:text-lg text-center justify-center"
                         >
                             {currentItem.cta}
                         </a>
@@ -98,7 +98,7 @@ const FeaturedCarousel = () => {
                             href={currentItem.link} 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="group font-sans font-medium flex items-center gap-3 px-8 py-4 rounded-md border border-[#404040] text-white hover:bg-[#121212] transition-colors text-lg"
+                            className="group font-sans font-medium flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-md border border-[#404040] text-white hover:bg-[#121212] transition-colors text-base sm:text-lg"
                         >
                             <span>Visit Website</span>
                             <FaExternalLinkAlt className="text-sm opacity-50 group-hover:opacity-100 transition-opacity -translate-y-px group-hover:translate-x-1" />
@@ -129,7 +129,7 @@ const FeaturedCarousel = () => {
         </div>
         
         {/* Controls */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 lg:left-16 lg:translate-x-0 flex items-center gap-6 z-20">
+        <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 lg:left-16 lg:translate-x-0 flex flex-wrap items-center justify-center gap-4 sm:gap-6 z-20 px-4">
              <div className="flex gap-2">
                 <button 
                     onClick={prevSlide}
@@ -183,7 +183,7 @@ const Ecosystem = () => {
   }, [activeCategory, searchQuery, sortedData]);
 
   return (
-    <div className="font-sans min-h-screen pt-20 relative overflow-hidden">
+    <div className="font-sans min-h-screen pt-20 relative overflow-x-hidden">
       <SEO
         title="Ecosystem"
         url="/ecosystem"
@@ -193,8 +193,8 @@ const Ecosystem = () => {
       <div className="absolute inset-x-0 top-0 h-[500px] bg-gradient-to-b from-[#fe6500]/10 via-transparent to-transparent pointer-events-none z-0" />
       <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none z-0"></div>
 
-      <div className="custom-container relative z-10 px-4">
-        <div className="text-center max-w-4xl mx-auto mb-16 pt-12 md:pt-20">
+      <div className="custom-container relative z-10 min-w-0">
+        <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-16 pt-12 md:pt-20 px-2">
           <motion.div 
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
@@ -205,7 +205,7 @@ const Ecosystem = () => {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl sm:text-6xl md:text-8xl lg:text-[7rem] unbounded-title text-white mb-8 tracking-tight leading-[0.9]"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-[7rem] unbounded-title text-white mb-6 sm:mb-8 tracking-tight leading-[0.9] break-words"
           >
             THE <br /> ECOSYSTEM
           </motion.h1>
@@ -228,17 +228,17 @@ const Ecosystem = () => {
       </div>
 
       <section>
-      <div className="relative bg-gradient-to-b from-[#ebecf0] to-[#cdd1dc] z-20 py-20 px-4 rounded-t-[48px] lg:rounded-t-[80px] -mt-12 text-black shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+      <div className="relative bg-gradient-to-b from-[#ebecf0] to-[#cdd1dc] z-20 py-12 sm:py-20 px-4 rounded-t-[32px] sm:rounded-t-[48px] lg:rounded-t-[80px] -mt-12 text-black shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#fe650020_1px,transparent_1px),linear-gradient(to_bottom,#0052ff20_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0 opacity-50 [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black_100%)]" />
 
-        <div className="custom-container relative z-10 px-4">
+        <div className="custom-container relative z-10 min-w-0">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-16 bg-white/50 backdrop-blur-sm border border-black/10 rounded-lg p-2 md:p-3 max-w-7xl mx-auto">
                 <div className="flex flex-wrap justify-center gap-2 w-full md:w-auto">
                     {CATEGORIES.map(cat => (
                         <button
                             key={cat}
                             onClick={() => setActiveCategory(cat)}
-                            className={`px-4 py-2 rounded-md font-sans text-sm font-medium transition-all duration-300 ${
+                            className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-md font-sans text-xs sm:text-sm font-medium transition-all duration-300 ${
                                 activeCategory === cat 
                                 ? "bg-black text-white" 
                                 : "text-black/60 hover:text-black hover:bg-black/5"
@@ -318,12 +318,12 @@ const Ecosystem = () => {
             </div>
         </div>
 
-        <div className="max-w-5xl mx-auto text-center bg-[#000] border border-white/10 rounded-none p-16 md:p-24 relative overflow-hidden mt-32 mb-16">
+        <div className="max-w-5xl mx-auto text-center bg-[#000] border border-white/10 rounded-none p-8 sm:p-12 md:p-16 lg:p-24 relative overflow-hidden mt-16 sm:mt-24 lg:mt-32 mb-12 sm:mb-16 mx-4 sm:mx-auto">
             <div className="absolute top-0 left-8 w-[1px] h-full bg-white/10 hidden md:block" />
             <div className="absolute top-0 right-8 w-[1px] h-full bg-white/10 hidden md:block" />
             
              <span className="font-mono text-xs tracking-widest text-[#a3a3a3] uppercase mb-6 inline-block">[ GET_INVOLVED ]</span>
-             <h2 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-white mb-6 relative z-10 leading-[0.9] tracking-tighter uppercase">
+             <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-sans font-bold text-white mb-6 relative z-10 leading-[0.9] tracking-tighter uppercase">
                 HAVE A PROJECT OR <br/> <span className="font-display italic font-light text-brand-primary lowercase">COMMUNITY?</span>
              </h2>
              <p className="text-[#a3a3a3] text-lg lg:text-xl mb-12 max-w-2xl mx-auto relative z-10 leading-relaxed font-mono">

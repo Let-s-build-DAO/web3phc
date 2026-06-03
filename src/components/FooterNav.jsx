@@ -4,11 +4,11 @@ import XIcon from "./XIcon";
 
 const FooterNav = () => {
   return (
-    <footer className="bg-black pt-20 pb-0 px-4 mt-auto overflow-hidden relative border-t border-white/5">
-        <div className="custom-container relative z-10 flex flex-col h-full">
+    <footer className="bg-black pt-12 sm:pt-20 pb-0 px-4 mt-auto overflow-hidden relative border-t border-white/5">
+        <div className="custom-container relative z-10 flex flex-col h-full min-w-0">
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-20 lg:mb-32 items-start">
-                <div className="col-span-2 md:col-span-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 mb-12 sm:mb-20 lg:mb-32 items-start">
+                <div className="sm:col-span-2 md:col-span-1">
                     <Link to="/" className="flex items-center gap-2 mb-6">
                         <img src="/logo.png" alt="Web3PHC" className="h-10 w-auto object-contain" />
                     </Link>
@@ -47,11 +47,11 @@ const FooterNav = () => {
             </div>
 
             {/* Bottom - Massive Logo */}
-            <div className="w-full flex justify-center mt-auto pb-24">
+            <div className="w-full flex justify-center mt-auto pb-16 sm:pb-24">
                 <img 
                     src="/images/footerWhite.png" 
                     alt="WEB3PHC" 
-                    className="w-full max-w-[90%] md:max-w-[80%] object-contain translate-y-[20%]" 
+                    className="w-full max-w-[95%] sm:max-w-[90%] md:max-w-[80%] object-contain translate-y-[10%] sm:translate-y-[20%]" 
                 />
             </div>
         </div>

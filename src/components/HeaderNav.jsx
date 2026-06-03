@@ -17,6 +17,8 @@ const HeaderNav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [slang, setSlang] = useState("");
   const location = useLocation();
+  if (location.pathname === '/reconfig') return null;
+
   const isHome = location.pathname === "/";
 
   // Track scrolling
@@ -62,7 +64,7 @@ const HeaderNav = () => {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="custom-container flex items-center justify-between h-16 lg:h-20">
+      <div className="custom-container flex items-center justify-between h-16 lg:h-20 min-w-0 gap-3">
         {/* Logo - Always visible, z-index higher than menu */}
         <Link to="/" className="flex items-center gap-2 relative z-50">
           <img src="/logo.png" alt="Web3PHC" className="h-8 lg:h-10 w-auto object-contain" />
@@ -126,7 +128,7 @@ const HeaderNav = () => {
                     animate={{ x: 0 }}
                     exit={{ x: "-100%" }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="fixed inset-0 z-40 bg-black flex flex-col pt-24 px-6 md:hidden h-[100dvh]"
+                    className="fixed inset-0 z-40 bg-black flex flex-col pt-24 px-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] md:hidden h-[100dvh] overflow-y-auto overscroll-contain"
                 >
                     <div className="flex flex-col h-full relative">
                         <nav className="flex flex-col gap-6 mt-4">

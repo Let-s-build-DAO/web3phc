@@ -36,7 +36,7 @@ const ProjectDetail = () => {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-32 bg-black text-white font-sans overflow-x-hidden">
+    <div className="min-h-screen pt-24 sm:pt-32 pb-20 sm:pb-32 bg-black text-white font-sans overflow-x-hidden">
       <SEO
         title={`${project.name} | Ecosystem`}
         url={`/ecosystem/${project.id}`}
@@ -70,7 +70,7 @@ const ProjectDetail = () => {
                     <span className="inline-block px-3 py-1 rounded-sm text-[10px] font-mono font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/10 border border-brand-primary/20 mb-3">
                         {project.category}
                     </span>
-                    <h1 className="text-4xl md:text-7xl lg:text-8xl unbounded-title text-white tracking-tighter uppercase leading-[1.1] md:leading-none">
+                    <h1 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl unbounded-title text-white tracking-tighter uppercase leading-[1.1] md:leading-none break-words">
                         {project.name}
                     </h1>
                 </div>

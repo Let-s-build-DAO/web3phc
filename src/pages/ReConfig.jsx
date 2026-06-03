@@ -1,14 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { FaArrowRight, FaCode, FaUsers, FaGlobe, FaChartBar, FaBolt, FaLock, FaRobot } from 'react-icons/fa';
+import { FaLaptopCode, FaUsers, FaChartLine, FaCheckCircle, FaRobot, FaGlobe } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import { SITE_ORIGIN, absoluteUrl } from '../config/site';
 
+const RECONFIG_SEO_DESCRIPTION = "Re:Config is Web3PHC's multi-day Web3 deployment event in Port Harcourt, Rivers State, Nigeria. Protocols and sponsors meet builders working across RWA, DeFAI, AI agents, stablecoins, and x402 payment rails.";
 
-const HERO_TERMS = ["config", "peat", "frame", "route", "deploy"];
-
-const RECONFIG_SEO_DESCRIPTION =
-    "Re:Config is Web3PHC's multi-day Web3 deployment event in Port Harcourt, Rivers State, Nigeria. Protocols and sponsors meet builders working across RWA, DeFAI, AI agents, stablecoins, and x402 payment rails.";
+const EVENT_IMAGES = ["/images/243.jpg", "/images/247.jpg", "/images/246.jpg", "/images/242.JPG"];
 
 const reconfigJsonLd = {
     "@context": "https://schema.org",
@@ -49,7 +47,6 @@ const reconfigJsonLd = {
 };
 
 const ReConfig = () => {
-    const [activeTerm, setActiveTerm] = useState(HERO_TERMS[0]);
     const [themeClicks, setThemeClicks] = useState(0);
     const [isThemeUnveiled, setIsThemeUnveiled] = useState(false);
 
@@ -66,29 +63,8 @@ const ReConfig = () => {
         }
     };
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setActiveTerm((current) => {
-                const currentIndex = HERO_TERMS.indexOf(current);
-                const nextIndex = (currentIndex + 1) % HERO_TERMS.length;
-                return HERO_TERMS[nextIndex];
-            });
-        }, 3200);
-
-        return () => clearInterval(interval);
-    }, []);
-
-    const container = {
-        hidden: { opacity: 0 },
-        show: { opacity: 1, transition: { staggerChildren: 0.04, delayChildren: 0.05 } }
-    };
-    const item = { hidden: { opacity: 0 }, show: { opacity: 1 } };
-
     return (
-        <div
-            className="bg-black min-h-screen selection:bg-brand-primary selection:text-black"
-            aria-labelledby="reconfig-hero-title"
-        >
+        <div className="bg-[#050505] min-h-screen font-sans text-white selection:bg-brand-primary selection:text-black">
             <SEO
                 title="Re:Config"
                 url="/reconfig"
@@ -97,306 +73,302 @@ const ReConfig = () => {
                 schemaData={reconfigJsonLd}
             />
 
-            {/* ─── HERO ─── */}
-            <header className="relative min-h-[100dvh] md:h-screen flex items-end overflow-hidden border-b border-white/10 bg-[#050505] isolate mb-60">
-                {/* Single paint layer: one gradient + subtle vignette (no tiled grid — cheaper on mobile GPU) */}
-                <div
-                    className="absolute inset-0 z-0 bg-gradient-to-b from-[#0f0f0f] via-[#060606] to-black"
-                    aria-hidden
-                />
-                <div
-                    className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_-10%,rgba(254,101,0,0.18),transparent_55%)]"
-                    aria-hidden
-                />
-                <div className="absolute inset-0 z-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none" aria-hidden />
+            {/* ─── 1. HERO (Exact Screenshot Clone & Custom Nav) ─── */}
+            <header className="relative pt-6 pb-24 md:pt-8 md:pb-32 px-4 overflow-hidden min-h-[90vh] flex flex-col bg-gradient-to-br from-white via-orange-50 to-orange-100">
+                
+                {/* Geometric Grid Pattern from Home Page */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#fe650015_1px,transparent_1px),linear-gradient(to_bottom,#fe650015_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0 opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)]" />
 
-                <div className="custom-container relative z-20 pb-16 pt-24 sm:pt-28 w-full px-4">
-                    <motion.div variants={container} initial="hidden" animate="show">
+                {/* Custom ReConfig Navigation */}
+                <nav className="relative z-20 w-full max-w-7xl mx-auto flex justify-between items-center mb-6">
+                    <div className="font-['Righteous'] text-2xl text-slate-900 tracking-wide">
+                        Re:<span className="text-brand-primary">Config</span>
+                    </div>
+                    <div className="hidden md:flex items-center gap-8 text-[15px] font-['Righteous'] font-normal text-slate-700 uppercase tracking-wide">
+                        <a href="#about" className="hover:text-brand-primary transition-colors">About</a>
+                        <a href="#schedule" className="hover:text-brand-primary transition-colors">Schedule</a>
+                        <a href="#offerings" className="hover:text-brand-primary transition-colors">Offerings</a>
+                    </div>
+                    <button type="button" className="px-6 py-2.5 bg-black text-white font-['Righteous'] font-normal tracking-wide rounded-xl shadow-md hover:bg-slate-800 transition-colors text-[15px]">
+                        Connect
+                    </button>
+                </nav>
+
+                <div className="custom-container relative z-10 w-full max-w-6xl mx-auto flex-grow flex flex-col justify-center">
+                    
+                    {/* Top Row: Dash and Headline */}
+                    <div className="w-12 h-[2px] bg-brand-primary mb-8" />
+                    <h1 className="text-5xl sm:text-6xl md:text-[50px] font-['Righteous'] font-normal text-slate-900 leading-[1.1] mb-12 md:mb-16 max-w-4xl tracking-wide">
+                        The Proving Ground for African Web3 Startups.
+                    </h1>
+                    
+                    {/* Bottom Row: Text/Button (Left) & Images (Right) */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
                         
-                        <motion.h1 id="reconfig-hero-title" variants={item} className="text-5xl md:text-8xl lg:text-[7rem] font-sans font-black text-white leading-[0.85] tracking-tighter mb-8 max-w-5xl">
-                            <span className="inline-flex items-baseline gap-3 md:gap-5">
-                                <span className="text-white">re:</span>
-                                <span className="relative inline-block min-w-[7ch] text-brand-primary lowercase tabular-nums">
-                                    <AnimatePresence mode="wait" initial={false}>
-                                        <motion.span
-                                            key={activeTerm}
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            exit={{ opacity: 0 }}
-                                            transition={{ duration: 0.22, ease: "easeOut" }}
-                                            className="block font-serif italic font-light"
-                                        >
-                                            {activeTerm}
-                                        </motion.span>
-                                    </AnimatePresence>
-                                </span>
-                            </span>
-                        </motion.h1>
-                        <motion.p variants={item} className="text-xl md:text-2xl text-zinc-300 font-sans font-light leading-relaxed max-w-2xl mb-10">
-                            Re:Config is where blockchain protocols meet Africa&apos;s most active Web3 builder base. Deploy, test, and scale across RWA, DeFAI, AI Agents, Stablecoins, and x402—with a crowd that ships.
-                        </motion.p>
-                        <motion.div variants={item} className="flex flex-col sm:flex-row gap-4">
-                            <button className="bg-brand-primary text-black hover:bg-white transition-colors px-10 py-5 text-sm uppercase font-sans font-black tracking-widest flex items-center gap-2">
-                                SPONSOR US <FaArrowRight />
+                        {/* Left Column */}
+                        <div className="lg:col-span-4 text-left text-slate-900 pt-2 lg:pt-4">
+                            <p className="text-[15px] text-slate-700 leading-relaxed mb-8 max-w-sm">
+                                Join us for a 6-day build sprint uniting global protocols and elite Web3 talent in Port Harcourt this October.
+                            </p>
+                            <button type="button" className="px-8 py-3 bg-[#fe6500] text-white font-bold rounded-xl shadow-md hover:bg-[#e55a00] transition-colors">
+                                Get Tickets
                             </button>
-                            <button className="bg-transparent text-white border-2 border-white/20 hover:bg-white hover:text-black transition-colors px-10 py-5 text-sm uppercase font-sans font-bold tracking-widest">
-                                GET TICKETS
-                            </button>
-                        </motion.div>
-                    </motion.div>
+                        </div>
+
+                        {/* Right Column (Twin Images side-by-side) */}
+                        <div className="lg:col-span-8 flex justify-start lg:justify-end gap-4 lg:gap-6">
+                            <div className="w-1/2 aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl border border-black/5">
+                                <img src={EVENT_IMAGES[3]} alt="Event" className="w-full h-full object-cover" />
+                            </div>
+                            <div className="w-1/2 aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl border border-black/5">
+                                <img src={EVENT_IMAGES[1]} alt="Community" className="w-full h-full object-cover" />
+                            </div>
+                        </div>
+                        
+                    </div>
                 </div>
             </header>
-            {/* ─── THE FUTURE (INTRODUCTION) ─── */}
-            <section
-                className="py-24 px-4 relative bg-[#f8f9fa] z-20 rounded-t-[48px] lg:rounded-t-[80px] -mt-20 md:-mt-40 overflow-hidden text-black shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
-                aria-labelledby="intro-heading"
-            >
-                {/* Geometric grid + radial mask */}
-                <div
-                    className="absolute inset-0 bg-[linear-gradient(to_right,#fe650020_1px,transparent_1px),linear-gradient(to_bottom,#0052ff20_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0 opacity-50 [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black_100%)]"
-                    aria-hidden
-                />
-                
-                <div className="custom-container relative z-10 w-full px-4 lg:px-12">
-                    <div className="max-w-4xl mx-auto text-center mb-20">
-                        <button onClick={handleThemeClick} className="font-mono text-xs tracking-widest text-[#525252] uppercase mb-6 hover:text-brand-primary transition-colors focus:outline-none">
-                            [ THEME: {isThemeUnveiled ? "THE_FUTURE" : `CLASSIFIED (${themeClicks}/2000)`} ]
-                        </button>
-                        <h2 id="intro-heading" className="text-4xl md:text-6xl font-sans font-black text-black leading-tight tracking-tighter uppercase mb-8">
-                            A six-day <span className="text-brand-primary">builder experience.</span>
+
+            {/* ─── 2. THE JOURNEY (Chronological Timeline) ─── */}
+            <section className="py-24 md:py-32 px-4 relative bg-[#0a0a0a] border-b border-white/5">
+                <div className="custom-container max-w-4xl mx-auto">
+                    <div className="mb-20 text-center sm:text-left">
+                        <p className="text-blue-500 font-['Righteous'] text-sm tracking-widest uppercase mb-4 font-bold">{"// The 6-Day Journey"}</p>
+                        <h2 className="text-4xl md:text-5xl font-['Righteous'] font-normal tracking-wide uppercase text-white leading-tight">
+                            From Learning to <span className="text-brand-primary">Launching.</span>
                         </h2>
-                        <p className="text-lg md:text-xl text-zinc-600 font-sans font-medium leading-relaxed mb-6">
-                            Designed to help founders, developers, creators, and ecosystem leaders learn, collaborate, build, and showcase the technologies shaping the future of the internet.
-                        </p>
-                        <p className="text-lg md:text-xl text-zinc-600 font-sans font-medium leading-relaxed">
-                            Unlike traditional conferences where attendees spend most of their time listening, Re:Config is built around participation. Every stage of the experience is designed to move builders from learning and exploration to execution, public demonstration, and long-term ecosystem support.
+                        <p className="mt-6 text-zinc-400 text-lg md:text-xl font-light max-w-2xl leading-relaxed">
+                            Across 6 days, Re:Config takes builders through an immersive journey—from hands-on protocol workshops to building MVPs, culminating in a public showcase.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                        <div className="bg-white border border-black/5 p-10 rounded-3xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110" />
-                            <div className="relative z-10">
-                                <span className="inline-block px-3 py-1 bg-black text-white text-xs font-mono font-bold uppercase tracking-widest rounded-full mb-6">Days 1–5</span>
-                                <h3 className="text-2xl font-sans font-black text-black uppercase mb-4">Re:Config Assembly</h3>
-                                <p className="text-zinc-600">The intensive, execution-focused builder experience. Curated pods, deep-dive workshops, and the Forge build phase.</p>
+                    <div className="relative border-l-2 border-brand-primary/30 pl-8 md:pl-12 space-y-16 ml-4 md:ml-0">
+                        {/* Day 1-3 */}
+                        <div className="relative group">
+                            <div className="absolute -left-[42px] md:-left-[58px] top-0 w-5 h-5 md:w-6 md:h-6 bg-brand-primary rounded-full ring-4 ring-black group-hover:scale-125 transition-transform" />
+                            <h3 className="text-3xl md:text-4xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-3">Days 1–3</h3>
+                            <h4 className="text-xl font-['Righteous'] font-normal tracking-wide text-blue-400 mb-4">The Foundation.</h4>
+                            <p className="text-zinc-400 font-light text-lg leading-relaxed mb-6">
+                                The Re:Config Assembly begins. Dive deep into technical workshops covering Smart Contracts, AI Agents, and Real World Assets. Engage in founder discussions and ecosystem learning.
+                            </p>
+                            <div className="rounded-2xl overflow-hidden border border-white/10 w-full sm:w-2/3 max-h-64 opacity-80 group-hover:opacity-100 transition-opacity">
+                                <img src={EVENT_IMAGES[2]} alt="Workshop" className="w-full h-full object-cover" />
                             </div>
                         </div>
-                        <div className="bg-black text-white border border-white/10 p-10 rounded-3xl shadow-sm hover:shadow-lg transition-shadow relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110" />
-                            <div className="relative z-10">
-                                <span className="inline-block px-3 py-1 bg-brand-primary text-black text-xs font-mono font-bold uppercase tracking-widest rounded-full mb-6">Day 6</span>
-                                <h3 className="text-2xl font-sans font-black uppercase mb-4">Re:Config Summit</h3>
-                                <p className="text-zinc-400">The public ecosystem gathering. Global keynotes, panels, and project showcases open to the wider tech community.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            {/* ─── STAGE 1: ASSEMBLY ─── */}
-            <section className="py-24 px-4 relative bg-[#050505] z-30 rounded-t-[48px] lg:rounded-t-[80px] -mt-10 shadow-[0_-20px_50px_rgba(0,0,0,0.8)] text-white">
-                <div className="custom-container w-full px-4 lg:px-12">
-                    <div className="mb-20">
-                        <p className="font-mono text-xs tracking-widest text-brand-primary uppercase mb-4">[ STAGE 1 ]</p>
-                        <h2 className="text-5xl md:text-7xl font-sans font-black leading-[0.9] tracking-tighter uppercase mb-6">
-                            RE:CONFIG<br />
-                            <span className="font-serif italic font-light lowercase text-zinc-500">assembly.</span>
-                        </h2>
-                    </div>
-
-                    {/* Days 1-3 */}
-                    <div className="mb-24">
-                        <div className="flex items-center gap-4 mb-10 border-b border-white/10 pb-6">
-                            <h3 className="text-3xl font-sans font-black uppercase">Days 1–3: Learning & Exploration</h3>
-                            <span className="hidden sm:inline-block px-3 py-1 bg-white/10 text-white text-xs font-mono font-bold uppercase tracking-widest rounded-full">Foundation</span>
-                        </div>
-                        <p className="text-xl text-zinc-400 mb-12 max-w-3xl">The first three days focus on helping participants understand the technologies, opportunities, and business models shaping the next generation of Web3.</p>
-                        
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div className="bg-[#121212] border border-white/5 p-8 rounded-2xl hover:border-brand-primary/30 transition-colors">
-                                <FaCode className="text-3xl text-brand-primary mb-6" />
-                                <h4 className="text-xl font-sans font-black uppercase mb-4">Technical Workshops</h4>
-                                <ul className="space-y-3 text-sm text-zinc-400 font-medium">
-                                    <li className="flex gap-3"><span className="text-brand-primary">/</span> AI-assisted development</li>
-                                    <li className="flex gap-3"><span className="text-brand-primary">/</span> AI agents & autonomous systems</li>
-                                    <li className="flex gap-3"><span className="text-brand-primary">/</span> Smart contract development</li>
-                                    <li className="flex gap-3"><span className="text-brand-primary">/</span> Stablecoins & digital payments</li>
-                                    <li className="flex gap-3"><span className="text-brand-primary">/</span> DeFi & Real World Assets</li>
-                                </ul>
-                            </div>
-                            <div className="bg-[#121212] border border-white/5 p-8 rounded-2xl hover:border-brand-primary/30 transition-colors">
-                                <FaUsers className="text-3xl text-brand-primary mb-6" />
-                                <h4 className="text-xl font-sans font-black uppercase mb-4">Founder Discussions</h4>
-                                <ul className="space-y-3 text-sm text-zinc-400 font-medium">
-                                    <li className="flex gap-3"><span className="text-brand-primary">/</span> Building startups from scratch</li>
-                                    <li className="flex gap-3"><span className="text-brand-primary">/</span> Product development & validation</li>
-                                    <li className="flex gap-3"><span className="text-brand-primary">/</span> Growth & user acquisition</li>
-                                    <li className="flex gap-3"><span className="text-brand-primary">/</span> Fundraising & grants</li>
-                                    <li className="flex gap-3"><span className="text-brand-primary">/</span> Operating in emerging markets</li>
-                                </ul>
-                            </div>
-                            <div className="bg-[#121212] border border-white/5 p-8 rounded-2xl hover:border-brand-primary/30 transition-colors">
-                                <FaGlobe className="text-3xl text-brand-primary mb-6" />
-                                <h4 className="text-xl font-sans font-black uppercase mb-4">Ecosystem Sessions</h4>
-                                <p className="text-zinc-400 text-sm leading-relaxed">
-                                    Protocol partners and ecosystem teams will introduce participants to available tools, grants, infrastructure, and opportunities within their ecosystems.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Days 3-4 */}
-                    <div className="mb-24 relative">
-                        <div className="absolute -inset-x-4 inset-y-0 bg-brand-primary/5 rounded-3xl -z-10" />
-                        <div className="flex items-center gap-4 mb-10 border-b border-brand-primary/20 pb-6 pt-8 px-4">
-                            <h3 className="text-3xl font-sans font-black uppercase text-brand-primary">Days 3–4: Build Phase</h3>
-                            <span className="hidden sm:inline-block px-3 py-1 bg-brand-primary/20 text-brand-primary text-xs font-mono font-bold uppercase tracking-widest rounded-full">Execution</span>
-                        </div>
-                        <div className="px-4 pb-8">
-                            <p className="text-xl text-zinc-300 mb-12 max-w-3xl">After the learning sessions, participants move into execution. Teams form around ideas identified during the first half of the week and begin actively building.</p>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                <div>
-                                    <h4 className="text-lg font-sans font-black uppercase text-white mb-3">Product Development</h4>
-                                    <p className="text-zinc-400 text-sm leading-relaxed mb-4">Focusing on MVPs, prototypes, AI-powered applications, consumer crypto products, infrastructure, and developer tooling.</p>
-                                </div>
-                                <div>
-                                    <h4 className="text-lg font-sans font-black uppercase text-white mb-3">Collaboration</h4>
-                                    <p className="text-zinc-400 text-sm leading-relaxed mb-4">Developers, designers, founders, and creators working in cross-functional pods to transform ideas into working products.</p>
-                                </div>
-                                <div>
-                                    <h4 className="text-lg font-sans font-black uppercase text-white mb-3">Mentorship</h4>
-                                    <p className="text-zinc-400 text-sm leading-relaxed mb-4">Direct support from technical mentors, experienced founders, ecosystem partners, and protocol DevRel teams.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Day 5 */}
-                    <div className="bg-brand-primary text-black rounded-3xl p-10 md:p-16 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-                        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
-                            <div>
-                                <div className="flex items-center gap-4 mb-6">
-                                    <h3 className="text-4xl font-sans font-black uppercase">Day 5: Demo Day</h3>
-                                </div>
-                                <p className="text-xl font-medium mb-8">Demo Day is where teams present everything they have built throughout the week before judges, ecosystem partners, and founders.</p>
-                                <p className="text-lg font-bold mb-4">Teams Present:</p>
-                                <ul className="space-y-2 font-medium">
-                                    <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 bg-black rounded-full" /> Problem & Solution</li>
-                                    <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 bg-black rounded-full" /> Live Product Demonstrations</li>
-                                    <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 bg-black rounded-full" /> Technical Architecture</li>
-                                    <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 bg-black rounded-full" /> Market Opportunity & Roadmap</li>
-                                </ul>
-                            </div>
-                            <div className="bg-black/10 rounded-2xl p-8 backdrop-blur-sm border border-black/10">
-                                <p className="text-lg font-bold mb-6">Evaluation Criteria:</p>
-                                <div className="grid grid-cols-2 gap-4">
-                                    {['Technical Execution', 'Product Vision', 'Innovation', 'User Relevance', 'Growth Potential'].map(crit => (
-                                        <div key={crit} className="bg-white/50 px-4 py-3 rounded-lg font-bold text-sm">{crit}</div>
-                                    ))}
-                                </div>
-                                <div className="mt-8 pt-6 border-t border-black/10">
-                                    <p className="font-bold italic">Demo Day serves as a launchpad for projects that may continue receiving support after Re:Config.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            {/* ─── STAGE 2: SUMMIT ─── */}
-            <section className="py-24 px-4 relative bg-white z-40 rounded-t-[48px] lg:rounded-t-[80px] -mt-10 shadow-[0_-20px_50px_rgba(0,0,0,0.2)] text-black">
-                <div className="custom-container w-full px-4 lg:px-12">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-                        <div className="lg:col-span-5">
-                            <div className="sticky top-24">
-                                <p className="font-mono text-xs tracking-widest text-[#525252] uppercase mb-4">[ STAGE 2 ]</p>
-                                <h2 className="text-5xl md:text-7xl font-sans font-black leading-[0.9] tracking-tighter uppercase mb-6">
-                                    RE:CONFIG<br />
-                                    <span className="font-serif italic font-light lowercase text-zinc-400">summit.</span>
-                                </h2>
-                                <p className="text-xl text-zinc-600 mb-8 font-medium">The Summit is where the broader community joins the conversation.</p>
-                                <p className="text-lg text-zinc-500 mb-8">Builders, founders, creators, students, protocol teams, and ecosystem leaders come together to explore the ideas and products emerging from Re:Config Assembly.</p>
-                                <button className="bg-black text-white hover:bg-zinc-800 transition-colors px-8 py-4 text-sm uppercase font-sans font-black tracking-widest flex items-center gap-2">
-                                    ATTEND THE SUMMIT <FaArrowRight />
-                                </button>
-                            </div>
-                        </div>
-                        <div className="lg:col-span-7">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div className="border border-black/10 p-8 rounded-3xl hover:shadow-md transition-shadow bg-[#f8f9fa]">
-                                    <div className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center mb-6">
-                                        <FaRobot size={20} />
-                                    </div>
-                                    <h4 className="text-xl font-sans font-black text-black uppercase mb-3">Keynotes</h4>
-                                    <p className="text-zinc-600 text-sm leading-relaxed">Industry leaders share perspectives on the future of AI, Web3, digital ownership, decentralized infrastructure, and building globally from Africa.</p>
-                                </div>
-                                <div className="border border-black/10 p-8 rounded-3xl hover:shadow-md transition-shadow bg-[#f8f9fa]">
-                                    <div className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center mb-6">
-                                        <FaUsers size={20} />
-                                    </div>
-                                    <h4 className="text-xl font-sans font-black text-black uppercase mb-3">Panels & Conversations</h4>
-                                    <p className="text-zinc-600 text-sm leading-relaxed">Interactive discussions featuring founders and operators covering startup building, consumer adoption, funding, and ecosystem growth.</p>
-                                </div>
-                                <div className="border border-brand-primary p-8 rounded-3xl shadow-sm bg-brand-primary/5">
-                                    <div className="w-12 h-12 bg-brand-primary text-black rounded-full flex items-center justify-center mb-6">
-                                        <FaCode size={20} />
-                                    </div>
-                                    <h4 className="text-xl font-sans font-black text-black uppercase mb-3">Project Showcase</h4>
-                                    <p className="text-zinc-800 text-sm leading-relaxed">Selected teams from Re:Config Assembly demonstrate the products they built. Interact directly with the builders and their code.</p>
-                                </div>
-                                <div className="border border-black/10 p-8 rounded-3xl hover:shadow-md transition-shadow bg-[#f8f9fa]">
-                                    <div className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center mb-6">
-                                        <FaGlobe size={20} />
-                                    </div>
-                                    <h4 className="text-xl font-sans font-black text-black uppercase mb-3">Networking</h4>
-                                    <p className="text-zinc-600 text-sm leading-relaxed">Connect with founders, developers, creators, protocol partners, and ecosystem operators. The bridge between the products and the ecosystem.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ─── BEYOND RE:CONFIG ─── */}
-            <section className="py-24 px-4 relative bg-[#050505] z-50 rounded-t-[48px] lg:rounded-t-[80px] -mt-10 shadow-[0_-20px_50px_rgba(0,0,0,0.5)] text-white overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-brand-primary/10 via-black to-black pointer-events-none" />
-                
-                <div className="custom-container relative z-10 w-full px-4 lg:px-12 text-center max-w-4xl mx-auto">
-                    <p className="font-mono text-xs tracking-widest text-[#525252] uppercase mb-6">[ CONTINUITY ]</p>
-                    <h2 className="text-4xl md:text-6xl font-sans font-black leading-tight tracking-tighter uppercase mb-8">
-                        BEYOND <span className="text-brand-primary">RE:CONFIG</span>
-                    </h2>
-                    <p className="text-xl text-zinc-300 mb-12 leading-relaxed">
-                        Re:Config does not end when the event concludes. Outstanding builders and teams continue through the Web3PHC ecosystem.
-                    </p>
-                    
-                    <div className="flex flex-wrap justify-center gap-3 mb-16">
-                        {['Mentorship', 'Community Support', 'Ecosystem Introductions', 'Grant Opportunities', 'Visibility across Web3PHC channels', 'Future Builder Programs'].map(perk => (
-                            <span key={perk} className="px-4 py-2 border border-white/20 rounded-full text-sm font-medium hover:bg-white/10 transition-colors cursor-default">
-                                {perk}
-                            </span>
-                        ))}
-                    </div>
-
-                    <div className="bg-white/5 border border-white/10 p-8 md:p-12 rounded-3xl text-left flex flex-col md:flex-row items-center gap-10">
-                        <div className="flex-1">
-                            <h4 className="text-2xl font-sans font-black uppercase mb-4 text-white">Permanent Learning Infrastructure</h4>
-                            <p className="text-zinc-400 leading-relaxed">
-                                All workshops, founder sessions, and technical content are recorded and integrated into <strong className="text-brand-primary">LB Academy</strong>, creating a permanent learning resource that continues to support developers and founders long after Re:Config ends.
+                        {/* Day 3-4 */}
+                        <div className="relative group">
+                            <div className="absolute -left-[42px] md:-left-[58px] top-0 w-5 h-5 md:w-6 md:h-6 bg-zinc-800 rounded-full border-2 border-brand-primary group-hover:bg-brand-primary ring-4 ring-black transition-all" />
+                            <h3 className="text-3xl md:text-4xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-3">Days 3–4</h3>
+                            <h4 className="text-xl font-['Righteous'] font-normal tracking-wide text-blue-400 mb-4">Get Busy.</h4>
+                            <p className="text-zinc-400 font-light text-lg leading-relaxed">
+                                Execution time. Hackathon energy takes over as teams form around ideas identified during the learning phase and begin actively building out their decentralized infrastructure with direct mentorship from protocol teams.
                             </p>
                         </div>
-                        <div className="md:w-1/3 text-center md:text-right">
-                            <p className="text-sm font-bold italic text-zinc-500 mb-4">&quot;From learning, to building, to launching.&quot;</p>
-                            <button className="bg-brand-primary text-black hover:bg-white transition-colors px-8 py-4 text-xs uppercase font-sans font-black tracking-widest">
-                                BECOME A PARTNER
-                            </button>
+
+                        {/* Day 5 */}
+                        <div className="relative group">
+                            <div className="absolute -left-[42px] md:-left-[58px] top-0 w-5 h-5 md:w-6 md:h-6 bg-zinc-800 rounded-full border-2 border-brand-primary group-hover:bg-brand-primary ring-4 ring-black transition-all" />
+                            <h3 className="text-3xl md:text-4xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-3">Day 5</h3>
+                            <h4 className="text-xl font-['Righteous'] font-normal tracking-wide text-blue-400 mb-4">Demo Day.</h4>
+                            <p className="text-zinc-400 font-light text-lg leading-relaxed">
+                                Teams pitch to investors and judges. A showcase of live product demonstrations, technical architecture reviews, and market opportunity validation.
+                            </p>
+                        </div>
+
+                        {/* Day 6 */}
+                        <div className="relative group">
+                            <div className="absolute -left-[42px] md:-left-[58px] top-0 w-5 h-5 md:w-6 md:h-6 bg-brand-primary rounded-full ring-4 ring-black animate-pulse" />
+                            <h3 className="text-3xl md:text-4xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-3">Day 6</h3>
+                            <h4 className="text-xl font-['Righteous'] font-normal tracking-wide text-blue-400 mb-4">The Summit.</h4>
+                            <p className="text-zinc-400 font-light text-lg leading-relaxed">
+                                The public finale. Builders, founders, creators, students, and global ecosystem leaders come together to explore the products built. Featuring keynotes, panels, and deep networking.
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
+
+            {/* ─── 3. ITINERARY CARDS & PROTOCOLS ─── */}
+            <section className="py-20 px-4 bg-black border-b border-white/5 relative overflow-hidden">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
+                <div className="custom-container max-w-5xl mx-auto">
+                    
+                    {/* Dates */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24 relative z-10">
+                        <div className="bg-[#111] border border-white/10 rounded-2xl p-8 flex flex-col justify-center hover:border-brand-primary/50 transition-colors">
+                            <h4 className="text-brand-primary font-['Righteous'] font-normal tracking-wide text-2xl uppercase mb-2">Oct 17–23</h4>
+                            <p className="text-white font-bold text-lg mb-1">Re:Config Assembly</p>
+                            <p className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Port Harcourt, NG</p>
+                        </div>
+                        <div className="bg-[#111] border border-white/10 rounded-2xl p-8 flex flex-col justify-center hover:border-brand-primary/50 transition-colors">
+                            <h4 className="text-brand-primary font-['Righteous'] font-normal tracking-wide text-2xl uppercase mb-2">Oct 24</h4>
+                            <p className="text-white font-bold text-lg mb-1">Re:Config Summit</p>
+                            <p className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Garden City, NG</p>
+                        </div>
+                    </div>
+
+                    {/* Protocol Banner */}
+                    <div className="text-center relative z-10">
+                        <h3 className="text-2xl md:text-3xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-8">Trusted by the global <span className="text-brand-primary">Web3 Ecosystem.</span></h3>
+                        <p className="text-zinc-400 font-light mb-12 max-w-2xl mx-auto">
+                            Re:Config is backed by leading L1s, L2s, infrastructure projects, and the African Web3 ecosystem.
+                        </p>
+                        
+                        <div className="w-full bg-[#0a0a0a] border border-white/10 rounded-3xl p-10 py-16 flex items-center justify-center">
+                            <p className="text-zinc-600 font-mono text-sm tracking-widest uppercase">
+                                [ Protocol Logos & Ecosystem Partners will appear here ]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ─── 4. OFFERINGS GRID ─── */}
+            <section className="py-24 md:py-32 px-4 bg-[#0a0a0a] border-b border-white/5">
+                <div className="custom-container max-w-6xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-4">Explore Our Offerings</h2>
+                        <p className="text-zinc-400 max-w-2xl mx-auto text-lg font-light">Signal over noise. We are laser-focused on verified, on-chain execution.</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="bg-[#111] border border-white/5 p-10 rounded-2xl hover:bg-white/5 transition-all">
+                            <FaLaptopCode className="text-4xl text-brand-primary mb-6" />
+                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-4 text-white">Targeted Sectors</h3>
+                            <p className="text-zinc-400 font-light leading-relaxed">
+                                Building specifically for RWA (Real World Assets), DeFi, Infrastructure, AI Agents, and Stablecoin payment rails.
+                            </p>
+                        </div>
+                        <div className="bg-[#111] border border-white/5 p-10 rounded-2xl hover:bg-white/5 transition-all">
+                            <FaUsers className="text-4xl text-brand-primary mb-6" />
+                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-4 text-white">1,200+ Builders</h3>
+                            <p className="text-zinc-400 font-light leading-relaxed">
+                                Bringing together Africa&apos;s most active Web3 builder base, elite AI coders, and top global protocol decision-makers.
+                            </p>
+                        </div>
+                        <div className="bg-[#111] border border-white/5 p-10 rounded-2xl hover:bg-white/5 transition-all">
+                            <FaChartLine className="text-4xl text-brand-primary mb-6" />
+                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-4 text-white">Commercially Viable</h3>
+                            <p className="text-zinc-400 font-light leading-relaxed">
+                                Unlike traditional hackathons yielding disposable projects, we focus strictly on scalable, market-ready dApps.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ─── 5. FULL WIDTH CTA ─── */}
+            <section className="py-24 px-4 bg-brand-primary text-black text-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2),transparent_70%)] pointer-events-none" />
+                <div className="custom-container max-w-4xl mx-auto relative z-10">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Righteous'] font-normal tracking-wide uppercase mb-8">
+                        Join the Web3 Revolution Today!
+                    </h2>
+                    <p className="text-xl md:text-2xl font-medium leading-relaxed mb-10 max-w-3xl mx-auto opacity-90">
+                        Be part of the change. Connect with global innovators and policymakers dedicated to shaping the future of Africa&apos;s digital economy.
+                    </p>
+                    <button type="button" className="px-10 py-5 bg-black text-white font-black uppercase tracking-widest text-sm rounded-full shadow-2xl hover:scale-105 transition-transform">
+                        Get Tickets Now
+                    </button>
+                </div>
+            </section>
+
+            {/* ─── 6. DIFFERENTIATORS (Continuity) ─── */}
+            <section className="py-24 md:py-32 px-4 bg-black">
+                <div className="custom-container max-w-5xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-4">What Sets Us Apart</h2>
+                        <p className="text-zinc-400 max-w-2xl mx-auto text-lg font-light">Re:Config doesn&apos;t end when the event concludes.</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div className="border border-white/10 rounded-2xl p-8 relative overflow-hidden bg-gradient-to-b from-[#111] to-black group hover:border-blue-500/50 transition-all">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-bl-full" />
+                            <FaRobot className="text-3xl text-white mb-6 group-hover:text-blue-400 transition-colors" />
+                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-3 text-white">Permanent Learning</h3>
+                            <p className="text-zinc-400 font-light leading-relaxed">
+                                All technical content is recorded and integrated into LB Academy, creating a permanent resource for developers.
+                            </p>
+                        </div>
+                        <div className="border border-white/10 rounded-2xl p-8 relative overflow-hidden bg-gradient-to-b from-[#111] to-black group hover:border-brand-primary/50 transition-all">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/10 rounded-bl-full" />
+                            <FaGlobe className="text-3xl text-white mb-6 group-hover:text-brand-primary transition-colors" />
+                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-3 text-white">Global Visibility</h3>
+                            <p className="text-zinc-400 font-light leading-relaxed">
+                                Outstanding builders and teams receive continued support, ecosystem introductions, and direct grant opportunities.
+                            </p>
+                        </div>
+                        <div className="border border-white/10 rounded-2xl p-8 relative overflow-hidden bg-gradient-to-b from-[#111] to-black group hover:border-blue-500/50 transition-all sm:col-span-2 lg:col-span-1">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-bl-full" />
+                            <FaCheckCircle className="text-3xl text-white mb-6 group-hover:text-blue-400 transition-colors" />
+                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-3 text-white">Community Driven</h3>
+                            <p className="text-zinc-400 font-light leading-relaxed">
+                                Rooted deeply in the Web3PHC ecosystem, ensuring that growth translates into real-world local impact.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ─── 7. FLOATING MOUSE THEME UNVEILER (Centered Right Edge) ─── */}
+            <AnimatePresence>
+                {!isThemeUnveiled ? (
+                    <motion.div
+                        key="unveil-btn"
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, scale: 0, transition: { duration: 0.3 } }}
+                        className="fixed top-1/2 right-4 sm:right-8 -translate-y-1/2 z-[100]"
+                    >
+                        <motion.button
+                            onClick={handleThemeClick}
+                            whileTap={{ scale: 0.9 }}
+                            className="relative group bg-black/90 backdrop-blur-md border-2 border-white/20 hover:border-brand-primary rounded-[2rem] w-14 hover:w-48 h-24 hover:h-16 shadow-[0_0_20px_rgba(0,0,0,0.8)] transition-all duration-300 flex items-center justify-center overflow-hidden"
+                        >
+                            {/* Mouse Wheel (Default State) */}
+                            <div className="absolute top-4 left-1/2 -translate-x-1/2 w-1.5 h-4 bg-white/50 rounded-full group-hover:opacity-0 transition-opacity animate-pulse" />
+                            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-8 h-12 border-2 border-white/20 rounded-full group-hover:opacity-0 transition-opacity" />
+                            
+                            {/* Hover Expanded State */}
+                            <div className="opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center w-full px-4 transition-opacity duration-300 delay-100">
+                                <span className="text-brand-primary font-mono text-[10px] font-bold uppercase tracking-widest whitespace-nowrap mb-1">
+                                    [ Decrypt Theme ]
+                                </span>
+                                <div className="w-full bg-white/10 h-1 rounded-full overflow-hidden">
+                                    <div 
+                                        className="h-full bg-brand-primary transition-all duration-100" 
+                                        style={{ width: `${(themeClicks / 2000) * 100}%` }}
+                                    />
+                                </div>
+                                <span className="text-[9px] text-zinc-400 mt-1 whitespace-nowrap">
+                                    {themeClicks} / 2000
+                                </span>
+                            </div>
+                        </motion.button>
+                    </motion.div>
+                ) : (
+                    <motion.div
+                        key="unveil-result"
+                        initial={{ opacity: 0, scale: 0.5, filter: "blur(10px)" }}
+                        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                        exit={{ opacity: 0, scale: 0.5, filter: "blur(10px)" }}
+                        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[100] bg-black/95 backdrop-blur-xl text-white border-2 border-brand-primary p-8 rounded-3xl shadow-[0_0_80px_rgba(254,101,0,0.6)] overflow-hidden min-w-[300px] text-center"
+                    >
+                        <div className="absolute inset-0 w-full h-[2px] bg-brand-primary/30 animate-[scan_2s_linear_infinite]" />
+                        
+                        <div className="relative z-10 flex flex-col items-center gap-4">
+                            <p className="font-mono text-brand-primary text-sm tracking-widest uppercase flex items-center gap-2 font-bold">
+                                <span className="w-3 h-3 rounded-full bg-brand-primary animate-pulse" /> ACCESS GRANTED
+                            </p>
+                            <div className="w-full h-px bg-gradient-to-r from-transparent via-brand-primary to-transparent" />
+                            <h4 className="font-sans font-black text-4xl uppercase tracking-tighter text-white mt-2 drop-shadow-md">
+                                Theme: The Future
+                            </h4>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };

@@ -27,7 +27,7 @@ function App() {
         <ScrollToTop />
         <div className="bg-noise" />
         <HeaderNav />
-        <main>
+        <main className="min-w-0 overflow-x-hidden">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/ecosystem" element={<Ecosystem />} />

@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 
 const AddProject = () => {
   return (
-    <div className="min-h-screen pt-32 pb-24 relative overflow-hidden flex items-center justify-center">
+    <div className="min-h-screen pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 relative overflow-x-hidden flex items-center justify-center">
        {/* Background Blobs */}
        <div className="glow-blob w-[500px] h-[500px] bg-brand-primary/10 top-0 left-[-200px] blur-[120px]" />
        
-       <div className="custom-container px-4 text-center z-10">
+       <div className="custom-container text-center z-10 min-w-0">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

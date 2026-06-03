@@ -217,8 +217,8 @@ const Home = () => {
               </div>
 
               {/* Floating Side Action */}
-              <motion.div className="order-3 lg:col-start-2 lg:row-start-1 flex flex-row items-end justify-end gap-3 lg:gap-4 mt-4 lg:mt-0 lg:-mb-[2%] xl:-mb-[3%] lg:h-[150px] w-full" variants={item}>
-                <div className="mb-[80px] lg:mb-[120px]">
+              <motion.div className="order-3 lg:col-start-2 lg:row-start-1 flex flex-row items-end justify-end gap-3 lg:gap-4 mt-4 lg:mt-0 lg:-mb-[2%] xl:-mb-[3%] lg:h-[150px] w-full min-w-0" variants={item}>
+                <div className="mb-4 sm:mb-8 lg:mb-[120px] shrink-0">
                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-lg sm:w-8 sm:h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 w-6 h-6">
                       <line x1="7" y1="17" x2="17" y2="7"></line>
                       <polyline points="7 7 17 7 17 17"></polyline>
@@ -342,13 +342,13 @@ const Home = () => {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 border border-white/10 bg-[#0a0a0a]">
             {IMPACT_METRICS.map((m, i) => (
-              <div key={m.label} className="text-left group p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-white/10 last:border-r-0 hover:bg-[#121212] transition-colors">
-                <div className="font-mono text-xs text-brand-primary mb-6">/0{i + 1}</div>
-                <div className="text-5xl lg:text-6xl font-sans font-black text-white mb-4 group-hover:text-brand-primary transition-colors duration-300 tracking-tighter">
+              <div key={m.label} className="text-left group p-4 sm:p-6 lg:p-10 border-b lg:border-b-0 lg:border-r border-white/10 last:border-r-0 hover:bg-[#121212] transition-colors min-w-0">
+                <div className="font-mono text-[10px] sm:text-xs text-brand-primary mb-3 sm:mb-6">/0{i + 1}</div>
+                <div className="text-3xl sm:text-4xl lg:text-6xl font-sans font-black text-white mb-2 sm:mb-4 group-hover:text-brand-primary transition-colors duration-300 tracking-tighter break-words">
                   <Counter value={m.value} />
                 </div>
-                <div className="text-sm font-mono font-bold text-[#e5e5e5] uppercase tracking-widest mb-2">{m.label}</div>
-                <div className="text-xs font-mono text-[#808080]">{m.sub}</div>
+                <div className="text-[10px] sm:text-sm font-mono font-bold text-[#e5e5e5] uppercase tracking-widest mb-1 sm:mb-2 leading-tight">{m.label}</div>
+                <div className="text-[10px] sm:text-xs font-mono text-[#808080] leading-tight">{m.sub}</div>
               </div>
             ))}
           </div>
@@ -531,7 +531,7 @@ const Home = () => {
         
         <div className="custom-container text-center max-w-3xl mx-auto relative z-10 pl-4 pr-4 lg:pl-24 lg:pr-24">
             <span className="font-mono text-xs tracking-widest text-[#a3a3a3] uppercase mb-6 inline-block">[ FLAGSHIP_EVENT ]</span>
-            <h2 className="text-5xl lg:text-7xl font-display font-normal text-white mb-8">
+            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-display font-normal text-white mb-6 sm:mb-8">
               <span className="font-sans font-bold block mb-2 leading-[0.9] tracking-tight">ROAD TO</span> 
               <span className="font-serif italic font-light text-[#fe6500] block">RE:CONFIG.</span>
             </h2>
@@ -539,7 +539,7 @@ const Home = () => {
               The premier gathering for Web3 founders, builders, and investors in Nigeria.
             </p>
             
-            <Link to="/reconfig" className="bg-white text-black font-sans font-bold text-sm uppercase tracking-wider px-10 py-5 hover:bg-[#e5e5e5] transition-colors inline-block border border-white">
+            <Link to="/reconfig" className="bg-white text-black font-sans font-bold text-sm uppercase tracking-wider px-8 sm:px-10 py-4 sm:py-5 hover:bg-[#e5e5e5] transition-colors inline-block border border-white w-full sm:w-auto text-center max-w-xs sm:max-w-none mx-auto">
               DISCOVER RE:CONFIG
             </Link>
         </div>
