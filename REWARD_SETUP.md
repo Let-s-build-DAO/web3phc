@@ -62,6 +62,27 @@ select wallet, claimed_at from public.theme_winners;
 ```
 Send the reward to that address.
 
+## X (Twitter) login & share — Firebase
+
+Players can log in with X from the Daily Drop modal, and share their result to X on
+a win. Login is **optional** (the game works without it) and the Firebase SDK is
+**lazy-loaded** only when the modal opens, so it doesn't weigh down the page.
+
+Setup:
+1. Create a Firebase project → **Authentication → Sign-in method → enable Twitter**.
+   You'll need an X developer app (API key + secret) to paste into the provider.
+2. In **Project settings → Your apps**, copy the web SDK config into `.env` (Netlify):
+   ```
+   VITE_FIREBASE_API_KEY=...
+   VITE_FIREBASE_AUTH_DOMAIN=<project-id>.firebaseapp.com
+   VITE_FIREBASE_PROJECT_ID=...
+   VITE_FIREBASE_APP_ID=...
+   ```
+3. Add your production domain under **Authentication → Settings → Authorized domains**.
+
+If these are unset, the login button simply doesn't appear; sharing still works via the
+X compose intent. Code: `src/config/firebase.js`, `src/lib/xAuth.js`, used by `DailyDrop.jsx`.
+
 ## Customizing
 - **Finale puzzle (date + word)**: `FINALE` in `src/config/dailyDrop.js`.
 - **Daily word pool**: `WORDS` in `src/config/dailyDrop.js`.
