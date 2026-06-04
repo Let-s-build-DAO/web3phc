@@ -11,6 +11,12 @@ import {
 import { claimReward, ClaimError } from "../lib/claimReward";
 import { REWARD_PRIZE_TEXT, isRewardWindowOpen } from "../config/reward";
 
+const SHARE_URL = "https://web3phc.lbdao.xyz/reconfig";
+
+// Firebase web config is baked into src/config/firebase.js, so login is available.
+// (Kept as a flag so the X login UI / lazy SDK load can be disabled in one place.)
+const firebaseEnabled = true;
+
 const KEYS = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"];
 const EMOJI = { correct: "🟩", present: "🟨", absent: "⬛" };
 
@@ -55,6 +61,40 @@ const DailyDrop = () => {
   // Reward claim (finale only)
   const [claimState, setClaimState] = useState("idle");
   const [claimMessage, setClaimMessage] = useState("");
+
+  // X (Twitter) auth — Firebase SDK is lazy-loaded only when the modal opens.
+  const [user, setUser] = useState(null);
+  const [authBusy, setAuthBusy] = useState(false);
+  const [authError, setAuthError] = useState("");
+  const [xa, setXa] = useState(null); // the loaded ../lib/xAuth module
+
+  // Load the auth module once the player opens the game.
+  useEffect(() => {
+    if (!open || !firebaseEnabled || xa) return;
+    let cancelled = false;
+    import("../lib/xAuth").then((m) => !cancelled && setXa(m));
+    return () => { cancelled = true; };
+  }, [open, xa]);
+
+  // Subscribe to auth state once the module is available.
+  useEffect(() => {
+    if (!xa) return undefined;
+    return xa.watchUser(setUser);
+  }, [xa]);
+
+  const handleLogin = async () => {
+    setAuthBusy(true);
+    setAuthError("");
+    try {
+      const m = xa || (await import("../lib/xAuth"));
+      if (!xa) setXa(m);
+      setUser(await m.signInWithX());
+    } catch (err) {
+      setAuthError(err?.message || "Login failed. Try again.");
+    } finally {
+      setAuthBusy(false);
+    }
+  };
 
   // Restore today's board
   useEffect(() => {
@@ -167,18 +207,31 @@ const DailyDrop = () => {
     return map;
   }, [guesses, puzzle.word]);
 
-  const shareGrid = () => {
-    const header = `Re:Config Daily Drop #${puzzle.no} ${status === "won" ? guesses.length : "X"}/${MAX_GUESSES}`;
+  const buildShareText = () => {
+    const header = `I cracked the Re:Config Daily Drop #${puzzle.no} in ${
+      status === "won" ? `${guesses.length}/${MAX_GUESSES}` : `X/${MAX_GUESSES}`
+    } 🔓`;
     const grid = guesses
       .map((g) => scoreGuess(g, puzzle.word).map((s) => EMOJI[s]).join(""))
       .join("\n");
-    const text = `${header}\n${grid}\n🔓 web3phc.lbdao.xyz/reconfig`;
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(text).then(() => {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      });
-    }
+    return `${header}\n${grid}\n\nThink you can beat me? Play the @web3PHC Daily Drop 👇`;
+  };
+
+  // Share to X (opens the compose intent — posts from the user's account).
+  const handleShare = () => {
+    const intent = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+      buildShareText()
+    )}&url=${encodeURIComponent(SHARE_URL)}`;
+    window.open(intent, "_blank", "noopener,noreferrer");
+  };
+
+  // Fallback: copy the grid (used when X login/share isn't wanted).
+  const copyGrid = () => {
+    if (!navigator.clipboard) return;
+    navigator.clipboard.writeText(`${buildShareText()}\n${SHARE_URL}`).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
   };
 
   const handleClaim = async () => {
@@ -199,24 +252,27 @@ const DailyDrop = () => {
 
   return (
     <>
-      {/* Floating launcher */}
-      <motion.button
-        type="button"
-        onClick={() => setOpen(true)}
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        whileTap={{ scale: 0.94 }}
-        aria-label="Open the Re:Config Daily Drop puzzle"
-        className="fixed bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-[9998] bg-black/90 backdrop-blur-md border-2 border-white/20 hover:border-brand-primary/60 rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.8)] transition-colors flex items-center gap-2 px-5 h-12"
-      >
-        <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-brand-primary whitespace-nowrap">
-          🎯 Daily Drop
-        </span>
-        {stats.streak > 0 && (
-          <span className="font-mono text-[11px] font-bold text-orange-400">🔥{stats.streak}</span>
-        )}
-        {!playedToday && <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse" />}
-      </motion.button>
+      {/* Floating launcher — centering lives on this static wrapper so framer-motion's
+          inline transform on the button can't clobber the translate. */}
+      <div className="fixed bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-[9998]">
+        <motion.button
+          type="button"
+          onClick={() => setOpen(true)}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          whileTap={{ scale: 0.94 }}
+          aria-label="Open the Re:Config Daily Drop puzzle"
+          className="bg-black/90 backdrop-blur-md border-2 border-white/20 hover:border-brand-primary/60 rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.8)] transition-colors flex items-center gap-2 px-5 h-12"
+        >
+          <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-brand-primary whitespace-nowrap">
+            🎯 Daily Drop
+          </span>
+          {stats.streak > 0 && (
+            <span className="font-mono text-[11px] font-bold text-orange-400">🔥{stats.streak}</span>
+          )}
+          {!playedToday && <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse" />}
+        </motion.button>
+      </div>
 
       <AnimatePresence>
         {open && (
@@ -252,6 +308,39 @@ const DailyDrop = () => {
               <p className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest mt-1">
                 🔥 {stats.streak} streak · max {stats.maxStreak || 0}
               </p>
+
+              {/* X (Twitter) account strip */}
+              {firebaseEnabled && (
+                <div className="mt-3 flex items-center gap-2">
+                  {user ? (
+                    <>
+                      {user.photo && (
+                        <img src={user.photo} alt="" className="w-5 h-5 rounded-full" referrerPolicy="no-referrer" />
+                      )}
+                      <span className="font-mono text-[10px] text-zinc-300">
+                        {user.handle ? `@${user.handle}` : user.name}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => xa?.signOutX()}
+                        className="font-mono text-[9px] text-zinc-600 hover:text-zinc-400 uppercase tracking-widest"
+                      >
+                        · logout
+                      </button>
+                    </>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={handleLogin}
+                      disabled={authBusy}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-black font-bold text-[10px] uppercase tracking-widest hover:bg-zinc-200 transition-colors disabled:opacity-60"
+                    >
+                      𝕏 {authBusy ? "Connecting…" : "Login with X"}
+                    </button>
+                  )}
+                </div>
+              )}
+              {authError && <p className="font-mono text-red-400 text-[9px] mt-1">{authError}</p>}
 
               {/* Board */}
               <div className="grid gap-1.5 my-5" style={{ gridTemplateRows: `repeat(${MAX_GUESSES}, 1fr)` }}>
@@ -306,13 +395,22 @@ const DailyDrop = () => {
                       onClaim={handleClaim}
                     />
                   ) : (
-                    <button
-                      type="button"
-                      onClick={shareGrid}
-                      className="px-7 py-2.5 bg-brand-primary text-black font-bold uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform"
-                    >
-                      {copied ? "Copied!" : "Share result"}
-                    </button>
+                    <div className="flex flex-col items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={handleShare}
+                        className="flex items-center gap-2 px-7 py-2.5 bg-brand-primary text-black font-bold uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform"
+                      >
+                        𝕏 Share on X
+                      </button>
+                      <button
+                        type="button"
+                        onClick={copyGrid}
+                        className="font-mono text-[9px] text-zinc-500 hover:text-zinc-300 uppercase tracking-widest transition-colors"
+                      >
+                        {copied ? "Copied!" : "or copy result"}
+                      </button>
+                    </div>
                   )}
 
                   <p className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
