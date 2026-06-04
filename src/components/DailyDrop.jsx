@@ -76,10 +76,12 @@ const DailyDrop = () => {
     return () => { cancelled = true; };
   }, [open, xa]);
 
-  // Subscribe to auth state once the module is available.
+  // Subscribe to auth state + pick up any pending mobile-redirect login.
   useEffect(() => {
     if (!xa) return undefined;
-    return xa.watchUser(setUser);
+    const unsub = xa.watchUser(setUser);
+    xa.consumeRedirectResult().then((u) => u && setUser(u));
+    return unsub;
   }, [xa]);
 
   const handleLogin = async () => {
@@ -88,7 +90,8 @@ const DailyDrop = () => {
     try {
       const m = xa || (await import("../lib/xAuth"));
       if (!xa) setXa(m);
-      setUser(await m.signInWithX());
+      const u = await m.signInWithX(); // null on mobile (page redirects away)
+      if (u) setUser(u);
     } catch (err) {
       setAuthError(err?.message || "Login failed. Try again.");
     } finally {

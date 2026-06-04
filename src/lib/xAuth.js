@@ -8,6 +8,8 @@
  */
 import {
   signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   signOut as fbSignOut,
   onAuthStateChanged,
   getAdditionalUserInfo,
@@ -16,6 +18,10 @@ import { auth, twitterProvider, isFirebaseConfigured } from "../config/firebase"
 
 export { isFirebaseConfigured };
 
+const isMobile = () =>
+  typeof navigator !== "undefined" &&
+  /Android|iPhone|iPad|iPod|Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 const normalise = (user, handle) => ({
   name: user.displayName || "Builder",
   handle: handle || null, // @screen_name, only reliably available right after sign-in
@@ -23,12 +29,37 @@ const normalise = (user, handle) => ({
   uid: user.uid,
 });
 
+/**
+ * Start X sign-in.
+ * - Mobile: full-page redirect (hands off to the X app / login, then returns to the
+ *   site). Resolves to null because the page navigates away — the result is picked up
+ *   on return by consumeRedirectResult().
+ * - Desktop: popup. Resolves to the signed-in user.
+ */
 export async function signInWithX() {
   if (!isFirebaseConfigured) throw new Error("Login is not configured yet.");
+  if (isMobile()) {
+    await signInWithRedirect(auth, twitterProvider);
+    return null;
+  }
   const result = await signInWithPopup(auth, twitterProvider);
   const info = getAdditionalUserInfo(result);
   const handle = info?.username || info?.profile?.screen_name || null;
   return normalise(result.user, handle);
+}
+
+/** Call on load/after returning from a redirect to capture the signed-in user (with handle). */
+export async function consumeRedirectResult() {
+  if (!isFirebaseConfigured) return null;
+  try {
+    const result = await getRedirectResult(auth);
+    if (!result) return null;
+    const info = getAdditionalUserInfo(result);
+    const handle = info?.username || info?.profile?.screen_name || null;
+    return normalise(result.user, handle);
+  } catch {
+    return null;
+  }
 }
 
 export function watchUser(cb) {
