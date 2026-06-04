@@ -90,7 +90,7 @@ const ReConfig = () => {
                         <a href="#offerings" className="hover:text-brand-primary transition-colors">Offerings</a>
                     </div>
                     <button type="button" className="px-6 py-2.5 bg-black text-white font-['Righteous'] font-normal tracking-wide rounded-xl shadow-md hover:bg-slate-800 transition-colors text-[15px]">
-                        Connect
+                        Get Tickets
                     </button>
                 </nav>
 
@@ -132,12 +132,12 @@ const ReConfig = () => {
             {/* ─── 2. THE JOURNEY (Chronological Timeline) ─── */}
             <section className="py-24 md:py-32 px-4 relative bg-[#0a0a0a] border-b border-white/5">
                 <div className="custom-container max-w-4xl mx-auto">
-                    <div className="mb-20 text-center sm:text-left">
-                        <p className="text-blue-500 font-['Righteous'] text-sm tracking-widest uppercase mb-4 font-bold">{"// The 6-Day Journey"}</p>
+                    <div className="mb-20 text-center flex flex-col items-center">
+                        <p className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 font-bold">{"// The 6-Day Journey"}</p>
                         <h2 className="text-4xl md:text-5xl font-['Righteous'] font-normal tracking-wide uppercase text-white leading-tight">
                             From Learning to <span className="text-brand-primary">Launching.</span>
                         </h2>
-                        <p className="mt-6 text-zinc-400 text-lg md:text-xl font-light max-w-2xl leading-relaxed">
+                        <p className="mt-6 text-zinc-400 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
                             Across 6 days, Re:Config takes builders through an immersive journey—from hands-on protocol workshops to building MVPs, culminating in a public showcase.
                         </p>
                     </div>
@@ -204,7 +204,7 @@ const ReConfig = () => {
                         <div className="bg-[#111] border border-white/10 rounded-2xl p-8 flex flex-col justify-center hover:border-brand-primary/50 transition-colors">
                             <h4 className="text-brand-primary font-['Righteous'] font-normal tracking-wide text-2xl uppercase mb-2">Oct 24</h4>
                             <p className="text-white font-bold text-lg mb-1">Re:Config Summit</p>
-                            <p className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Garden City, NG</p>
+                            <p className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Port Harcourt, NG</p>
                         </div>
                     </div>
 
@@ -311,15 +311,15 @@ const ReConfig = () => {
                 </div>
             </section>
 
-            {/* ─── 7. FLOATING MOUSE THEME UNVEILER (Centered Right Edge) ─── */}
+            {/* ─── 7. FLOATING MOUSE THEME UNVEILER (Centered Bottom Edge) ─── */}
             <AnimatePresence>
                 {!isThemeUnveiled ? (
                     <motion.div
                         key="unveil-btn"
-                        initial={{ opacity: 0, x: 50 }}
+                        initial={{ opacity: 1, x: 0 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, scale: 0, transition: { duration: 0.3 } }}
-                        className="fixed top-1/2 right-4 sm:right-8 -translate-y-1/2 z-[100]"
+                        className="fixed bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-[9999]"
                     >
                         <motion.button
                             onClick={handleThemeClick}
