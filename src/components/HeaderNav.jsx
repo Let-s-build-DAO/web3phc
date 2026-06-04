@@ -17,8 +17,6 @@ const HeaderNav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [slang, setSlang] = useState("");
   const location = useLocation();
-  if (location.pathname === '/reconfig') return null;
-
   const isHome = location.pathname === "/";
 
   // Track scrolling
@@ -55,6 +53,8 @@ const HeaderNav = () => {
     }
     return () => { document.body.style.overflow = "unset"; };
   }, [isOpen]);
+
+  if (location.pathname === '/reconfig') return null;
 
   return (
     <header 
