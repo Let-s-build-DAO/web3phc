@@ -118,7 +118,7 @@ const ReConfig = () => {
                     {/* Top Row: Dash and Headline */}
                     <div className="w-12 h-[2px] bg-brand-primary mb-8" />
                     <h1 className="text-5xl sm:text-6xl md:text-[50px] font-['Righteous'] font-normal text-slate-900 leading-[1.1] mb-12 md:mb-16 max-w-4xl tracking-wide">
-                        The Proving Ground for African Web3 Startups.
+                        The Proving Ground for Web3 Startups.
                     </h1>
                     
                     {/* Bottom Row: Text/Button (Left) & Images (Right) */}
