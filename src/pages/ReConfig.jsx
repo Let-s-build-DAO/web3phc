@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 import { FaLaptopCode, FaUsers, FaChartLine, FaCheckCircle, FaRobot, FaGlobe } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import { SITE_ORIGIN, absoluteUrl } from '../config/site';
+import DailyDrop from '../components/DailyDrop';
 
 const RECONFIG_SEO_DESCRIPTION = "Re:Config is Web3PHC's multi-day Web3 deployment event in Port Harcourt, Rivers State, Nigeria. Protocols and sponsors meet builders working across RWA, DeFAI, AI agents, stablecoins, and x402 payment rails.";
 
@@ -47,40 +46,6 @@ const reconfigJsonLd = {
 };
 
 const ReConfig = () => {
-    const [decryptProgress, setDecryptProgress] = useState(0);
-    const [isThemeUnveiled, setIsThemeUnveiled] = useState(false);
-    const [isHovered, setIsHovered] = useState(false);
-
-    // Rapid clicker drain effect
-    useEffect(() => {
-        if (isThemeUnveiled || !isHovered || decryptProgress <= 0) return;
-        
-        const interval = setInterval(() => {
-            setDecryptProgress((prev) => {
-                const newProg = prev - 4; // Drain rate
-                return newProg < 0 ? 0 : newProg;
-            });
-        }, 100);
-
-        return () => clearInterval(interval);
-    }, [decryptProgress, isThemeUnveiled, isHovered]);
-
-    const handleThemeClick = () => {
-        if (isThemeUnveiled) return;
-        setDecryptProgress((prev) => {
-            const newProg = prev + 15; // Click power
-            if (newProg >= 100) {
-                setIsThemeUnveiled(true);
-                setTimeout(() => {
-                    setIsThemeUnveiled(false);
-                    setDecryptProgress(0);
-                    setIsHovered(false);
-                }, 5000);
-                return 100;
-            }
-            return newProg;
-        });
-    };
 
     return (
         <div className="bg-[#050505] min-h-screen font-sans text-white selection:bg-brand-primary selection:text-black">
@@ -330,69 +295,8 @@ const ReConfig = () => {
                 </div>
             </section>
 
-            {/* ─── 7. FLOATING MOUSE THEME UNVEILER (Centered Bottom Edge) ─── */}
-            <AnimatePresence>
-                {!isThemeUnveiled ? (
-                    <motion.div
-                        key="unveil-btn"
-                        initial={{ opacity: 1, x: 0 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, scale: 0, transition: { duration: 0.3 } }}
-                        className="fixed bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-[9999]"
-                    >
-                        <motion.button
-                            onClick={handleThemeClick}
-                            onMouseEnter={() => setIsHovered(true)}
-                            onMouseLeave={() => { setIsHovered(false); setDecryptProgress(0); }}
-                            whileTap={{ scale: 0.9 }}
-                            className={`relative group bg-black/90 backdrop-blur-md border-2 hover:border-brand-primary rounded-[2rem] w-14 hover:w-56 h-24 hover:h-16 shadow-[0_0_20px_rgba(0,0,0,0.8)] transition-all duration-300 flex items-center justify-center overflow-hidden ${decryptProgress > 0 ? 'border-brand-primary' : 'border-white/20'}`}
-                        >
-                            {/* Mouse Wheel (Default State) */}
-                            <div className="absolute top-4 left-1/2 -translate-x-1/2 w-1.5 h-4 bg-white/50 rounded-full group-hover:opacity-0 transition-opacity animate-pulse" />
-                            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-8 h-12 border-2 border-white/20 rounded-full group-hover:opacity-0 transition-opacity" />
-                            
-                            {/* Hover Expanded State (The Mini-Game) */}
-                            <div className="opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center w-full px-4 transition-opacity duration-300 delay-100">
-                                <span className={`font-mono text-[10px] font-bold uppercase tracking-widest whitespace-nowrap mb-1 ${decryptProgress > 50 ? 'text-red-500 animate-pulse' : 'text-brand-primary'}`}>
-                                    {decryptProgress > 0 ? '[ KEEP CLICKING! ]' : '[ CLICK TO DECRYPT ]'}
-                                </span>
-                                <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden relative">
-                                    <div 
-                                        className={`h-full transition-all duration-75 ${decryptProgress > 80 ? 'bg-green-500' : decryptProgress > 40 ? 'bg-brand-primary' : 'bg-blue-500'}`} 
-                                        style={{ width: `${decryptProgress}%` }}
-                                    />
-                                </div>
-                                <span className="text-[9px] text-zinc-400 mt-1 whitespace-nowrap">
-                                    SYS. OVERRIDE: {Math.floor(decryptProgress)}%
-                                </span>
-                            </div>
-                        </motion.button>
-                    </motion.div>
-                ) : (
-                    <motion.div
-                        key="unveil-result"
-                        initial={{ opacity: 0, scale: 0.5, filter: "blur(10px)" }}
-                        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                        exit={{ opacity: 0, scale: 0.5, filter: "blur(10px)" }}
-                        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[9999] bg-black/95 backdrop-blur-xl text-white border-2 border-red-500 p-8 rounded-3xl shadow-[0_0_80px_rgba(239,68,68,0.6)] overflow-hidden min-w-[300px] text-center"
-                    >
-                        <div className="absolute inset-0 w-full h-[2px] bg-red-500/30 animate-[scan_2s_linear_infinite]" />
-                        
-                        <div className="relative z-10 flex flex-col items-center gap-4">
-                            <p className="font-mono text-red-500 text-sm tracking-widest uppercase flex items-center gap-2 font-bold">
-                                <span className="w-3 h-3 rounded-full bg-red-500 animate-pulse" /> DECRYPTION FAILED
-                            </p>
-                            <div className="w-full h-px bg-gradient-to-r from-transparent via-red-500 to-transparent" />
-                            <h4 className="font-['Righteous'] font-normal text-xl md:text-2xl uppercase tracking-wide text-white mt-2 drop-shadow-md">
-                                System locked until Aug 20th
-                            </h4>
-                            <p className="font-mono text-zinc-400 text-xs uppercase tracking-widest mt-1">
-                                Try again later.
-                            </p>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            {/* ─── 7. DAILY DROP GAME (floating launcher + modal) ─── */}
+            <DailyDrop />
         </div>
     );
 };
