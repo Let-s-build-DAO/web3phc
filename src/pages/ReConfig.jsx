@@ -73,9 +73,9 @@ const ReConfig = () => {
                         <a href="#schedule" className="hover:text-brand-primary transition-colors">Schedule</a>
                         <a href="#offerings" className="hover:text-brand-primary transition-colors">Offerings</a>
                     </div>
-                    <button type="button" className="px-6 py-2.5 bg-black text-white font-['Righteous'] font-normal tracking-wide rounded-xl shadow-md hover:bg-slate-800 transition-colors text-[15px]">
+                    <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" target="_blank" rel="noopener noreferrer" className="px-6 py-2.5 bg-black text-white font-['Righteous'] font-normal tracking-wide rounded-xl shadow-md hover:bg-slate-800 transition-colors text-[15px] inline-block">
                         Get Tickets
-                    </button>
+                    </a>
                 </nav>
 
                 <div className="custom-container relative z-10 w-full max-w-6xl mx-auto flex-grow flex flex-col justify-center">
@@ -94,9 +94,9 @@ const ReConfig = () => {
                             <p className="text-[15px] text-slate-700 leading-relaxed mb-8 max-w-sm">
                                 Join us for a 6-day build sprint uniting global protocols and elite Web3 talent in Port Harcourt this October.
                             </p>
-                            <button type="button" className="px-8 py-3 bg-[#fe6500] text-white font-bold rounded-xl shadow-md hover:bg-[#e55a00] transition-colors">
+                            <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-[#fe6500] text-white font-bold rounded-xl shadow-md hover:bg-[#e55a00] transition-colors inline-block">
                                 Get Tickets
-                            </button>
+                            </a>
                         </div>
 
                         {/* Right Column (Twin Images side-by-side) */}
