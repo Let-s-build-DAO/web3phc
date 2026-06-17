@@ -6,6 +6,7 @@ import ReConfig from "./pages/ReConfig";
 import Ecosystem from "./pages/Ecosystem";
 import ProjectDetail from "./pages/ProjectDetail";
 import AddProject from "./pages/AddProject";
+import SpeakerApplication from "./pages/SpeakerApplication";
 import Analytics from "./components/Analytics";
 
 import { useState } from "react";
@@ -35,6 +36,8 @@ function App() {
             <Route path="/ecosystem/add" element={<AddProject />} />
             {/* Removed duplicate AddProject route */}
             <Route path="/reconfig" element={<ReConfig />} />
+            <Route path="/speakers" element={<SpeakerApplication />} />
+            <Route path="/apply" element={<Navigate to="/speakers" replace />} />
             <Route path="/conference" element={<Navigate to="/reconfig" replace />} />
             <Route path="/hackathon" element={<Navigate to="/conference" replace />} />
           </Routes>
