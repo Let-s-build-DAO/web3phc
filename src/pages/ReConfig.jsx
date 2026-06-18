@@ -1,4 +1,5 @@
 import { FaLaptopCode, FaUsers, FaChartLine, FaCheckCircle, FaRobot, FaGlobe } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { SITE_ORIGIN, absoluteUrl } from '../config/site';
 import DailyDrop from '../components/DailyDrop';
@@ -94,9 +95,14 @@ const ReConfig = () => {
                             <p className="text-[15px] text-slate-700 leading-relaxed mb-8 max-w-sm">
                                 Join us for a 6-day build sprint uniting global protocols and elite Web3 talent in Port Harcourt this October.
                             </p>
-                            <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-[#fe6500] text-white font-bold rounded-xl shadow-md hover:bg-[#e55a00] transition-colors inline-block">
-                                Get Tickets
-                            </a>
+                            <div className="flex flex-col items-start gap-3">
+                                <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-[#fe6500] text-white font-bold rounded-xl shadow-md hover:bg-[#e55a00] transition-colors inline-block">
+                                    Get Tickets
+                                </a>
+                                <Link to="/speakers" className="text-slate-900 font-semibold underline underline-offset-4 decoration-2 decoration-brand-primary hover:text-brand-primary transition-colors">
+                                    Apply to Speak/Mentor →
+                                </Link>
+                            </div>
                         </div>
 
                         {/* Right Column (Twin Images side-by-side) */}
