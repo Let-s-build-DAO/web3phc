@@ -1,4 +1,5 @@
 import { FaLaptopCode, FaUsers, FaChartLine, FaCheckCircle, FaRobot, FaGlobe } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { SITE_ORIGIN, absoluteUrl } from '../config/site';
 import DailyDrop from '../components/DailyDrop';
@@ -73,9 +74,14 @@ const ReConfig = () => {
                         <a href="#schedule" className="hover:text-brand-primary transition-colors">Schedule</a>
                         <a href="#offerings" className="hover:text-brand-primary transition-colors">Offerings</a>
                     </div>
-                    <button type="button" className="px-6 py-2.5 bg-black text-white font-['Righteous'] font-normal tracking-wide rounded-xl shadow-md hover:bg-slate-800 transition-colors text-[15px]">
-                        Get Tickets
-                    </button>
+                    <div className="flex items-center gap-3">
+                        <Link to="/speakers" className="px-5 py-2.5 border-2 border-black/80 text-slate-900 font-['Righteous'] font-normal tracking-wide rounded-xl hover:bg-black hover:text-white transition-colors text-[15px] whitespace-nowrap">
+                            Speak / Mentor
+                        </Link>
+                        <button type="button" className="px-6 py-2.5 bg-black text-white font-['Righteous'] font-normal tracking-wide rounded-xl shadow-md hover:bg-slate-800 transition-colors text-[15px]">
+                            Get Tickets
+                        </button>
+                    </div>
                 </nav>
 
                 <div className="custom-container relative z-10 w-full max-w-6xl mx-auto flex-grow flex flex-col justify-center">
@@ -94,9 +100,14 @@ const ReConfig = () => {
                             <p className="text-[15px] text-slate-700 leading-relaxed mb-8 max-w-sm">
                                 Join us for a 6-day build sprint uniting global protocols and elite Web3 talent in Port Harcourt this October.
                             </p>
-                            <button type="button" className="px-8 py-3 bg-[#fe6500] text-white font-bold rounded-xl shadow-md hover:bg-[#e55a00] transition-colors">
-                                Get Tickets
-                            </button>
+                            <div className="flex flex-wrap items-center gap-3">
+                                <button type="button" className="px-8 py-3 bg-[#fe6500] text-white font-bold rounded-xl shadow-md hover:bg-[#e55a00] transition-colors">
+                                    Get Tickets
+                                </button>
+                                <Link to="/speakers" className="px-8 py-3 border-2 border-slate-900 text-slate-900 font-bold rounded-xl hover:bg-slate-900 hover:text-white transition-colors">
+                                    Speak / Mentor
+                                </Link>
+                            </div>
                         </div>
 
                         {/* Right Column (Twin Images side-by-side) */}
