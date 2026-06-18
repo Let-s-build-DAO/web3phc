@@ -1,0 +1,26 @@
+rules_version = '2';
+
+// Re:Config speaker/mentor applications.
+// Anyone may SUBMIT (create) a well-formed application; nobody may read or modify
+// them from the client. Review submissions in the Firebase console.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /speakerApplications/{appId} {
+      allow create: if isValidApplication();
+      allow read, update, delete: if false;
+    }
+
+    function isValidApplication() {
+      let d = request.resource.data;
+      return d.fullName is string && d.fullName.size() > 0 && d.fullName.size() < 200
+        && d.email is string && d.email.size() > 3 && d.email.size() < 200
+        && d.why_contribute is string && d.why_contribute.size() < 5000;
+    }
+
+    // Everything else is locked down.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

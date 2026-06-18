@@ -31,6 +31,7 @@ const FooterNav = () => {
                     <h4 className="font-sans font-bold uppercase tracking-widest text-white mb-6 text-sm">Resources</h4>
                     <ul className="space-y-4 text-sm font-mono text-zinc-400">
                         <li><Link to="/reconfig" className="hover:text-brand-primary transition-colors">Re:Config 2026</Link></li>
+                        <li><Link to="/speakers" className="hover:text-brand-primary transition-colors">Speak / Mentor</Link></li>
                         <li><a href="https://labs.lbdao.xyz/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">Let&apos;s Build Labs</a></li>
                          <li><a href="mailto:hello@lbdao.xyz" className="hover:text-brand-primary transition-colors">Contact Support</a></li>
                     </ul>
