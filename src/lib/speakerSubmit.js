@@ -13,9 +13,9 @@
 
 // Public EmailJS client config (safe to ship). Env vars override for staging.
 const EMAILJS = {
-  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_vclb8ke",
-  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_8ksu0tl",
-  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "4PZuJAWXUHd0egoep",
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
 };
 
 export const emailjsConfigured = Boolean(
