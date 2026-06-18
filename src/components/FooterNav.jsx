@@ -36,14 +36,13 @@ const FooterNav = () => {
                     </ul>
                 </div>
 
-                 {/* <div>
+                 <div>
                     <h4 className="font-sans font-bold uppercase tracking-widest text-white mb-6 text-sm">Legal</h4>
                     <ul className="space-y-4 text-sm font-mono text-zinc-400">
-                        <li><span className="cursor-not-allowed opacity-50">Privacy Policy</span></li>
-                        <li><span className="cursor-not-allowed opacity-50">Terms of Service</span></li>
-                         <li><span className="cursor-not-allowed opacity-50">Cookie Preferences</span></li>
+                        <li><Link to="/privacy" className="hover:text-brand-primary transition-colors">Privacy Policy</Link></li>
+                        <li><Link to="/terms" className="hover:text-brand-primary transition-colors">Terms of Service</Link></li>
                     </ul>
-                </div> */}
+                </div>
             </div>
 
             {/* Bottom - Massive Logo */}
