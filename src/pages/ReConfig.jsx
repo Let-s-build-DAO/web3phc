@@ -74,11 +74,9 @@ const ReConfig = () => {
                         <a href="#schedule" className="hover:text-brand-primary transition-colors">Schedule</a>
                         <a href="#offerings" className="hover:text-brand-primary transition-colors">Offerings</a>
                     </div>
-                    <div className="flex items-center gap-3">
-                        <button type="button" className="px-6 py-2.5 bg-black text-white font-['Righteous'] font-normal tracking-wide rounded-xl shadow-md hover:bg-slate-800 transition-colors text-[15px]">
-                            Get Tickets
-                        </button>
-                    </div>
+                    <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" target="_blank" rel="noopener noreferrer" className="px-6 py-2.5 bg-black text-white font-['Righteous'] font-normal tracking-wide rounded-xl shadow-md hover:bg-slate-800 transition-colors text-[15px] inline-block">
+                        Get Tickets
+                    </a>
                 </nav>
 
                 <div className="custom-container relative z-10 w-full max-w-6xl mx-auto flex-grow flex flex-col justify-center">
@@ -86,7 +84,7 @@ const ReConfig = () => {
                     {/* Top Row: Dash and Headline */}
                     <div className="w-12 h-[2px] bg-brand-primary mb-8" />
                     <h1 className="text-5xl sm:text-6xl md:text-[50px] font-['Righteous'] font-normal text-slate-900 leading-[1.1] mb-12 md:mb-16 max-w-4xl tracking-wide">
-                        The Proving Ground for African Web3 Startups.
+                        The Proving Ground for Web3 Startups.
                     </h1>
                     
                     {/* Bottom Row: Text/Button (Left) & Images (Right) */}
@@ -98,9 +96,9 @@ const ReConfig = () => {
                                 Join us for a 6-day build sprint uniting global protocols and elite Web3 talent in Port Harcourt this October.
                             </p>
                             <div className="flex flex-wrap items-center gap-3">
-                                <button type="button" className="px-8 py-3 bg-[#fe6500] text-white font-bold rounded-xl shadow-md hover:bg-[#e55a00] transition-colors">
+                                <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-[#fe6500] text-white font-bold rounded-xl shadow-md hover:bg-[#e55a00] transition-colors inline-block">
                                     Get Tickets
-                                </button>
+                                </a>
                                 <Link to="/speakers" className="px-8 py-3 border-2 border-slate-900 text-slate-900 font-bold rounded-xl hover:bg-slate-900 hover:text-white transition-colors">
                                     Speaker / Mentor
                                 </Link>
