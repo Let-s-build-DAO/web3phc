@@ -75,9 +75,6 @@ const ReConfig = () => {
                         <a href="#offerings" className="hover:text-brand-primary transition-colors">Offerings</a>
                     </div>
                     <div className="flex items-center gap-3">
-                        <Link to="/speakers" className="px-5 py-2.5 border-2 border-black/80 text-slate-900 font-['Righteous'] font-normal tracking-wide rounded-xl hover:bg-black hover:text-white transition-colors text-[15px] whitespace-nowrap">
-                            Speak / Mentor
-                        </Link>
                         <button type="button" className="px-6 py-2.5 bg-black text-white font-['Righteous'] font-normal tracking-wide rounded-xl shadow-md hover:bg-slate-800 transition-colors text-[15px]">
                             Get Tickets
                         </button>
@@ -105,7 +102,7 @@ const ReConfig = () => {
                                     Get Tickets
                                 </button>
                                 <Link to="/speakers" className="px-8 py-3 border-2 border-slate-900 text-slate-900 font-bold rounded-xl hover:bg-slate-900 hover:text-white transition-colors">
-                                    Speak / Mentor
+                                    Speaker / Mentor
                                 </Link>
                             </div>
                         </div>
