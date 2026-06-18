@@ -95,12 +95,12 @@ const ReConfig = () => {
                             <p className="text-[15px] text-slate-700 leading-relaxed mb-8 max-w-sm">
                                 Join us for a 6-day build sprint uniting global protocols and elite Web3 talent in Port Harcourt this October.
                             </p>
-                            <div className="flex flex-wrap items-center gap-3">
+                            <div className="flex flex-col items-start gap-3">
                                 <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-[#fe6500] text-white font-bold rounded-xl shadow-md hover:bg-[#e55a00] transition-colors inline-block">
                                     Get Tickets
                                 </a>
-                                <Link to="/speakers" className="px-8 py-3 border-2 border-slate-900 text-slate-900 font-bold rounded-xl hover:bg-slate-900 hover:text-white transition-colors">
-                                    Speaker / Mentor
+                                <Link to="/speakers" className="text-slate-900 font-semibold underline underline-offset-4 decoration-2 decoration-brand-primary hover:text-brand-primary transition-colors">
+                                    Apply to Speak/Mentor →
                                 </Link>
                             </div>
                         </div>
