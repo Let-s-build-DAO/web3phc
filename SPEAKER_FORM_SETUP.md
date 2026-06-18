@@ -9,7 +9,7 @@ On submit it does two things, both best-effort (succeeds if either works):
 Code: [src/lib/speakerSubmit.js](src/lib/speakerSubmit.js).
 
 ## 1. Firestore (storage)
-1. Firebase console → project **web3phc** → **Build → Firestore Database → Create database**
+1. Firebase console → project **web3phc-5d851** → **Build → Firestore Database → Create database**
    (Production mode is fine — our rules handle access).
 2. Deploy the rules in [firestore.rules](firestore.rules):
    ```bash

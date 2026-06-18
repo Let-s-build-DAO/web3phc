@@ -1,18 +1,18 @@
 /**
- * Firebase initialisation — used only for X (Twitter) login on the Daily Drop game.
- * These are public client config values (safe to ship). Env vars override them so
- * you can point staging at a different project without code changes.
+ * Firebase initialisation — used for X (Twitter) login on the Daily Drop game and
+ * Firestore storage of speaker applications. These are public client config values
+ * (safe to ship). Env vars override them so you can point staging at another project.
  */
 import { initializeApp } from "firebase/app";
 import { getAuth, TwitterAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyAwCSnciGKb38zmmEE8UAVChcecFfx3G8E",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "web3phc.firebaseapp.com",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "web3phc",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "web3phc.firebasestorage.app",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "1078702927342",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:1078702927342:web:3494604c6d0ad6cd6932ff",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyDkb61ss5h56c8j88L-dDDbT_lfMAsVlgY",
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "web3phc-5d851.firebaseapp.com",
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "web3phc-5d851",
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "web3phc-5d851.firebasestorage.app",
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "383309427814",
+  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:383309427814:web:9939bc481a449e8f93e9a7",
 };
 
 export const isFirebaseConfigured = Boolean(
