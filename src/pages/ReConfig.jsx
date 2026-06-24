@@ -27,8 +27,8 @@ const reconfigJsonLd = {
             description: RECONFIG_SEO_DESCRIPTION,
             url: absoluteUrl("/reconfig"),
             image: absoluteUrl("/thumb.JPG"),
-            startDate: "2026-10-19",
-            endDate: "2026-10-24",
+            startDate: "2026-11-30",
+            endDate: "2026-12-05",
             eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
             eventStatus: "https://schema.org/EventScheduled",
             location: {
@@ -93,7 +93,7 @@ const ReConfig = () => {
                         {/* Left Column */}
                         <div className="lg:col-span-4 text-left text-slate-900 pt-2 lg:pt-4">
                             <p className="text-[15px] text-slate-700 leading-relaxed mb-8 max-w-sm">
-                                Join us for a 6-day build sprint uniting global protocols and elite Web3 talent in Port Harcourt this October.
+                                Join us for a 6-day build sprint uniting global protocols and elite Web3 talent in Port Harcourt this Nov 30th - Dec 5th.
                             </p>
                             <div className="flex flex-col items-start gap-3">
                                 <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-[#fe6500] text-white font-bold rounded-xl shadow-md hover:bg-[#e55a00] transition-colors inline-block">
@@ -187,12 +187,12 @@ const ReConfig = () => {
                     {/* Dates */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24 relative z-10">
                         <div className="bg-[#111] border border-white/10 rounded-2xl p-8 flex flex-col justify-center hover:border-brand-primary/50 transition-colors">
-                            <h4 className="text-brand-primary font-['Righteous'] font-normal tracking-wide text-2xl uppercase mb-2">Oct 19–24</h4>
+                            <h4 className="text-brand-primary font-['Righteous'] font-normal tracking-wide text-2xl uppercase mb-2">Nov 30–Dec 4</h4>
                             <p className="text-white font-bold text-lg mb-1">Re:Config Assembly</p>
                             <p className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Port Harcourt, NG</p>
                         </div>
                         <div className="bg-[#111] border border-white/10 rounded-2xl p-8 flex flex-col justify-center hover:border-brand-primary/50 transition-colors">
-                            <h4 className="text-brand-primary font-['Righteous'] font-normal tracking-wide text-2xl uppercase mb-2">Oct 24</h4>
+                            <h4 className="text-brand-primary font-['Righteous'] font-normal tracking-wide text-2xl uppercase mb-2">Dec 5</h4>
                             <p className="text-white font-bold text-lg mb-1">Re:Config Summit</p>
                             <p className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Port Harcourt, NG</p>
                         </div>
