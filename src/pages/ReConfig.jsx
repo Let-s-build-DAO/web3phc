@@ -117,7 +117,7 @@ const ReConfig = () => {
                     {/* Top Row: Dash and Headline */}
                     <div className="w-12 h-[2px] bg-brand-primary mb-8" />
                     <h1 className="text-5xl sm:text-6xl md:text-[50px] font-['Righteous'] font-normal text-slate-900 leading-[1.1] mb-12 md:mb-16 max-w-4xl tracking-wide">
-                        The Proving Ground for Web3 Startups.
+                        Where Founders Ship for the Internet Capital Markets.
                     </h1>
                     
                     {/* Bottom Row: Text/Button (Left) & Images (Right) */}
@@ -126,7 +126,7 @@ const ReConfig = () => {
                         {/* Left Column */}
                         <div className="lg:col-span-4 text-left text-slate-900 pt-2 lg:pt-4">
                             <p className="text-[15px] text-slate-700 leading-relaxed mb-8 max-w-sm">
-                                Join us for a 6-day build sprint uniting global protocols and elite Web3 talent in Port Harcourt this Nov 30th - Dec 5th.
+                                A 6-day execution sprint uniting elite builders, market operators, and global protocols. Move past testnet prototypes and build scalable, market-ready businesses in Port Harcourt this Nov 30th - Dec 5th.
                             </p>
                             <div className="flex flex-col gap-4">
                                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
@@ -146,10 +146,10 @@ const ReConfig = () => {
                         {/* Right Column (Twin Images side-by-side) */}
                         <div className="lg:col-span-8 flex justify-start lg:justify-end gap-4 lg:gap-6">
                             <div className="w-1/2 aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl border border-black/5">
-                                <img src={EVENT_IMAGES[3]} alt="Event" className="w-full h-full object-cover" />
+                                <img src="/images/hero1.jpg" alt="Event" className="w-full h-full object-cover" />
                             </div>
                             <div className="w-1/2 aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl border border-black/5">
-                                <img src={EVENT_IMAGES[1]} alt="Community" className="w-full h-full object-cover" />
+                                <img src="/images/hero2.jpg" alt="Community" className="w-full h-full object-cover" />
                             </div>
                         </div>
                         
