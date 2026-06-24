@@ -252,7 +252,7 @@ const ReConfig = () => {
                                     <img src={EVENT_IMAGES[2]} alt="Workshop" className="w-full h-full object-cover" />
                                 </div>
                             </div>
-                            <div className="md:col-span-1 flex items-start justify-end">
+                            <div className="hidden md:flex md:col-span-1 items-start justify-end">
                                 <div className="w-3 h-3 rounded-full bg-brand-primary shadow-[0_0_12px_rgba(254,101,0,0.8)] mt-1"></div>
                             </div>
                         </div>
@@ -274,7 +274,7 @@ const ReConfig = () => {
                                     <img src={EVENT_IMAGES[1]} alt="Build Sprint" className="w-full h-full object-cover" />
                                 </div>
                             </div>
-                            <div className="md:col-span-1 flex items-start justify-end">
+                            <div className="hidden md:flex md:col-span-1 items-start justify-end">
                                 <div className="w-3 h-3 rounded-full border border-brand-primary mt-1"></div>
                             </div>
                         </div>
@@ -293,7 +293,7 @@ const ReConfig = () => {
                                 <p className="text-zinc-400 leading-relaxed">Teams present to institutional capital, global protocol leads, and ecosystem investors. Not a demo day  a market validation session with capital allocators who write real checks.
                                 </p>
                             </div>
-                            <div className="md:col-span-1 flex items-start justify-end">
+                            <div className="hidden md:flex md:col-span-1 items-start justify-end">
                                 <div className="w-3 h-3 rounded-full border border-brand-primary mt-1"></div>
                             </div>
                         </div>
@@ -315,7 +315,7 @@ const ReConfig = () => {
                                     <img src={EVENT_IMAGES[3]} alt="Summit" className="w-full h-full object-cover" />
                                 </div>
                             </div>
-                            <div className="md:col-span-1 flex items-start justify-end">
+                            <div className="hidden md:flex md:col-span-1 items-start justify-end">
                                 <div className="w-3 h-3 rounded-full bg-brand-primary animate-pulse shadow-[0_0_12px_rgba(254,101,0,0.8)] mt-1"></div>
                             </div>
                         </div>
@@ -408,33 +408,27 @@ const ReConfig = () => {
                     </div>
 
                     <div className="space-y-0">
-                        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 py-8 border-b border-white/10 hover:bg-white/[0.02] transition-colors px-2 group">
-                            <div className="md:col-span-1 flex items-start">
-                                <FaRobot className="text-xl text-brand-primary mt-1" />
-                            </div>
-                            <div className="md:col-span-4">
+                        <div className="flex flex-col md:grid md:grid-cols-12 gap-4 md:gap-6 py-8 border-b border-white/10 hover:bg-white/[0.02] transition-colors px-2 group">
+                            <div className="md:col-span-5 flex items-center md:items-start gap-4">
+                                <FaRobot className="text-xl text-brand-primary md:mt-1 shrink-0" />
                                 <h3 className="text-lg font-['Righteous'] font-normal tracking-wide uppercase text-white">Path to Mainnet</h3>
                             </div>
                             <div className="md:col-span-7">
                                 <p className="text-zinc-400 leading-relaxed">Participants build on testnet with the clear goal of deploying to mainnet. Real stakes, real users, real feedback preparing for the open market.</p>
                             </div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 py-8 border-b border-white/10 hover:bg-white/[0.02] transition-colors px-2 group">
-                            <div className="md:col-span-1 flex items-start">
-                                <FaGlobe className="text-xl text-brand-primary mt-1" />
-                            </div>
-                            <div className="md:col-span-4">
+                        <div className="flex flex-col md:grid md:grid-cols-12 gap-4 md:gap-6 py-8 border-b border-white/10 hover:bg-white/[0.02] transition-colors px-2 group">
+                            <div className="md:col-span-5 flex items-center md:items-start gap-4">
+                                <FaGlobe className="text-xl text-brand-primary md:mt-1 shrink-0" />
                                 <h3 className="text-lg font-['Righteous'] font-normal tracking-wide uppercase text-white">Global Distribution</h3>
                             </div>
                             <div className="md:col-span-7">
                                 <p className="text-zinc-400 leading-relaxed">Outstanding teams receive continued support, ecosystem introductions, direct protocol grants, and introductions to institutional capital allocators who write real checks.</p>
                             </div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 py-8 hover:bg-white/[0.02] transition-colors px-2 group">
-                            <div className="md:col-span-1 flex items-start">
-                                <FaCheckCircle className="text-xl text-brand-primary mt-1" />
-                            </div>
-                            <div className="md:col-span-4">
+                        <div className="flex flex-col md:grid md:grid-cols-12 gap-4 md:gap-6 py-8 hover:bg-white/[0.02] transition-colors px-2 group">
+                            <div className="md:col-span-5 flex items-center md:items-start gap-4">
+                                <FaCheckCircle className="text-xl text-brand-primary md:mt-1 shrink-0" />
                                 <h3 className="text-lg font-['Righteous'] font-normal tracking-wide uppercase text-white">Permanent Record</h3>
                             </div>
                             <div className="md:col-span-7">
