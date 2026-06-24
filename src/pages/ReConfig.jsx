@@ -176,7 +176,7 @@ const ReConfig = () => {
                                 Six days uniting elite builders, market operators, and global protocols. Build scalable, market-ready businesses in Port Harcourt this Nov 30th - Dec 5th.
                             </p>
                             <div className="flex flex-col gap-4">
-                                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full">
+                                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                                     <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-[#fe6500] text-white font-bold rounded-xl shadow-md hover:bg-[#e55a00] transition-colors block text-center sm:inline-block">
                                         Get Tickets
                                     </a>
@@ -436,11 +436,11 @@ const ReConfig = () => {
                     <p className="text-xl md:text-2xl font-medium leading-relaxed mb-10 max-w-3xl mx-auto opacity-90">
                         Partner with Re:Config to gain direct access to Africa&apos;s most active Web3 builder base and global protocol leaders. Let&apos;s build the future together.
                     </p>
-                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 sm:gap-6 w-full max-w-sm sm:max-w-none mx-auto">
-                        <a href="https://t.me/GreatAdams" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-white text-black hover:bg-zinc-200 font-black uppercase tracking-widest text-sm rounded-full shadow-2xl hover:scale-105 transition-transform block text-center sm:inline-block w-full sm:w-auto sm:min-w-[250px]">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 sm:gap-6">
+                        <a href="https://t.me/GreatAdams" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-white text-black hover:bg-zinc-200 font-black uppercase tracking-widest text-sm rounded-full shadow-2xl hover:scale-105 transition-transform block text-center sm:flex sm:items-center sm:gap-3 sm:justify-center sm:min-w-[250px]">
                             Message on Telegram
                         </a>
-                        <a href="mailto:great@lbdao.xyz" className="px-8 py-4 bg-black text-white hover:bg-slate-900 font-black uppercase tracking-widest text-sm rounded-full shadow-2xl hover:scale-105 transition-transform block text-center sm:inline-block w-full sm:w-auto sm:min-w-[250px]">
+                        <a href="mailto:great@lbdao.xyz" className="px-8 py-4 bg-black text-white hover:bg-slate-900 font-black uppercase tracking-widest text-sm rounded-full shadow-2xl hover:scale-105 transition-transform block text-center sm:flex sm:items-center sm:gap-3 sm:justify-center sm:min-w-[250px]">
                             great@lbdao.xyz
                         </a>
                     </div>
