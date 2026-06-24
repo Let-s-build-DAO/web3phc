@@ -174,8 +174,8 @@ const ReConfig = () => {
                             <p className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Builders & Founders</p>
                         </div>
                         <div className="border-t md:border-t-0 border-r border-white/10 py-10 px-6 flex flex-col items-center text-center">
-                            <span className="text-5xl md:text-6xl font-['Righteous'] text-white font-normal mb-2">0</span>
-                            <p className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Testnet Deployments</p>
+                            <span className="text-5xl md:text-6xl font-['Righteous'] text-white font-normal mb-2">7</span>
+                            <p className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Ecosystem Tracks</p>
                         </div>
                         <div className="border-t md:border-t-0 border-white/10 py-10 px-6 flex flex-col items-center text-center">
                             <span className="text-5xl md:text-6xl font-['Righteous'] text-brand-primary font-normal mb-2">∞</span>
@@ -212,7 +212,7 @@ const ReConfig = () => {
                                 <p className="text-zinc-500 text-sm mt-1">Market Intelligence</p>
                             </div>
                             <div className="md:col-span-5">
-                                <p className="text-zinc-400 leading-relaxed">Intensive Go-To-Market tracks and founder-led strategy sessions. Builders engage directly with protocol teams on RWA, DeFAI, AI Agents, and Stablecoin payment rails — identifying where real liquidity lives.
+                                <p className="text-zinc-400 leading-relaxed">Intensive Go-To-Market tracks and founder-led strategy sessions. Builders engage directly with protocol teams across our 7 core ecosystems — identifying where real liquidity lives.
                                 </p>
                             </div>
                             <div className="md:col-span-1 flex items-start justify-end">
@@ -227,11 +227,11 @@ const ReConfig = () => {
                                 <h3 className="text-2xl font-['Righteous'] font-normal tracking-wide uppercase text-white">Days 3–4</h3>
                             </div>
                             <div className="md:col-span-3">
-                                <p className="text-zinc-300 font-semibold">Build Sprint</p>
+                                <p className="text-zinc-300 font-semibold">Co-working</p>
                                 <p className="text-zinc-500 text-sm mt-1">Live On-Chain Deployment</p>
                             </div>
                             <div className="md:col-span-5">
-                                <p className="text-zinc-400 leading-relaxed">Execution mode. Teams ship working products on mainnet — not testnet. Market operators embedded in every team close the gap between engineering and commercial reality.
+                                <p className="text-zinc-400 leading-relaxed">Execution mode. Teams build on testnet before deploying to mainnet. Market operators embedded in every team close the gap between engineering and commercial reality.
                                 </p>
                             </div>
                             <div className="md:col-span-1 flex items-start justify-end">
@@ -246,7 +246,7 @@ const ReConfig = () => {
                                 <h3 className="text-2xl font-['Righteous'] font-normal tracking-wide uppercase text-white">Day 5</h3>
                             </div>
                             <div className="md:col-span-3">
-                                <p className="text-zinc-300 font-semibold">Capital Day</p>
+                                <p className="text-zinc-300 font-semibold">Demo Day</p>
                                 <p className="text-zinc-500 text-sm mt-1">Pitch to the Market</p>
                             </div>
                             <div className="md:col-span-5">
@@ -311,7 +311,7 @@ const ReConfig = () => {
                             <FaLaptopCode className="text-2xl text-brand-primary mb-6" />
                             <h3 className="text-lg font-['Righteous'] font-normal tracking-wide uppercase mb-4 text-white">GTM Tracks</h3>
                             <p className="text-zinc-400 leading-relaxed text-sm">
-                                Intensive Go-To-Market sessions covering RWA, DeFAI, AI Agents, and Stablecoin payment rails — built around distribution, not just deployment.
+                                Intensive Go-To-Market sessions covering AI & Autonomous Systems, Stablecoins & Digital Payments, RWAs, Consumer Crypto, DeFi, Gaming, and Startup Building.
                             </p>
                         </div>
                         <div className="py-10 md:py-0 md:px-10">
@@ -370,10 +370,10 @@ const ReConfig = () => {
                                 <FaRobot className="text-xl text-brand-primary mt-1" />
                             </div>
                             <div className="md:col-span-4">
-                                <h3 className="text-lg font-['Righteous'] font-normal tracking-wide uppercase text-white">Mainnet. Not Testnet.</h3>
+                                <h3 className="text-lg font-['Righteous'] font-normal tracking-wide uppercase text-white">Path to Mainnet</h3>
                             </div>
                             <div className="md:col-span-7">
-                                <p className="text-zinc-400 leading-relaxed">Participants deploy on live networks from day one. Real stakes, real users, real feedback — no simulations, no participation trophies.</p>
+                                <p className="text-zinc-400 leading-relaxed">Participants build on testnet with the clear goal of deploying to mainnet. Real stakes, real users, real feedback — preparing for the open market.</p>
                             </div>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 py-8 border-b border-white/10 hover:bg-white/[0.02] transition-colors px-2 group">
