@@ -73,10 +73,16 @@ const ReConfig = () => {
                         <a href="#about" className="hover:text-brand-primary transition-colors">About</a>
                         <a href="#schedule" className="hover:text-brand-primary transition-colors">Schedule</a>
                         <a href="#offerings" className="hover:text-brand-primary transition-colors">Offerings</a>
+                        <a href="#sponsor" className="hover:text-brand-primary transition-colors">Sponsor</a>
                     </div>
-                    <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" target="_blank" rel="noopener noreferrer" className="px-6 py-2.5 bg-black text-white font-['Righteous'] font-normal tracking-wide rounded-xl shadow-md hover:bg-slate-800 transition-colors text-[15px] inline-block">
-                        Get Tickets
-                    </a>
+                    <div className="flex items-center gap-2 sm:gap-3">
+                        <a href="#sponsor" className="inline-block px-3 sm:px-6 py-2 sm:py-2.5 bg-white text-black font-['Righteous'] font-normal tracking-wide rounded-xl shadow-md hover:bg-zinc-200 transition-colors text-[13px] sm:text-[15px]">
+                            Sponsor Us
+                        </a>
+                        <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" target="_blank" rel="noopener noreferrer" className="inline-block px-3 sm:px-6 py-2 sm:py-2.5 bg-black text-white font-['Righteous'] font-normal tracking-wide rounded-xl shadow-md hover:bg-slate-800 transition-colors text-[13px] sm:text-[15px]">
+                            Get Tickets
+                        </a>
+                    </div>
                 </nav>
 
                 <div className="custom-container relative z-10 w-full max-w-6xl mx-auto flex-grow flex flex-col justify-center">
@@ -95,11 +101,16 @@ const ReConfig = () => {
                             <p className="text-[15px] text-slate-700 leading-relaxed mb-8 max-w-sm">
                                 Join us for a 6-day build sprint uniting global protocols and elite Web3 talent in Port Harcourt this Nov 30th - Dec 5th.
                             </p>
-                            <div className="flex flex-col items-start gap-3">
-                                <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-[#fe6500] text-white font-bold rounded-xl shadow-md hover:bg-[#e55a00] transition-colors inline-block">
-                                    Get Tickets
-                                </a>
-                                <Link to="/speakers" className="text-slate-900 font-semibold underline underline-offset-4 decoration-2 decoration-brand-primary hover:text-brand-primary transition-colors">
+                            <div className="flex flex-col gap-4">
+                                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                                    <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-[#fe6500] text-white font-bold rounded-xl shadow-md hover:bg-[#e55a00] transition-colors inline-block">
+                                        Get Tickets
+                                    </a>
+                                    <a href="#sponsor" className="px-8 py-3 bg-black text-white font-bold rounded-xl shadow-md hover:bg-slate-800 transition-colors inline-block">
+                                        Become a Sponsor
+                                    </a>
+                                </div>
+                                <Link to="/speakers" className="text-slate-900 font-semibold underline underline-offset-4 decoration-2 decoration-brand-primary hover:text-brand-primary transition-colors inline-block">
                                     Apply to Speak/Mentor →
                                 </Link>
                             </div>
@@ -248,19 +259,24 @@ const ReConfig = () => {
                 </div>
             </section>
 
-            {/* ─── 5. FULL WIDTH CTA ─── */}
-            <section className="py-24 px-4 bg-brand-primary text-black text-center relative overflow-hidden">
+            {/* ─── 5. BECOME A SPONSOR ─── */}
+            <section id="sponsor" className="py-24 px-4 bg-brand-primary text-black text-center relative overflow-hidden border-y border-brand-primary">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2),transparent_70%)] pointer-events-none" />
                 <div className="custom-container max-w-4xl mx-auto relative z-10">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Righteous'] font-normal tracking-wide uppercase mb-8">
-                        Join the Web3 Revolution Today!
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Righteous'] font-normal tracking-wide uppercase mb-6">
+                        Become a Sponsor
                     </h2>
                     <p className="text-xl md:text-2xl font-medium leading-relaxed mb-10 max-w-3xl mx-auto opacity-90">
-                        Be part of the change. Connect with global innovators and policymakers dedicated to shaping the future of Africa&apos;s digital economy.
+                        Partner with Re:Config to gain direct access to Africa&apos;s most active Web3 builder base and global protocol leaders. Let&apos;s build the future together.
                     </p>
-                    <button type="button" className="px-10 py-5 bg-black text-white font-black uppercase tracking-widest text-sm rounded-full shadow-2xl hover:scale-105 transition-transform">
-                        Get Tickets Now
-                    </button>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                        <a href="https://t.me/GreatAdams" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-white text-black hover:bg-zinc-200 font-black uppercase tracking-widest text-sm rounded-full shadow-2xl hover:scale-105 transition-transform flex items-center gap-3 min-w-[250px] justify-center">
+                            Message on Telegram
+                        </a>
+                        <a href="mailto:great@lbdao.xyz" className="px-8 py-4 bg-black text-white hover:bg-slate-900 font-black uppercase tracking-widest text-sm rounded-full shadow-2xl hover:scale-105 transition-transform flex items-center gap-3 min-w-[250px] justify-center">
+                            great@lbdao.xyz
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -301,7 +317,8 @@ const ReConfig = () => {
                 </div>
             </section>
 
-            {/* ─── 7. DAILY DROP GAME (floating launcher + modal) ─── */}
+
+            {/* ─── 8. DAILY DROP GAME (floating launcher + modal) ─── */}
             <DailyDrop />
         </div>
     );
