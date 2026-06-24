@@ -114,17 +114,15 @@ const ReConfig = () => {
 
                 <div className="custom-container relative z-10 w-full max-w-6xl mx-auto flex-grow flex flex-col justify-center">
                     
-                    {/* Top Row: Dash and Headline */}
-                    <div className="w-12 h-[2px] bg-brand-primary mb-8" />
-                    <h1 className="text-5xl sm:text-6xl md:text-[50px] font-['Righteous'] font-normal text-slate-900 leading-[1.1] mb-12 md:mb-16 max-w-4xl tracking-wide">
-                        Ship for the Open Market.
-                    </h1>
-                    
-                    {/* Bottom Row: Text/Button (Left) & Images (Right) */}
+                    {/* Hero Content Grid */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                         
                         {/* Left Column */}
-                        <div className="lg:col-start-2 lg:col-span-4 text-left text-slate-900 pt-2 lg:pt-4">
+                        <div className="lg:col-start-2 lg:col-span-5 text-left text-slate-900 pt-2 lg:pt-4">
+                            <div className="w-12 h-[2px] bg-brand-primary mb-8" />
+                            <h1 className="text-5xl sm:text-6xl md:text-[50px] font-['Righteous'] font-normal text-slate-900 leading-[1.1] mb-8 md:mb-10 max-w-4xl tracking-wide">
+                                Ship for the Open Market.
+                            </h1>
                             <p className="text-[15px] text-slate-700 leading-relaxed mb-8 max-w-sm">
                                 Six days uniting elite builders, market operators, and global protocols. Build scalable, market-ready businesses in Port Harcourt this Nov 30th - Dec 5th.
                             </p>
