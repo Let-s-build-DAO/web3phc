@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { FaLaptopCode, FaUsers, FaChartLine, FaCheckCircle, FaRobot, FaGlobe } from 'react-icons/fa';
+import { FaLaptopCode, FaUsers, FaChartLine, FaCheckCircle, FaRobot, FaGlobe, FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { SITE_ORIGIN, absoluteUrl } from '../config/site';
@@ -74,6 +74,7 @@ const reconfigJsonLd = {
 };
 
 const ReConfig = () => {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
         <div className="bg-[#050505] min-h-screen font-sans text-white selection:bg-brand-primary selection:text-black">
@@ -102,7 +103,8 @@ const ReConfig = () => {
                         <a href="#offerings" className="hover:text-brand-primary transition-colors">Offerings</a>
                         <a href="#sponsor" className="hover:text-brand-primary transition-colors">Sponsor</a>
                     </div>
-                    <div className="flex items-center gap-2 sm:gap-3">
+                    {/* Desktop Buttons */}
+                    <div className="hidden md:flex items-center gap-2 sm:gap-3">
                         <a href="#sponsor" className="inline-block px-3 sm:px-6 py-2 sm:py-2.5 bg-[#e55a00] text-white font-['Righteous'] font-normal tracking-wide rounded-xl shadow-md hover:bg-zinc-200 transition-colors text-[13px] sm:text-[15px]">
                             Sponsor Us
                         </a>
@@ -110,7 +112,54 @@ const ReConfig = () => {
                             Get Tickets
                         </a>
                     </div>
+                    
+                    {/* Mobile Menu Toggle */}
+                    <button 
+                        className="md:hidden text-2xl text-slate-900 focus:outline-none"
+                        onClick={() => setIsMobileMenuOpen(true)}
+                    >
+                        <FaBars />
+                    </button>
                 </nav>
+
+                {/* Mobile Menu Drawer */}
+                <div 
+                    className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#0a0a0a] shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col md:hidden ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
+                >
+                    <div className="flex justify-between items-center p-6 border-b border-white/10">
+                        <div className="font-['Righteous'] text-2xl text-white tracking-wide">
+                            Re:<span className="text-brand-primary">Config</span>
+                        </div>
+                        <button 
+                            className="text-2xl text-zinc-400 hover:text-white"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            <FaTimes />
+                        </button>
+                    </div>
+                    <div className="flex flex-col p-6 gap-6 text-lg font-['Righteous'] text-zinc-300 uppercase tracking-wide">
+                        <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-brand-primary transition-colors">About</a>
+                        <a href="#schedule" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-brand-primary transition-colors">Schedule</a>
+                        <a href="#offerings" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-brand-primary transition-colors">Offerings</a>
+                        <a href="#sponsor" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-brand-primary transition-colors">Sponsor</a>
+                    </div>
+                    <div className="mt-auto p-6 flex flex-col gap-4 border-t border-white/10">
+                        <a href="#sponsor" onClick={() => setIsMobileMenuOpen(false)} className="text-center py-3 bg-[#fe6500] text-white font-['Righteous'] tracking-widest uppercase text-sm rounded-xl hover:bg-[#e55a00] transition-colors">
+                            Sponsor Us
+                        </a>
+                        <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" onClick={() => setIsMobileMenuOpen(false)} target="_blank" rel="noopener noreferrer" className="text-center py-3 bg-white text-black font-['Righteous'] tracking-widest uppercase text-sm rounded-xl hover:bg-zinc-200 transition-colors">
+                            Get Tickets
+                        </a>
+                    </div>
+                </div>
+
+                {/* Mobile Overlay */}
+                {isMobileMenuOpen && (
+                    <div 
+                        className="fixed inset-0 z-40 bg-black/60 md:hidden backdrop-blur-sm transition-opacity"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    />
+                )}
 
                 <div className="custom-container relative z-10 w-full max-w-6xl mx-auto flex-grow flex flex-col justify-center">
                     
