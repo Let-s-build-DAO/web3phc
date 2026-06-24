@@ -4,7 +4,7 @@ import SEO from '../components/SEO';
 import { SITE_ORIGIN, absoluteUrl } from '../config/site';
 import DailyDrop from '../components/DailyDrop';
 
-const RECONFIG_SEO_DESCRIPTION = "Re:Config is Web3PHC's multi-day Web3 deployment event in Port Harcourt, Rivers State, Nigeria. Protocols and sponsors meet builders working across RWA, DeFAI, AI agents, stablecoins, and x402 payment rails.";
+const RECONFIG_SEO_DESCRIPTION = "Re:Config 2026 is a six-day gathering in Port Harcourt engineered around Commercial Viability — moving founders and developers past theoretical prototypes to ship real-world, scalable businesses that command liquidity and capture value across global internet capital markets.";
 
 const EVENT_IMAGES = ["/images/243.jpg", "/images/247.jpg", "/images/246.jpg", "/images/242.JPG"];
 
@@ -130,129 +130,167 @@ const ReConfig = () => {
                 </div>
             </header>
 
-            {/* ─── 2. THE JOURNEY (Chronological Timeline) ─── */}
-            <section className="py-24 md:py-32 px-4 relative bg-[#0a0a0a] border-b border-white/5">
+            {/* ─── 2. THEME STATEMENT ─── */}
+            <section id="about" className="py-24 md:py-32 px-4 relative bg-[#0a0a0a] border-b border-white/5 overflow-hidden">
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none" />
+                <div className="custom-container max-w-5xl mx-auto">
+                    <div className="mb-6">
+                        <p className="text-brand-primary font-mono text-sm tracking-widest uppercase font-bold">// Re:Config 2026 Theme</p>
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <h2 className="text-4xl md:text-5xl font-['Righteous'] font-normal tracking-wide uppercase text-white leading-tight mb-8">
+                                Built for the Market,<br /><span className="text-brand-primary">Not the Repository.</span>
+                            </h2>
+                            <p className="text-zinc-400 font-light text-lg leading-relaxed mb-6">
+                                Re:Config 2026 is a definitive shift toward <span className="text-white font-semibold">Commercial Viability</span>. The biggest barriers we face are no longer about writing raw code — they are about distribution, user acquisition, and building products that survive the open market.
+                            </p>
+                            <p className="text-zinc-400 font-light text-lg leading-relaxed">
+                                We are moving past empty testnet metrics and theoretical prototypes to engineer real-world, scalable businesses that unlock true economic value across the continent and beyond.
+                            </p>
+                        </div>
+                        <div className="space-y-6">
+                            <div className="border border-white/10 rounded-2xl p-6 bg-gradient-to-br from-[#111] to-black hover:border-brand-primary/40 transition-all">
+                                <p className="text-brand-primary font-mono text-xs tracking-widest uppercase mb-2">The Shift</p>
+                                <p className="text-white font-semibold text-lg">Code is cheap. Distribution is the product.</p>
+                                <p className="text-zinc-500 font-light mt-2">We eliminate the gap between engineering and execution by pairing technical builders with elite market operators from Day 1.</p>
+                            </div>
+                            <div className="border border-white/10 rounded-2xl p-6 bg-gradient-to-br from-[#111] to-black hover:border-brand-primary/40 transition-all">
+                                <p className="text-brand-primary font-mono text-xs tracking-widest uppercase mb-2">The Outcome</p>
+                                <p className="text-white font-semibold text-lg">Launch viable digital assets, not side projects.</p>
+                                <p className="text-zinc-500 font-light mt-2">Participants unlock direct access to global protocols, institutional capital, and real-world distribution networks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ─── 3. THE 6-DAY JOURNEY (Timeline) ─── */}
+            <section id="schedule" className="py-24 md:py-32 px-4 relative bg-black border-b border-white/5">
                 <div className="custom-container max-w-4xl mx-auto">
                     <div className="mb-20 text-center flex flex-col items-center">
-                        <p className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 font-bold">{"// The 6-Day Journey"}</p>
+                        <p className="text-brand-primary font-mono text-sm tracking-widest uppercase mb-4 font-bold">// The 6-Day Journey</p>
                         <h2 className="text-4xl md:text-5xl font-['Righteous'] font-normal tracking-wide uppercase text-white leading-tight">
-                            From Learning to <span className="text-brand-primary">Launching.</span>
+                            From Deployment to <span className="text-brand-primary">Dominance.</span>
                         </h2>
                         <p className="mt-6 text-zinc-400 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
-                            Across 6 days, Re:Config takes builders through an immersive journey—from hands-on protocol workshops to building MVPs, culminating in a public showcase.
+                            Six days engineered to take founders from technical depth to market-ready launch — with real capital, real protocols, and real distribution on the line.
                         </p>
                     </div>
 
                     <div className="relative border-l-2 border-brand-primary/30 pl-8 md:pl-12 space-y-16 ml-4 md:ml-0">
-                        {/* Day 1-3 */}
+                        {/* Days 1–3 */}
                         <div className="relative group">
                             <div className="absolute -left-[42px] md:-left-[58px] top-0 w-5 h-5 md:w-6 md:h-6 bg-brand-primary rounded-full ring-4 ring-black group-hover:scale-125 transition-transform" />
+                            <p className="text-brand-primary font-mono text-xs tracking-widest uppercase mb-2">Nov 30 – Dec 2</p>
                             <h3 className="text-3xl md:text-4xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-3">Days 1–3</h3>
-                            <h4 className="text-xl font-['Righteous'] font-normal tracking-wide text-blue-400 mb-4">The Foundation.</h4>
+                            <h4 className="text-xl font-['Righteous'] font-normal tracking-wide text-zinc-300 mb-4">Re:Config Assembly — Market Intelligence.</h4>
                             <p className="text-zinc-400 font-light text-lg leading-relaxed mb-6">
-                                The Re:Config Assembly begins. Dive deep into technical workshops covering Smart Contracts, AI Agents, and Real World Assets. Engage in founder discussions and ecosystem learning.
+                                Intensive Go-To-Market tracks and founder-led strategy sessions. Builders engage directly with protocol teams on RWA, DeFAI, AI Agents, and Stablecoin payment rails — identifying where real liquidity lives and how to capture it.
                             </p>
                             <div className="rounded-2xl overflow-hidden border border-white/10 w-full sm:w-2/3 max-h-64 opacity-80 group-hover:opacity-100 transition-opacity">
                                 <img src={EVENT_IMAGES[2]} alt="Workshop" className="w-full h-full object-cover" />
                             </div>
                         </div>
 
-                        {/* Day 3-4 */}
+                        {/* Days 3–4 */}
                         <div className="relative group">
                             <div className="absolute -left-[42px] md:-left-[58px] top-0 w-5 h-5 md:w-6 md:h-6 bg-zinc-800 rounded-full border-2 border-brand-primary group-hover:bg-brand-primary ring-4 ring-black transition-all" />
+                            <p className="text-brand-primary font-mono text-xs tracking-widest uppercase mb-2">Dec 2 – Dec 3</p>
                             <h3 className="text-3xl md:text-4xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-3">Days 3–4</h3>
-                            <h4 className="text-xl font-['Righteous'] font-normal tracking-wide text-blue-400 mb-4">Get Busy.</h4>
+                            <h4 className="text-xl font-['Righteous'] font-normal tracking-wide text-zinc-300 mb-4">Build Sprint — Live On-Chain Deployment.</h4>
                             <p className="text-zinc-400 font-light text-lg leading-relaxed">
-                                Execution time. Hackathon energy takes over as teams form around ideas identified during the learning phase and begin actively building out their decentralized infrastructure with direct mentorship from protocol teams.
+                                Execution mode. Teams ship working products on mainnet — not testnet. Market operators embedded in every team eliminate the gap between engineering and commercial reality from the first line of code.
                             </p>
                         </div>
 
-                        {/* Day 5 */}
+                        {/* Day 4–5 */}
                         <div className="relative group">
                             <div className="absolute -left-[42px] md:-left-[58px] top-0 w-5 h-5 md:w-6 md:h-6 bg-zinc-800 rounded-full border-2 border-brand-primary group-hover:bg-brand-primary ring-4 ring-black transition-all" />
+                            <p className="text-brand-primary font-mono text-xs tracking-widest uppercase mb-2">Dec 4</p>
                             <h3 className="text-3xl md:text-4xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-3">Day 5</h3>
-                            <h4 className="text-xl font-['Righteous'] font-normal tracking-wide text-blue-400 mb-4">Demo Day.</h4>
+                            <h4 className="text-xl font-['Righteous'] font-normal tracking-wide text-zinc-300 mb-4">Capital Day — Pitch to the Market.</h4>
                             <p className="text-zinc-400 font-light text-lg leading-relaxed">
-                                Teams pitch to investors and judges. A showcase of live product demonstrations, technical architecture reviews, and market opportunity validation.
+                                Teams present to institutional capital, global protocol leads, and ecosystem investors. This is not a demo day — it is a market validation session with capital allocators who write real checks.
                             </p>
                         </div>
 
                         {/* Day 6 */}
                         <div className="relative group">
                             <div className="absolute -left-[42px] md:-left-[58px] top-0 w-5 h-5 md:w-6 md:h-6 bg-brand-primary rounded-full ring-4 ring-black animate-pulse" />
+                            <p className="text-brand-primary font-mono text-xs tracking-widest uppercase mb-2">Dec 5</p>
                             <h3 className="text-3xl md:text-4xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-3">Day 6</h3>
-                            <h4 className="text-xl font-['Righteous'] font-normal tracking-wide text-blue-400 mb-4">The Summit.</h4>
+                            <h4 className="text-xl font-['Righteous'] font-normal tracking-wide text-zinc-300 mb-4">The Summit — Internet Capital Markets.</h4>
                             <p className="text-zinc-400 font-light text-lg leading-relaxed">
-                                The public finale. Builders, founders, creators, students, and global ecosystem leaders come together to explore the products built. Featuring keynotes, panels, and deep networking.
+                                The public summit. Where the next generation of founders ship for the Internet Capital Markets. Keynotes, ecosystem announcements, live product launches, and the connections that define careers.
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* ─── 3. ITINERARY CARDS & PROTOCOLS ─── */}
-            <section className="py-20 px-4 bg-black border-b border-white/5 relative overflow-hidden">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
+            {/* ─── 4. DATES & PROTOCOLS ─── */}
+            <section className="py-20 px-4 bg-[#0a0a0a] border-b border-white/5 relative overflow-hidden">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-brand-primary/5 rounded-full blur-[100px] pointer-events-none" />
                 <div className="custom-container max-w-5xl mx-auto">
-                    
-                    {/* Dates */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24 relative z-10">
                         <div className="bg-[#111] border border-white/10 rounded-2xl p-8 flex flex-col justify-center hover:border-brand-primary/50 transition-colors">
-                            <h4 className="text-brand-primary font-['Righteous'] font-normal tracking-wide text-2xl uppercase mb-2">Nov 30–Dec 4</h4>
-                            <p className="text-white font-bold text-lg mb-1">Re:Config Assembly</p>
-                            <p className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Port Harcourt, NG</p>
+                            <p className="text-brand-primary font-mono text-xs tracking-widest uppercase mb-3">Re:Config Assembly</p>
+                            <h4 className="text-white font-['Righteous'] font-normal tracking-wide text-3xl uppercase mb-2">Nov 30–Dec 4</h4>
+                            <p className="text-zinc-400 font-light">Five days of GTM tracks, build sprints, and protocol integration — engineered for commercial output.</p>
+                            <p className="text-zinc-600 font-mono text-xs uppercase tracking-widest mt-4">Port Harcourt, NG</p>
                         </div>
                         <div className="bg-[#111] border border-white/10 rounded-2xl p-8 flex flex-col justify-center hover:border-brand-primary/50 transition-colors">
-                            <h4 className="text-brand-primary font-['Righteous'] font-normal tracking-wide text-2xl uppercase mb-2">Dec 5</h4>
-                            <p className="text-white font-bold text-lg mb-1">Re:Config Summit</p>
-                            <p className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Port Harcourt, NG</p>
+                            <p className="text-brand-primary font-mono text-xs tracking-widest uppercase mb-3">Re:Config Summit</p>
+                            <h4 className="text-white font-['Righteous'] font-normal tracking-wide text-3xl uppercase mb-2">Dec 5</h4>
+                            <p className="text-zinc-400 font-light">The public summit where the next generation of founders ship for the Internet Capital Markets.</p>
+                            <p className="text-zinc-600 font-mono text-xs uppercase tracking-widest mt-4">Port Harcourt, NG</p>
                         </div>
                     </div>
 
-                    {/* Protocol Banner */}
                     <div className="text-center relative z-10">
-                        <h3 className="text-2xl md:text-3xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-8">Trusted by the global <span className="text-brand-primary">Web3 Ecosystem.</span></h3>
+                        <h3 className="text-2xl md:text-3xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-8">Backed by the Global <span className="text-brand-primary">Web3 Ecosystem.</span></h3>
                         <p className="text-zinc-400 font-light mb-12 max-w-2xl mx-auto">
-                            Re:Config is backed by leading L1s, L2s, infrastructure projects, and the African Web3 ecosystem.
+                            Leading L1s, L2s, infrastructure protocols, and institutional capital partners — all aligned around one goal: commercial output.
                         </p>
-                        
-                        <div className="w-full bg-[#0a0a0a] border border-white/10 rounded-3xl p-10 py-16 flex items-center justify-center">
+                        <div className="w-full bg-black border border-white/10 rounded-3xl p-10 py-16 flex items-center justify-center">
                             <p className="text-zinc-600 font-mono text-sm tracking-widest uppercase">
-                                [ Protocol Logos & Ecosystem Partners will appear here ]
+                                [ Protocol Logos &amp; Ecosystem Partners will appear here ]
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* ─── 4. OFFERINGS GRID ─── */}
-            <section className="py-24 md:py-32 px-4 bg-[#0a0a0a] border-b border-white/5">
+            {/* ─── 5. WHAT YOU GET ─── */}
+            <section id="offerings" className="py-24 md:py-32 px-4 bg-black border-b border-white/5">
                 <div className="custom-container max-w-6xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-4">Explore Our Offerings</h2>
-                        <p className="text-zinc-400 max-w-2xl mx-auto text-lg font-light">Signal over noise. We are laser-focused on verified, on-chain execution.</p>
+                        <p className="text-brand-primary font-mono text-sm tracking-widest uppercase mb-4 font-bold">// What You Unlock</p>
+                        <h2 className="text-3xl md:text-5xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-4">Engineering Meets Execution</h2>
+                        <p className="text-zinc-400 max-w-2xl mx-auto text-lg font-light">Because code without distribution is just a hobby. We pair both from Day 1.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="bg-[#111] border border-white/5 p-10 rounded-2xl hover:bg-white/5 transition-all">
+                        <div className="bg-[#111] border border-white/5 p-10 rounded-2xl hover:border-brand-primary/30 hover:bg-white/5 transition-all">
                             <FaLaptopCode className="text-4xl text-brand-primary mb-6" />
-                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-4 text-white">Targeted Sectors</h3>
+                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-4 text-white">GTM Tracks</h3>
                             <p className="text-zinc-400 font-light leading-relaxed">
-                                Building specifically for RWA (Real World Assets), DeFi, Infrastructure, AI Agents, and Stablecoin payment rails.
+                                Intensive Go-To-Market sessions covering RWA, DeFAI, AI Agents, and Stablecoin payment rails — built around distribution, not just deployment.
                             </p>
                         </div>
-                        <div className="bg-[#111] border border-white/5 p-10 rounded-2xl hover:bg-white/5 transition-all">
+                        <div className="bg-[#111] border border-white/5 p-10 rounded-2xl hover:border-brand-primary/30 hover:bg-white/5 transition-all">
                             <FaUsers className="text-4xl text-brand-primary mb-6" />
-                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-4 text-white">1,200+ Builders</h3>
+                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-4 text-white">Market Operators</h3>
                             <p className="text-zinc-400 font-light leading-relaxed">
-                                Bringing together Africa&apos;s most active Web3 builder base, elite AI coders, and top global protocol decision-makers.
+                                Elite market operators embedded in every team from Day 1 — bridging the gap between technical builders and commercial execution in real time.
                             </p>
                         </div>
-                        <div className="bg-[#111] border border-white/5 p-10 rounded-2xl hover:bg-white/5 transition-all">
+                        <div className="bg-[#111] border border-white/5 p-10 rounded-2xl hover:border-brand-primary/30 hover:bg-white/5 transition-all">
                             <FaChartLine className="text-4xl text-brand-primary mb-6" />
-                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-4 text-white">Commercially Viable</h3>
+                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-4 text-white">Capital Access</h3>
                             <p className="text-zinc-400 font-light leading-relaxed">
-                                Unlike traditional hackathons yielding disposable projects, we focus strictly on scalable, market-ready dApps.
+                                Direct access to global protocols, institutional capital, and real-world distribution networks. Build for Internet Capital Markets, not the repository.
                             </p>
                         </div>
                     </div>
@@ -280,37 +318,38 @@ const ReConfig = () => {
                 </div>
             </section>
 
-            {/* ─── 6. DIFFERENTIATORS (Continuity) ─── */}
-            <section className="py-24 md:py-32 px-4 bg-black">
+            {/* ─── 7. DIFFERENTIATORS ─── */}
+            <section className="py-24 md:py-32 px-4 bg-[#0a0a0a]">
                 <div className="custom-container max-w-5xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-4">What Sets Us Apart</h2>
-                        <p className="text-zinc-400 max-w-2xl mx-auto text-lg font-light">Re:Config doesn&apos;t end when the event concludes.</p>
+                        <p className="text-brand-primary font-mono text-sm tracking-widest uppercase mb-4 font-bold">// Why Re:Config</p>
+                        <h2 className="text-3xl md:text-5xl font-['Righteous'] font-normal tracking-wide uppercase text-white mb-4">This Is Not a Hackathon.</h2>
+                        <p className="text-zinc-400 max-w-2xl mx-auto text-lg font-light">Hackathons build for repositories. Re:Config builds for markets.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div className="border border-white/10 rounded-2xl p-8 relative overflow-hidden bg-gradient-to-b from-[#111] to-black group hover:border-blue-500/50 transition-all">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-bl-full" />
-                            <FaRobot className="text-3xl text-white mb-6 group-hover:text-blue-400 transition-colors" />
-                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-3 text-white">Permanent Learning</h3>
+                        <div className="border border-white/10 rounded-2xl p-8 relative overflow-hidden bg-gradient-to-b from-[#111] to-black group hover:border-brand-primary/50 transition-all">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/10 rounded-bl-full" />
+                            <FaRobot className="text-3xl text-white mb-6 group-hover:text-brand-primary transition-colors" />
+                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-3 text-white">Mainnet. Not Testnet.</h3>
                             <p className="text-zinc-400 font-light leading-relaxed">
-                                All technical content is recorded and integrated into LB Academy, creating a permanent resource for developers.
+                                Participants deploy on live networks from day one. Real stakes, real users, real feedback — no simulations.
                             </p>
                         </div>
                         <div className="border border-white/10 rounded-2xl p-8 relative overflow-hidden bg-gradient-to-b from-[#111] to-black group hover:border-brand-primary/50 transition-all">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/10 rounded-bl-full" />
                             <FaGlobe className="text-3xl text-white mb-6 group-hover:text-brand-primary transition-colors" />
-                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-3 text-white">Global Visibility</h3>
+                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-3 text-white">Global Distribution</h3>
                             <p className="text-zinc-400 font-light leading-relaxed">
-                                Outstanding builders and teams receive continued support, ecosystem introductions, and direct grant opportunities.
+                                Outstanding teams receive continued support, ecosystem introductions, direct protocol grants, and introductions to institutional capital allocators.
                             </p>
                         </div>
-                        <div className="border border-white/10 rounded-2xl p-8 relative overflow-hidden bg-gradient-to-b from-[#111] to-black group hover:border-blue-500/50 transition-all sm:col-span-2 lg:col-span-1">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-bl-full" />
-                            <FaCheckCircle className="text-3xl text-white mb-6 group-hover:text-blue-400 transition-colors" />
-                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-3 text-white">Community Driven</h3>
+                        <div className="border border-white/10 rounded-2xl p-8 relative overflow-hidden bg-gradient-to-b from-[#111] to-black group hover:border-brand-primary/50 transition-all sm:col-span-2 lg:col-span-1">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/10 rounded-bl-full" />
+                            <FaCheckCircle className="text-3xl text-white mb-6 group-hover:text-brand-primary transition-colors" />
+                            <h3 className="text-xl font-['Righteous'] font-normal tracking-wide uppercase mb-3 text-white">Permanent Record</h3>
                             <p className="text-zinc-400 font-light leading-relaxed">
-                                Rooted deeply in the Web3PHC ecosystem, ensuring that growth translates into real-world local impact.
+                                Every session recorded and integrated into LB Academy. The knowledge built at Re:Config compounds across the entire African Web3 ecosystem.
                             </p>
                         </div>
                     </div>
