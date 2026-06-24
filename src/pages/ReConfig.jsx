@@ -76,7 +76,7 @@ const ReConfig = () => {
                         <a href="#sponsor" className="hover:text-brand-primary transition-colors">Sponsor</a>
                     </div>
                     <div className="flex items-center gap-2 sm:gap-3">
-                        <a href="#sponsor" className="inline-block px-3 sm:px-6 py-2 sm:py-2.5 bg-white text-black font-['Righteous'] font-normal tracking-wide rounded-xl shadow-md hover:bg-zinc-200 transition-colors text-[13px] sm:text-[15px]">
+                        <a href="#sponsor" className="inline-block px-3 sm:px-6 py-2 sm:py-2.5 bg-[#e55a00] text-white font-['Righteous'] font-normal tracking-wide rounded-xl shadow-md hover:bg-zinc-200 transition-colors text-[13px] sm:text-[15px]">
                             Sponsor Us
                         </a>
                         <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" target="_blank" rel="noopener noreferrer" className="inline-block px-3 sm:px-6 py-2 sm:py-2.5 bg-black text-white font-['Righteous'] font-normal tracking-wide rounded-xl shadow-md hover:bg-slate-800 transition-colors text-[13px] sm:text-[15px]">
