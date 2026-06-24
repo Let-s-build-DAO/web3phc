@@ -117,7 +117,7 @@ const ReConfig = () => {
                     {/* Top Row: Dash and Headline */}
                     <div className="w-12 h-[2px] bg-brand-primary mb-8" />
                     <h1 className="text-5xl sm:text-6xl md:text-[50px] font-['Righteous'] font-normal text-slate-900 leading-[1.1] mb-12 md:mb-16 max-w-4xl tracking-wide">
-                        Where Founders Ship for the Internet Capital Markets.
+                        Ship for the Open Market.
                     </h1>
                     
                     {/* Bottom Row: Text/Button (Left) & Images (Right) */}
@@ -126,7 +126,7 @@ const ReConfig = () => {
                         {/* Left Column */}
                         <div className="lg:col-span-4 text-left text-slate-900 pt-2 lg:pt-4">
                             <p className="text-[15px] text-slate-700 leading-relaxed mb-8 max-w-sm">
-                                A 6-day execution sprint uniting elite builders, market operators, and global protocols. Move past testnet prototypes and build scalable, market-ready businesses in Port Harcourt this Nov 30th - Dec 5th.
+                                Six days uniting elite builders, market operators, and global protocols. Build scalable, market-ready businesses in Port Harcourt this Nov 30th - Dec 5th.
                             </p>
                             <div className="flex flex-col gap-4">
                                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
