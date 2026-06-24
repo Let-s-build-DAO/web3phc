@@ -121,10 +121,10 @@ const ReConfig = () => {
                     </h1>
                     
                     {/* Bottom Row: Text/Button (Left) & Images (Right) */}
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                         
                         {/* Left Column */}
-                        <div className="lg:col-span-4 text-left text-slate-900 pt-2 lg:pt-4">
+                        <div className="lg:col-start-2 lg:col-span-4 text-left text-slate-900 pt-2 lg:pt-4">
                             <p className="text-[15px] text-slate-700 leading-relaxed mb-8 max-w-sm">
                                 Six days uniting elite builders, market operators, and global protocols. Build scalable, market-ready businesses in Port Harcourt this Nov 30th - Dec 5th.
                             </p>
@@ -144,11 +144,11 @@ const ReConfig = () => {
                         </div>
 
                         {/* Right Column (Twin Images side-by-side) */}
-                        <div className="lg:col-span-8 flex justify-start lg:justify-end gap-4 lg:gap-6">
-                            <div className="w-1/2 aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl border border-black/5">
+                        <div className="lg:col-span-6 flex justify-center gap-4 lg:gap-6">
+                            <div className="w-1/2 aspect-[3/4] rounded-[2rem] overflow-hidden shadow-xl border border-black/5">
                                 <img src="/images/hero1.jpg" alt="Event" className="w-full h-full object-cover" />
                             </div>
-                            <div className="w-1/2 aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl border border-black/5">
+                            <div className="w-1/2 aspect-[3/4] rounded-[2rem] overflow-hidden shadow-xl border border-black/5">
                                 <img src="/images/hero2.jpg" alt="Community" className="w-full h-full object-cover" />
                             </div>
                         </div>
