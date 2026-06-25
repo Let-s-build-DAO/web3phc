@@ -438,7 +438,7 @@ const ReConfig = () => {
                         Become a Sponsor
                     </h2>
                     <p className="text-xl md:text-2xl font-medium leading-relaxed mb-10 max-w-3xl mx-auto text-slate-700">
-                        Partner with Re:Config to gain direct access to Africa&apos;s most active Web3 builder base and global protocol leaders. Let&apos;s build the future together.
+                        Partner with Re:Config to deploy capital where actual adoption happens. Gain direct access to Africa&apos;s most active builder base and teams shipping commercially viable products for the open market.
                     </p>
                     <div className="flex flex-col items-stretch items-center gap-4 m-auto">
                         <a href="https://t.me/GreatAdams" target="_blank" rel="noopener noreferrer" className="px-6 sm:px-8 py-4 bg-brand-primary text-white hover:bg-[#e55a00] font-black uppercase tracking-widest text-sm rounded-full shadow-2xl hover:scale-105 transition-transform block md:w-1/4 m-auto text-center sm:flex sm:items-center sm:justify-center">
