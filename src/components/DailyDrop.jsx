@@ -257,7 +257,7 @@ const DailyDrop = () => {
     <>
       {/* Floating launcher — centering lives on this static wrapper so framer-motion's
           inline transform on the button can't clobber the translate. */}
-      <div className="fixed bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-[9998]">
+      <div className="fixed bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-30">
         <motion.button
           type="button"
           onClick={() => setOpen(true)}
