@@ -176,11 +176,11 @@ const ReConfig = () => {
                                 Six days uniting elite builders, market operators, and global protocols. Build scalable, market-ready businesses in Port Harcourt this Nov 30th - Dec 5th.
                             </p>
                             <div className="flex flex-col gap-4">
-                                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                                    <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-[#fe6500] text-white font-bold rounded-xl shadow-md hover:bg-[#e55a00] transition-colors block text-center sm:inline-block">
+                                <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3">
+                                    <a href="https://ticketdaddy.io/ev/eventiRQJPuWKYc" target="_blank" rel="noopener noreferrer" className="px-6 sm:px-8 py-3 bg-[#fe6500] text-white font-bold rounded-xl shadow-md hover:bg-[#e55a00] transition-colors block w-full sm:w-auto text-center">
                                         Get Tickets
                                     </a>
-                                    <a href="#sponsor" className="px-8 py-3 bg-black text-white font-bold rounded-xl shadow-md hover:bg-slate-800 transition-colors block text-center sm:inline-block">
+                                    <a href="#sponsor" className="px-6 sm:px-8 py-3 bg-black text-white font-bold rounded-xl shadow-md hover:bg-slate-800 transition-colors block w-full sm:w-auto text-center">
                                         Become a Sponsor
                                     </a>
                                 </div>
@@ -212,7 +212,7 @@ const ReConfig = () => {
                 <div className="custom-container max-w-6xl mx-auto px-4 py-20 md:py-28 grid grid-cols-1 lg:grid-cols-2 gap-0">
                     {/* Left: Headline */}
                     <div className="lg:border-r border-white/10 lg:pr-16 py-8 lg:py-0 flex flex-col justify-center">
-                        <p className="text-brand-primary font-mono text-xs tracking-widest uppercase mb-6">Re:Config 2026 Theme</p>
+                        <p className="text-brand-primary font-mono text-xs tracking-widest uppercase mb-6">Re:Config 2026</p>
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Righteous'] font-normal tracking-wide uppercase text-white leading-[1.05] mb-8">
                             Built for the Market,<br /><span className="text-brand-primary">Not the Repository.</span>
                         </h2>
@@ -375,16 +375,19 @@ const ReConfig = () => {
             </section>
 
             {/* ─── 4. ECOSYSTEM PARTNERS ─── */}
-            <section className="border-b border-white/10 bg-[#0a0a0a]">
-                <div className="custom-container max-w-6xl mx-auto px-4 py-20 md:py-28">
-                    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 pb-12 border-b border-white/10">
-                        <h3 className="text-3xl md:text-4xl font-['Righteous'] font-normal tracking-wide uppercase text-white">Backed by the Global <span className="text-brand-primary">Web3 Ecosystem.</span></h3>
-                        <p className="text-zinc-400 max-w-sm leading-relaxed md:text-right text-sm">
+            <section className="relative overflow-hidden border-b border-brand-primary/20 bg-gradient-to-br from-white via-orange-50 to-orange-100">
+                {/* Geometric Grid Pattern */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#fe650015_1px,transparent_1px),linear-gradient(to_bottom,#fe650015_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0 opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)]" />
+
+                <div className="custom-container max-w-6xl mx-auto px-4 py-20 md:py-28 relative z-10">
+                    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 pb-12 border-b border-brand-primary/20">
+                        <h3 className="text-3xl md:text-4xl font-['Righteous'] font-normal tracking-wide uppercase text-slate-900">Backed by the Global <span className="text-brand-primary">Web3 Ecosystem.</span></h3>
+                        <p className="text-slate-700 max-w-sm leading-relaxed md:text-right text-sm">
                             Leading L1s, L2s, infrastructure protocols, and institutional capital partners  all aligned around one goal: commercial output.
                         </p>
                     </div>
-                    <div className="w-full border border-white/10 rounded-2xl p-12 py-20 flex items-center justify-center">
-                        <p className="text-zinc-600 font-mono text-sm tracking-widest uppercase">[ Protocol Logos &amp; Ecosystem Partners  Coming Soon ]</p>
+                    <div className="w-full border border-brand-primary/20 bg-white/50 backdrop-blur-sm rounded-2xl p-12 py-20 flex items-center justify-center">
+                        <p className="text-slate-500 font-mono text-sm tracking-widest uppercase text-center">[ Protocol Logos &amp; Ecosystem Partners  Coming Soon ]</p>
                     </div>
                 </div>
             </section>
@@ -427,20 +430,21 @@ const ReConfig = () => {
             </section>
 
             {/* ─── 5. BECOME A SPONSOR ─── */}
-            <section id="sponsor" className="py-24 px-4 bg-brand-primary text-black text-center relative overflow-hidden border-y border-brand-primary">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2),transparent_70%)] pointer-events-none" />
+            <section id="sponsor" className="py-24 px-4 bg-gradient-to-br from-white via-orange-50 to-orange-100 text-slate-900 text-center relative overflow-hidden border-y border-brand-primary/20">
+                {/* Geometric Grid Pattern from Home Page */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#fe650015_1px,transparent_1px),linear-gradient(to_bottom,#fe650015_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0 opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)]" />
                 <div className="custom-container max-w-4xl mx-auto relative z-10">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Righteous'] font-normal tracking-wide uppercase mb-6">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Righteous'] font-normal tracking-wide uppercase mb-6 text-slate-900">
                         Become a Sponsor
                     </h2>
-                    <p className="text-xl md:text-2xl font-medium leading-relaxed mb-10 max-w-3xl mx-auto opacity-90">
+                    <p className="text-xl md:text-2xl font-medium leading-relaxed mb-10 max-w-3xl mx-auto text-slate-700">
                         Partner with Re:Config to gain direct access to Africa&apos;s most active Web3 builder base and global protocol leaders. Let&apos;s build the future together.
                     </p>
-                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 sm:gap-6">
-                        <a href="https://t.me/GreatAdams" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-white text-black hover:bg-zinc-200 font-black uppercase tracking-widest text-sm rounded-full shadow-2xl hover:scale-105 transition-transform block text-center sm:flex sm:items-center sm:gap-3 sm:justify-center sm:min-w-[250px]">
+                    <div className="flex flex-col items-stretch items-center gap-4 m-auto">
+                        <a href="https://t.me/GreatAdams" target="_blank" rel="noopener noreferrer" className="px-6 sm:px-8 py-4 bg-brand-primary text-white hover:bg-[#e55a00] font-black uppercase tracking-widest text-sm rounded-full shadow-2xl hover:scale-105 transition-transform block md:w-1/4 m-auto text-center sm:flex sm:items-center sm:justify-center">
                             Message on Telegram
                         </a>
-                        <a href="mailto:great@lbdao.xyz" className="px-8 py-4 bg-black text-white hover:bg-slate-900 font-black uppercase tracking-widest text-sm rounded-full shadow-2xl hover:scale-105 transition-transform block text-center sm:flex sm:items-center sm:gap-3 sm:justify-center sm:min-w-[250px]">
+                        <a href="mailto:great@lbdao.xyz" className="px-6 sm:px-8 py-4 bg-black text-white hover:bg-slate-900 font-black uppercase tracking-widest text-sm rounded-full shadow-2xl hover:scale-105 transition-transform block md:w-1/4 m-auto text-center sm:flex sm:items-center sm:justify-center">
                             great@lbdao.xyz
                         </a>
                     </div>
